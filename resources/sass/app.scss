@@ -6,3 +6,85 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+$main_color:#ff9999;
+
+$html_bgc:#cccccc;
+$header_bgc:$main_color;
+$contents_bgc:#ffffff;
+$footer_bgc:$html_bgc;
+
+$font_c:#333333;
+
+$header_hsz:56px;
+
+html,body{
+    height: 100%;
+}
+
+body{
+    font-family: 'TsukuARdGothic-Regular',sans-serif;
+    position: relative;
+    color: $font_c;
+}
+
+
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+header{
+    height: $header_hsz;
+    width: 100%;
+    background-color: $header_bgc;
+    padding: 0 16px;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    height: $header_hsz;
+}
+
+footer{
+    background-color: $footer_bgc;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top:auto;
+}
+
+#wrapper{
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#contents{
+    margin-top: $header_hsz;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+.header_btns{
+    display: flex;
+    align-items: center;
+    &>button{
+        margin-left: $header_hsz*0.4;
+    }
+}
+.header_icon{
+    height: $header_hsz*0.4;
+    width: $header_hsz*0.4;
+}
+//スタンダード設定
+

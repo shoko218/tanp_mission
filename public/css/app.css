@@ -10928,3 +10928,83 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "TsukuARdGothic-Regular", sans-serif;
+  position: relative;
+  color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+header {
+  height: 56px;
+  width: 100%;
+  background-color: #ff9999;
+  padding: 0 16px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 56px;
+}
+
+footer {
+  background-color: #cccccc;
+  text-align: center;
+  padding: 24px 16px;
+  margin-top: auto;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#contents {
+  margin-top: 56px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.header_btns {
+  display: flex;
+  align-items: center;
+}
+
+.header_btns > button {
+  margin-left: 22.4px;
+}
+
+.header_icon {
+  height: 22.4px;
+  width: 22.4px;
+}
+
