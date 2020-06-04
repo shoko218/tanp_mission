@@ -11141,6 +11141,10 @@ button {
   margin-bottom: 20px;
 }
 
+.area:last-of-type {
+  margin-bottom: 0px;
+}
+
 .popularity_rank {
   padding: 20px 10px;
 }
