@@ -10949,6 +10949,40 @@ p {
   margin: 0;
 }
 
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+a {
+  color: #333333;
+}
+
+a:hover {
+  color: #333333;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+a:hover > * {
+  opacity: 0.8;
+}
+
+a:visited {
+  color: #333333;
+}
+
+input select button {
+  outline: 0;
+}
+
+*:focus {
+  outline: 0;
+}
+
 header {
   height: 56px;
   width: 100%;
@@ -10967,7 +11001,7 @@ header {
 }
 
 footer {
-  background-color: #cccccc;
+  background-color: #f5f5f5;
   text-align: center;
   padding: 24px 16px;
   margin-top: auto;
@@ -10977,6 +11011,7 @@ footer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
 #contents {
@@ -11006,5 +11041,115 @@ button {
 .header_icon {
   height: 22.4px;
   width: 22.4px;
+}
+
+.btn {
+  background-color: #ff9999;
+  color: #fff;
+  height: 40px;
+  border-radius: 40px;
+}
+
+.btn:hover {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.btns {
+  text-align: center;
+}
+
+.rc_cards {
+  margin-bottom: 10px;
+}
+
+.rank_card {
+  display: flex;
+}
+
+.product_image {
+  width: 40%;
+  padding-right: 3%;
+  margin-bottom: 10px;
+}
+
+.product_detail {
+  width: 60%;
+}
+
+.rc_title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.rc_genre {
+  font-size: 14px;
+}
+
+.rc_price {
+  font-size: 16px;
+}
+
+#slider {
+  margin-bottom: 20px;
+}
+
+#slider_img {
+  width: 100%;
+}
+
+#search_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+#search_area > h1 {
+  margin-bottom: 20px;
+}
+
+#search_area .search_bar {
+  margin-bottom: 20px;
+}
+
+#search_area .btn {
+  width: 120px;
+}
+
+.search_bar {
+  background: url("https://tanp_mission.jp/image/icons/glass_g.png") left 16px top 16px no-repeat;
+  background-size: 16px;
+  background-color: #eee;
+  border: 0px;
+  width: 300px;
+  height: 48px;
+  border-radius: 48px;
+  padding: 16px 18px 16px 48px;
+  font-size: 16px;
+}
+
+.search_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.area {
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.popularity_rank {
+  padding: 20px 10px;
+}
+
+.popularity_rank > h2 {
+  margin-bottom: 20px;
+}
+
+.popularity_rank button {
+  width: 160px;
 }
 
