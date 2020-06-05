@@ -60,6 +60,14 @@ button,input,select,textarea{
     font-size:100%;
 }
 
+ul{
+    padding: 0;
+    margin: 0;
+    &>li{
+        list-style: none;
+    }
+}
+
 a{
     color: $font_c;
 }
@@ -84,6 +92,53 @@ input select button{
 
 *:focus{
     outline: 0;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    &>ul{
+        width: 100%;
+        max-width: 30rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+input{
+    border:1px solid $area_border_c;
+    background:white;
+    width: 100%;
+    max-width: 30rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+}
+
+label{
+    color: $font_c;
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+}
+
+.input_parts{
+    width: 100%;
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.checkbtn{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 header{
@@ -139,6 +194,15 @@ button{
 button:hover{
     color: #fff;
     opacity:0.8;
+}
+
+section{
+    background-color: $contents_bgc;
+    margin-bottom: 2rem;
+}
+
+section:last-of-type{
+    margin-bottom: 0rem;
 }
 
 .header_btns{
@@ -242,18 +306,46 @@ button:hover{
     align-items: center;
 }
 
-.area{
-    background-color: #fff;
-    margin-bottom: 2rem;
-}
-
-.area:last-of-type{
-    margin-bottom: 0rem;
-}
-
 .popularity_rank{
     padding: 2rem 1.6rem;
     &>h2{
         margin-bottom: 2rem;
+    }
+}
+
+
+
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 4rem;
+    &>h1{
+        margin-bottom: 3rem;
+    }
+    & .check{
+        margin-bottom: 2rem;
+    }
+    & .btns{
+        margin-bottom: 2rem;
+        &>button{
+            width: 20rem;
+        }
+    }
+}
+
+#login_inputs{
+    margin-bottom: 3rem;
+}
+
+.login_nav{
+    margin-bottom: 2rem;
+    list-style: none;
+    text-decoration: underline;
+    color: $font_c;
+    font-size: 1.2rem;
+    text-align: center;
+    &>li:nth-of-type(n+2){
+        margin-top: 0.5rem;
     }
 }

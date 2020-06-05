@@ -10969,6 +10969,15 @@ textarea {
   font-size: 100%;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul > li {
+  list-style: none;
+}
+
 a {
   color: #333333;
 }
@@ -10993,6 +11002,54 @@ input select button {
 
 *:focus {
   outline: 0;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+form > ul {
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid #cccccc;
+  background: white;
+  width: 100%;
+  max-width: 30rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+}
+
+label {
+  color: #333333;
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+}
+
+.input_parts {
+  width: 100%;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.checkbtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 header {
@@ -11050,6 +11107,15 @@ button {
 button:hover {
   color: #fff;
   opacity: 0.8;
+}
+
+section {
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+section:last-of-type {
+  margin-bottom: 0rem;
 }
 
 .header_btns {
@@ -11153,20 +11219,51 @@ button:hover {
   align-items: center;
 }
 
-.area {
-  background-color: #fff;
-  margin-bottom: 2rem;
-}
-
-.area:last-of-type {
-  margin-bottom: 0rem;
-}
-
 .popularity_rank {
   padding: 2rem 1.6rem;
 }
 
 .popularity_rank > h2 {
   margin-bottom: 2rem;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 4rem;
+}
+
+#login > h1 {
+  margin-bottom: 3rem;
+}
+
+#login .check {
+  margin-bottom: 2rem;
+}
+
+#login .btns {
+  margin-bottom: 2rem;
+}
+
+#login .btns > button {
+  width: 20rem;
+}
+
+#login_inputs {
+  margin-bottom: 3rem;
+}
+
+.login_nav {
+  margin-bottom: 2rem;
+  list-style: none;
+  text-decoration: underline;
+  color: #333333;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.login_nav > li:nth-of-type(n+2) {
+  margin-top: 0.5rem;
 }
 
