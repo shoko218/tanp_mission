@@ -371,3 +371,24 @@ section:last-of-type{
         }
     }
 }
+
+
+#conditions{
+    text-align: center;
+    padding: 2rem;
+    &>h1{
+        margin-bottom: 2rem;
+    }
+    & .search_bar{
+        margin-bottom: 2rem;
+    }
+}
+
+#results{
+    .rank_card:first-of-type{
+        border-top: none;
+    }
+    .rank_card:last-of-type{
+        border-bottom: none;
+    }
+}

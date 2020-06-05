@@ -11294,3 +11294,24 @@ section:last-of-type {
   width: 20rem;
 }
 
+#conditions {
+  text-align: center;
+  padding: 2rem;
+}
+
+#conditions > h1 {
+  margin-bottom: 2rem;
+}
+
+#conditions .search_bar {
+  margin-bottom: 2rem;
+}
+
+#results .rank_card:first-of-type {
+  border-top: none;
+}
+
+#results .rank_card:last-of-type {
+  border-bottom: none;
+}
+
