@@ -18,16 +18,19 @@ $font_c:#333333;
 
 $area_border_c:#cccccc;
 
-$header_hsz:56px;
+$header_hsz:5.6rem;
 
-$search_area_pwsz:10px;
-$search_area_phsz:20px;
+$search_area_pwsz:1rem;
+$search_area_phsz:2rem;
 
-$search_bar_wsz:300px;
-$search_bar_hsz:48px;
-$search_bar_pwsz:18px;
-$search_bar_phsz:16px;
+$search_bar_wsz:30rem;
+$search_bar_hsz:4.8rem;
+$search_bar_pwsz:1.8rem;
+$search_bar_phsz:1.6rem;
 
+html{
+    font-size: 62.5%;
+}
 
 html,body{
     height: 100%;
@@ -45,11 +48,16 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 h1{
-    font-size: 24px;
+    font-size: 2.4rem;
 }
 
 h2{
-    font-size: 22px;
+    font-size: 2.2rem;
+}
+
+button,input,select,textarea{
+    font-family:inherit;
+    font-size:100%;
 }
 
 a{
@@ -82,7 +90,7 @@ header{
     height: $header_hsz;
     width: 100%;
     background-color: $header_bgc;
-    padding: 0 16px;
+    padding: 0 1.6rem;
     position: fixed;
     top:0px;
     left: 0px;
@@ -98,7 +106,7 @@ header{
 footer{
     background-color: $footer_bgc;
     text-align: center;
-    padding: 24px 16px;
+    padding: 2.4rem 1.6rem;
     margin-top:auto;
 }
 
@@ -120,13 +128,25 @@ button{
     outline: none;
     padding: 0;
     appearance: none;
+    font-size:1.6rem;
+    background-color: $main_color;
+    color: #fff;
+    height: 4rem;
+    border-radius: 4rem;
+    width: 16rem;
+}
+
+button:hover{
+    color: #fff;
+    opacity:0.8;
 }
 
 .header_btns{
     display: flex;
     align-items: center;
     &>button{
-        margin-left: $header_hsz*0.4;
+        width: 4rem;
+        margin-left: 0.8rem;
     }
 }
 .header_icon{
@@ -134,34 +154,27 @@ button{
     width: $header_hsz*0.4;
 }
 
-.btn{
-    background-color: $main_color;
-    color: #fff;
-    height: 40px;
-    border-radius: 40px;
-}
-
-.btn:hover{
-    color: #fff;
-    opacity:0.8;
-}
-
 .btns{
-    text-align : center ;
-}
-
-.rc_cards{
-    margin-bottom: 10px;
+    text-align : center;
 }
 
 .rank_card{
     display: flex;
+    padding: 2% 0;
+    border-bottom: 0.1rem solid $area_border_c;
+
+    &>a{
+        display: flex;
+    }
+}
+
+.rank_card:first-of-type{
+    border-top: 0.1rem solid $area_border_c;
 }
 
 .product_image{
     width: 40%;
     padding-right: 3%;
-    margin-bottom: 10px;
 }
 
 .product_detail{
@@ -170,14 +183,17 @@ button{
 
 .rc_{
     &title{
-        font-size: 18px;
+        font-size: 1.8rem;
         font-weight: bold;
     }
     &genre{
-        font-size: 14px;
+        font-size: 1.4rem;
     }
     &price{
-        font-size: 16px;
+        font-size: 1.6rem;
+    }
+    &cards{
+        margin-bottom: 2rem;
     }
 }
 
@@ -185,7 +201,7 @@ button{
 //↑スタンダード設定
 
 #slider{
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 #slider_img{
@@ -206,17 +222,13 @@ button{
     .search_bar{
         margin-bottom: $search_area_phsz;
     }
-
-    .btn{
-        width: 120px;
-    }
 }
 
 .search_bar{
     background: url("https://tanp_mission.jp/image/icons/glass_g.png") left $search_bar_phsz top $search_bar_phsz no-repeat;
     background-size: $search_bar_hsz - $search_bar_phsz*2;
     background-color: #eee;
-    border: 0px;
+    border: 0rem;
     width: $search_bar_wsz;
     height: $search_bar_hsz;
     border-radius: $search_bar_hsz;
@@ -232,19 +244,16 @@ button{
 
 .area{
     background-color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .area:last-of-type{
-    margin-bottom: 0px;
+    margin-bottom: 0rem;
 }
 
 .popularity_rank{
-    padding: 20px 10px;
+    padding: 2rem 1rem;
     &>h2{
-        margin-bottom: 20px;
-    }
-    button{
-        width: 160px;
+        margin-bottom: 2rem;
     }
 }

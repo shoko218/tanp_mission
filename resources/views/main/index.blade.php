@@ -18,7 +18,7 @@
         @csrf
         <input type="text" class="search_bar" placeholder="検索したいワードを入力">
         <div class="btns">
-            <button type="submit" class="btn">検索</button>
+            <button type="submit">検索</button>
         </div>
     </form>
 </div>
@@ -30,7 +30,7 @@
         @include('components.rank_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
     </div>
     <div class="btns">
-        <button type="button" class="btn" action="#">もっとみる→</button>
+        <button type="button" action="#">もっとみる→</button>
     </div>
 </div>
 <div class="area popularity_rank">
@@ -41,7 +41,7 @@
         @include('components.rank_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
     </div>
     <div class="btns">
-        <button type="button" class="btn" action="#">もっとみる→</button>
+        <button type="button" action="#">もっとみる→</button>
     </div>
 </div>
 @endsection
