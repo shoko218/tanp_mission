@@ -1,4 +1,49 @@
-@extends('layouts.app')
+@extends('layouts.base')
+
+@section('pagename')
+    新規登録
+@endsection
+
+@include('layouts.head')
+
+@include('layouts.header')
+
+@section('content')
+    <section id="register">
+        <h1>新規登録</h1>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <ul class="inputs">
+                <li class="input_parts">
+                    <label for="name">ニックネーム</label>
+                    <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                </li>
+                <li class="input_parts">
+                    <label for="email">メールアドレス</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
+                </li>
+                <li class="input_parts">
+                    <label for="password">パスワード</label>
+                    <input id="password" type="password" name="password" required>
+                </li>
+                <li class="input_parts">
+                    <label for="password-confirm">パスワード(確認)</label>
+                    <input id="password-confirm" type="password" name="password_confirmation" required>
+                </li>
+            </ul>
+            <label class="check">
+                <input type="checkbox" value="agree" class="checkbtn" required>
+                <a href="rules" target="_blank">利用規約</a>に同意します。
+            </label>
+            <div class="btns">
+                <button type="submit">登録</button>
+            </div>
+        </form>
+    </section>
+@endsection
+@include('layouts.footer')
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -74,4 +119,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

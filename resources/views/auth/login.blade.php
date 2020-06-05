@@ -11,10 +11,9 @@
 @section('content')
 <section id="login">
     <h1>ログインしてください</h1>
-    @csrf
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <ul id="login_inputs">
+        <ul class="inputs">
             <li class="input_parts">
                 <label for="email">メールアドレス</label>
                 <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
