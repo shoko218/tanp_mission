@@ -11094,6 +11094,10 @@ button:hover {
   width: 60%;
 }
 
+.rc_cards {
+  margin-bottom: 2rem;
+}
+
 .rc_title {
   font-size: 1.8rem;
   font-weight: bold;
@@ -11105,10 +11109,6 @@ button:hover {
 
 .rc_price {
   font-size: 1.6rem;
-}
-
-.rc_cards {
-  margin-bottom: 2rem;
 }
 
 #slider {
@@ -11163,7 +11163,7 @@ button:hover {
 }
 
 .popularity_rank {
-  padding: 2rem 1rem;
+  padding: 2rem 1.6rem;
 }
 
 .popularity_rank > h2 {
