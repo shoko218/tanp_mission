@@ -55,6 +55,10 @@ h2{
     font-size: 2.2rem;
 }
 
+p{
+    font-size: 1.4rem;
+}
+
 button,input,select,textarea{
     font-family:inherit;
     font-size:100%;
@@ -91,6 +95,10 @@ input select button{
 }
 
 *:focus{
+    outline: 0;
+}
+
+*:active{
     outline: 0;
 }
 
@@ -188,12 +196,32 @@ button{
     color: #fff;
     height: 4rem;
     border-radius: 4rem;
-    width: 16rem;
+    padding: 0.6rem 2rem;
+    width: 20rem;
 }
 
 button:hover{
     color: #fff;
     opacity:0.8;
+}
+
+.cart_btn{
+    background: url("https://tanp_mission.jp/image/icons/cart.png") left 3rem top 1.8rem no-repeat;
+    background-size: 2.4rem;
+    background-color: $main_color;
+    height: 6rem;
+    padding-left: 5.6rem;
+    width: 30rem;
+    font-size: 2.0rem;
+}
+
+.fav_btn{
+    width: 6rem;
+    height: 6rem;
+    background: url("https://tanp_mission.jp/image/icons/heart_g.png") left 1.5rem top 1.5rem no-repeat;
+    background-size: 3rem;
+    background-color: #eee;
+    padding: 0;
 }
 
 section{
@@ -220,6 +248,8 @@ section:last-of-type{
 
 .btns{
     text-align : center;
+    display: flex;
+    justify-content: center;
 }
 
 .rank_card{
@@ -236,7 +266,7 @@ section:last-of-type{
     border-top: 0.1rem solid $area_border_c;
 }
 
-.product_image{
+.product_card_img{
     width: 40%;
     padding-right: 3%;
 }
@@ -262,7 +292,19 @@ section:last-of-type{
 }
 
 
-//↑スタンダード設定
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////////////////////
 
 #slider{
     margin-bottom: 2rem;
@@ -391,5 +433,31 @@ section:last-of-type{
     }
     .rank_card:last-of-type{
         border-bottom: none;
+    }
+}
+
+.product_img{
+    width: 100%;
+}
+
+#product_header{
+    position: relative;
+    & button{
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
+
+#product_explanation{
+    padding: 2rem 1.6rem;
+    & .product_name{
+        margin-bottom: 1.6rem;
+    }
+    & .price{
+        margin-bottom: 1.6rem;
+    }
+    & button{
+        margin-bottom: 1.6rem;
     }
 }
