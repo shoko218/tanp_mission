@@ -11,7 +11,7 @@
 @section('content')
 <section id="conditions">
     <h1>「{{ $word }}」の検索結果</h1>
-    <form action="/search" class="search_form">
+    <form action="/result" class="search_form">
         @csrf
         <input type="text" class="search_bar" value="{{ $word }}" name="word">
         <div class="btns">

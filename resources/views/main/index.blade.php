@@ -14,9 +14,9 @@
 </section>
 <section id="search_area">
     <h1>プレゼントを探す</h1>
-    <form action="#" class="search_form">
+    <form action="result" class="search_form">
         @csrf
-        <input type="text" class="search_bar" placeholder="検索したいワードを入力">
+        <input type="text" class="search_bar" placeholder="検索したいワードを入力" name="word">
         <div class="btns">
             <button type="submit">検索</button>
         </div>
