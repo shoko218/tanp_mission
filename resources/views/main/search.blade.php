@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-    検索結果
+「{{ $word }}」の検索結果
 @endsection
 
 @include('layouts.head')

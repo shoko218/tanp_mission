@@ -11307,6 +11307,10 @@ section:last-of-type {
   margin-bottom: 2rem;
 }
 
+#results {
+  padding: 0 1.6rem;
+}
+
 #results .rank_card:first-of-type {
   border-top: none;
 }
