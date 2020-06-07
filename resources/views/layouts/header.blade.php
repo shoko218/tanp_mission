@@ -11,13 +11,13 @@
         </div>
     </header>
     <div id="hb_menu" class="hb_menu_close">
-        <p>こんにちは、〇〇さん</p>
+        <p><a href="/mypage/top">こんにちは、〇〇さん</a></p>
         <ul>
-            <a href="#"><li>注文履歴</li></a>
-            <a href="#"><li>記念日リマインダー</li></a>
-            <a href="#"><li>お気に入り</li></a>
-            <a href="#"><li>登録確認/修正/退会</li></a>
-            <a href="#"><li>ログアウト</li></a>
+            <li><a href="/mypage/order_history">注文履歴</a></li>
+            <li><a href="#">記念日リマインダー</a></li>
+            <li><a href="#">お気に入り</a></li>
+            <li><a href="#">登録確認/修正/退会</a></li>
+            <li><a href="#">ログアウト</a></li>
         </ul>
     </div>
     <div id="darker"></div>
