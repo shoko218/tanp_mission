@@ -79,11 +79,11 @@ a{
 a:hover{
     color: $font_c;
     text-decoration: none;
-    opacity:0.8;
+    opacity:0.7;
 }
 
 a:hover>*{
-    opacity:0.8;
+    opacity:0.7;
 }
 
 a:visited{
@@ -176,17 +176,15 @@ header{
     transition: 0.5s;
     padding: 1.8rem 0.8rem;
     & p{
-        font-size: 2rem;
+        & a{
+            font-size: 2rem;
+        }
         margin-bottom: 1.8rem;
     }
+
     & a{
-        & li{
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-            &:hover{
-                text-decoration: none;
-            }
-        }
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
         &:hover{
             text-decoration: none;
         }
@@ -306,7 +304,7 @@ section:last-of-type{
     justify-content: center;
 }
 
-.rank_card{
+.product_card{
     display: flex;
     padding: 2% 0;
     border-bottom: 0.1rem solid $area_border_c;
@@ -316,7 +314,7 @@ section:last-of-type{
     }
 }
 
-.rank_card:first-of-type{
+.product_card:first-of-type{
     border-top: 0.1rem solid $area_border_c;
 }
 
@@ -344,6 +342,23 @@ section:last-of-type{
         font-size: 1.6rem;
     }
 }
+
+.od_{
+    &cards{
+        margin-bottom: 2rem;
+    }
+    &title{
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    &date{
+        font-size: 1.2rem;
+    }
+    &for{
+        font-size: 1.4rem;
+    }
+}
+
 
 
 //↑スタンダード設定////////////////////////////////////////////////////////////////
@@ -482,10 +497,27 @@ section:last-of-type{
 
 #results{
     padding: 0 1.6rem;
-    .rank_card:first-of-type{
+    .product_card:first-of-type{
         border-top: none;
     }
-    .rank_card:last-of-type{
+    .product_card:last-of-type{
+        border-bottom: none;
+    }
+}
+
+#order_history{
+    padding: 2rem 1.6rem calc(2rem - 2%);
+    h1{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+#orders{
+    h1{
+        text-align: center;
+    }
+    .product_card:last-of-type{
         border-bottom: none;
     }
 }

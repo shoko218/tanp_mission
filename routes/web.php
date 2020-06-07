@@ -21,3 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'IndexController');
 Route::get('/result', 'ResultController');
 Route::get('/product', 'ProductController');
+
+Route::prefix('/mypage')->group(function () {
+    Route::get('/order_history', 'OrderHistoryController');
+});
+
