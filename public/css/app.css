@@ -10961,6 +10961,22 @@ h2 {
   font-size: 2.2rem;
 }
 
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-size: 1.6rem;
+}
+
+h6 {
+  font-size: 1.4rem;
+}
+
 p {
   font-size: 1.4rem;
 }
@@ -10978,7 +10994,7 @@ ul {
   margin: 0;
 }
 
-ul > li {
+ul > * {
   list-style: none;
 }
 
@@ -10992,7 +11008,8 @@ a:hover {
   opacity: 0.7;
 }
 
-a:hover > * {
+a:hover > *,
+button:hover {
   opacity: 0.7;
 }
 
@@ -11000,14 +11017,10 @@ a:visited {
   color: #333333;
 }
 
-input select button {
-  outline: 0;
-}
-
-*:focus {
-  outline: 0;
-}
-
+input,
+select,
+button,
+*:focus,
 *:active {
   outline: 0;
 }
@@ -11015,14 +11028,14 @@ input select button {
 form {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 85%;
   flex-direction: column;
   text-align: center;
+  max-width: 28rem;
 }
 
 form > ul {
   width: 100%;
-  max-width: 30rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -11033,31 +11046,44 @@ input {
   border: 1px solid #cccccc;
   background: white;
   width: 100%;
-  max-width: 30rem;
-  height: 3.5rem;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1.6rem;
+  height: 3.6rem;
+  border-radius: 0.6rem;
+  padding: 1.1rem 1.1rem;
+  font-size: 1.4rem;
 }
 
 label {
   color: #333333;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin: 0.5rem 0 0;
 }
 
 .input_parts {
   width: 100%;
-  max-width: 30rem;
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
+.inputs {
+  margin-bottom: 3rem;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.check a {
+  text-decoration: underline;
+}
+
 .checkbtn {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 0.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 1rem;
 }
 
 header {
@@ -11093,7 +11119,7 @@ header {
 }
 
 #hb_menu p a {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 #hb_menu a {
@@ -11169,8 +11195,7 @@ button {
 }
 
 button:hover {
-  color: #fff;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .cart_btn {
@@ -11246,7 +11271,7 @@ section:last-of-type {
 }
 
 .rc_cards {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .rc_title {
@@ -11263,7 +11288,7 @@ section:last-of-type {
 }
 
 .od_cards {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .od_title {
@@ -11280,11 +11305,7 @@ section:last-of-type {
 }
 
 #orders {
-  margin-bottom: 2rem;
-}
-
-#slider {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 #slider_img {
@@ -11326,74 +11347,55 @@ section:last-of-type {
 }
 
 .popularity_rank {
-  padding: 2rem 1.6rem;
+  padding: 3rem 1.6rem;
 }
 
 .popularity_rank > h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 #login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 4rem;
+  padding: 3rem 0;
 }
 
 #login > h1 {
   margin-bottom: 3rem;
 }
 
-#login .check {
-  margin-bottom: 2rem;
-}
-
 #login .btns {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 #login .btns > button {
   width: 20rem;
 }
 
-.inputs {
-  margin-bottom: 3rem;
-}
-
 .login_nav {
-  margin-bottom: 2rem;
-  list-style: none;
   text-decoration: underline;
-  color: #333333;
   font-size: 1.2rem;
   text-align: center;
 }
 
 .login_nav > li:nth-of-type(n+2) {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 #register {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 4rem;
+  padding: 3rem 0;
 }
 
 #register > h1 {
   margin-bottom: 3rem;
 }
 
-#register .check {
-  margin-bottom: 2rem;
-}
-
-#register .check a {
-  text-decoration: underline;
-}
-
 #register .btns {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 #register .btns > button {
@@ -11402,15 +11404,18 @@ section:last-of-type {
 
 #conditions {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #conditions > h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 #conditions .search_bar {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 #results {
@@ -11427,13 +11432,13 @@ section:last-of-type {
 
 #order_history,
 #cart {
-  padding: 2rem 1.6rem;
+  padding: 3rem 1.6rem;
 }
 
 #order_history h1,
 #cart h1 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .product_img {
@@ -11451,18 +11456,18 @@ section:last-of-type {
 }
 
 #product_explanation {
-  padding: 2rem 1.6rem;
+  padding: 3rem 1.6rem;
 }
 
 #product_explanation .product_name {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
 #product_explanation .price {
-  margin-bottom: 1.6rem;
+  margin-bottom: 3rem;
 }
 
 #product_explanation button {
-  margin-bottom: 1.6rem;
+  margin-bottom: 3rem;
 }
 

@@ -19,6 +19,7 @@ $font_c:#333333;
 $area_border_c:#cccccc;
 
 $header_hsz:5.6rem;
+$header_px:1.6rem;
 
 $search_area_pwsz:1rem;
 $search_area_phsz:2rem;
@@ -27,6 +28,43 @@ $search_bar_wsz:30rem;
 $search_bar_hsz:4.8rem;
 $search_bar_pwsz:1.8rem;
 $search_bar_phsz:1.6rem;
+
+$h1_fz:2.4rem;
+$h2_fz:2.2rem;
+$h3_fz:2.0rem;
+$h4_fz:1.8rem;
+$h5_fz:1.6rem;
+$h6_fz:1.4rem;
+$normal_fz:1.4rem;
+$small_fz:1.2rem;
+
+$form_wsz:85%;
+$form_mxwsz:28rem;
+
+$input_fz:1.4rem;
+$input_hsz:3.6rem;
+$input_py:($input_hsz - $input_fz)/2;
+$input_px:$input_py;
+$input_rsz:0.6rem;
+
+$btn_fz:1.6rem;
+$btn_hsz:4rem;
+$btn_rs:$btn_hsz;
+$btn_py:0.6rem;
+$btn_px:2rem;
+$btn_wsz:20rem;
+
+$opacity:0.7;
+
+$std_my:3rem;
+$std_mx:2rem;
+$std_py:3rem;
+$std_px:1.6rem;
+
+$section_my:2rem;
+
+$hb_menu_py:1.8rem;
+$hb_menu_px:0.8rem;
 
 html{
     font-size: 62.5%;
@@ -48,15 +86,31 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 h1{
-    font-size: 2.4rem;
+    font-size:$h1_fz;
 }
 
 h2{
-    font-size: 2.2rem;
+    font-size:$h2_fz;
+}
+
+h3{
+    font-size:$h3_fz;
+}
+
+h4{
+    font-size:$h4_fz;
+}
+
+h5{
+    font-size:$h5_fz;
+}
+
+h6{
+    font-size:$h6_fz;
 }
 
 p{
-    font-size: 1.4rem;
+    font-size:$normal_fz;
 }
 
 button,input,select,textarea{
@@ -67,7 +121,7 @@ button,input,select,textarea{
 ul{
     padding: 0;
     margin: 0;
-    &>li{
+    &>*{
         list-style: none;
     }
 }
@@ -79,38 +133,30 @@ a{
 a:hover{
     color: $font_c;
     text-decoration: none;
-    opacity:0.7;
+    opacity:$opacity;
 }
 
-a:hover>*{
-    opacity:0.7;
+a:hover>*,button:hover{
+    opacity:$opacity;
 }
 
 a:visited{
     color: $font_c;
 }
 
-input select button{
-    outline: 0;
-}
-
-*:focus{
-    outline: 0;
-}
-
-*:active{
+input,select,button,*:focus,*:active{
     outline: 0;
 }
 
 form{
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: $form_wsz;
     flex-direction: column;
     text-align: center;
+    max-width: $form_mxwsz;
     &>ul{
         width: 100%;
-        max-width: 30rem;
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -122,38 +168,50 @@ input{
     border:1px solid $area_border_c;
     background:white;
     width: 100%;
-    max-width: 30rem;
-    height: 3.5rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1.6rem;
+    height: $input_hsz;
+    border-radius: $input_rsz;
+    padding: $input_py $input_px;
+    font-size: $input_fz;
 }
 
 label{
     color: $font_c;
-    font-size: 1.2rem;
+    font-size: $normal_fz;
     margin: 0.5rem 0 0;
 }
 
 .input_parts{
     width: 100%;
-    max-width: 30rem;
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
+.inputs{
+    margin-bottom: $std_my;
+}
+
+.check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & a{
+        text-decoration: underline;
+    }
+    margin-bottom: $std_my;
+}
+
 .checkbtn{
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.5rem;
+    width: $normal_fz;
+    height:$normal_fz;
+    margin-right: 1rem;
 }
 
 header{
     height: $header_hsz;
     width: 100%;
     background-color: $header_bgc;
-    padding: 0 1.6rem;
+    padding: 0 $header_px;
     position: fixed;
     top:0px;
     left: 0px;
@@ -174,17 +232,17 @@ header{
     top: $header_hsz;
     z-index: 998;
     transition: 0.5s;
-    padding: 1.8rem 0.8rem;
+    padding: $hb_menu_py $hb_menu_px;
     & p{
         & a{
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
-        margin-bottom: 1.8rem;
+        margin-bottom: $hb_menu_py;
     }
 
     & a{
         font-size: 1.6rem;
-        margin-bottom: 0.8rem;
+        margin-bottom: $hb_menu_px;
         &:hover{
             text-decoration: none;
         }
@@ -206,7 +264,7 @@ header{
     width:100%;
     height:100%;
     background-color:#000000;
-    opacity:0.7;
+    opacity:$opacity;
     z-index:997;
     visibility:hidden;
 }
@@ -243,18 +301,17 @@ button{
     outline: none;
     padding: 0;
     appearance: none;
-    font-size:1.6rem;
+    font-size:$btn_fz;
     background-color: $main_color;
     color: #fff;
-    height: 4rem;
-    border-radius: 4rem;
-    padding: 0.6rem 2rem;
-    width: 20rem;
+    height: $btn_hsz;
+    border-radius: $btn_rs;
+    padding:$btn_py $btn_px;
+    width: $btn_wsz;
 }
 
 button:hover{
-    color: #fff;
-    opacity:0.8;
+    opacity:$opacity;
 }
 
 .cart_btn{
@@ -278,7 +335,7 @@ button:hover{
 
 section{
     background-color: $contents_bgc;
-    margin-bottom: 2rem;
+    margin-bottom: $section_my;
 }
 
 section:last-of-type{
@@ -329,7 +386,7 @@ section:last-of-type{
 
 .rc_{
     &cards{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
     }
     &title{
         font-size: 1.8rem;
@@ -345,7 +402,7 @@ section:last-of-type{
 
 .od_{
     &cards{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
     }
     &title{
         font-size: 1.8rem;
@@ -360,26 +417,24 @@ section:last-of-type{
 }
 
 #orders{
-    margin-bottom: 2rem;
+    margin-bottom: $std_my;
 }
 
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
-//↑スタンダード設定////////////////////////////////////////////////////////////////
+//↑スタンダード設定////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
-#slider{
-    margin-bottom: 2rem;
-}
+
+
+
+//↓トップページ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
 #slider_img{
     width: 100%;
@@ -420,85 +475,93 @@ section:last-of-type{
 }
 
 .popularity_rank{
-    padding: 2rem 1.6rem;
+    padding: $std_py $std_px;
     &>h2{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
     }
 }
 
 
+
+
+//↓ログイン///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
 #login{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 4rem;
+    padding: $std_py 0;
     &>h1{
-        margin-bottom: 3rem;
-    }
-    & .check{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
     }
     & .btns{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
         &>button{
-            width: 20rem;
+            width: $btn_wsz;
         }
     }
 }
 
-.inputs{
-    margin-bottom: 3rem;
-}
 
 .login_nav{
-    margin-bottom: 2rem;
-    list-style: none;
     text-decoration: underline;
-    color: $font_c;
-    font-size: 1.2rem;
+    font-size: $small_fz;
     text-align: center;
     &>li:nth-of-type(n+2){
-        margin-top: 0.5rem;
+        margin-top: 0.6rem;
     }
 }
 
+
+
+//↓登録///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 #register{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 4rem;
+    padding: $std_py 0;
     &>h1{
-        margin-bottom: 3rem;
-    }
-    & .check{
-        margin-bottom: 2rem;
-        & a{
-            text-decoration: underline;
-        }
+        margin-bottom: $std_my;
     }
     & .btns{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
         &>button{
-            width: 20rem;
+            width: $btn_wsz;
         }
     }
 }
 
 
+
+//↓検索結果///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 #conditions{
     text-align: center;
-    padding: 2rem;
+    padding: $std_py 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &>h1{
-        margin-bottom: 2rem;
+        margin-bottom:$std_my;
     }
     & .search_bar{
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
     }
 }
 
 #results{
-    padding: 0 1.6rem;
+    padding: 0 $std_px;
     .product_card:first-of-type{
         border-top: none;
     }
@@ -507,14 +570,27 @@ section:last-of-type{
     }
 }
 
+
+
+//↓注文履歴&カート///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 #order_history,#cart{
-    padding: 2rem 1.6rem;
+    padding: $std_py $std_px;
     h1{
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: $std_my;
     }
 }
 
+
+//↓商品詳細///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 .product_img{
     width: 100%;
 }
@@ -529,14 +605,14 @@ section:last-of-type{
 }
 
 #product_explanation{
-    padding: 2rem 1.6rem;
+    padding: $std_py $std_px;
     & .product_name{
-        margin-bottom: 1.6rem;
+        margin-bottom: $std_my/2;
     }
     & .price{
-        margin-bottom: 1.6rem;
+        margin-bottom: $std_my;
     }
     & button{
-        margin-bottom: 1.6rem;
+        margin-bottom: $std_my;
     }
 }
