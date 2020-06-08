@@ -21,13 +21,13 @@ $area_border_c:#cccccc;
 $header_hsz:5.6rem;
 $header_px:1.6rem;
 
-$search_area_pwsz:1rem;
-$search_area_phsz:2rem;
+$search_area_px:1rem;
+$search_area_py:2rem;
 
 $search_bar_wsz:30rem;
 $search_bar_hsz:4.8rem;
-$search_bar_pwsz:1.8rem;
-$search_bar_phsz:1.6rem;
+$search_bar_px:1.8rem;
+$search_bar_py:1.6rem;
 
 $h1_fz:2.4rem;
 $h2_fz:2.2rem;
@@ -445,27 +445,27 @@ section:last-of-type{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: $search_area_phsz $search_area_pwsz;
+    padding: $search_area_py $search_area_px;
 
     &>h1{
-        margin-bottom: $search_area_phsz;
+        margin-bottom: $search_area_py;
     }
 
     .search_bar{
-        margin-bottom: $search_area_phsz;
+        margin-bottom: $search_area_py;
     }
 }
 
 .search_bar{
-    background: url("https://tanp_mission.jp/image/icons/glass_g.png") left $search_bar_phsz top $search_bar_phsz no-repeat;
-    background-size: $search_bar_hsz - $search_bar_phsz*2;
+    background: url("https://tanp_mission.jp/image/icons/glass_g.png") left $search_bar_py top $search_bar_py no-repeat;
+    background-size: $search_bar_hsz - $search_bar_py*2;
     background-color: #eee;
     border: 0rem;
     width: $search_bar_wsz;
     height: $search_bar_hsz;
     border-radius: $search_bar_hsz;
-    padding: $search_bar_phsz $search_bar_pwsz $search_bar_phsz ($search_bar_hsz - $search_bar_phsz*2)+$search_bar_phsz*2;
-    font-size: $search_bar_hsz - $search_bar_phsz*2;
+    padding: $search_bar_py $search_bar_px $search_bar_py ($search_bar_hsz - $search_bar_py*2)+$search_bar_py*2;
+    font-size: $search_bar_hsz - $search_bar_py*2;
 }
 
 .search_form{
