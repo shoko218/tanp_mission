@@ -10,7 +10,7 @@
             </button>
         </div>
     </header>
-    <div id="hb_menu" class="hb_menu_close">
+    <nav id="hb_menu" class="hb_menu_close">
         <p><a href="/mypage/top">こんにちは、〇〇さん</a></p>
         <ul>
             <li><a href="/">トップページ</a></li>
@@ -20,6 +20,6 @@
             <li><a href="#">登録確認/修正/退会</a></li>
             <li><a href="#">ログアウト</a></li>
         </ul>
-    </div>
+    </nav>
     <div id="darker"></div>
 @endsection
