@@ -10955,6 +10955,7 @@ p {
 
 h1 {
   font-size: 2.4rem;
+  margin-bottom: 3rem;
 }
 
 h2 {
@@ -11361,10 +11362,6 @@ section:last-of-type {
   padding: 3rem 0;
 }
 
-#login > h1 {
-  margin-bottom: 3rem;
-}
-
 #login .btns {
   margin-bottom: 3rem;
 }
@@ -11390,10 +11387,6 @@ section:last-of-type {
   padding: 3rem 0;
 }
 
-#register > h1 {
-  margin-bottom: 3rem;
-}
-
 #register .btns {
   margin-bottom: 3rem;
 }
@@ -11408,10 +11401,6 @@ section:last-of-type {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#conditions > h1 {
-  margin-bottom: 3rem;
 }
 
 #conditions .search_bar {
@@ -11438,7 +11427,6 @@ section:last-of-type {
 #order_history h1,
 #cart h1 {
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 .product_img {
