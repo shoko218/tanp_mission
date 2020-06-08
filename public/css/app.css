@@ -11279,6 +11279,10 @@ section:last-of-type {
   font-size: 1.4rem;
 }
 
+#orders {
+  margin-bottom: 2rem;
+}
+
 #slider {
   margin-bottom: 2rem;
 }
@@ -11421,21 +11425,15 @@ section:last-of-type {
   border-bottom: none;
 }
 
-#order_history {
-  padding: 2rem 1.6rem calc(2rem - 2%);
+#order_history,
+#cart {
+  padding: 2rem 1.6rem;
 }
 
-#order_history h1 {
+#order_history h1,
+#cart h1 {
   text-align: center;
   margin-bottom: 2rem;
-}
-
-#orders h1 {
-  text-align: center;
-}
-
-#orders .product_card:last-of-type {
-  border-bottom: none;
 }
 
 .product_img {

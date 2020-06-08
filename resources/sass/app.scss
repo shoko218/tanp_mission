@@ -359,7 +359,9 @@ section:last-of-type{
     }
 }
 
-
+#orders{
+    margin-bottom: 2rem;
+}
 
 //↑スタンダード設定////////////////////////////////////////////////////////////////
 //↑スタンダード設定////////////////////////////////////////////////////////////////
@@ -505,20 +507,11 @@ section:last-of-type{
     }
 }
 
-#order_history{
-    padding: 2rem 1.6rem calc(2rem - 2%);
+#order_history,#cart{
+    padding: 2rem 1.6rem;
     h1{
         text-align: center;
         margin-bottom: 2rem;
-    }
-}
-
-#orders{
-    h1{
-        text-align: center;
-    }
-    .product_card:last-of-type{
-        border-bottom: none;
     }
 }
 
