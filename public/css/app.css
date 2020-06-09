@@ -11495,12 +11495,55 @@ section:last-of-type {
   font-size: 1.6rem;
 }
 
-.an_person_event {
+.an_person {
   font-size: 1.8rem;
   font-weight: bold;
 }
 
 .fa-user {
+  margin-right: 2%;
+}
+
+.lover_card {
+  display: flex;
+  padding: 2% 0;
+  border-bottom: 0.1rem solid #cccccc;
+}
+
+.lover_card a {
+  display: flex;
+}
+
+.lover_card:first-of-type {
+  border-top: 0.1rem solid #cccccc;
+}
+
+.lover_card_img {
+  width: 30%;
+  border-radius: 50%;
+  margin-right: 3%;
+}
+
+.lover_detail {
+  width: 70%;
+  margin: auto 0;
+}
+
+#lovers {
+  margin-bottom: 3rem;
+}
+
+.lv_name {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 4rem;
+}
+
+.lv_relationship {
+  font-size: 1.6rem;
+}
+
+.fa-people-arrows {
   margin-right: 2%;
 }
 

@@ -27,5 +27,6 @@ Route::prefix('/mypage')->group(function () {
     Route::get('/order_history', 'OrderHistoryController');
     Route::get('/favorite', 'FavoriteController');
     Route::get('/reminder', 'ReminderController');
+    Route::get('/lovers', 'LoversController');
 });
 
