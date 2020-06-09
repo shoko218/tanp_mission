@@ -308,7 +308,7 @@ button{
     height: $btn_hsz;
     border-radius: $btn_rs;
     padding:$btn_py $btn_px;
-    width: $btn_wsz;
+    min-width: $btn_wsz;
 }
 
 button:hover{
@@ -347,7 +347,8 @@ section:last-of-type{
     display: flex;
     align-items: center;
     &>button{
-        width: 4rem;
+        min-width: $header_hsz*0.4;
+        width: $header_hsz*0.4;
         margin-left: 0.8rem;
     }
 }
@@ -564,12 +565,12 @@ section:last-of-type{
 
 
 
-//↓注文履歴&カート///////////////////////////////////////////////
+//↓注文履歴&カート&リマインダー外枠///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-#order_history,#cart{
+#order_history,#cart,#reminder{
     padding: $std_py $std_px;
     h1{
         text-align: center;
@@ -606,4 +607,50 @@ section:last-of-type{
     & button{
         margin-bottom: $std_my;
     }
+}
+
+//↓記念日リマインダー///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+.anniversary_card{
+    display: flex;
+    padding: 2% 0;
+    border-bottom: 0.1rem solid $area_border_c;
+    & a{
+        display: flex;
+    }
+    &:first-of-type{
+        border-top: 0.1rem solid $area_border_c;
+    }
+}
+
+.anniversary_card_img{
+    width: 20%;
+    border-radius: 50%;
+    margin-right: 3%;
+}
+
+.anniversary_detail{
+    width: 80%;
+    margin: auto 0;
+}
+
+#anniversarys{
+    margin-bottom: $std_my;
+}
+
+.an_{
+    &date{
+        font-size: 1.6rem;
+    }
+    &person_event{
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+}
+
+.fa-user{
+    margin-right: 2%;
 }

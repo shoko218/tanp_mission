@@ -11192,7 +11192,7 @@ button {
   height: 4rem;
   border-radius: 4rem;
   padding: 0.6rem 2rem;
-  width: 20rem;
+  min-width: 20rem;
 }
 
 button:hover {
@@ -11233,7 +11233,8 @@ section:last-of-type {
 }
 
 .header_btns > button {
-  width: 4rem;
+  min-width: 2.24rem;
+  width: 2.24rem;
   margin-left: 0.8rem;
 }
 
@@ -11420,12 +11421,14 @@ section:last-of-type {
 }
 
 #order_history,
-#cart {
+#cart,
+#reminder {
   padding: 3rem 1.6rem;
 }
 
 #order_history h1,
-#cart h1 {
+#cart h1,
+#reminder h1 {
   text-align: center;
 }
 
@@ -11457,5 +11460,47 @@ section:last-of-type {
 
 #product_explanation button {
   margin-bottom: 3rem;
+}
+
+.anniversary_card {
+  display: flex;
+  padding: 2% 0;
+  border-bottom: 0.1rem solid #cccccc;
+}
+
+.anniversary_card a {
+  display: flex;
+}
+
+.anniversary_card:first-of-type {
+  border-top: 0.1rem solid #cccccc;
+}
+
+.anniversary_card_img {
+  width: 20%;
+  border-radius: 50%;
+  margin-right: 3%;
+}
+
+.anniversary_detail {
+  width: 80%;
+  margin: auto 0;
+}
+
+#anniversarys {
+  margin-bottom: 3rem;
+}
+
+.an_date {
+  font-size: 1.6rem;
+}
+
+.an_person_event {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.fa-user {
+  margin-right: 2%;
 }
 
