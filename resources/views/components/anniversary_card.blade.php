@@ -1,5 +1,5 @@
 <div class="anniversary_card">
-    <a href="#">
+    <a href="mypage/lovers/lover">
         <img src="{{ asset( 'image/lover_icons/test.png',true)}}" alt="{{ $person }}" class="anniversary_card_img">
         <div class="anniversary_detail">
             <p class="an_date">{{ $date }}</p>

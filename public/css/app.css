@@ -11125,6 +11125,7 @@ header {
 
 #hb_menu a {
   font-size: 1.6rem;
+  line-height: 2.4;
   margin-bottom: 0.8rem;
 }
 
@@ -11210,6 +11211,7 @@ button:hover {
 }
 
 .fav_btn {
+  min-width: 0;
   width: 6rem;
   height: 6rem;
   background: url("https://tanp_mission.jp/image/icons/heart_g.png") left 1.5rem top 1.5rem no-repeat;
