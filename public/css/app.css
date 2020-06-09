@@ -11422,13 +11422,15 @@ section:last-of-type {
 
 #order_history,
 #cart,
-#reminder {
+#reminder,
+#lover {
   padding: 3rem 1.6rem;
 }
 
 #order_history h1,
 #cart h1,
-#reminder h1 {
+#reminder h1,
+#lover h1 {
   text-align: center;
 }
 
@@ -11545,5 +11547,28 @@ section:last-of-type {
 
 .fa-people-arrows {
   margin-right: 2%;
+}
+
+#lover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lover_img {
+  width: 60%;
+  max-width: 30rem;
+  border-radius: 50%;
+  margin-bottom: 3rem;
+}
+
+#lover_name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+#lover button:not(:last-of-type) {
+  margin-bottom: 1.5rem;
 }
 
