@@ -28,12 +28,13 @@ Route::prefix('/mypage')->group(function () {
     Route::get('/favorite', 'FavoriteController');
     Route::prefix('/reminder')->group(function () {
         Route::get('/top', 'Reminder\TopController');
+        Route::get('/anniversary_register', 'Reminder\AnniversaryRegisterController');
     });
     Route::prefix('/lovers')->group(function () {
         Route::get('/top', 'Lovers\TopController');
         Route::get('/lover', 'Lovers\LoverController');
         Route::get('/gift_history', 'Lovers\GiftHistoryController');
-        Route::get('/anniversary_register', 'Lovers\AnniversaryRegisterController');
+
     });
 });
 

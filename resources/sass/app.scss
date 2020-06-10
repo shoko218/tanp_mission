@@ -110,7 +110,7 @@ h6{
     font-size:$h6_fz;
 }
 
-p{
+p,a{
     font-size:$normal_fz;
 }
 
@@ -746,17 +746,10 @@ section:last-of-type{
     flex-direction: column;
     align-items: center;
 
-    &_img{
-        width: 60%;
-        max-width: 30rem;
-        border-radius: 50%;
-        margin-bottom: $std_my;
-    }
-
-    &_name{
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: $std_my;
+    & a{
+        text-decoration: underline;
+        text-align: right;
+        font-size: 1.2rem;
     }
     & button{
         &:not(:last-of-type){

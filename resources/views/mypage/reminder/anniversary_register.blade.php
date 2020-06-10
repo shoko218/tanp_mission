@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-    にしむらりなさん
+    記念日登録
 @endsection
 
 @include('layouts.head')
@@ -10,18 +10,26 @@
 
 @section('content')
     <section id="anniversary_register">
-        <img src="{{ asset( 'image/lover_icons/test.png',true)}}" alt="にしむらりなさん" id="anniversary_register_img">
-        <p id="anniversary_register_name">にしむらりな さん</p>
+        <h1>新しい記念日を登録</h1>
         <form action="#" method="POST">
             @csrf
             <ul class="inputs">
                 <li class="input_parts">
-                    <label for="anniverasry_name">記念日名</label>
-                    <input id="anniverasry_name" name="anniverasry_name" value="{{ old('anniverasry_name') }}" required autofocus>
+                    <label for="name">お相手</label>
+                    <select id="name" name="name" value="{{ old('name') }}" required>
+                        <option value="">りな</option>
+                        <option value="">お母さん</option>
+                        <option value="">お父さん</option>
+                    </select>
+                </li>
+                <a href="#">お相手のご登録がお済みでない方はこちら</a>
+                <li class="input_parts">
+                    <label for="title">記念日名</label>
+                    <input id="title" name="title" value="{{ old('title') }}" required autofocus>
                 </li>
                 <li class="input_parts">
-                    <label for="anniverasry_genre">記念日の種類</label>
-                    <select id="anniverasry_genre" name="anniverasry_genre" value="{{ old('anniverasry_genre') }}" required>
+                    <label for="genre">記念日の種類</label>
+                    <select id="genre" name="genre" value="{{ old('genre') }}" required>
                         <option value="">誕生日</option>
                         <option value="">記念日</option>
                         <option value="">結婚記念日</option>

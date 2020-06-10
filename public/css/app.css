@@ -10978,7 +10978,8 @@ h6 {
   font-size: 1.4rem;
 }
 
-p {
+p,
+a {
   font-size: 1.4rem;
 }
 
@@ -11589,17 +11590,10 @@ section:last-of-type {
   align-items: center;
 }
 
-#anniversary_register_img {
-  width: 60%;
-  max-width: 30rem;
-  border-radius: 50%;
-  margin-bottom: 3rem;
-}
-
-#anniversary_register_name {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
+#anniversary_register a {
+  text-decoration: underline;
+  text-align: right;
+  font-size: 1.2rem;
 }
 
 #anniversary_register button:not(:last-of-type) {
