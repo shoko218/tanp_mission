@@ -25,7 +25,7 @@
                 <a href="#">お相手のご登録がお済みでない方はこちら</a>
                 <li class="input_parts">
                     <label for="title">記念日名</label>
-                    <input id="title" name="title" value="{{ old('title') }}" required autofocus>
+                    <input id="title" name="title" value="{{ old('title') }}" required>
                 </li>
                 <li class="input_parts">
                     <label for="genre">記念日の種類</label>
