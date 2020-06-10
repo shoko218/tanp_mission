@@ -17,12 +17,13 @@
                 <li class="input_parts">
                     <label for="name">お相手</label>
                     <select id="name" name="name" value="{{ old('name') }}" required>
+                        <option disabled selected value>選択してください</option>
                         <option value="">りな</option>
                         <option value="">お母さん</option>
                         <option value="">お父さん</option>
                     </select>
                 </li>
-                <a href="#">お相手のご登録がお済みでない方はこちら</a>
+                <a href="/mypage/lovers/register">お相手のご登録がお済みでない方はこちら</a>
                 <li class="input_parts">
                     <label for="title">記念日名</label>
                     <input id="title" name="title" value="{{ old('title') }}" required>
@@ -30,6 +31,7 @@
                 <li class="input_parts">
                     <label for="genre">記念日の種類</label>
                     <select id="genre" name="genre" value="{{ old('genre') }}" required>
+                        <option disabled selected value>選択してください</option>
                         <option value="">誕生日</option>
                         <option value="">記念日</option>
                         <option value="">結婚記念日</option>

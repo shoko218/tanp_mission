@@ -34,7 +34,7 @@ Route::prefix('/mypage')->group(function () {
         Route::get('/top', 'Lovers\TopController');
         Route::get('/lover', 'Lovers\LoverController');
         Route::get('/gift_history', 'Lovers\GiftHistoryController');
-
+        Route::get('/register', 'Lovers\RegisterController');
     });
 });
 

@@ -19,7 +19,7 @@
             @include('components.anniversary_card',['date'=>'8月26日','person'=>'にしむら','event'=>'お誕生日'])
         </div>
         <div class="btns">
-            <button onclick="location.href='/mypage/reminder/anniversary_register'">新しい記念日を登録→</button>
+            <button onclick="location.href='/mypage/reminder/register'">新しい記念日を登録→</button>
         </div>
     </section>
 @endsection

@@ -19,7 +19,7 @@
             @include('components.lover_card',['name'=>'にしむらりな','relationship'=>'恋人'])
         </div>
         <div class="btns">
-            <button>新しい大切な人を登録→</button>
+            <button onclick="location.href='/mypage/lovers/register'">新しい大切な人を登録→</button>
         </div>
     </section>
 @endsection
