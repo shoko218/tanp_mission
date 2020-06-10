@@ -11608,3 +11608,19 @@ section:last-of-type {
   align-items: center;
 }
 
+#reminder_detail_img {
+  width: 100%;
+}
+
+#reminder_detail_explanation {
+  padding: 3rem 1.6rem;
+}
+
+#reminder_detail_explanation_title {
+  text-align: center;
+}
+
+#reminder_detail_explanation_title span {
+  font-size: 150%;
+}
+

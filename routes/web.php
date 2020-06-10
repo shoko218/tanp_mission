@@ -29,6 +29,7 @@ Route::prefix('/mypage')->group(function () {
     Route::prefix('/reminder')->group(function () {
         Route::get('/top', 'Reminder\TopController');
         Route::get('/register', 'Reminder\RegisterController');
+        Route::get('/detail', 'Reminder\DetailController');
     });
     Route::prefix('/lovers')->group(function () {
         Route::get('/top', 'Lovers\TopController');
