@@ -11313,6 +11313,24 @@ section:last-of-type {
   margin-bottom: 3rem;
 }
 
+#order_history,
+#cart,
+#reminder,
+#lover,
+#anniversary_register,
+#gift_history {
+  padding: 3rem 1.6rem;
+}
+
+#order_history h1,
+#cart h1,
+#reminder h1,
+#lover h1,
+#anniversary_register h1,
+#gift_history h1 {
+  text-align: center;
+}
+
 #slider_img {
   width: 100%;
 }
@@ -11423,22 +11441,6 @@ section:last-of-type {
   border-bottom: none;
 }
 
-#order_history,
-#cart,
-#reminder,
-#lover,
-#anniversary_register {
-  padding: 3rem 1.6rem;
-}
-
-#order_history h1,
-#cart h1,
-#reminder h1,
-#lover h1,
-#anniversary_register h1 {
-  text-align: center;
-}
-
 .product_img {
   width: 100%;
 }
@@ -11502,9 +11504,13 @@ section:last-of-type {
   font-size: 1.6rem;
 }
 
-.an_person {
+.an_event {
   font-size: 1.8rem;
   font-weight: bold;
+}
+
+.an_person {
+  font-size: 1.6rem;
 }
 
 .fa-user {
