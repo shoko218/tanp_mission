@@ -18,7 +18,7 @@
             <li><a href="/mypage/reminder/top">記念日リマインダー</a></li>
             <li><a href="/mypage/lovers/top">大切な人リスト</a></li>
             <li><a href="/mypage/favorite">お気に入り</a></li>
-            <li><a href="#">登録確認/修正/退会</a></li>
+            <li><a href="/mypage/register_info/top">登録確認/修正/退会</a></li>
             <li><a href="#">ログアウト</a></li>
         </ul>
     </nav>

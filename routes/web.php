@@ -36,5 +36,8 @@ Route::prefix('/mypage')->group(function () {
         Route::get('/gift_history', 'Lovers\GiftHistoryController');
         Route::get('/register', 'Lovers\RegisterController');
     });
+    Route::prefix('/register_info')->group(function () {
+        Route::get('/top', 'Register_info\TopController');
+    });
 });
 
