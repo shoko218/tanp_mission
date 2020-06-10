@@ -41,7 +41,7 @@ $small_fz:1.2rem;
 $form_wsz:85%;
 $form_mxwsz:28rem;
 
-$input_fz:1.4rem;
+$input_fz:1.6rem;
 $input_hsz:3.6rem;
 $input_py:($input_hsz - $input_fz)/2;
 $input_px:$input_py;
@@ -165,13 +165,13 @@ form{
     }
 }
 
-input{
+input,select{
     border:1px solid $area_border_c;
     background:white;
     width: 100%;
     height: $input_hsz;
     border-radius: $input_rsz;
-    padding: $input_py $input_px;
+    padding: 0 $input_px;
     font-size: $input_fz;
 }
 
@@ -572,7 +572,7 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-#order_history,#cart,#reminder,#lover{
+#order_history,#cart,#reminder,#lover,#anniversary_register{
     padding: $std_py $std_px;
     h1{
         text-align: center;
@@ -711,6 +711,30 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 #lover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_img{
+        width: 60%;
+        max-width: 30rem;
+        border-radius: 50%;
+        margin-bottom: $std_my;
+    }
+
+    &_name{
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: $std_my;
+    }
+    & button{
+        &:not(:last-of-type){
+            margin-bottom: $std_my/2;
+        }
+    }
+}
+
+#anniversary_register{
     display: flex;
     flex-direction: column;
     align-items: center;

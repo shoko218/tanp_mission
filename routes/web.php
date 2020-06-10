@@ -32,6 +32,7 @@ Route::prefix('/mypage')->group(function () {
     Route::prefix('/lovers')->group(function () {
         Route::get('/top', 'Lovers\TopController');
         Route::get('/lover', 'Lovers\LoverController');
+        Route::get('/anniversary_register', 'Lovers\AnniversaryRegisterController');
     });
 });
 
