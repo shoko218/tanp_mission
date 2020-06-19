@@ -17,28 +17,28 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'IndexController');
-Route::get('/result', 'ResultController');
-Route::get('/product', 'ProductController');
-Route::get('/cart', 'CartController');
+Route::get('/home', 'Main\HomeController@index')->name('home');
+Route::get('/', 'Main\IndexController');
+Route::get('/result', 'Main\ResultController');
+Route::get('/product', 'Main\ProductController');
+Route::get('/cart', 'Main\CartController');
 
 Route::prefix('/mypage')->group(function () {
-    Route::get('/order_history', 'OrderHistoryController');
-    Route::get('/favorite', 'FavoriteController');
+    Route::get('/order_history', 'MyPage\OrderHistoryController');
+    Route::get('/favorite', 'MyPage\FavoriteController');
     Route::prefix('/reminder')->group(function () {
-        Route::get('/top', 'Reminder\TopController');
-        Route::get('/register', 'Reminder\RegisterController');
-        Route::get('/detail', 'Reminder\DetailController');
+        Route::get('/top', 'MyPage\Reminder\TopController');
+        Route::get('/register', 'MyPage\Reminder\RegisterController');
+        Route::get('/detail', 'MyPage\Reminder\DetailController');
     });
     Route::prefix('/lovers')->group(function () {
-        Route::get('/top', 'Lovers\TopController');
-        Route::get('/lover', 'Lovers\LoverController');
-        Route::get('/gift_history', 'Lovers\GiftHistoryController');
-        Route::get('/register', 'Lovers\RegisterController');
+        Route::get('/top', 'MyPage\Lovers\TopController');
+        Route::get('/lover', 'MyPage\Lovers\LoverController');
+        Route::get('/gift_history', 'MyPage\Lovers\GiftHistoryController');
+        Route::get('/register', 'MyPage\Lovers\RegisterController');
     });
     Route::prefix('/register_info')->group(function () {
-        Route::get('/top', 'Register_info\TopController');
+        Route::get('/top', 'MyPage\Register_info\TopController');
     });
 });
 

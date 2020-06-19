@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Lovers;
+namespace App\Http\Controllers\MyPage\Lovers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class TopController extends Controller
 {

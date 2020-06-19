@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Lovers;
+namespace App\Http\Controllers\MyPage\Lovers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

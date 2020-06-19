@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Reminder;
+namespace App\Http\Controllers\MyPage\Reminder;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class TopController extends Controller
 {

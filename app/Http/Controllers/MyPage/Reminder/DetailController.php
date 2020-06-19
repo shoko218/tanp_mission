@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Reminder;
+namespace App\Http\Controllers\MyPage\Reminder;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
