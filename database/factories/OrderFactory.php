@@ -26,5 +26,6 @@ $factory->define(Order::class, function (Faker $faker) {
         'telephone'=>$lover ? $lover->telephone: $faker->phoneNumber,
         'gender'=>$lover ? $lover->gender: $faker->numberBetween(0, 2),
         'age'=>$lover ? floor((intval(date ( 'Ymd', time ()))-intval(str_replace('-', '', $lover->birthday)))/10000): $faker->numberBetween(15, 90),
+        'relationship_id'=>$lover ? $lover->relationship_id: $faker->numberBetween(1, 13),
     ];
 });

@@ -29,6 +29,7 @@ class CreateOrdersTable extends Migration
             $table->string('address',200);
             $table->string('telephone',21);
             $table->tinyInteger('gender')->nullable();
+            $table->unsignedBigInteger('relationship_id')->nullable();
             $table->unsignedTinyInteger('age')->nullable();
             $table->timestamps();
 
@@ -37,6 +38,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('lover_id')->references('id')->on('lovers')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('scene_id')->references('id')->on('scenes')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('prefecture_id')->references('id')->on('prefectures')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('relationship_id')->references('id')->on('relationships')->onUpdate('cascade')->onDelete('set null');
         });
     }
 
