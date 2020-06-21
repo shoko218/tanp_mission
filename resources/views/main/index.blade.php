@@ -25,9 +25,9 @@
 <section class="popularity_rank">
     <h2>父の日のプレゼントランキング</h2>
     <div class="rc_cards">
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
+        @foreach ($seasonRanks as $item)
+        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->product_name,'genre'=>$item->genre,'price'=>$item->price])
+        @endforeach
     </div>
     <div class="btns">
         <button type="button" action="#">もっとみる→</button>
@@ -36,9 +36,9 @@
 <section class="popularity_rank">
     <h2>人気プレゼントランキング</h2>
     <div class="rc_cards">
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
+        @foreach ($popularityRanks as $item)
+        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->product_name,'genre'=>$item->genre,'price'=>$item->price])
+        @endforeach
     </div>
     <div class="btns">
         <button type="button" action="#">もっとみる→</button>
