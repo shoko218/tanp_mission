@@ -19,10 +19,19 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'last_name' => $faker->lastName,
+        'first_name' => $faker->firstName,
+        'last_name_furigana' => $faker->lastKanaName,
+        'first_name_furigana' => $faker->firstKanaName,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'birthday' => $faker->dateTimeBetween('-40 years', '-15years')->format('Y-m-d'),
+        'gender'=>$faker->numberBetween(0, 2),
+        'postal_code'=>$faker->postcode,
+        'prefecture_id'=>$faker->numberBetween(1, 47),
+        'address'=>$faker->city.$faker->streetAddress,
+        'telephone'=>$faker->phoneNumber,
         'remember_token' => Str::random(10),
     ];
 });

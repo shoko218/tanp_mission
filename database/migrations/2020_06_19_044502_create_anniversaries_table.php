@@ -15,14 +15,12 @@ class CreateAnniversariesTable extends Migration
     {
         Schema::create('anniversaries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lover_id');
             $table->string('title',30);
             $table->unsignedBigInteger('scene_id')->nullable();
             $table->date('date');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('lover_id')->references('id')->on('lovers')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('scene_id')->references('id')->on('scenes')->onUpdate('cascade')->onDelete('set null');
         });
