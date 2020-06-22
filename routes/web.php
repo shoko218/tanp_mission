@@ -22,23 +22,29 @@ Route::get('/', 'Main\IndexController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/cart', 'Main\CartController');
+Route::get('/logout',function(){
+    Auth::logout();
+    return redirect('/');
+});
 
-Route::prefix('/mypage')->group(function () {
-    Route::get('/order_history', 'MyPage\OrderHistoryController');
-    Route::get('/favorite', 'MyPage\FavoriteController');
-    Route::prefix('/reminder')->group(function () {
-        Route::get('/top', 'MyPage\Reminder\TopController');
-        Route::get('/register', 'MyPage\Reminder\RegisterController');
-        Route::get('/detail', 'MyPage\Reminder\DetailController');
-    });
-    Route::prefix('/lovers')->group(function () {
-        Route::get('/top', 'MyPage\Lovers\TopController');
-        Route::get('/lover', 'MyPage\Lovers\LoverController');
-        Route::get('/gift_history', 'MyPage\Lovers\GiftHistoryController');
-        Route::get('/register', 'MyPage\Lovers\RegisterController');
-    });
-    Route::prefix('/register_info')->group(function () {
-        Route::get('/top', 'MyPage\Register_info\TopController');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('/mypage')->group(function () {
+        Route::get('/order_history', 'MyPage\OrderHistoryController');
+        Route::get('/favorite', 'MyPage\FavoriteController');
+        Route::prefix('/reminder')->group(function () {
+            Route::get('/top', 'MyPage\Reminder\TopController');
+            Route::get('/register', 'MyPage\Reminder\RegisterController');
+            Route::get('/detail', 'MyPage\Reminder\DetailController');
+        });
+        Route::prefix('/lovers')->group(function () {
+            Route::get('/top', 'MyPage\Lovers\TopController');
+            Route::get('/lover', 'MyPage\Lovers\LoverController');
+            Route::get('/gift_history', 'MyPage\Lovers\GiftHistoryController');
+            Route::get('/register', 'MyPage\Lovers\RegisterController');
+        });
+        Route::prefix('/register_info')->group(function () {
+            Route::get('/top', 'MyPage\Register_info\TopController');
+        });
     });
 });
 
