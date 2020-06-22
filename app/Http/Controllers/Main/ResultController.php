@@ -4,12 +4,24 @@ namespace App\Http\Controllers\Main;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Product;
 
 class ResultController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $word=$request->input('word');
-        return view('main.result')->with('word', $word);
+        if(!$request->input('keyword')){
+            return redirect('/');
+        }
+        $results = Product::select('products.id','products.name as product_name','genres.name as genre','price')
+        ->join('genres', 'genres.id', '=', 'genre_id')
+        ->withCount('orders')
+        ->orderBy('orders_count', 'desc')
+        ->orderBy('products.id', 'desc')
+        ->get();
+
+        $keyword=$request->input('keyword');
+        $param=['keyword'=>$keyword,'results'=>$results];
+        return view('main.result',$param);
     }
 }

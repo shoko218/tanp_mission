@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-「{{ $word }}」の検索結果
+「{{ $keyword }}」の検索結果
 @endsection
 
 @include('layouts.head')
@@ -10,10 +10,10 @@
 
 @section('content')
 <section id="conditions">
-    <h1>「{{ $word }}」の検索結果</h1>
-    <form action="/result" class="search_form">
+    <h1>「{{ $keyword }}」の検索結果</h1>
+    <form action="/result" class="search_form" method="GET">
         @csrf
-        <input type="text" class="search_bar" value="{{ $word }}" name="word">
+        <input type="text" class="search_bar" value="{{ $keyword }}" name="keyword">
         <div class="btns">
             <button type="submit">検索</button>
         </div>
@@ -21,19 +21,11 @@
 </section>
 <section id="results">
     <div class="rc_cards">
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-        @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
+        @if ($results)
+        @foreach ($results as $result)
+            @include('components.product_card',['product_id'=>$result->id,'title'=>$result->product_name,'genre'=>$result->genre,'price'=>$result->price])
+        @endforeach
+        @endif
     </div>
 </section>
 @endsection

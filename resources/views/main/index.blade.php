@@ -16,7 +16,7 @@
     <h1>プレゼントを探す</h1>
     <form action="result" class="search_form">
         @csrf
-        <input type="text" class="search_bar" placeholder="検索したいワードを入力" name="word">
+        <input type="text" class="search_bar" placeholder="検索したいワードを入力" name="keyword">
         <div class="btns">
             <button type="submit">検索</button>
         </div>
