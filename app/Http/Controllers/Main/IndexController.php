@@ -18,6 +18,8 @@ class IndexController extends Controller
         ->select('products.id','products.name as product_name','genres.name as genre','price')
         ->groupBy('product_id')
         ->orderByRaw('count(scene_id=7) desc')
+        ->orderByRaw('count(orders.id) desc')
+        ->orderBy('products.id', 'desc')
         ->limit(3)
         ->get();
 
@@ -25,6 +27,7 @@ class IndexController extends Controller
         ->join('genres', 'genres.id', '=', 'genre_id')
         ->withCount('orders')
         ->orderBy('orders_count', 'desc')
+        ->orderBy('products.id', 'desc')
         ->limit(3)
         ->get();
 
