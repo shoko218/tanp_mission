@@ -4,7 +4,7 @@
         <div class="product_detail">
             <p class="rc_title">{{ $title }}</p>
             <p class="rc_genre">{{ $genre }}</p>
-            <p class="rc_price">¥{{ $price }}</p>
+            <p class="rc_price">¥{{ number_format($price) }}</p>
         </div>
     </a>
 </div>
