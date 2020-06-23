@@ -67,10 +67,10 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'birthday'=>['required','date'],
             'gender'=>['required','integer','between:0,2'],
-            'postal_code'=>['string','digits:7'],
-            'prefecture_id'=>['integer','between:1,47'],
-            'address'=>['string', 'max:200'],
-            'telephone'=>['string', 'max:21'],
+            'postal_code'=>['nullable','string','digits:7'],
+            'prefecture_id'=>['nullable','integer','between:1,47'],
+            'address'=>['nullable','string', 'max:200'],
+            'telephone'=>['nullable','string', 'max:21'],
         ]);
     }
 
