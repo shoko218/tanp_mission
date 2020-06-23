@@ -59,18 +59,18 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'last_name'=>['required', 'string', 'max:32'],
-            // 'first_name'=>['required', 'string', 'max:32'],
-            // 'last_name_furigana'=>['required', 'string', 'max:64'],
-            // 'first_name_furigana'=>['required', 'string', 'max:64'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'birthday'=>['required','date'],
-            // 'gender'=>['required','integer'],
-            // 'postal_code'=>['nullable','string','digits:7'],
-            // 'prefecture_id'=>['nullable','integer'],
-            // 'address'=>['nullable','string', 'max:200'],
-            // 'telephone'=>['nullable','string', 'max:21'],
+            'last_name'=>['required', 'string', 'max:32'],
+            'first_name'=>['required', 'string', 'max:32'],
+            'last_name_furigana'=>['required', 'string', 'max:64'],
+            'first_name_furigana'=>['required', 'string', 'max:64'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'birthday'=>['required','date'],
+            'gender'=>['required','integer'],
+            'postal_code'=>['nullable','string','digits:7'],
+            'prefecture_id'=>['nullable','integer'],
+            'address'=>['nullable','string', 'max:200'],
+            'telephone'=>['nullable','string', 'max:21'],
         ]);
     }
 
