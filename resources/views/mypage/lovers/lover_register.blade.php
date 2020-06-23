@@ -10,9 +10,12 @@
 
 @section('content')
     <section id="lovers_register">
+        @if ($errors->any())
+            @include('components.errmsg')
+        @endif
         <h1>新しく大切な人を登録</h1>
         <p><span class="form_requires">*</span>は必須項目です</p>
-        <form action="#" method="POST">
+        <form action="/mypage/lovers/register_process" method="POST" enctype='multipart/form-data'>
             @csrf
             <ul class="inputs">
                 <li class="input_parts">
@@ -43,6 +46,15 @@
                     </div>
                 </li>
                 <li class="input_parts">
+                    <label for="relationship_id">どのようなご関係ですか？<span class="form_requires">*</span></label>
+                    <select name="relationship_id" id="relationship_id">
+                        <option value="" selected>選択してください</option>
+                        @foreach ($relationships as $rel)
+                            <option value="{{ $rel->id }}"@if(old('relationship_id')==$rel->id) selected @endif>{{ $rel->name }}</option>
+                        @endforeach
+                    </select>
+                </li>
+                <li class="input_parts">
                     <label for="postal_code">郵便番号(ハイフン抜き)</label>
                     <input id="postal_code" type="text" name="postal_code" value="{{ old('postal_code') }}" placeholder="xxxxxxx">
                 </li>
@@ -63,7 +75,12 @@
                     <label for="telephone">電話番号(ハイフン抜き)</label>
                     <input id="telephone" type="text" name="telephone" value="{{ old('telephone') }}" placeholder="xxxxxxxxxx">
                 </li>
+                {{-- <li>
+                    <label for="relationship_id">写真</label>
+                    <input type="file" name="example" accept="image/jpeg, image/png">
+                </li> --}}
             </ul>
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <div class="btns">
                 <button>登録</button>
             </div>

@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/lover', 'MyPage\Lovers\LoverController');
             Route::get('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
+            Route::post('/register_process','MyPage\Lovers\RegisterProcessController');
         });
         Route::prefix('/register_info')->group(function () {
             Route::get('/top', 'MyPage\Register_info\TopController');
