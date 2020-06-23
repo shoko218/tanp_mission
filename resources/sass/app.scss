@@ -29,7 +29,7 @@ $search_bar_hsz:5.2rem;
 $search_bar_px:2rem;
 $search_bar_py:1.8rem;
 
-$h1_fz:2.4rem;
+$h1_fz:2.6rem;
 $h2_fz:2.2rem;
 $h3_fz:2.0rem;
 $h4_fz:1.8rem;
@@ -46,6 +46,8 @@ $input_hsz:3.6rem;
 $input_py:($input_hsz - $input_fz)/2;
 $input_px:$input_py;
 $input_rsz:0.6rem;
+
+$form_parts_my:2rem;
 
 $btn_fz:1.6rem;
 $btn_hsz:4rem;
@@ -188,8 +190,8 @@ label{
     text-align: left;
 }
 
-.inputs{
-    margin-bottom: $std_my;
+.radio_parts,.input_parts{
+    margin-bottom: $form_parts_my;
 }
 
 .check{
@@ -206,6 +208,35 @@ label{
     width: $normal_fz;
     height:$normal_fz;
     margin-right: 1rem;
+}
+
+.radiobtns_label{
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.radiobtns{
+    display: flex;
+    justify-content: space-between;
+}
+.radio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & a{
+        text-decoration: underline;
+    }
+}
+
+.radiobtn{
+    width: $normal_fz;
+    height:$normal_fz;
+    margin-right: 1rem;
+}
+
+.form_requires{
+    color: red;
 }
 
 header{

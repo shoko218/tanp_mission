@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10954,7 +10954,7 @@ p {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 3rem;
 }
 
@@ -11068,8 +11068,9 @@ label {
   text-align: left;
 }
 
-.inputs {
-  margin-bottom: 3rem;
+.radio_parts,
+.input_parts {
+  margin-bottom: 2rem;
 }
 
 .check {
@@ -11087,6 +11088,37 @@ label {
   width: 1.4rem;
   height: 1.4rem;
   margin-right: 1rem;
+}
+
+.radiobtns_label {
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.radiobtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio a {
+  text-decoration: underline;
+}
+
+.radiobtn {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 1rem;
+}
+
+.form_requires {
+  color: red;
 }
 
 header {

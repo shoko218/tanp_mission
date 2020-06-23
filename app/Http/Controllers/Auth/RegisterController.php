@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Model\Prefecture;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -47,12 +48,29 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function showRegistrationForm()
+    {
+        $prefectures = Prefecture::select('id','name')->get();
+        $param=['prefectures'=>$prefectures];
+        return view('auth.register', $param);
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'last_name'=>['required', 'string', 'max:32'],
+            'first_name'=>['required', 'string', 'max:32'],
+            'last_name_furigana'=>['required', 'string', 'max:64'],
+            'first_name_furigana'=>['required', 'string', 'max:64'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'birthday'=>['required','date'],
+            'gender'=>['required','integer','between:0,2'],
+            'postal_code'=>['string','digits:7'],
+            'prefecture_id'=>['integer','between:1,47'],
+            'address'=>['string', 'max:200'],
+            'telephone'=>['string', 'max:21'],
         ]);
     }
 
@@ -65,9 +83,18 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'last_name'=>$data['last_name'],
+            'first_name'=>$data['first_name'],
+            'last_name_furigana'=>$data['last_name_furigana'],
+            'first_name_furigana'=>$data['first_name_furigana'],
+            'email' =>$data['email'],
             'password' => Hash::make($data['password']),
+            'birthday'=>$data['birthday'],
+            'gender'=>$data['gender'],
+            'postal_code'=>$data['postal_code'],
+            'prefecture_id'=>$data['prefecture_id'],
+            'address'=>$data['address'],
+            'telephone'=>$data['telephone'],
         ]);
     }
 }
