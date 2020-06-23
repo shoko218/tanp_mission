@@ -24,10 +24,10 @@ $header_px:1.6rem;
 $search_area_px:1rem;
 $search_area_py:2rem;
 
-$search_bar_wsz:30rem;
-$search_bar_hsz:4.8rem;
-$search_bar_px:1.8rem;
-$search_bar_py:1.6rem;
+$search_bar_wsz:32rem;
+$search_bar_hsz:5.2rem;
+$search_bar_px:2rem;
+$search_bar_py:1.8rem;
 
 $h1_fz:2.4rem;
 $h2_fz:2.2rem;
@@ -491,6 +491,11 @@ section:last-of-type{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.search_btn{
+    font-size: 1.8rem;
+    height:4.6rem;
 }
 
 .popularity_rank{

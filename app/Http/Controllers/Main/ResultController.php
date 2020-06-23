@@ -17,6 +17,7 @@ class ResultController extends Controller
         ->orderBy('products.id', 'desc')
         ->paginate(10);
 
+        
         $keyword=$request->input('keyword');
         $param=['keyword'=>$keyword,'results'=>$results];
         return view('main.result',$param);

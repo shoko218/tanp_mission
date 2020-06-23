@@ -18,7 +18,7 @@
         @csrf
         <input type="text" class="search_bar" placeholder="検索したいワードを入力" name="keyword">
         <div class="btns">
-            <button type="submit">検索</button>
+            <button type="submit" class="search_btn">検索</button>
         </div>
     </form>
 </section>

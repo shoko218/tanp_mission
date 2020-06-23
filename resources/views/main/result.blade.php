@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-「{{ $keyword }}」の検索結果
+検索結果
 @endsection
 
 @include('layouts.head')
@@ -10,12 +10,12 @@
 
 @section('content')
 <section id="conditions">
-    <h1>「{{ $keyword }}」の検索結果</h1>
+    <h1>検索結果</h1>
     <form action="/result" class="search_form" method="GET">
         @csrf
-        <input type="text" class="search_bar" value="{{ $keyword }}" name="keyword">
+        <input type="text" class="search_bar" value="{{ $keyword }}" name="keyword" placeholder="検索したいワードを入力">
         <div class="btns">
-            <button type="submit">検索</button>
+            <button type="submit" class="search_btn">検索</button>
         </div>
     </form>
 </section>
@@ -27,6 +27,7 @@
         @endforeach
         @endif
     </div>
+    {{ $results->links() }}
 </section>
 @endsection
 
