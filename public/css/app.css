@@ -11055,6 +11055,10 @@ select {
   font-size: 1.6rem;
 }
 
+#lovers_register .inputs {
+  margin-bottom: 3rem;
+}
+
 label {
   color: #333333;
   font-size: 1.4rem;
@@ -11256,7 +11260,7 @@ button:hover {
 
 section {
   background-color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 section:last-of-type {

@@ -78,11 +78,13 @@
                     <label for="telephone">電話番号(ハイフン抜き)</label>
                     <input id="telephone" type="text" name="telephone" value="{{ old('telephone') }}" placeholder="xxxxxxxxxx">
                 </li>
+                <li>
+                    <label class="check">
+                        <input type="checkbox" name="agree" class="checkbtn" {{ is_array(old("agree")) && in_array("1", old("agree"), true)? 'checked="checked"' : ''}} required>
+                        <a href="rules" target="_blank">利用規約</a>に同意します。
+                    </label>
+                </li>
             </ul>
-            <label class="check">
-                <input type="checkbox" name="agree" class="checkbtn" {{ is_array(old("agree")) && in_array("1", old("agree"), true)? 'checked="checked"' : ''}} required>
-                <a href="rules" target="_blank">利用規約</a>に同意します。
-            </label>
             <div class="btns">
                 <button type="submit">登録</button>
             </div>

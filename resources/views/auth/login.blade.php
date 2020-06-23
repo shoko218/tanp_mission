@@ -27,8 +27,10 @@
                 <label for="password">パスワード</label>
                 <input id="password" type="password" name="password" autocomplete="current-password">
             </li>
+            <li>
+                <label class="check" for="check"><input type="checkbox" value="check" class="checkbtn" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>ログイン情報を記憶する</label>
+            </li>
         </ul>
-        <label class="check" for="check"><input type="checkbox" value="check" class="checkbtn" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>ログイン情報を記憶する</label>
         <div class="btns">
             <button type="submit">ログイン</button>
         </div>
