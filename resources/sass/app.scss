@@ -719,6 +719,7 @@ section:last-of-type{
     border-bottom: 0.1rem solid $area_border_c;
     & a{
         display: flex;
+        width: 100%;
     }
     &:first-of-type{
         border-top: 0.1rem solid $area_border_c;
@@ -726,13 +727,15 @@ section:last-of-type{
 }
 
 .lover_card_img{
-    width: 25%;
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
     border-radius: 50%;
     margin-right: 3%;
 }
 
 .lover_detail{
-    width: 75%;
+    width: 100%;
     margin: auto 0;
 }
 

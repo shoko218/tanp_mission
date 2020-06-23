@@ -12,11 +12,9 @@
     <section id="reminder">
         <h1>大切な人リスト</h1>
         <div id="lovers">
-            @include('components.lover_card',['name'=>'にしむらりな','relationship'=>'恋人'])
-            @include('components.lover_card',['name'=>'にしむらりな','relationship'=>'恋人'])
-            @include('components.lover_card',['name'=>'にしむらりな','relationship'=>'恋人'])
-            @include('components.lover_card',['name'=>'にしむらりな','relationship'=>'恋人'])
-            @include('components.lover_card',['name'=>'にしむらりな','relationship'=>'恋人'])
+            @foreach ($lovers as $lover)
+            @include('components.lover_card',['name'=>$lover->last_name.$lover->first_name,'relationship'=>$lover->name])
+            @endforeach
         </div>
         <div class="btns">
             <button onclick="location.href='/mypage/lovers/register'">新しい大切な人を登録→</button>

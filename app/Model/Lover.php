@@ -30,4 +30,7 @@ class Lover extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function relationship(){
+        return $this->belongsTo('App\Model\Relationship');
+    }
 }
