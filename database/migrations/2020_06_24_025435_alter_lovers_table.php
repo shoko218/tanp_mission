@@ -14,7 +14,9 @@ class AlterLoversTable extends Migration
     public function up()
     {
         Schema::table('lovers', function (Blueprint $table) {
-            //
+            $table->boolean('is_there_img')->default('0');
+            $table->string('last_name_furigana',64)->nullable(false)->change();
+            $table->string('first_name_furigana',64)->nullable(false)->change();
         });
     }
 
@@ -26,7 +28,9 @@ class AlterLoversTable extends Migration
     public function down()
     {
         Schema::table('lovers', function (Blueprint $table) {
-            //
+            $table->dropColumn('is_there_img');
+            $table->string('last_name_furigana',64)->nullable()->change();
+            $table->string('first_name_furigana',64)->nullable()->change();
         });
     }
 }
