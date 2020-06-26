@@ -33,4 +33,7 @@ class Lover extends Model
     public function relationship(){
         return $this->belongsTo('App\Model\Relationship');
     }
+    public function events(){
+        return $this->hasMany('App\Model\Event');
+    }
 }

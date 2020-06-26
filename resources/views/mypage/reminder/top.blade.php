@@ -12,11 +12,9 @@
     <section id="reminder">
         <h1>イベントリマインダー</h1>
         <div id="events">
-            @include('components.event_card',['date'=>'8月26日','person'=>'にしむら','event'=>'お誕生日'])
-            @include('components.event_card',['date'=>'8月26日','person'=>'にしむら','event'=>'お誕生日'])
-            @include('components.event_card',['date'=>'8月26日','person'=>'にしむら','event'=>'お誕生日'])
-            @include('components.event_card',['date'=>'8月26日','person'=>'にしむら','event'=>'お誕生日'])
-            @include('components.event_card',['date'=>'8月26日','person'=>'にしむら','event'=>'お誕生日'])
+            @foreach ($events as $event)
+            @include('components.event_card',['date'=>$event->date,'name'=>$event->lover->last_name.$event->lover->first_name,'scene'=>$event->scene->name,'scene_id'=>$event->scene->id,'title'=>$event->title,'id'=>$event->id,'order'=>$loop->index])
+            @endforeach
         </div>
         <div class="btns">
             <button onclick="location.href='/mypage/reminder/register'">新しいイベントを登録→</button>

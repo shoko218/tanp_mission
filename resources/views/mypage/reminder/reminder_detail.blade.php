@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-    ぱんだのぬいぐるみ
+    
 @endsection
 
 @include('layouts.head')

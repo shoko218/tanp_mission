@@ -11527,12 +11527,16 @@ section:last-of-type {
 
 .event_card {
   display: flex;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
   padding: 2% 0;
   border-bottom: 0.1rem solid #cccccc;
 }
 
 .event_card a {
   display: flex;
+  width: 100%;
 }
 
 .event_card:first-of-type {
@@ -11540,13 +11544,16 @@ section:last-of-type {
 }
 
 .event_card_img {
-  width: 20%;
+  width: 20vw;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   margin-right: 3%;
 }
 
 .event_detail {
-  width: 80%;
+  width: 100%;
   margin: auto 0;
 }
 

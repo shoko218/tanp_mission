@@ -14,4 +14,11 @@ class Event extends Model
         'scene_id'=>['required','integer'],
         'date'=>['required','date'],
     );
+
+    public function lover(){
+        return $this->belongsTo('App\Model\Lover');
+    }
+    public function scene(){
+        return $this->belongsTo('App\Model\Scene');
+    }
 }

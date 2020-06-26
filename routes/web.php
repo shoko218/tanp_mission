@@ -34,7 +34,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/top', 'MyPage\Reminder\TopController');
             Route::get('/register', 'MyPage\Reminder\RegisterController');
             Route::post('/register_process','MyPage\Reminder\RegisterProcessController');
-            Route::get('/detail', 'MyPage\Reminder\DetailController');
+            Route::post('/detail', 'MyPage\Reminder\DetailController');
+            Route::get('/detail', function(){return redirect('/mypage/reminder/top');});
         });
         Route::prefix('/lovers')->group(function () {
             Route::get('/top', 'MyPage\Lovers\TopController');
