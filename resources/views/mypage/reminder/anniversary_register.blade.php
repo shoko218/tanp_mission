@@ -10,40 +10,36 @@
 
 @section('content')
     <section id="anniversary_register">
+        @if ($errors->any())
+        @include('components.errmsg')
+        @endif
         <h1>新しい記念日を登録</h1>
-        <form action="#" method="POST">
+        <p>全て入力してください。</p>
+        <form action="/mypage/reminder/register_process" method="POST">
             @csrf
             <ul class="inputs">
                 <li class="input_parts">
-                    <label for="name">お相手</label>
-                    <select id="name" name="name" value="{{ old('name') }}" required>
+                    <label for="lover_id">お相手</label>
+                    <select id="lover_id" name="lover_id" value="{{ old('lover_id') }}" required>
                         <option disabled selected value>選択してください</option>
-                        <option value="">りな</option>
-                        <option value="">お母さん</option>
-                        <option value="">お父さん</option>
+                        @foreach ($lovers as $lover)
+                        <option value="{{ $lover->id }}">{{ $lover->last_name.$lover->first_name }}</option>
+                        @endforeach
+
                     </select>
                 </li>
                 <a href="/mypage/lovers/register">お相手のご登録がお済みでない方はこちら</a>
                 <li class="input_parts">
-                    <label for="title">記念日名</label>
+                    <label for="title">記念日名(30文字以内)</label>
                     <input id="title" name="title" value="{{ old('title') }}" required>
                 </li>
                 <li class="input_parts">
-                    <label for="genre">記念日の種類</label>
-                    <select id="genre" name="genre" value="{{ old('genre') }}" required>
+                    <label for="scene_id">記念日の種類</label>
+                    <select id="scene_id" name="scene_id" value="{{ old('scene_id') }}" required>
                         <option disabled selected value>選択してください</option>
-                        <option value="">誕生日</option>
-                        <option value="">記念日</option>
-                        <option value="">結婚記念日</option>
-                        <option value="">クリスマス</option>
-                        <option value="">バレンタイン</option>
-                        <option value="">ホワイトデー</option>
-                        <option value="">母の日</option>
-                        <option value="">父の日</option>
-                        <option value="">敬老の日</option>
-                        <option value="">サプライズ</option>
-                        <option value="">プロポーズ</option>
-                        <option value="">その他</option>
+                        @foreach ($scenes as $scene)
+                        <option value="{{ $scene->id }}">{{ $scene->name }}</option>
+                        @endforeach
                     </select>
                 </li>
                 <li class="input_parts">
