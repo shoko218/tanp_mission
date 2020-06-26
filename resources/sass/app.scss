@@ -714,6 +714,9 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 
 .lover_card{
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
     display: flex;
     padding: 2% 0;
     border-bottom: 0.1rem solid $area_border_c;

@@ -13,7 +13,7 @@
         <h1>大切な人リスト</h1>
         <div id="lovers">
             @foreach ($lovers as $lover)
-            @include('components.lover_card',['name'=>$lover->last_name.$lover->first_name,'relationship'=>$lover->name])
+            @include('components.lover_card',['name'=>$lover->last_name.$lover->first_name,'relationship'=>$lover->name,'order'=>$loop->index,'id'=>$lover->id])
             @endforeach
         </div>
         <div class="btns">

@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
         });
         Route::prefix('/lovers')->group(function () {
             Route::get('/top', 'MyPage\Lovers\TopController');
-            Route::get('/lover', 'MyPage\Lovers\LoverController');
+            Route::post('/lover', 'MyPage\Lovers\LoverController');
             Route::get('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
             Route::post('/register_process','MyPage\Lovers\RegisterProcessController');

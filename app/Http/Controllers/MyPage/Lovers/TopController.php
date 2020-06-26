@@ -13,7 +13,7 @@ class TopController extends Controller
     {
         $user_id=Auth::user()->id;
         $lovers = Lover::join('relationships', 'relationship_id', '=', 'relationships.id')
-        ->select('last_name','first_name','relationships.name')
+        ->select('last_name','first_name','lovers.id','relationships.name')
         ->where('user_id',$user_id)
         ->get();
         $param=['lovers'=>$lovers];

@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 class LoverController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        return view('mypage.lovers.lover');
+        $param=['id'=>$request->id,'name'=>$request->name];
+        return view('mypage.lovers.lover',$param);
     }
 }
