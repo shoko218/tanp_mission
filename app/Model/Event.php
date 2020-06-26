@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Anniversary extends Model
+class Event extends Model
 {
     protected $guarded =array('id');
 

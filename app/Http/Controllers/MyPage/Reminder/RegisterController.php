@@ -18,6 +18,6 @@ class RegisterController extends Controller
         ->get();
         $scenes = Scene::all();
         $param=['lovers'=>$lovers,'scenes'=>$scenes];
-        return view('mypage.reminder.anniversary_register',$param);
+        return view('mypage.reminder.event_register',$param);
     }
 }

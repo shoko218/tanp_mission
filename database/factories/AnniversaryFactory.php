@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model\Anniversary;
+use App\Model\Event;
 use Faker\Generator as Faker;
 
-$factory->define(Anniversary::class, function (Faker $faker) {
+$factory->define(Event::class, function (Faker $faker) {
     return [
         'lover_id'=>$faker->numberBetween(1, 400),
         'title'=>$faker->word(),

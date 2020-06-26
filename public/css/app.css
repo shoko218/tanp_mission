@@ -11357,7 +11357,7 @@ section:last-of-type {
 #cart,
 #reminder,
 #lover,
-#anniversary_register,
+#event_register,
 #gift_history,
 #lovers_register {
   padding: 3rem 1.6rem;
@@ -11367,7 +11367,7 @@ section:last-of-type {
 #cart h1,
 #reminder h1,
 #lover h1,
-#anniversary_register h1,
+#event_register h1,
 #gift_history h1,
 #lovers_register h1 {
   text-align: center;
@@ -11525,32 +11525,32 @@ section:last-of-type {
   font-size: 1.6rem;
 }
 
-.anniversary_card {
+.event_card {
   display: flex;
   padding: 2% 0;
   border-bottom: 0.1rem solid #cccccc;
 }
 
-.anniversary_card a {
+.event_card a {
   display: flex;
 }
 
-.anniversary_card:first-of-type {
+.event_card:first-of-type {
   border-top: 0.1rem solid #cccccc;
 }
 
-.anniversary_card_img {
+.event_card_img {
   width: 20%;
   border-radius: 50%;
   margin-right: 3%;
 }
 
-.anniversary_detail {
+.event_detail {
   width: 80%;
   margin: auto 0;
 }
 
-#anniversarys {
+#events {
   margin-bottom: 3rem;
 }
 
@@ -11644,19 +11644,19 @@ section:last-of-type {
   margin-bottom: 1.5rem;
 }
 
-#anniversary_register {
+#event_register {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#anniversary_register a {
+#event_register a {
   text-decoration: underline;
   text-align: right;
   font-size: 1.2rem;
 }
 
-#anniversary_register button:not(:last-of-type) {
+#event_register button:not(:last-of-type) {
   margin-bottom: 1.5rem;
 }
 

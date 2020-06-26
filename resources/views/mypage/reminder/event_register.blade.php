@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-    記念日登録
+    イベント登録
 @endsection
 
 @include('layouts.head')
@@ -9,11 +9,11 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="anniversary_register">
+    <section id="event_register">
         @if ($errors->any())
         @include('components.errmsg')
         @endif
-        <h1>新しい記念日を登録</h1>
+        <h1>新しいイベントを登録</h1>
         <p>全て入力してください。</p>
         <form action="/mypage/reminder/register_process" method="POST">
             @csrf
@@ -30,11 +30,11 @@
                 </li>
                 <a href="/mypage/lovers/register">お相手のご登録がお済みでない方はこちら</a>
                 <li class="input_parts">
-                    <label for="title">記念日名(30文字以内)</label>
+                    <label for="title">イベント名(30文字以内)</label>
                     <input id="title" name="title" value="{{ old('title') }}" required>
                 </li>
                 <li class="input_parts">
-                    <label for="scene_id">記念日の種類</label>
+                    <label for="scene_id">イベントの種類</label>
                     <select id="scene_id" name="scene_id" value="{{ old('scene_id') }}" required>
                         <option disabled selected value>選択してください</option>
                         @foreach ($scenes as $scene)
