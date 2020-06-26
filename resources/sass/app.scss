@@ -837,8 +837,12 @@ section:last-of-type{
     }
     &explanation{
         padding: $std_py $std_px;
+        text-align: center;
+        &>p{
+            font-size: 1.8rem;
+            margin-bottom: $std_my;
+        }
         &_title{
-            text-align: center;
             & span{
                 font-size: 150%;
             }

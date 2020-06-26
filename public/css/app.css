@@ -11679,10 +11679,12 @@ section:last-of-type {
 
 #reminder_detail_explanation {
   padding: 3rem 1.6rem;
+  text-align: center;
 }
 
-#reminder_detail_explanation_title {
-  text-align: center;
+#reminder_detail_explanation > p {
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
 }
 
 #reminder_detail_explanation_title span {
