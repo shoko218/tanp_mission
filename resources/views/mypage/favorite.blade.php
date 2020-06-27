@@ -13,16 +13,11 @@
         <h1>お気に入り</h1>
         <div id="orders">
             <div id="od_cards">
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
+                @foreach ($favorite_products as $favorite_product)
+                @include('components.product_card',['product_id'=>$favorite_product->id,'title'=>$favorite_product->name,'genre'=>$favorite_product->genre->name,'price'=>$favorite_product->price])
+                @endforeach
             </div>
+            {{ $favorite_products->links() }}
         </div>
     </section>
 @endsection
