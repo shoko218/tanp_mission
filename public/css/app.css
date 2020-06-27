@@ -11023,7 +11023,8 @@ input,
 select,
 button,
 *:focus,
-*:active {
+*:active,
+button:focus {
   outline: 0;
 }
 
@@ -11248,14 +11249,22 @@ button:hover {
   font-size: 2rem;
 }
 
-.fav_btn {
+#fav_btn {
   min-width: 0;
   width: 6rem;
   height: 6rem;
-  background: url("https://tanp_mission.jp/image/icons/heart_g.png") left 1.5rem top 1.5rem no-repeat;
   background-size: 3rem;
-  background-color: #eee;
   padding: 0;
+}
+
+.favorite {
+  background: url("https://tanp_mission.jp/image/icons/heart.png") left 1.5rem top 1.5rem no-repeat;
+  background-color: #ff9999;
+}
+
+.unfavorite {
+  background: url("https://tanp_mission.jp/image/icons/heart_g.png") left 1.5rem top 1.5rem no-repeat;
+  background-color: #eee;
 }
 
 section {

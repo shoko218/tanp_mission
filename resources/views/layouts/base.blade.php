@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     @yield('head')
+    @yield('css/js/meta')
 </head>
 <body>
     <div id="wrapper">

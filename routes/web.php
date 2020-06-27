@@ -20,6 +20,9 @@ Auth::routes();
 Route::get('/', 'Main\IndexController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
+Route::post('/product/favorite', 'Main\ProductFavoriteController');
+Route::post('/product/unfavorite', 'Main\ProductUnfavoriteController');
+Route::get('/product', 'Main\ProductController');
 Route::get('/cart', 'Main\CartController');
 Route::get('/logout',function(){
     Auth::logout();
