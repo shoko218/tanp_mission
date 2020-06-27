@@ -93,16 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// window.onload = function onload(){
-//     var fav_btn=document.getElementById("fav_btn");
-//     fav_btn.addEventListener("click", function(event) {
-//         if(fav_btn.classList.contains("favorite")){
-//             fav_btn.className='unfavorite';
-//         }else{
-//             fav_btn.className='favorite';
-//         };
-//     });
-// };
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/segway/code/tanp_mission/resources/js/favorite.js'");
 
 /***/ }),
 

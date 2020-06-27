@@ -6,10 +6,6 @@
 
 @include('layouts.head')
 
-@section('css/js/meta')
-<script src="{{ asset('js/favorite.js') }}" defer></script>
-@endsection
-
 @include('layouts.header')
 
 @section('content')
