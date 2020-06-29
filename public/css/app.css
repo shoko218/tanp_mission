@@ -11031,7 +11031,6 @@ button:focus {
 form {
   display: flex;
   justify-content: center;
-  width: 85%;
   flex-direction: column;
   text-align: center;
   max-width: 34rem;
@@ -11043,6 +11042,10 @@ form > ul {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.input_form {
+  width: 85%;
 }
 
 input,

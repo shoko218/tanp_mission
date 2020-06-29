@@ -157,7 +157,6 @@ input,select,button,*:focus,*:active,button:focus{
 form{
     display: flex;
     justify-content: center;
-    width: $form_wsz;
     flex-direction: column;
     text-align: center;
     max-width: $form_mxwsz;
@@ -168,6 +167,10 @@ form{
         justify-content: center;
         flex-direction: column;
     }
+}
+
+.input_form{
+    width: $form_wsz;
 }
 
 input,select{

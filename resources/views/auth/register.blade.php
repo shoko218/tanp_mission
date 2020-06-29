@@ -15,7 +15,7 @@
         @endif
         <h1>新規登録</h1>
         <p><span class="form_requires">*</span>は必須項目です</p>
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" class="input_form">
             @csrf
             <ul class="inputs">
                 <li class="input_parts">

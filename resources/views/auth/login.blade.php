@@ -11,7 +11,7 @@
 @section('content')
 <section id="login">
     <h1>ログインしてください</h1>
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="input_form">
         @csrf
         <ul class="inputs">
             <li class="input_parts">
