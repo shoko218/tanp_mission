@@ -8,6 +8,7 @@ use App\Model\Product;
 use App\Model\Favorite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use App\Model\Cart;
 
 class ProductController extends Controller
 {
@@ -29,7 +30,6 @@ class ProductController extends Controller
         }else{
             $is_fav=false;
             $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
-            // print_r(array_search($request->input('id'),$product_ids));
             if(in_array($request->input('id'),$product_ids)!=null){
                 $is_in_cart=true;
             }else{

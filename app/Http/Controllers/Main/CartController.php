@@ -21,6 +21,9 @@ class CartController extends Controller
             ->select(DB::raw('products.*'))
             ->where('user_id','=',$user_id)
             ->get();
+            if($products->isEmpty()){
+                $products=null;
+            }
         }else{
             if(Cookie::get('cart_product_ids')!=null){
                 $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
