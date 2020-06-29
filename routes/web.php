@@ -24,6 +24,8 @@ Route::post('/product/favorite', 'Main\ProductFavoriteController');
 Route::post('/product/unfavorite', 'Main\ProductUnfavoriteController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/cart', 'Main\CartController');
+Route::post('/cart/in', 'Main\CartInController');
+Route::post('/cart/out', 'Main\CartOutController');
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');

@@ -68,6 +68,9 @@ $section_my:3rem;
 $hb_menu_py:1.8rem;
 $hb_menu_px:0.8rem;
 
+$clear_btn_wsz:6rem;
+$clear_btn_hsz:2.4rem;
+
 html{
     font-size: 62.5%;
 }
@@ -363,6 +366,12 @@ button:hover{
     font-size: 2.0rem;
 }
 
+.product_msg{
+    height: 6rem;
+    color: $main_color;
+    font-size: 2rem;
+}
+
 #fav_btn{
     min-width: 0;
     width: 6rem;
@@ -414,7 +423,7 @@ section:last-of-type{
     display: flex;
     padding: 2% 0;
     border-bottom: 0.1rem solid $area_border_c;
-
+    position: relative;
     &>a{
         display: flex;
     }
@@ -429,6 +438,23 @@ section:last-of-type{
     height: 24vw;
     object-fit: cover;
     padding-right: 3%;
+}
+
+.cart_out_btn{
+    width: $clear_btn_wsz;
+    height: $clear_btn_hsz;
+    border-radius: $clear_btn_hsz*0.25;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    bottom:4%;
+    & button{
+        padding: 0;
+        min-width: 0;
+        min-height: 0;
+        width: $clear_btn_wsz;
+        height: $clear_btn_hsz;
+    }
 }
 
 .product_detail{
@@ -469,6 +495,12 @@ section:last-of-type{
 
 #orders{
     margin-bottom: $std_my;
+}
+
+.cart_msg{
+    text-align: center;
+    height: 6rem;
+    font-size: 2rem;
 }
 
 //↑スタンダード設定////////////////////////////////////////////////
@@ -661,7 +693,7 @@ section:last-of-type{
     & button{
         margin-bottom: $std_my;
     }
-    & p{
+    & .product_description{
         font-size: 1.6rem;
     }
 }

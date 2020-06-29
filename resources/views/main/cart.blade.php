@@ -11,16 +11,20 @@
 @section('content')
     <section id="cart">
         <h1>お買い物カゴ</h1>
+        @if ($products!=null)
         <div id="orders">
             <div id="od_cards">
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
-                @include('components.product_card',['product_id'=>'test','title'=>'ぱんだのぬいぐるみ','genre'=>'ぬいぐるみ','price'=>'4,500'])
+                @foreach ($products as $product)
+                @include('components.cart_product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price])
+                @endforeach
             </div>
         </div>
         <div class="btns">
             <button type="button" action="#">購入手続きへ→</button>
         </div>
+        @else
+            <p class="cart_msg">まだ商品はありません。</p>
+        @endif
     </section>
 @endsection
 

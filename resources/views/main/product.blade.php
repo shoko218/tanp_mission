@@ -26,9 +26,20 @@
             <h1 class="product_name">{{ $product->name }}</h1>
             <h2 class="price">¥{{ number_format($product->price) }}</h2>
             <div class="btns">
-                <button class="cart_btn">カートに入れる</button>
+                @if ($is_in_cart)
+                <p class="product_msg">既にカートに入っています</p>
+                @else
+                <form action="cart/in" method="post">
+                    @csrf
+                    @if (Auth::check())
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    @endif
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <button class="cart_btn">カートに入れる</button>
+                </form>
+                @endif
             </div>
-            <p>{{ $product->description }}</p>
+            <p class="product_description">{{ $product->description }}</p>
         </div>
     </section>
 @endsection

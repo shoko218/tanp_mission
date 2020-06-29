@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Product;
 use App\Model\Favorite;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class ProductController extends Controller
 {
@@ -14,15 +15,28 @@ class ProductController extends Controller
     {
         $product=Product::where('id',$request->input('id'))->first();
         if(Auth::check()){
+            $user_id=Auth::user()->id;
             if(Favorite::where('product_id',$request->input('id'))->where('user_id',Auth::user()->id)->first()){
                 $is_fav=true;
             }else{
                 $is_fav=false;
             }
+            if(Cart::select('id')->where('user_id','=',$user_id)->where('product_id','=',$request->input('id'))->first()){
+                $is_in_cart=true;
+            }else{
+                $is_in_cart=false;
+            }
         }else{
             $is_fav=false;
+            $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
+            // print_r(array_search($request->input('id'),$product_ids));
+            if(in_array($request->input('id'),$product_ids)!=null){
+                $is_in_cart=true;
+            }else{
+                $is_in_cart=false;
+            }
         }
-        $param=['product'=>$product,'is_fav'=>$is_fav];
+        $param=['product'=>$product,'is_fav'=>$is_fav,'is_in_cart'=>$is_in_cart];
         return view('main.product',$param);
     }
 }
