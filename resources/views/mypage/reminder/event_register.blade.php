@@ -15,7 +15,7 @@
         @endif
         <h1>新しいイベントを登録</h1>
         <p>全て入力してください。</p>
-        <form action="/mypage/reminder/register_process" method="POST">
+        <form action="/mypage/reminder/register_process" method="POST" class="input_form">
             @csrf
             <ul class="inputs">
                 <li class="input_parts">

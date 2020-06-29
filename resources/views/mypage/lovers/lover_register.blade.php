@@ -15,7 +15,7 @@
         @endif
         <h1>新しく大切な人を登録</h1>
         <p><span class="form_requires">*</span>は必須項目です</p>
-        <form action="/mypage/lovers/register_process" method="POST" enctype='multipart/form-data'>
+        <form action="/mypage/lovers/register_process" method="POST" enctype='multipart/form-data' class="input_form">
             @csrf
             <ul class="inputs">
                 <li class="input_parts">
