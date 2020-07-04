@@ -25,6 +25,7 @@
                 @endif
             </div>
         </div>
+        <p class="cart_sum">商品合計:<b>¥{{ number_format($sum_price) }}</b></p>
         <div class="btns">
             <button type="submit" action="#">購入手続きへ→</button>
         </div>

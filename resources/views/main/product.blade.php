@@ -24,7 +24,7 @@
         </div>
         <div id="product_explanation">
             <h1 class="product_name">{{ $product->name }}</h1>
-            <h2 class="price">¥{{ number_format($product->price) }}</h2>
+            <h2 class="price">¥{{ number_format($product->price) }}(+tax)</h2>
             <div class="btns">
                 <form action="cart/in" method="post">
                     @csrf

@@ -4,7 +4,7 @@
         <div class="product_detail">
             <p class="rc_title">{{ $title }}</p>
             <p class="rc_genre">{{ $genre }}</p>
-            <p class="rc_price">¥{{ number_format($price) }}</p>
+            <p class="rc_price">¥{{ number_format($price) }}(+tax)</p>
         </div>
     </a>
     <form action="/cart/out" class="cart_out_btn" method="POST">

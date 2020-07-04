@@ -24,10 +24,14 @@ class CartController extends Controller
             if($cart_goods->isEmpty()){
                 $cart_goods=null;
             }
-            $sum_price=0;
+            $sum_price=0.0;
             if($cart_goods!=null){
                 foreach ($cart_goods as $cart_good) {
-                    $sum_price+=$cart_good->product->price*$cart_good->count;
+                    if ($cart_good->product->genre_id==1) {
+                        $sum_price+=$cart_good->product->price*$cart_good->count*1.08;
+                    }else{
+                        $sum_price+=$cart_good->product->price*$cart_good->count*1.1;
+                    }
                 }
             }
             $param=['cart_goods'=>$cart_goods,'sum_price'=>$sum_price,'products'=>null];
@@ -59,7 +63,11 @@ class CartController extends Controller
             $sum_price=0;
             if($products!=null){
                 foreach ($products as $key => $product) {
-                    $sum_price+=$product->price*$product_count[$key];
+                    if($product->genre_id==1){
+                        $sum_price+=$product->price*$product_count[$key]*1.08;
+                    }else{
+                        $sum_price+=$product->price*$product_count[$key]*1.1;
+                    }
                 }
             }
             $param=['products'=>$products,'sum_price'=>$sum_price,'product_count'=>$product_count,'cart_goods'=>null];
