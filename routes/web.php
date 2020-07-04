@@ -23,11 +23,11 @@ Route::get('/product', 'Main\ProductController');
 Route::post('/product/favorite', 'Main\ProductFavoriteController');
 Route::post('/product/unfavorite', 'Main\ProductUnfavoriteController');
 Route::get('/product', 'Main\ProductController');
-Route::get('/cart', 'Main\CartController');
-Route::post('/cart/in', 'Main\CartInController');
-Route::post('/cart/out', 'Main\CartOutController');
-Route::post('/cart/minus_count', 'Main\CartMinusController');
-Route::post('/cart/plus_count', 'Main\CartPlusController');
+Route::get('/cart', 'Main\Cart\CartController');
+Route::post('/cart/in', 'Main\Cart\CartInController');
+Route::post('/cart/out', 'Main\Cart\CartOutController');
+Route::post('/cart/minus_count', 'Main\Cart\CartMinusController');
+Route::post('/cart/plus_count', 'Main\Cart\CartPlusController');
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');
