@@ -26,6 +26,8 @@ Route::get('/product', 'Main\ProductController');
 Route::get('/cart', 'Main\CartController');
 Route::post('/cart/in', 'Main\CartInController');
 Route::post('/cart/out', 'Main\CartOutController');
+Route::post('/cart/minus_count', 'Main\CartMinusController');
+Route::post('/cart/plus_count', 'Main\CartPlusController');
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');

@@ -13,6 +13,25 @@
         @if (Auth::check())
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
         @endif
-        <button onClick="return confirm('削除します。\nよろしいですか？');" type="submit">削除</button>
+        <button onClick="return confirm('削除します。\nよろしいですか？');" type="submit">×</button>
     </form>
+    <div class="cart_change_count">
+        <form action="/cart/minus_count" method="POST">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product_id }}">
+            @if (Auth::check())
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            @endif
+            <button class="cart_minus_btn" @if ($count==1) onClick="return confirm('削除します。\nよろしいですか？');"@endif>-</button>
+        </form>
+        <p>{{ $count }}</p>
+        <form action="/cart/plus_count" method="POST">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product_id }}">
+            @if (Auth::check())
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            @endif
+            <button @if ($count>254) class="cart_cannot_plus_btn" type="button" @else class="cart_plus_btn" @endif >+</button>
+        </form>
+    </div>
 </div>
