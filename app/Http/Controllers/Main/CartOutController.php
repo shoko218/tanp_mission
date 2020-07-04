@@ -22,8 +22,10 @@ class CartOutController extends Controller
                 unset( $product_ids[$index] ) ;
             }
             $cookie='';
-            foreach ($product_ids as $product_id) {
-                $cookie=$cookie.$product_id.',';
+            if($product_ids!=null){
+                foreach ($product_ids as $product_id) {
+                    $cookie=$cookie.$product_id.',';
+                }
             }
             Cookie::queue('cart_product_ids', $cookie,86400);
         }

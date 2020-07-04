@@ -13,4 +13,8 @@ class Product extends Model
     public function genre(){
         return $this->belongsTo('App\Model\Genre');
     }
+
+    public function carts(){
+        return $this->hasMany('App\Model\Cart');
+    }
 }

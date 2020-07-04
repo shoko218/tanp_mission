@@ -17,28 +17,53 @@ class CartController extends Controller
     {
         if(Auth::check()){
             $user_id=Auth::user()->id;
-            $products=Product::join('carts','products.id','=','product_id')
-            ->select(DB::raw('products.*'))
+            $cart_goods=Cart::join('products','products.id','=','product_id')
+            ->select(DB::raw('carts.*'))
             ->where('user_id','=',$user_id)
             ->get();
-            if($products->isEmpty()){
-                $products=null;
+            if($cart_goods->isEmpty()){
+                $cart_goods=null;
             }
+            $sum_price=0;
+            if($cart_goods!=null){
+                foreach ($cart_goods as $cart_good) {
+                    $sum_price+=$cart_good->product->price*$cart_good->count;
+                }
+            }
+            $param=['cart_goods'=>$cart_goods,'sum_price'=>$sum_price,'products'=>null];
         }else{
             if(Cookie::get('cart_product_ids')!=null){
                 $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
+                $product_notdup_ids=array_values(array_unique($product_ids));
                 $products = new Collection();
-                foreach ($product_ids as $product_id) {
+                $product_count=array();
+                foreach ($product_notdup_ids as $product_notdup_id) {
                     $product=Product::select(DB::raw('products.*'))
-                    ->where('id','=',$product_id)
+                    ->where('id','=',$product_notdup_id)
                     ->first();
                     $products->push($product);
                 }
+                foreach ($product_notdup_ids as $product_notdup_id) {
+                    $temp_count=0;
+                    foreach ($product_ids as $product_id) {
+                        if($product_notdup_id==$product_id){
+                            $temp_count++;
+                        }
+                    }
+                    $product_count[]=$temp_count;
+                }
             }else{
                 $products=null;
+                $product_count=null;
             }
+            $sum_price=0;
+            if($products!=null){
+                foreach ($products as $key => $product) {
+                    $sum_price+=$product->price*$product_count[$key];
+                }
+            }
+            $param=['products'=>$products,'sum_price'=>$sum_price,'product_count'=>$product_count,'cart_goods'=>null];
         }
-        $param=['products'=>$products];
         return view('main.cart',$param);
     }
 }
