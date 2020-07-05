@@ -55,11 +55,11 @@
                     </select>
                 </li>
                 <li class="input_parts">
-                    <label for="postal_code">郵便番号(ハイフン抜き)</label>
+                    <label for="postal_code">郵便番号(ハイフン抜き)<span class="form_requires">*</span></label>
                     <input id="postal_code" type="text" name="postal_code" value="{{ old('postal_code') }}" placeholder="xxxxxxx">
                 </li>
                 <li class="input_parts">
-                    <label for="prefecture_id">都道府県</label>
+                    <label for="prefecture_id">都道府県<span class="form_requires">*</span>/label>
                     <select name="prefecture_id" id="prefecture_id">
                         <option value="" selected>選択してください</option>
                         @foreach ($prefectures as $pref)
@@ -68,11 +68,11 @@
                     </select>
                 </li>
                 <li class="input_parts">
-                    <label for="address">住所(市町村以下)</label>
+                    <label for="address">住所(市町村以下)<span class="form_requires">*</span></label>
                     <input id="address" type="text" name="address" value="{{ old('address') }}" placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室">
                 </li>
                 <li class="input_parts">
-                    <label for="telephone">電話番号(ハイフン抜き)</label>
+                    <label for="telephone">電話番号(ハイフン抜き)<span class="form_requires">*</span></label>
                     <input id="telephone" type="text" name="telephone" value="{{ old('telephone') }}" placeholder="xxxxxxxxxx">
                 </li>
                 {{-- <li>

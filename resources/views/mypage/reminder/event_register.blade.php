@@ -25,7 +25,6 @@
                         @foreach ($lovers as $lover)
                         <option value="{{ $lover->id }}">{{ $lover->last_name.$lover->first_name }}</option>
                         @endforeach
-
                     </select>
                 </li>
                 <a href="/mypage/lovers/register">お相手のご登録がお済みでない方はこちら</a>

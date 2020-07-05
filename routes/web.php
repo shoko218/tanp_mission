@@ -23,11 +23,19 @@ Route::get('/product', 'Main\ProductController');
 Route::post('/product/favorite', 'Main\ProductFavoriteController');
 Route::post('/product/unfavorite', 'Main\ProductUnfavoriteController');
 Route::get('/product', 'Main\ProductController');
-Route::get('/cart', 'Main\Cart\CartController');
-Route::post('/cart/in', 'Main\Cart\CartInController');
-Route::post('/cart/out', 'Main\Cart\CartOutController');
-Route::post('/cart/minus_count', 'Main\Cart\CartMinusController');
-Route::post('/cart/plus_count', 'Main\Cart\CartPlusController');
+Route::prefix('/cart')->group(function () {
+    Route::get('/', 'Main\Cart\CartController');
+    Route::post('/in', 'Main\Cart\CartInController');
+    Route::post('/out', 'Main\Cart\CartOutController');
+    Route::post('/minus_count', 'Main\Cart\CartMinusController');
+    Route::post('/plus_count', 'Main\Cart\CartPlusController');
+});
+Route::prefix('/purchase')->group(function () {
+    Route::get('/fillin_info', 'Main\Purchase\FillinInfoController');
+    Route::post('/fillin_lover_info', 'Main\Purchase\FillinLoverInfoController');
+    Route::post('/register_to_session', 'Main\Purchase\RegisterInfoToSessionController');
+    Route::get('/payment','Main\Purchase\PaymentController');
+});
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');

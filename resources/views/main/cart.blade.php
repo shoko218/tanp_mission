@@ -27,7 +27,7 @@
         </div>
         <p class="cart_sum">商品合計:<b>¥{{ number_format($sum_price) }}</b></p>
         <div class="btns">
-            <button action="">購入手続きへ→</button>
+            <button onclick="location.href='/purchase/fillin_info'">購入手続きへ→</button>
         </div>
         @else
             <p class="cart_msg">まだ商品はありません。</p>

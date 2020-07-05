@@ -11049,7 +11049,8 @@ form > ul {
 }
 
 input,
-select {
+select,
+.input_zone {
   border: 1px solid #cccccc;
   background: white;
   width: 100%;
@@ -11454,7 +11455,9 @@ section:last-of-type {
 #lover,
 #event_register,
 #gift_history,
-#lovers_register {
+#lovers_register,
+#fillin_info,
+#payment {
   padding: 3rem 1.6rem;
 }
 
@@ -11464,7 +11467,9 @@ section:last-of-type {
 #lover h1,
 #event_register h1,
 #gift_history h1,
-#lovers_register h1 {
+#lovers_register h1,
+#fillin_info h1,
+#payment h1 {
   text-align: center;
 }
 
@@ -11784,5 +11789,25 @@ section:last-of-type {
 
 #reminder_detail_explanation_title span {
   font-size: 150%;
+}
+
+#fillin_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fillin_info > p {
+  text-align: left;
+}
+
+#payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#payment > p {
+  text-align: left;
 }
 

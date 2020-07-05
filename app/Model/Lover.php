@@ -17,10 +17,10 @@ class Lover extends Model
         'gender'=>['required','integer'],
         'relationship_id'=>['required','integer'],
         'user_id'=>['required','integer'],
-        'postal_code'=>['nullable','string','digits:7'],
-        'prefecture_id'=>['nullable','integer'],
-        'address'=>['nullable','string', 'max:200'],
-        'telephone'=>['nullable','string', 'max:21'],
+        'postal_code'=>['required','string','digits:7'],
+        'prefecture_id'=>['required','integer'],
+        'address'=>['required','string', 'max:200'],
+        'telephone'=>['required','string', 'max:21'],
         'file'=>['nullable','file','mimes:jpeg,png,jpg','max:2048'],
     );
 
