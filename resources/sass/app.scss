@@ -173,7 +173,7 @@ form{
     width: $form_wsz;
 }
 
-input,select,.input_zone{
+input,select{
     border:1px solid $area_border_c;
     background:white;
     width: 100%;
@@ -525,6 +525,9 @@ section:last-of-type{
         font-size: 1.4rem;
     }
     &price{
+        font-size: 1.6rem;
+    }
+    &count{
         font-size: 1.6rem;
     }
 }

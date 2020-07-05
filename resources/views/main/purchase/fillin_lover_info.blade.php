@@ -39,11 +39,11 @@
                 </li>
                 <li class="input_parts">
                     <label for="postal_code">郵便番号(ハイフン抜き)<span class="form_requires">*</span></label>
-                    <input id="postal_code" type="text" name="postal_code" value="{{ $lover->postal_code }}" placeholder="xxxxxxx">
+                    <input id="postal_code" type="text" name="postal_code" value="{{ $lover->postal_code }}" placeholder="xxxxxxx" required>
                 </li>
                 <li class="input_parts">
                     <label for="prefecture_id">都道府県<span class="form_requires">*</span></label>
-                    <select name="prefecture_id" id="prefecture_id">
+                    <select name="prefecture_id" id="prefecture_id" required>
                         <option value="" selected>選択してください</option>
                         @foreach ($prefectures as $pref)
                             <option value="{{ $pref->id }}"@if($lover->prefecture_id==$pref->id) selected @endif>{{ $pref->name }}</option>
@@ -52,11 +52,11 @@
                 </li>
                 <li class="input_parts">
                     <label for="address">住所(市町村以下)<span class="form_requires">*</span></label>
-                    <input id="address" type="text" name="address" value="{{ $lover->address }}" placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室">
+                    <input id="address" type="text" name="address" value="{{ $lover->address }}" placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室" required>
                 </li>
                 <li class="input_parts">
                     <label for="telephone">電話番号(ハイフン抜き)<span class="form_requires">*</span></label>
-                    <input id="telephone" type="text" name="telephone" value="{{ $lover->telephone }}" placeholder="xxxxxxxxxx">
+                    <input id="telephone" type="text" name="telephone" value="{{ $lover->telephone }}" placeholder="xxxxxxxxxx" required>
                 </li>
                 <li class="input_parts">
                     <label for="scene_id">シーン</label>
@@ -72,6 +72,9 @@
             <input type="hidden" name="relationship_id" value="{{ $lover->relationship_id }}">
             <input type="hidden" name="age" value="<?php echo $age?> ">
             <input type="hidden" name="lover_id" value="{{ $lover->id }}">
+            @if (Auth::check())
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            @endif
             <div class="btns">
                 <button type="submit">次へ進む</button>
             </div>

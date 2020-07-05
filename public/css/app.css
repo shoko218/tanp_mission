@@ -11049,8 +11049,7 @@ form > ul {
 }
 
 input,
-select,
-.input_zone {
+select {
   border: 1px solid #cccccc;
   background: white;
   width: 100%;
@@ -11419,6 +11418,10 @@ section:last-of-type {
 }
 
 .rc_price {
+  font-size: 1.6rem;
+}
+
+.rc_count {
   font-size: 1.6rem;
 }
 

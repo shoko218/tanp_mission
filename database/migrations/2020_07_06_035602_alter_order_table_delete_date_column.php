@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterUsersTableAddStripeId extends Migration
+class AlterOrderTableDeleteDateColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterUsersTableAddStripeId extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('stripe_id')->nullable();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('date');
         });
     }
 
@@ -25,8 +25,8 @@ class AlterUsersTableAddStripeId extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('stripe_id');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->date('date');
         });
     }
 }

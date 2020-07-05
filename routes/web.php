@@ -35,6 +35,7 @@ Route::prefix('/purchase')->group(function () {
     Route::post('/fillin_lover_info', 'Main\Purchase\FillinLoverInfoController');
     Route::post('/register_to_session', 'Main\Purchase\RegisterInfoToSessionController');
     Route::get('/payment','Main\Purchase\PaymentController');
+    Route::post('/payment_process','Main\Purchase\PaymentProcessController');
 });
 Route::get('/logout',function(){
     Auth::logout();

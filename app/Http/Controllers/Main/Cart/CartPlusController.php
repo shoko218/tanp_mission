@@ -12,8 +12,8 @@ class CartPlusController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $user_id=Auth::user()->id;
         if(Auth::check()){
+            $user_id=Auth::user()->id;
             $target=Cart::where('user_id','=',$user_id)->where('product_id','=',$request->product_id)->first();
             $target->update(['count'=>$target->count+1]);
         }else{
