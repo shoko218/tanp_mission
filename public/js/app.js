@@ -37274,6 +37274,13 @@ window.onload = function onload() {
       $('html').addClass('scroll-prevent');
     }
   });
+  cover.addEventListener("click", function () {
+    hb_btn.className = "";
+    hb_menu.className = "hb_menu_close";
+    cover.style.visibility = "hidden";
+    hb_btn_img.setAttribute('src', 'https://tanp_mission.jp/image/icons/menu.png');
+    $('html').removeClass('scroll-prevent');
+  });
 };
 
 /***/ }),
