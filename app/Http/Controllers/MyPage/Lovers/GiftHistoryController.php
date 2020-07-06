@@ -18,7 +18,6 @@ class GiftHistoryController extends Controller
         ->where('orders.lover_id','=',$lover_id)
         ->orderBy('id', 'desc')
         ->paginate(10);
-        print(gettype($order_logs));
         $param=['order_logs'=>$order_logs,'name'=>$name];
         return view('mypage.lovers.gift_history',$param);
     }
