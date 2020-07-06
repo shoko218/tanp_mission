@@ -48,7 +48,7 @@ class PaymentProcessController extends Controller
         if($request->session()->exists('user_id')){
             $order->user_id=$request->session()->get('user_id');
         }
-        if($request->session()->exists('lover_id')){
+        if($request->session()->exists('lover_id')&&$request->session()->get('lover_id')!=0){
             $order->lover_id=$request->session()->get('lover_id');
         }
         $order->save();

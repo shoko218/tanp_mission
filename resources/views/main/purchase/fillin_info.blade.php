@@ -99,6 +99,7 @@
             @if (Auth::check())
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             @endif
+            <input type="hidden" name="lover_id" value="">
             <div class="btns">
                 <button type="submit">次へ進む</button>
             </div>

@@ -35,6 +35,8 @@ class RegisterInfoToSessionController extends Controller
         }
         if($request->input('lover_id')){
             $request->session()->put('lover_id', $request->input('lover_id'));
+        }else{
+            $request->session()->put('lover_id', '0');
         }
         return redirect('/purchase/payment');
     }
