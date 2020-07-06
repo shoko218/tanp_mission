@@ -22,7 +22,7 @@ class CartMinusController extends Controller
             }
         }else{
             $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
-            for ($i=0;$i<count($product_ids);$i++) {
+            for ($i=count($product_ids)-1;$i>=0;$i++) {
                 if($request->product_id==$product_ids[$i]){
                     unset( $product_ids[$i]);
                     break;
