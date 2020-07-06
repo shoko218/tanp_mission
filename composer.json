@@ -14,7 +14,7 @@
         "laravel/cashier": "^12.1",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
-        "stripe/stripe-php": "^7.39"
+        "stripe/stripe-php": "^7.40"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
