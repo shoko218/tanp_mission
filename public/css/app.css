@@ -11307,6 +11307,17 @@ section:last-of-type {
   justify-content: center;
 }
 
+.lovers_btns {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lovers_btns :not(:last-child) {
+  margin-bottom: 2rem;
+}
+
 .product_card {
   display: flex;
   padding: 2% 0;
@@ -11450,9 +11461,9 @@ section:last-of-type {
   margin-bottom: 3rem;
 }
 
-.cart_msg {
+.nothing_msg {
   text-align: center;
-  height: 6rem;
+  height: 2rem;
   font-size: 2rem;
 }
 

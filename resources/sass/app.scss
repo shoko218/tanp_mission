@@ -54,6 +54,7 @@ $btn_hsz:4rem;
 $btn_rs:$btn_hsz;
 $btn_py:0.6rem;
 $btn_px:2rem;
+$btn_my:2rem;
 $btn_wsz:20rem;
 
 $opacity:0.7;
@@ -422,6 +423,17 @@ section:last-of-type{
     justify-content: center;
 }
 
+.lovers_btns{
+    text-align : center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    & :not(:last-child){
+        margin-bottom: $btn_my;
+    }
+}
+
+
 .product_card{
     display: flex;
     padding: 2% 0;
@@ -555,7 +567,7 @@ section:last-of-type{
     margin-bottom: $std_my;
 }
 
-.cart_msg{
+.nothing_msg{
     text-align: center;
     height: 6rem;
     font-size: 2rem;

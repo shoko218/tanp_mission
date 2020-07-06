@@ -30,7 +30,7 @@
             <button onclick="location.href='/purchase/fillin_info'">購入手続きへ→</button>
         </div>
         @else
-            <p class="cart_msg">まだ商品はありません。</p>
+            <p class="nothing_msg">まだ商品はありません。</p>
         @endif
     </section>
 @endsection
