@@ -17,7 +17,7 @@ class CartController extends Controller
             if(!$cart_goods->isEmpty()){
                 $sum_price=BaseClass::calcPriceInTaxFromDB($cart_goods);
             }else{
-                $cart_goods=0;
+                $cart_goods=null;
                 $sum_price=0;
             }
             $param=['cart_goods'=>$cart_goods,'sum_price'=>$sum_price,'products'=>0];
@@ -26,7 +26,7 @@ class CartController extends Controller
                 list($products,$product_count)=BaseClass::getProductsFromCookie();
                 $sum_price=BaseClass::calcPriceInTaxFromCookie($products,$product_count);
             }else{
-                $products=0;
+                $products=null;
                 $product_count=0;
                 $sum_price=0;
             }
