@@ -17,4 +17,8 @@ class Product extends Model
     public function carts(){
         return $this->hasMany('App\Model\Cart');
     }
+
+    public function order_logs(){
+        return $this->hasMany('App\Model\Order_log');
+    }
 }

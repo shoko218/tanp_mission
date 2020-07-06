@@ -30,4 +30,8 @@ class Order extends Model
     public function product(){
         return $this->belongsTo('App\Model\Product');
     }
+
+    public function order_logs(){
+        return $this->hasMany('App\Model\Order_log');
+    }
 }

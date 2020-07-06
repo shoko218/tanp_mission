@@ -11434,12 +11434,16 @@ section:last-of-type {
   font-weight: bold;
 }
 
-.od_date {
-  font-size: 1.2rem;
-}
-
 .od_for {
   font-size: 1.4rem;
+}
+
+.od_count {
+  font-size: 1.4rem;
+}
+
+.od_date {
+  font-size: 1.2rem;
 }
 
 #orders {
