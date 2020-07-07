@@ -11,18 +11,18 @@
 @section('content')
     <section id="order_history">
         <h1>注文履歴</h1>
+        @if (!$order_logs->isEmpty())
         <div id="orders">
-            @if (!$order_logs->isEmpty())
             <div id="od_cards">
                 @foreach ($order_logs as $order_log)
                 @include('components.order_card',['product_id'=>$order_log->product_id,'title'=>$order_log->product->name,'date'=>$order_log->created_at,'person'=>$order_log->order->last_name.$order_log->order->first_name,'count'=>$order_log->count])
                 @endforeach
             </div>
             {{ $order_logs->links() }}
-            @else
-                <p class="nothing_msg">まだ商品はありません。</p>
-            @endif
         </div>
+        @else
+            @include('components.nothing_msgs')
+        @endif
     </section>
 @endsection
 

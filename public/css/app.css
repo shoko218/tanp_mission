@@ -11463,8 +11463,9 @@ section:last-of-type {
 
 .nothing_msg {
   text-align: center;
-  height: 2rem;
+  height: 6rem;
   font-size: 2rem;
+  display: block;
 }
 
 #order_history,

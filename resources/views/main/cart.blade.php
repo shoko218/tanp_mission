@@ -30,7 +30,7 @@
             <button onclick="location.href='/purchase/fillin_info'">購入手続きへ→</button>
         </div>
         @else
-            <p class="nothing_msg">まだ商品はありません。</p>
+        @include('components.nothing_msgs')
         @endif
     </section>
 @endsection
