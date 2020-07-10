@@ -619,10 +619,6 @@ section:last-of-type{
     &>h1{
         margin-bottom: $search_area_py;
     }
-
-    .search_bar{
-        margin-bottom: $search_area_py;
-    }
 }
 
 .search_bar{
@@ -635,6 +631,7 @@ section:last-of-type{
     border-radius: $search_bar_hsz;
     padding: $search_bar_py $search_bar_px $search_bar_py ($search_bar_hsz - $search_bar_py*2)+$search_bar_py*2;
     font-size: $search_bar_hsz - $search_bar_py*2;
+    margin-bottom: $search_area_py;
 }
 
 .search_form{
@@ -720,9 +717,6 @@ section:last-of-type{
     display: flex;
     flex-direction: column;
     align-items: center;
-    & .search_bar{
-        margin-bottom: $std_my;
-    }
 }
 
 #results{

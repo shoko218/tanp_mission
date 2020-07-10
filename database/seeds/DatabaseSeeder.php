@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         // factory(\App\Model\Order::class,1000)->create();
         // factory(\App\Model\Favorite::class,150)->create();
         // factory(\App\Model\Cart::class,150)->create();
+        // factory(\App\Model\Order_log::class,1000)->create();
     }
 }

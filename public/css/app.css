@@ -11511,10 +11511,6 @@ section:last-of-type {
   margin-bottom: 2rem;
 }
 
-#search_area .search_bar {
-  margin-bottom: 2rem;
-}
-
 .search_bar {
   background: url("https://tanp_mission.jp/image/icons/glass_g.png") left 1.8rem top 1.8rem no-repeat;
   background-size: 1.6rem;
@@ -11525,6 +11521,7 @@ section:last-of-type {
   border-radius: 5.2rem;
   padding: 1.8rem 2rem 1.8rem 5.2rem;
   font-size: 1.6rem;
+  margin-bottom: 2rem;
 }
 
 .search_form {
@@ -11592,10 +11589,6 @@ section:last-of-type {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#conditions .search_bar {
-  margin-bottom: 3rem;
 }
 
 #results {

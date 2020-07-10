@@ -5,19 +5,22 @@ namespace App\Http\Controllers\Main;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
+use App\Library\BaseClass;
+use App\Model\Scene;
+use App\Model\Genre;
+use App\Model\Relationship;
+use App\Model\Generation;
 
 class ResultController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $results = Product::select('products.id','products.name as product_name','genres.name as genre','price')
-        ->join('genres', 'genres.id', '=', 'genre_id')
-        ->withCount('orders')
-        ->orderBy('orders_count', 'desc')
-        ->orderBy('products.id', 'desc')
-        ->paginate(10);
-        $keyword=$request->input('keyword');
-        $param=['keyword'=>$keyword,'results'=>$results];
-        return view('main.result',$param);
+        $scenes=Scene::all();
+        $genres=Genre::all();
+        $relationships=Relationship::all();
+        $generations=Generation::all();
+        $param=BaseClass::searchProducts();
+        $param2=['scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
+        return view('main.result',$param,$param2);
     }
 }
