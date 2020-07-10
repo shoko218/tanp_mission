@@ -18,8 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'Main\IndexController');
-// Route::get('/search', 'Main\SearchController');
-// Route::post('/result', 'Main\ResultController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::post('/product/favorite', 'Main\ProductFavoriteController');

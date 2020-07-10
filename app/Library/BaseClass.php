@@ -114,10 +114,10 @@ class BaseClass{
 
         if (request('target_scene_id')) {
             $sceneSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
-            ->select('product_id', DB::raw('count(*) as scene_count_row'))
+            ->select('product_id', DB::raw('count(*) as scene_count_raw'))
             ->where('orders.scene_id', '=', request('target_scene_id'))
             ->groupBy('product_id');
-            $mainQuery->joinSub($sceneSQL, 'scene_counts', 'products.id', 'scene_counts.product_id')->orderBy('scene_count_row', 'desc');
+            $mainQuery->joinSub($sceneSQL, 'scene_counts', 'products.id', 'scene_counts.product_id')->orderBy('scene_count_raw', 'desc');
         }
 
         if (request('target_genre_id')) {
@@ -125,29 +125,29 @@ class BaseClass{
         }
 
         if (request('target_relationship_id')) {
-            $sceneSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
-            ->select('product_id', DB::raw('count(*) as relationship_count_row'))
+            $relationshipSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
+            ->select('product_id', DB::raw('count(*) as relationship_count_raw'))
             ->where('orders.relationship_id', '=', request('target_relationship_id'))
             ->groupBy('product_id');
-            $mainQuery->joinSub($sceneSQL, 'relationship_counts', 'products.id', 'relationship_counts.product_id')->orderBy('relationship_count_row', 'desc');
+            $mainQuery->joinSub($relationshipSQL, 'relationship_counts', 'products.id', 'relationship_counts.product_id')->orderBy('relationship_count_raw', 'desc');
         }
 
         if (request('target_gender')) {
             if(request('target_gender')!=2){
                 $genderSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
-                ->select('product_id', DB::raw('count(*) as gender_count_row'))
+                ->select('product_id', DB::raw('count(*) as gender_count_raw'))
                 ->where('orders.gender', '=', request('target_gender'))
                 ->groupBy('product_id');
-                $mainQuery->joinSub($sceneSQL, 'gender_counts', 'products.id', 'gender_counts.product_id')->orderBy('gender_count_row', 'desc');
+                $mainQuery->joinSub($genderSQL, 'gender_counts', 'products.id', 'gender_counts.product_id')->orderBy('gender_count_raw', 'desc');
             }
         }
 
         if (request('target_generation_id')) {
             $generationSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
-            ->select('product_id', DB::raw('count(*) as generation_count_row'))
+            ->select('product_id', DB::raw('count(*) as generation_count_raw'))
             ->where('orders.generation_id', '=', request('target_generation_id'))
             ->groupBy('product_id');
-            $mainQuery->joinSub($generationSQL, 'generation_counts', 'products.id', 'generation_counts.product_id')->orderBy('generation_count_row', 'desc');
+            $mainQuery->joinSub($generationSQL, 'generation_counts', 'products.id', 'generation_counts.product_id')->orderBy('generation_count_raw', 'desc');
         }
 
         $results=$mainQuery->paginate(10);
