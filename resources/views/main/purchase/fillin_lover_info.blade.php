@@ -60,7 +60,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="scene_id">シーン</label>
-                    <select id="scene_id" name="scene_id" value="{{ old('scene_id') }}" required>
+                    <select id="scene_id" name="scene_id" value="{{ old('scene_id') }}">
                         <option disabled selected value>選択してください</option>
                         @foreach ($scenes as $scene)
                         <option value="{{ $scene->id }}">{{ $scene->name }}</option>

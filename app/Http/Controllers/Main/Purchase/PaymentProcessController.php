@@ -40,7 +40,7 @@ class PaymentProcessController extends Controller
             $order->relationship_id=$request->session()->get('relationship_id');
         }
         if($request->session()->exists('age')){
-            $order->age=$request->session()->get('age');
+            $order->generation_id=($request->session()->get('age')/10)+1;
         }
         if($request->session()->exists('scene_id')){
             $order->scene_id=$request->session()->get('scene_id');
