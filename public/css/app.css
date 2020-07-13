@@ -11059,8 +11059,8 @@ select {
   font-size: 1.6rem;
 }
 
-#lovers_register .inputs {
-  margin-bottom: 3rem;
+.inputs {
+  margin-bottom: 1rem;
 }
 
 label {
@@ -11235,7 +11235,7 @@ button {
   height: 4rem;
   border-radius: 4rem;
   padding: 0.6rem 2rem;
-  min-width: 20rem;
+  min-width: 24rem;
 }
 
 button:hover {
@@ -11555,7 +11555,7 @@ section:last-of-type {
 }
 
 #login .btns > button {
-  width: 20rem;
+  width: 24rem;
 }
 
 .login_nav {
@@ -11580,7 +11580,7 @@ section:last-of-type {
 }
 
 #register .btns > button {
-  width: 20rem;
+  width: 24rem;
 }
 
 #conditions {
@@ -11743,6 +11743,14 @@ section:last-of-type {
   margin-right: 2%;
 }
 
+.recommend_rank {
+  padding: 3rem 1.6rem;
+}
+
+.recommend_rank > h2 {
+  margin-bottom: 3rem;
+}
+
 #lover {
   display: flex;
   flex-direction: column;
@@ -11750,8 +11758,8 @@ section:last-of-type {
 }
 
 #lover_img {
-  width: 60%;
-  max-width: 30rem;
+  width: 50%;
+  max-width: 24rem;
   border-radius: 50%;
   margin-bottom: 3rem;
 }

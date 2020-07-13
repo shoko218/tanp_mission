@@ -17,7 +17,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $seasonRanks=Product::select('products.id','products.name as product_name','genres.name as genre','price')
+        $seasonRanks=Product::select('products.*')
         ->join('genres', 'genres.id', '=', 'genre_id')
         ->limit(3)
         ->get();

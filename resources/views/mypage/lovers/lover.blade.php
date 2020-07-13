@@ -22,6 +22,19 @@
             </form>
         </div>
     </section>
+    @if ($products!=null)
+    <section class="recommend_rank">
+        <h2>{{ $name }}さんにおすすめのプレゼント</h2>
+        <div class="rc_cards">
+            @foreach ($products as $product)
+            @include('components.product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price])
+            @endforeach
+        </div>
+        <div class="btns">
+            <button onclick="location.href='/result'">プレゼントを探しに行く→</button>
+        </div>
+    </section>
+    @endif
 @endsection
 
 @include('layouts.footer')

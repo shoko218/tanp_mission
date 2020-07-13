@@ -163,4 +163,81 @@ class BaseClass{
         ];
         return $param;
     }
+
+    public static function get_simpson($target,$comparator){
+        $intersec=array_intersect(array_values(array_unique($target)),array_values(array_unique($comparator)));
+        $num_of_intersec=count($intersec);
+        $num_of_target=count($target);
+        $num_of_comparator=count($comparator);
+        try {
+            return (float)$num_of_intersec/min($num_of_target,$num_of_comparator);
+        } catch (\Throwable $th) {
+            return -1.0;
+        }
+    }
+
+    public static function get_differences($target,$comparator,$product_counts){
+        $difference_ids=array_diff(array_values(array_unique($comparator)),array_values(array_unique($target)));
+        $difference_counts=[];
+        foreach ($difference_ids as $difference_id) {
+            array_push($difference_counts,$product_counts[$difference_id]);
+        }
+        $datas=array_map(NULL,$difference_ids,$difference_counts);
+        array_multisort(array_column($datas,'1'), SORT_DESC, $datas);
+        return $datas;
+    }
+
+    public static function get_reccomends($target_id){
+        $order_logs=Order_log::join('orders','orders.id','=','order_id')->select('lover_id','product_id')->where('lover_id','!=',NULL)->orderby('order_logs.id')->get();
+        $lover_logs=array();
+        foreach ($order_logs as $order_log) {
+            if(empty($lover_logs[$order_log->lover_id])){
+                $lover_logs[$order_log->lover_id]=array('items'=>[],'simpson'=>0.0);
+            }
+            array_push($lover_logs[$order_log->lover_id]['items'],$order_log->product_id);
+        }
+        ksort($lover_logs);
+
+        $order_log_counts=Order_log::join('orders', 'order_id', '=', 'orders.id')
+        ->select('product_id', DB::raw('sum(count) as count'))
+        ->groupBy('product_id')->orderby('product_id')->get();
+        $product_counts=array();
+        foreach($order_log_counts as $order_log_count){
+            $product_counts[$order_log_count->product_id]=$order_log_count->count;
+        }
+
+        $recommend_ids=[];
+        $target=$lover_logs[$target_id]['items'];
+        foreach ($lover_logs as &$lover_log) {
+            $lover_log['simpson']=BaseClass::get_simpson($target,$lover_log['items']);
+        }
+        unset($lover_log);
+
+        array_multisort(array_column($lover_logs, 'simpson'), SORT_DESC, $lover_logs);
+
+        $temp_array=[];
+        foreach ($lover_logs as $lover_log) {
+            if(count($recommend_ids)>4||$lover_log['simpson']<=0) break;
+            $new_arrays=BaseClass::get_differences($target,$lover_log['items'],$product_counts);
+            foreach ($new_arrays as $new_array) {
+                if(!in_array($new_array[0],$temp_array)){
+                    $temp_array[]=$new_array[0];
+                    array_push($recommend_ids,$new_array);
+                }
+            }
+        }
+        if($recommend_ids>4){
+            array_splice($recommend_ids,5);
+        }
+        $recommend_ids=array_column($recommend_ids,'0');
+        $products = new Collection();
+        foreach ($recommend_ids as $recommend_id) {
+            $product=Product::select('products.*')
+            ->find($recommend_id);
+            $products->push($product);
+        }
+
+        return $products;
+    }
+
 }

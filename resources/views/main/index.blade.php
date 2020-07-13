@@ -20,7 +20,7 @@
     <h2>父の日のプレゼントランキング</h2>
     <div class="rc_cards">
         @foreach ($seasonRanks as $item)
-        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->product_name,'genre'=>$item->genre,'price'=>$item->price])
+        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
         @endforeach
     </div>
     <div class="btns">
@@ -31,7 +31,7 @@
     <h2>人気プレゼントランキング</h2>
     <div class="rc_cards">
         @foreach ($popularityRanks as $item)
-        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->product_name,'genre'=>$item->genre,'price'=>$item->price])
+        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
         @endforeach
     </div>
     <div class="btns">
