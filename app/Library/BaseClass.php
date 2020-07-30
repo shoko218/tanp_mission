@@ -67,7 +67,7 @@ class BaseClass{
         return $sum_price;
     }
 
-    public static function searchProducts(){
+    public static function searchProducts($keyword,$target_scene_id,$target_genre_id,$target_relationship_id,$target_gender,$target_generation_id,$limit=null){
         $sortBy="recomend";
         $countSQL=DB::table('order_logs')
         ->join('orders', 'order_id', '=', 'orders.id')
@@ -89,8 +89,8 @@ class BaseClass{
                 break;
             }
 
-        if (request('keyword')) {
-            $temps=explode(" ", request('keyword'));
+        if ($keyword) {
+            $temps=explode(" ", $keyword);
             $keywords=[];
             foreach ($temps as $key =>$temp) {
                 $keywords[$key]=array(
@@ -112,56 +112,51 @@ class BaseClass{
             });
         }
 
-        if (request('target_scene_id')) {
+        if ($target_scene_id) {
             $sceneSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
             ->select('product_id', DB::raw('count(*) as scene_count_raw'))
-            ->where('orders.scene_id', '=', request('target_scene_id'))
+            ->where('orders.scene_id', '=', $target_scene_id)
             ->groupBy('product_id');
             $mainQuery->joinSub($sceneSQL, 'scene_counts', 'products.id', 'scene_counts.product_id')->orderBy('scene_count_raw', 'desc');
         }
 
-        if (request('target_genre_id')) {
-            $mainQuery->where('products.genre_id', '=', request('target_genre_id'));
+        if ($target_genre_id) {
+            $mainQuery->where('products.genre_id', '=', $target_genre_id);
         }
 
-        if (request('target_relationship_id')) {
+        if ($target_relationship_id) {
             $relationshipSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
             ->select('product_id', DB::raw('count(*) as relationship_count_raw'))
-            ->where('orders.relationship_id', '=', request('target_relationship_id'))
+            ->where('orders.relationship_id', '=', $target_relationship_id)
             ->groupBy('product_id');
             $mainQuery->joinSub($relationshipSQL, 'relationship_counts', 'products.id', 'relationship_counts.product_id')->orderBy('relationship_count_raw', 'desc');
         }
 
-        if (request('target_gender')) {
-            if(request('target_gender')!=2){
+        if ($target_gender) {
+            if($target_gender!=2){
                 $genderSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
                 ->select('product_id', DB::raw('count(*) as gender_count_raw'))
-                ->where('orders.gender', '=', request('target_gender'))
+                ->where('orders.gender', '=', $target_gender)
                 ->groupBy('product_id');
                 $mainQuery->joinSub($genderSQL, 'gender_counts', 'products.id', 'gender_counts.product_id')->orderBy('gender_count_raw', 'desc');
             }
         }
 
-        if (request('target_generation_id')) {
+        if ($target_generation_id) {
             $generationSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
             ->select('product_id', DB::raw('count(*) as generation_count_raw'))
-            ->where('orders.generation_id', '=', request('target_generation_id'))
+            ->where('orders.generation_id', '=', $target_generation_id)
             ->groupBy('product_id');
             $mainQuery->joinSub($generationSQL, 'generation_counts', 'products.id', 'generation_counts.product_id')->orderBy('generation_count_raw', 'desc');
         }
 
-        $results=$mainQuery->paginate(10);
+        if($limit){
+            $results=$mainQuery->limit($limit)->get();
+        }else{
+            $results=$mainQuery->paginate(10);
+        }
 
-        $param=[
-        'results'=>$results,
-        'keyword'=>request('keyword'),
-        'target_gender'=>request('target_gender'),
-        'target_genre_id'=>request('target_genre_id'),
-        'target_generation_id'=>request('target_generation_id'),
-        'target_scene_id'=>request('target_scene_id'),
-        'target_relationship_id'=>request('target_relationship_id'),
-        ];
-        return $param;
+        return $results;
     }
 
     public static function get_simpson($target,$comparator){

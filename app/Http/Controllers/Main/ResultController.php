@@ -19,8 +19,8 @@ class ResultController extends Controller
         $genres=Genre::all();
         $relationships=Relationship::all();
         $generations=Generation::all();
-        $param=BaseClass::searchProducts();
-        $param2=['scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
-        return view('main.result',$param,$param2);
+        $results=BaseClass::searchProducts(Request('keyword'),Request('target_scene_id'),Request('target_genre_id'),Request('target_relationship_id'),Request('target_gender'),Request('target_generation_id'));
+        $param=['results'=>$results,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
+        return view('main.result',$param);
     }
 }

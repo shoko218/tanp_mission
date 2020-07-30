@@ -17,9 +17,9 @@
     @include('components.search_form')
 </section>
 <section class="popularity_rank">
-    <h2>父の日のプレゼントランキング</h2>
+    <h2>人気プレゼントランキング</h2>
     <div class="rc_cards">
-        @foreach ($seasonRanks as $item)
+        @foreach ($popularityRanks as $item)
         @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
         @endforeach
     </div>
@@ -28,9 +28,9 @@
     </div>
 </section>
 <section class="popularity_rank">
-    <h2>人気プレゼントランキング</h2>
+    <h2>グルメプレゼントランキング</h2>
     <div class="rc_cards">
-        @foreach ($popularityRanks as $item)
+        @foreach ($seasonRanks as $item)
         @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
         @endforeach
     </div>
