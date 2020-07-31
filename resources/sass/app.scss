@@ -39,7 +39,7 @@ $normal_fz:1.4rem;
 $small_fz:1.2rem;
 
 $form_wsz:85%;
-$form_mxwsz:34rem;
+$form_mxwsz:28rem;
 
 $input_fz:1.6rem;
 $input_hsz:3.6rem;
@@ -586,7 +586,7 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-#order_history,#cart,#reminder,#lover,#event_register,#gift_history,#lovers_register,#fillin_info,#payment{
+#order_history,#cart,#reminder,#lover,#event_register,#gift_history,#lovers_register,#fillin_info,#payment,#result_notfound{
     padding: $std_py $std_px;
     h1{
         text-align: center;
@@ -612,7 +612,7 @@ section:last-of-type{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: $search_area_py $search_area_px;
+    padding: $search_area_py $search_area_px*2;
 
     &>h1{
         margin-bottom: $search_area_py;
@@ -629,13 +629,21 @@ section:last-of-type{
     border-radius: $search_bar_hsz;
     padding: $search_bar_py $search_bar_px $search_bar_py ($search_bar_hsz - $search_bar_py*2)+$search_bar_py*2;
     font-size: $search_bar_hsz - $search_bar_py*2;
-    margin-bottom: $search_area_py;
+    margin-bottom: 3rem;
 }
 
 .search_form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+}
+
+.key_to_conditions_btn,.conditions_to_key_btn{
+    margin-bottom: $search_area_py;
+    border-radius: 0.4rem;
+    color: $font_c;
+    background-color: #eee;
 }
 
 .search_btn{
@@ -986,4 +994,14 @@ section:last-of-type{
     &>p{
         text-align: left;
     }
+}
+
+//notfoundリザルト画面///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+#result_notfound{
+    text-align: center;
 }

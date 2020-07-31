@@ -11033,7 +11033,7 @@ form {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  max-width: 34rem;
+  max-width: 28rem;
 }
 
 form > ul {
@@ -11476,7 +11476,8 @@ section:last-of-type {
 #gift_history,
 #lovers_register,
 #fillin_info,
-#payment {
+#payment,
+#result_notfound {
   padding: 3rem 1.6rem;
 }
 
@@ -11488,7 +11489,8 @@ section:last-of-type {
 #gift_history h1,
 #lovers_register h1,
 #fillin_info h1,
-#payment h1 {
+#payment h1,
+#result_notfound h1 {
   text-align: center;
 }
 
@@ -11504,7 +11506,7 @@ section:last-of-type {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
 }
 
 #search_area > h1 {
@@ -11521,13 +11523,22 @@ section:last-of-type {
   border-radius: 5.2rem;
   padding: 1.8rem 2rem 1.8rem 5.2rem;
   font-size: 1.6rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .search_form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+
+.key_to_conditions_btn,
+.conditions_to_key_btn {
+  margin-bottom: 2rem;
+  border-radius: 0.4rem;
+  color: #333333;
+  background-color: #eee;
 }
 
 .search_btn {
@@ -11832,5 +11843,9 @@ section:last-of-type {
 
 #payment > p {
   text-align: left;
+}
+
+#result_notfound {
+  text-align: center;
 }
 

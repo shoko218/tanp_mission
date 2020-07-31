@@ -36,6 +36,21 @@ window.onload = function onload(){
     var hb_menu=document.getElementById("hb_menu");
     var cover=document.getElementById("darker");
     var hb_btn_img=document.getElementById("hb_menu_btn_img");
+    var change_btn=document.getElementById("change_btn");
+    var target_scene_id=document.getElementById("target_scene_id");
+    var target_genre_id=document.getElementById("target_genre_id");
+    var target_relationship_id=document.getElementById("target_relationship_id");
+    var target_gender=document.getElementById("target_gender");
+    var target_generation_id=document.getElementById("target_generation_id");
+    var inputs=document.getElementById("inputs");
+    var search_bar=document.getElementById("search_bar");
+
+    if(change_btn.classList.contains("conditions_to_key_btn")){
+        search_bar.style.display ="none";
+    }else{
+        inputs.style.display ="none";
+    }
+
     $('html').removeClass('scroll-prevent');
     hb_btn.addEventListener("click", function() {
         if(hb_btn.classList.contains("open")){
@@ -58,5 +73,25 @@ window.onload = function onload(){
         cover.style.visibility="hidden";
         hb_btn_img.setAttribute('src','https://tanp_mission.jp/image/icons/menu.png');
         $('html').removeClass('scroll-prevent');
+    });
+
+    change_btn.addEventListener("click", function() {
+        if(change_btn.classList.contains("conditions_to_key_btn")){
+            change_btn.className = "key_to_conditions_btn";
+            inputs.style.display ="none";
+            search_bar.style.display ="block";
+            target_scene_id.selectedIndex=0;
+            target_genre_id.selectedIndex=0;
+            target_relationship_id.selectedIndex=0;
+            target_gender.selectedIndex=0;
+            target_generation_id.selectedIndex=0;
+            change_btn.innerHTML="条件検索にする"
+        }else{
+            change_btn.className = "conditions_to_key_btn";
+            inputs.style.display ="block";
+            search_bar.style.display ="none";
+            search_bar.value="";
+            change_btn.innerHTML="キーワード検索にする"
+        }
     });
 }

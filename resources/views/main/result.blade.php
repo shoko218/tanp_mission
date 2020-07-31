@@ -13,16 +13,21 @@
     <h1>検索結果</h1>
     @include('components.search_form')
 </section>
+@if (count($results))
 <section id="results">
     <div class="rc_cards">
-        @if ($results)
-        @foreach ($results as $result)
-            @include('components.product_card',['product_id'=>$result->id,'title'=>$result->name,'genre'=>$result->genre->name,'price'=>$result->price])
-        @endforeach
-        @endif
+    @foreach ($results as $result)
+        @include('components.product_card',['product_id'=>$result->id,'title'=>$result->name,'genre'=>$result->genre->name,'price'=>$result->price])
+    @endforeach
     </div>
     {{$results->appends(request()->input())->links()}}
 </section>
+@else
+<section id="result_notfound">
+    <h2>商品が見つかりませんでした。<br>他の検索条件をお試しください。</h2>
+</section>
+@endif
+
 @endsection
 
 @include('layouts.footer')
