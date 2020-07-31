@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="cart">
+    <section id="cart" class="normal_section">
         <h1>お買い物カゴ</h1>
         @if ($products!=null||$cart_goods!=null)
         <div id="orders">

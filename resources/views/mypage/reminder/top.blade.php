@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="reminder">
+    <section id="event_reminder" class="normal_section">
         <h1>イベントリマインダー</h1>
         <div id="events">
             @foreach ($events as $event)

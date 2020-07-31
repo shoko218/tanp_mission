@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-<section id="payment">
+<section id="payment" class="normal_section">
 <h1>ご注文情報の確認</h1>
 <div id="orders">
     <div id="od_cards">

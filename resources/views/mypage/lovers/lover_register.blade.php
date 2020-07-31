@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="lovers_register">
+    <section id="lovers_register" class="normal_section">
         @if ($errors->any())
             @include('components.errmsg')
         @endif

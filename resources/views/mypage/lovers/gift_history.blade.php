@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="gift_history">
+    <section id="gift_history" class="normal_section">
         <h1>{{ $name }}さんにいままであげたもの</h1>
         @if (!$order_logs->isEmpty())
         <div id="orders">

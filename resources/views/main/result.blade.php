@@ -23,7 +23,7 @@
     {{$results->appends(request()->input())->links()}}
 </section>
 @else
-<section id="result_notfound">
+<section id="result_notfound" class="normal_section">
     <h2>商品が見つかりませんでした。<br>他の検索条件をお試しください。</h2>
 </section>
 @endif

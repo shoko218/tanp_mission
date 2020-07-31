@@ -11468,29 +11468,11 @@ section:last-of-type {
   display: block;
 }
 
-#order_history,
-#cart,
-#reminder,
-#lover,
-#event_register,
-#gift_history,
-#lovers_register,
-#fillin_info,
-#payment,
-#result_notfound {
+.normal_section {
   padding: 3rem 1.6rem;
 }
 
-#order_history h1,
-#cart h1,
-#reminder h1,
-#lover h1,
-#event_register h1,
-#gift_history h1,
-#lovers_register h1,
-#fillin_info h1,
-#payment h1,
-#result_notfound h1 {
+.normal_section h1 {
   text-align: center;
 }
 

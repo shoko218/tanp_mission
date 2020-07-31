@@ -37,6 +37,7 @@ Route::prefix('/purchase')->group(function () {
     Route::get('/payment','Main\Purchase\PaymentController');
     Route::post('/payment_process','Main\Purchase\PaymentProcessController');
 });
+
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');
@@ -64,6 +65,10 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/register_info')->group(function () {
             Route::get('/top', 'MyPage\Register_info\TopController');
         });
+        Route::prefix('/original_catalogue')->group(function () {
+            Route::get('/top', 'MyPage\Original_catalogue\TopController');
+        });
     });
+
 });
 

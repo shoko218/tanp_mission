@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="lover">
+    <section id="lover" class="normal_section">
         <img src="{{ asset( 'image/lover_icons/noimage.png',true)}}" alt="{{ $name }}さん" id="lover_img">
         <p id="lover_name">{{ $name }}さん</p>
         <div class="lovers_btns">
