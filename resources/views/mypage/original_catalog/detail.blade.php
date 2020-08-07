@@ -13,7 +13,7 @@
     @include('components.msgs')
     <h1>{{ $catalog->name }}さんへの<br>オリジナルカタログ</h1>
     <p><img src="{{ asset( 'image/catalog_imgs/'.sprintf('%05d', $catalog->img_num).'.png',true)}}" alt="{{ $catalog->name }}さんへのギフトカタログのイメージ画像" class="oc_detail_img"></p>
-        {{-- @if ($catalog->did_send_mail)
+        @if ($catalog->did_send_mail)
             @if ($selected!=null)
                 <p class="reply">
                     {{ $catalog->name }}さんは<br><b>{{ $selected->name }}</b>がお好みのようです！
@@ -30,7 +30,7 @@
                     {{ $catalog->name }}さんからの返信は<br>まだ届いていません。
                 </p>
             @endif
-        @elseif(count($catalog->products)>1) --}}
+        @elseif(count($catalog->products)>1)
             <form action="send_process" method="post" id="send_mail">
                 @csrf
                 <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
@@ -38,7 +38,7 @@
             <div class="btns">
                 <button form="send_mail" onClick="return confirm('カタログをメールで送信します。\nカタログを送ると商品の変更はできなくなりますが、よろしいですか？');">カタログの中身を決定し、カタログを送る</button>
             </div>
-        {{-- @endif --}}
+        @endif
     <h2>商品一覧</h2>
     @if (count($catalog->products))
         <div class="oc_product_cards">
