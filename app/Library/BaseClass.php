@@ -67,27 +67,14 @@ class BaseClass{
         return $sum_price;
     }
 
-    public static function searchProducts($keyword,$target_scene_id,$target_genre_id,$target_relationship_id,$target_gender,$target_generation_id,$limit=null){
-        $sortBy="recomend";
+    public static function searchProducts($keyword,$target_scene_id,$target_genre_id,$target_relationship_id,$target_gender,$target_generation_id,$sort_by,$limit=null){
+        $condition_count=0;
         $countSQL=DB::table('order_logs')
         ->join('orders', 'order_id', '=', 'orders.id')
         ->select('product_id', DB::raw('sum(count) as count'))
         ->groupBy('product_id');
 
         $mainQuery = Product::leftJoinSub($countSQL, 'counts', 'products.id', 'counts.product_id')->select('products.*', 'counts.count as count');
-
-        switch ($sortBy) {
-            case 'new':
-                $mainQuery->orderBy('products.id', 'desc');
-                break;
-            case 'popular':
-                $mainQuery->orderBy('products.count', 'desc');
-                break;
-            case 'recomend':
-                break;
-            default:
-                break;
-            }
 
         if ($keyword) {
             $temps=explode(" ", $keyword);
@@ -110,6 +97,7 @@ class BaseClass{
                     $keywordSQL->orwhere('name', 'like', '%'.$keyword['upper'].'%');
                 }
             });
+            $condition_count++;
         }
 
         if ($target_scene_id) {
@@ -118,10 +106,12 @@ class BaseClass{
             ->where('orders.scene_id', '=', $target_scene_id)
             ->groupBy('product_id');
             $mainQuery->joinSub($sceneSQL, 'scene_counts', 'products.id', 'scene_counts.product_id')->orderBy('scene_count_raw', 'desc');
+            $condition_count++;
         }
 
         if ($target_genre_id) {
             $mainQuery->where('products.genre_id', '=', $target_genre_id);
+            $condition_count++;
         }
 
         if ($target_relationship_id) {
@@ -130,6 +120,7 @@ class BaseClass{
             ->where('orders.relationship_id', '=', $target_relationship_id)
             ->groupBy('product_id');
             $mainQuery->joinSub($relationshipSQL, 'relationship_counts', 'products.id', 'relationship_counts.product_id')->orderBy('relationship_count_raw', 'desc');
+            $condition_count++;
         }
 
         if ($target_gender) {
@@ -140,6 +131,7 @@ class BaseClass{
                 ->groupBy('product_id');
                 $mainQuery->joinSub($genderSQL, 'gender_counts', 'products.id', 'gender_counts.product_id')->orderBy('gender_count_raw', 'desc');
             }
+            $condition_count++;
         }
 
         if ($target_generation_id) {
@@ -148,6 +140,21 @@ class BaseClass{
             ->where('orders.generation_id', '=', $target_generation_id)
             ->groupBy('product_id');
             $mainQuery->joinSub($generationSQL, 'generation_counts', 'products.id', 'generation_counts.product_id')->orderBy('generation_count_raw', 'desc');
+            $condition_count++;
+        }
+
+        switch($sort_by){
+            case 0:
+                if($condition_count<2){
+                    $mainQuery->orderby('count','desc');
+                }
+                break;
+            case 1:
+                $mainQuery->orderby('count','desc');
+                break;
+            case 2:
+                $mainQuery->orderBy('products.id', 'desc');
+                break;
         }
 
         if($limit){

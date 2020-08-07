@@ -46,6 +46,14 @@
                 @endforeach
             </select>
         </li>
+        <li class="input_parts">
+            <label for="sort_by">並べ方</label>
+            <select name="sort_by" id="sort_by">
+                <option value="0"  @if(Request('sort_by')!=null&&Request('sort_by')==0)selected @endif>関連度の高い順</option>
+                <option value="1" @if(Request('sort_by')!=null&&Request('sort_by')==1)selected @endif>人気順</option>
+                <option value="2" @if(Request('sort_by')!=null&&Request('sort_by')==2)selected @endif>新着順</option>
+            </select>
+        </li>
     </ul>
     <input id="search_bar" type="text" class="search_bar" placeholder="検索したいワードを入力" name="keyword" @if(Request('keyword')!=null) value="{{ Request('keyword')}}" @endif>
     <div class="btns">
