@@ -7,7 +7,7 @@
             <p class="rc_price">¥{{ number_format($price) }}(+tax)</p>
         </div>
     </a>
-    <form action="/cart/out" class="cart_out_btn" method="POST">
+    <form action="/cart/out" class="remove_product_btn" method="POST">
         @csrf
         <input type="hidden" name="product_id" value="{{ $product_id }}">
         @if (Auth::check())

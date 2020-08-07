@@ -25,15 +25,24 @@
         <div id="product_explanation">
             <h1 class="product_name">{{ $product->name }}</h1>
             <h2 class="price">¥{{ number_format($product->price) }}(+tax)</h2>
-            <div class="btns">
-                <form action="cart/in" method="post">
+            <form action="/cart/in" method="post" id="cart_in">
+                @csrf
+                @if (Auth::check())
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                @endif
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
+            </form>
+            @if (Auth::check())
+                <form action="/mypage/original_catalog/select_which_catalog" method="post" id="catalog_in">
                     @csrf
-                    @if (Auth::check())
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    @endif
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button class="cart_btn">カートに入れる</button>
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
                 </form>
+            @endif
+            <div class="btns">
+                <button type="submit" form="cart_in" class="cart_btn">カートに入れる</button>
+                @if (Auth::check())
+                <button type="submit" form="catalog_in" class="catalog_in_btn">カタログに追加</button>
+                @endif
             </div>
             <p class="product_description">{{ $product->description }}</p>
         </div>

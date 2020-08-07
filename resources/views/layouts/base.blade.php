@@ -8,6 +8,7 @@
     <div id="wrapper">
         @yield('header')
         <div id="contents">
+            @include('components.errmsg')
             @yield('content')
         </div>
         @yield('footer')

@@ -37,6 +37,6 @@ class ProductController extends Controller
             }
         }
         $param=['product'=>$product,'is_fav'=>$is_fav,'is_in_cart'=>$is_in_cart];
-        return view('main.product',$param);
+        return view('main.product_detail',$param);
     }
 }

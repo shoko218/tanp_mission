@@ -9,6 +9,7 @@
 @include('layouts.header')
 
 @section('content')
+@include('components.msgs')
 <section id="slider">
     <img src="{{ asset( 'image/sliders/slider01.png',true)}}" alt="スライダー画像" id="slider_img">
 </section>

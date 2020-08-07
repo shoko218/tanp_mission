@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function lovers(){
         return $this->hasMany('App\Model\Lover');
     }
+
+    public function catalogs(){
+        return $this->hasMany('App\Model\Catalog');
+    }
 }

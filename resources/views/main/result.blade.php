@@ -15,7 +15,7 @@
 </section>
 @if (count($results))
 <section id="results">
-    <div class="rc_cards">
+    <div class="oc_cards">
     @foreach ($results as $result)
         @include('components.product_card',['product_id'=>$result->id,'title'=>$result->name,'genre'=>$result->genre->name,'price'=>$result->price])
     @endforeach

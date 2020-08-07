@@ -21,4 +21,8 @@ class Product extends Model
     public function order_logs(){
         return $this->hasMany('App\Model\Order_log');
     }
+
+    public function catalogs(){
+        return $this->belongsToMany('App\Model\Catalog');
+    }
 }

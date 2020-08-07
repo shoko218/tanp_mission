@@ -20,9 +20,14 @@ Auth::routes();
 Route::get('/', 'Main\IndexController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
+Route::get('/search', 'Main\SearchController');
 Route::post('/product/favorite', 'Main\ProductFavoriteController');
 Route::post('/product/unfavorite', 'Main\ProductUnfavoriteController');
 Route::get('/product', 'Main\ProductController');
+Route::get('/msg', 'Main\MsgController');
+Route::get('/select_product/{catalog_param}', 'Main\SelectProductController');
+Route::get('/select_product_detail', 'Main\SelectProductDetailController');
+Route::post('/select_product_process', 'Main\SelectProductProcessController');
 Route::prefix('/cart')->group(function () {
     Route::get('/', 'Main\Cart\CartController');
     Route::post('/in', 'Main\Cart\CartInController');
@@ -65,8 +70,17 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/register_info')->group(function () {
             Route::get('/top', 'MyPage\Register_info\TopController');
         });
-        Route::prefix('/original_catalogue')->group(function () {
-            Route::get('/top', 'MyPage\Original_catalogue\TopController');
+        Route::prefix('/original_catalog')->group(function () {
+            Route::get('/top', 'MyPage\Original_catalog\TopController');
+            Route::get('/detail', 'MyPage\Original_catalog\GetDetailController');
+            Route::post('/detail', 'MyPage\Original_catalog\DetailController');
+            Route::get('/make', 'MyPage\Original_catalog\MakeController');
+            Route::post('/make_process', 'MyPage\Original_catalog\MakeProcessController');
+            Route::get('/select_which_catalog', 'MyPage\Original_catalog\SelectCatalogController');
+            Route::post('/select_which_catalog', 'MyPage\Original_catalog\SelectCatalogController');
+            Route::post('/add_process', 'MyPage\Original_catalog\AddProcessController');
+            Route::post('/remove_process', 'MyPage\Original_catalog\RemoveProcessController');
+            Route::post('/send_process', 'MyPage\Original_catalog\SendProcessController');
         });
     });
 

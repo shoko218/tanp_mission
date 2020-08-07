@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-    オリジナルカタログ
+検索
 @endsection
 
 @include('layouts.head')
@@ -9,8 +9,9 @@
 @include('layouts.header')
 
 @section('content')
-<section id="reminder" class="normal_section">
-    <h1>オリジナルカタログリスト</h1>
+<section id="conditions">
+    <h1>検索</h1>
+    @include('components.search_form')
 </section>
 @endsection
 
