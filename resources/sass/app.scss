@@ -43,8 +43,8 @@ $form_mxwsz:28rem;
 
 $input_fz:1.6rem;
 $input_hsz:3.6rem;
-$input_py:($input_hsz - $input_fz)/2;
-$input_px:$input_py;
+$input_py:($input_hsz - $input_fz)/4;
+$input_px:$input_py*2;
 $input_rsz:0.6rem;
 
 $form_parts_my:2rem;
@@ -174,13 +174,12 @@ form{
     width: $form_wsz;
 }
 
-input,select{
+input,select,textarea{
     border:1px solid $area_border_c;
     background:white;
     width: 100%;
-    height: $input_hsz;
     border-radius: $input_rsz;
-    padding: 0 $input_px;
+    padding: $input_py $input_px;
     font-size: $input_fz;
 }
 
@@ -1057,11 +1056,11 @@ section:last-of-type{
 }
 
 #original_catalog{
+    text-align: center;
     & .btns{
         margin-bottom: 4rem;
     }
     & h2{
-        text-align: center;
         margin-bottom: 2rem;
     }
 }

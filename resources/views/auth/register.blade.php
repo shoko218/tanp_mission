@@ -72,7 +72,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="address">住所(市町村以下)</label>
-                    <input id="address" type="text" name="address" value="{{ old('address') }}" placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室">
+                    <textarea id="address" type="text" name="address" value="{{ old('address') }}" placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室" rows="2"></textarea>
                 </li>
                 <li class="input_parts">
                     <label for="telephone">電話番号(ハイフン抜き)</label>
