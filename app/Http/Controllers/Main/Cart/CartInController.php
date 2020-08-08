@@ -17,7 +17,7 @@ class CartInController extends Controller
             if($target=Cart::select('id')->where('user_id','=',$user_id)->where('product_id','=',$request->product_id)->first()){
                 $target->update(['count'=>$target->count+1]);
             }else{
-                $cart=Cart::create(['user_id'=>$request->user_id,'product_id'=>$request->product_id,'count']);
+                Cart::create(['user_id'=>$user_id,'product_id'=>$request->product_id,'count']);
             }
         }else{
             $product_ids=Cookie::get('cart_product_ids');
