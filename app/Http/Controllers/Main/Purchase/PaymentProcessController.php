@@ -19,7 +19,7 @@ class PaymentProcessController extends Controller
 {
     public function __invoke(Request $request){
         Stripe::setApiKey(config('constant.sec_key'));
-        $charge = Charge::create(array(
+        Charge::create(array(
              'amount' => $request->sum_price,
              'currency' => 'jpy',
              'source'=> request()->stripeToken,
