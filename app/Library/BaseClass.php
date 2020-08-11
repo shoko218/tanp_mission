@@ -16,6 +16,7 @@ class BaseClass{
         $cart_goods=Cart::join('products','products.id','=','product_id')
             ->select(DB::raw('carts.*'))
             ->where('user_id','=',$user_id)
+            ->orderBy('id','desc')
             ->get();
         return $cart_goods;
     }
@@ -29,7 +30,7 @@ class BaseClass{
             $product=Product::select(DB::raw('products.*'))
             ->where('id','=',$product_notdup_id)
             ->first();
-            $products->push($product);
+            $products->prepend($product);
         }
         foreach ($product_notdup_ids as $product_notdup_id) {
             $temp_count=0;
@@ -38,7 +39,7 @@ class BaseClass{
                     $temp_count++;
                 }
             }
-            $product_count[]=$temp_count;
+            array_unshift($product_count,$temp_count);
         }
         return array($products,$product_count);
     }
