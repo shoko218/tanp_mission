@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Cookie;
+use App\Library\BaseClass;
+use App\Model\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -36,5 +40,19 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated(\Illuminate\Http\Request $request, $user)
+    {
+        if(Cookie::get('cart_product_ids')!=null){
+            list($products,$product_count)=BaseClass::getProductsFromCookie();
+            $user_id=Auth::user()->id;
+            for ($i=0; $i < count($products); $i++) {
+                Cart::create(['user_id'=>$user_id,'product_id'=>$products[$i]->id,'count'=>$product_count[$i]]);
+            }
+            $product_ids='';
+            Cookie::queue('cart_product_ids', $product_ids,0);
+        }
+        return redirect()->intended($this->redirectPath());
     }
 }
