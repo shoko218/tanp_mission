@@ -16,7 +16,7 @@
 @include('layouts.header')
 
 @section('content')
-<section id="fillin_info">
+<section id="fillin_info" class="normal_section">
     <h1>お届け先の情報</h1>
     <p><span class="form_requires">*</span>は必須項目です</p>
         <form method="POST" action="/purchase/register_to_session" class="input_form">
