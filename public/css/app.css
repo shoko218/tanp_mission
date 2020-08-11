@@ -11547,6 +11547,38 @@ section:last-of-type {
   margin-bottom: 3rem;
 }
 
+#random_recommend {
+  padding: 3rem 1.6rem;
+}
+
+#random_recommend h2 {
+  margin-bottom: 1rem;
+}
+
+#random_recommend .comment {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+#random_recommend .description {
+  float: left;
+}
+
+#random_recommend .reload_btn {
+  float: right;
+}
+
+#random_recommend .fa-sync-alt {
+  font-size: 2rem;
+  color: #ff9999;
+}
+
+#random_recommend .product_card {
+  clear: right;
+  clear: left;
+  border-top: 0.1rem solid #cccccc;
+}
+
 #login {
   display: flex;
   flex-direction: column;

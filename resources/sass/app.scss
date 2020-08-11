@@ -668,7 +668,31 @@ section:last-of-type{
     }
 }
 
-
+#random_recommend{
+    padding: $std_py $std_px;
+    h2{
+        margin-bottom: 1rem;
+    }
+    .comment{
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    .description{
+        float: left;
+    }
+    .reload_btn{
+        float: right;
+    }
+    .fa-sync-alt{
+        font-size: 2rem;
+        color: $main_color;
+    }
+    .product_card{
+        clear: right;
+        clear: left;
+        border-top: 0.1rem solid $area_border_c;
+    }
+}
 
 
 //↓ログイン///////////////////////////////////////////////

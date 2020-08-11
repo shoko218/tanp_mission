@@ -23,12 +23,14 @@ class IndexController extends Controller
 
         $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);
 
+        $rand_product=Product::where('id','=',rand(1,Product::count()))->first();
+
         $scenes=Scene::all();
         $genres=Genre::all();
         $relationships=Relationship::all();
         $generations=Generation::all();
 
-        $param=['popularityRanks'=>$popularityRanks,'seasonRanks'=>$seasonRanks,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
+        $param=['popularityRanks'=>$popularityRanks,'seasonRanks'=>$seasonRanks,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations,'rand_product'=>$rand_product];
 
         return view('main.index',$param);
     }
