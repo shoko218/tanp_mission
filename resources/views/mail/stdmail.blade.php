@@ -163,7 +163,7 @@
             <!-- Hero Image, Flush : BEGIN -->
             <tr>
 				<td>
-					<img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path('image/catalog_imgs/'.sprintf('%05d', $catalog->img_num).'.png')))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
+					<img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path($img_path)))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
 				</td>
             </tr>
             <!-- Hero Image, Flush : END -->
@@ -171,13 +171,13 @@
             <!-- 1 Column Text : BEGIN -->
             <tr>
                 <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-                    {{ $catalog->user->last_name.$catalog->user->first_name }}様より{{ $catalog->name }}様専用のカタログをお届けに参りました。<br>お好きな商品をお選びください。
+                    {!! nl2br(e($msg)) !!}
                     <br><br>
                     <!-- Button : Begin -->
                     <table cellspacing="0" cellpadding="0" border="0" align="center" style="Margin: auto">
                         <tr>
                             <td style="border-radius: 3px; background: #ff9999; text-align: center;" class="button-td">
-                                <a href="http://tanp_mission.jp/select_product/{{ $catalog->url_str }}" style="background: #ff9999; border: 15px solid #ff9999; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
+                                <a href="{{ $link_path }}" style="background: #ff9999; border: 15px solid #ff9999; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffffff">選びに行く</span>&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </td>

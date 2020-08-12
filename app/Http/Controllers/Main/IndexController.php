@@ -13,12 +13,13 @@ use App\Model\Scene;
 use App\Library\BaseClass;
 use App\User;
 use DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PremiumFridayMail;
 
 class IndexController extends Controller
 {
     public function __invoke()
     {
-
         $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,null,1,3);
 
         $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);

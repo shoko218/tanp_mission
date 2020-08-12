@@ -32,10 +32,9 @@ class CatalogMail extends Mailable
     public function build()
     {
         return $this
-          ->from('shoko4prog@gmail.com') // 送信元
-          ->subject('tanp_missionよりカタログのお届け') // メールタイトル
-          ->view('mail.catalog') // メール本文のテンプレート
-          ->with(['catalog' => $this->catalog]);  // withでセットしたデータをviewへ渡す
-        return $this->view('view.name');
+          ->from('shoko4prog@gmail.com')
+          ->subject('tanp_missionよりカタログのお届けです')
+          ->view('mail.stdmail')
+          ->with(['img_path' => 'image/catalog_imgs/'.sprintf('%05d', $this->catalog->img_num).'.png','msg' => $this->catalog->user->last_name.$this->catalog->user->first_name."様より".$this->catalog->name."様専用のカタログをお届けに参りました。\nお好きな商品をお選びください。",'link_path' => "http://tanp_mission.jp/select_product/".$this->catalog->url_str]);
     }
 }
