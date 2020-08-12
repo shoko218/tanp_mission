@@ -14,7 +14,8 @@ class CartInController extends Controller
     {
         if(Auth::check()){
             $user_id=Auth::user()->id;
-            if($target=Cart::select('id')->where('user_id','=',$user_id)->where('product_id','=',$request->product_id)->first()){
+            $target=Cart::where('user_id','=',$user_id)->where('product_id','=',$request->product_id)->first();
+            if(!empty($target)){
                 $target->update(['count'=>$target->count+1]);
             }else{
                 Cart::create(['user_id'=>$user_id,'product_id'=>$request->product_id,'count']);
