@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('send-pf-mail')->fridays()->when(date("m",strtotime("+7 day"))!=date("m"))->at('12:00');
+        $schedule->command('send-ub-mail')->dailyAt('10:00');
     }
 
     /**
