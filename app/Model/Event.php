@@ -13,6 +13,7 @@ class Event extends Model
         'title'=>['required','string','max:30'],
         'scene_id'=>['required','integer'],
         'date'=>['required','date'],
+        'is_repeat'=>['required','boolean'],
     );
 
     public function lover(){

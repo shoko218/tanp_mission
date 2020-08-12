@@ -13,7 +13,7 @@
         <h1>イベントリマインダー</h1>
         <div id="events">
             @foreach ($events as $event)
-            @include('components.event_card',['date'=>$event->date,'name'=>$event->lover->last_name.$event->lover->first_name,'scene'=>$event->scene->name,'title'=>$event->title,'id'=>$event->id,'order'=>$loop->index])
+            @include('components.event_card',['date'=>$event->date,'name'=>$event->lover->last_name.$event->lover->first_name,'title'=>$event->title,'id'=>$event->id,'order'=>$loop->index])
             @endforeach
         </div>
         <div class="btns">

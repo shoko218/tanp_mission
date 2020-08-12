@@ -1,8 +1,8 @@
-<form method="post" name="form" action="/mypage/lovers/lover" class="lover_card">
+<form method="post" name="form{{ $order }}" action="/mypage/lovers/lover" class="lover_card">
     @csrf
         <input type="hidden" name="id" value="{{ $id }}">
         <input type="hidden" name="name" value="{{ $name }}">
-        <a href="javascript:form[{{ $order }}].submit()">
+        <a href="javascript:form{{ $order }}.submit()">
             <img src="{{ asset( 'image/lover_icons/noimage.png',true)}}" alt="{{ $name }}" class="lover_card_img">
             <div class="lover_detail">
                 <p class="lv_name">{{ $name }} さん</p>

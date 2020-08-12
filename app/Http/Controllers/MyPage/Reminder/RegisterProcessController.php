@@ -11,7 +11,7 @@ class RegisterProcessController extends Controller
     public function __invoke(Request $request)
     {
         $this->validate($request,Event::$rules);
-        $event = Event::create(['lover_id'=>$request->lover_id,'title'=>$request->title,'scene_id'=>$request->scene_id,'date'=>$request->date]);
+        $event = Event::create(['lover_id'=>$request->lover_id,'title'=>$request->title,'scene_id'=>$request->scene_id,'date'=>$request->date,'is_repeat'=>$request->is_repeat]);
         return redirect('/mypage/reminder/top');
     }
 }

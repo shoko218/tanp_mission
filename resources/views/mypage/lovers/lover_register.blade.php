@@ -59,7 +59,7 @@
                     <input id="postal_code" type="text" name="postal_code" value="{{ old('postal_code') }}" placeholder="xxxxxxx">
                 </li>
                 <li class="input_parts">
-                    <label for="prefecture_id">都道府県<span class="form_requires">*</span>/label>
+                    <label for="prefecture_id">都道府県<span class="form_requires">*</span></label>
                     <select name="prefecture_id" id="prefecture_id">
                         <option value="" selected>選択してください</option>
                         @foreach ($prefectures as $pref)
