@@ -48,7 +48,12 @@ class LoginController extends Controller
             list($products,$product_count)=BaseClass::getProductsFromCookie();
             $user_id=Auth::user()->id;
             for ($i=0; $i < count($products); $i++) {
-                Cart::create(['user_id'=>$user_id,'product_id'=>$products[$i]->id,'count'=>$product_count[$i]]);
+                $cart_product=Cart::where('user_id','=',$user_id)->where('product_id','=',$products[$i]->id)->first();
+                if(empty($cart_product)){
+                    Cart::create(['user_id'=>$user_id,'product_id'=>$products[$i]->id,'count'=>$product_count[$i]]);
+                }else{
+                    $cart_product->update(['count'=>$cart_product->count+$product_count[$i]]);
+                }
             }
             $product_ids='';
             Cookie::queue('cart_product_ids', $product_ids,0);
