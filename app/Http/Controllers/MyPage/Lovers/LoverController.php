@@ -12,8 +12,7 @@ class LoverController extends Controller
 {
     public function __invoke(Request $request)
     {
-        ;
-        if(Order_log::join('orders','orders.id','=','order_id')->select('orders.id')->where('lover_id','=','$request->id')->first()){
+        if(Order_log::join('orders','orders.id','=','order_id')->select('orders.id')->where('lover_id','=',$request->id)->first()){
             $products=BaseClass::get_reccomends($request->id);
         }else{
             $products=null;

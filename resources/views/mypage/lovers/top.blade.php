@@ -10,6 +10,7 @@
 
 @section('content')
     <section id="lovers_list" class="normal_section">
+        @include('components.msgs')
         <h1>大切な人リスト</h1>
         <div id="lovers">
             @foreach ($lovers as $lover)

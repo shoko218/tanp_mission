@@ -13,7 +13,11 @@
         <img src="{{ asset( 'image/lover_icons/noimage.png',true)}}" alt="{{ $name }}さん" id="lover_img">
         <p id="lover_name">{{ $name }}さん</p>
         <div class="lovers_btns">
-            <button onclick="location.href='/mypage/reminder/register'">イベント登録+</button>
+            <form method="post" name="register_event_form" id="register_event_form" action="/mypage/reminder/register">
+                @csrf
+                <input type="hidden" name="lover_id" value="{{ $id }}">
+            </form>
+            <button type="submit" form="register_event_form">イベント登録+</button>
             <form action="/mypage/lovers/gift_history" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $id }}">
@@ -21,6 +25,11 @@
                 <button type="submit">今まであげたもの</button>
             </form>
         </div>
+        <form method="post" name="delete_form" id="delete_form" action="/mypage/lovers/delete_process">
+            @csrf
+            <input type="hidden" name="lover_id" value="{{ $id }}">
+        </form>
+        <p class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('大切な人リストから削除します。\nよろしいですか？');">大切な人リストから削除する</a></p>
     </section>
     @if ($products!=null)
     <section class="recommend_rank">

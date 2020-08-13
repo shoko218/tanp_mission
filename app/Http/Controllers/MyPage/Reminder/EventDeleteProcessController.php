@@ -11,6 +11,6 @@ class EventDeleteProcessController extends Controller
 {
     public function __invoke(Request $request){
         Event::find($request->event_id)->delete();
-        return redirect('mypage/reminder/top')->with('suc_msg','削除しました。');;
+        return redirect('mypage/reminder/top')->with('suc_msg','削除しました。');
     }
 }

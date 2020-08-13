@@ -11815,6 +11815,11 @@ section:last-of-type {
   margin-bottom: 1.5rem;
 }
 
+#lover .submit_a {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
 #event_register {
   display: flex;
   flex-direction: column;
