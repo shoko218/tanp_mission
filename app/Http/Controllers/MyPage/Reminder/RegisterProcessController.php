@@ -12,7 +12,7 @@ class RegisterProcessController extends Controller
     {
         $this->validate($request,Event::$rules);
         $event = Event::create(['lover_id'=>$request->lover_id,'title'=>$request->title,'scene_id'=>$request->scene_id,'date'=>$request->date,'is_repeat'=>$request->is_repeat]);
-        return redirect('/mypage/reminder/top');
+        return redirect('/mypage/reminder/top')->with('suc_msg','登録しました。');
     }
 }
 

@@ -58,8 +58,10 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/register', 'MyPage\Reminder\PostRegisterController');
             Route::post('/register_process','MyPage\Reminder\RegisterProcessController');
             Route::post('/detail', 'MyPage\Reminder\DetailController');
-            Route::get('/detail', function(){return redirect('/mypage/reminder/top');});
+            Route::get('/detail', 'MyPage\Reminder\GetDetailController');
             Route::post('/delete_process','MyPage\Reminder\EventDeleteProcessController');
+            Route::post('/edit', 'MyPage\Reminder\EditController');
+            Route::post('/edit_process', 'MyPage\Reminder\EditProcessController');
         });
         Route::prefix('/lovers')->group(function () {
             Route::get('/top', 'MyPage\Lovers\TopController');
