@@ -992,14 +992,14 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-#reminder_detail_{
-    &img{
+#reminder_detail{
+    &_img{
         width: 100%;
     }
-    &explanation{
+    &_explanation{
         padding: $std_py $std_px;
         text-align: center;
-        &>p{
+        & p{
             font-size: 1.8rem;
             margin-bottom: $std_my;
         }
@@ -1007,6 +1007,10 @@ section:last-of-type{
             & span{
                 font-size: 150%;
             }
+        }
+         .submit_a{
+            margin-top: 2rem;
+            margin-bottom: 0;
         }
     }
 }

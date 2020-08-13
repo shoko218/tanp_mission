@@ -11846,13 +11846,18 @@ section:last-of-type {
   text-align: center;
 }
 
-#reminder_detail_explanation > p {
+#reminder_detail_explanation p {
   font-size: 1.8rem;
   margin-bottom: 3rem;
 }
 
 #reminder_detail_explanation_title span {
   font-size: 150%;
+}
+
+#reminder_detail_explanation .submit_a {
+  margin-top: 2rem;
+  margin-bottom: 0;
 }
 
 #fillin_info {

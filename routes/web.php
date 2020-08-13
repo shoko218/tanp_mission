@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/register_process','MyPage\Reminder\RegisterProcessController');
             Route::post('/detail', 'MyPage\Reminder\DetailController');
             Route::get('/detail', function(){return redirect('/mypage/reminder/top');});
+            Route::post('/delete_process','MyPage\Reminder\EventDeleteProcessController');
         });
         Route::prefix('/lovers')->group(function () {
             Route::get('/top', 'MyPage\Lovers\TopController');
@@ -72,8 +73,8 @@ Route::middleware(['auth'])->group(function () {
         });
         Route::prefix('/original_catalog')->group(function () {
             Route::get('/top', 'MyPage\Original_catalog\TopController');
-            Route::get('/detail', 'MyPage\Original_catalog\GetDetailController');
             Route::post('/detail', 'MyPage\Original_catalog\DetailController');
+            Route::get('/detail', 'MyPage\Original_catalog\GetDetailController');
             Route::get('/make', 'MyPage\Original_catalog\MakeController');
             Route::post('/make_process', 'MyPage\Original_catalog\MakeProcessController');
             Route::get('/select_which_catalog', 'MyPage\Original_catalog\SelectCatalogController');

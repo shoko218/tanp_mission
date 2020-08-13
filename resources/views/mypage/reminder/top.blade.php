@@ -10,6 +10,7 @@
 
 @section('content')
     <section id="event_reminder" class="normal_section">
+        @include('components.msgs')
         <h1>イベントリマインダー</h1>
         <div id="events">
             @foreach ($events as $event)
