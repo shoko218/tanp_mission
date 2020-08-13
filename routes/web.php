@@ -88,6 +88,9 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/add_process', 'MyPage\Original_catalog\AddProcessController');
             Route::post('/remove_process', 'MyPage\Original_catalog\RemoveProcessController');
             Route::post('/send_process', 'MyPage\Original_catalog\SendProcessController');
+            Route::post('/edit', 'MyPage\Original_catalog\EditController');
+            Route::post('/edit_process', 'MyPage\Original_catalog\EditProcessController');
+            Route::post('/delete_process','MyPage\Original_catalog\DeleteProcessController');
         });
     });
 

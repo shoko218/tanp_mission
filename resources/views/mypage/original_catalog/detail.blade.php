@@ -53,6 +53,18 @@
     @else
         @include('components.nothing_msgs')
     @endif
+    @if(!$catalog->did_send_mail)
+        <form method="post" name="edit_form" id="edit_form" action="/mypage/original_catalog/edit">
+            @csrf
+            <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
+        </form>
+        <p class="submit_a"><a href="javascript:edit_form.submit()">このイベントを編集する</a></p>
+        <form method="post" name="delete_form" id="delete_form" action="/mypage/original_catalog/delete_process">
+            @csrf
+            <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
+        </form>
+        <p class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('このイベントを削除します。\nよろしいですか？');">このイベントを削除する</a></p>
+    @endif
 </section>
 @endsection
 

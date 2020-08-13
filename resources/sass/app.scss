@@ -580,6 +580,7 @@ section:last-of-type{
     & button{
         min-width: 0;
     }
+    text-align: left;
 }
 
 //↑スタンダード設定////////////////////////////////////////////////
@@ -1116,6 +1117,11 @@ section:last-of-type{
     .nothing_msgs{
         border-top: 0.1rem solid $area_border_c;
         padding-top: $std_my;
+    }
+    .submit_a{
+        margin-top: 2rem;
+        margin-bottom: 0;
+        text-align: center;
     }
 }
 

@@ -11474,6 +11474,7 @@ section:last-of-type {
   font-size: 1.6rem;
   margin-bottom: 2rem;
   width: 100%;
+  text-align: left;
 }
 
 .msg_box button {
@@ -11951,6 +11952,12 @@ section:last-of-type {
 #original_catalog_detail .nothing_msgs {
   border-top: 0.1rem solid #cccccc;
   padding-top: 3rem;
+}
+
+#original_catalog_detail .submit_a {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 #select_product h2 {
