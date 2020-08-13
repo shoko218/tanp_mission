@@ -23,7 +23,7 @@
                     <select id="lover_id" name="lover_id" required>
                         <option disabled selected value>選択してください</option>
                         @foreach ($lovers as $lover)
-                        <option value="{{ $lover->id }}" @if(old('lover_id')==$lover->id) selected @endif>{{ $lover->last_name.$lover->first_name }}</option>
+                        <option value="{{ $lover->id }}" @if(session('selected_lover_id')==$lover->id) selected @elseif(old('lover_id')==$lover->id) selected @endif>{{ $lover->last_name.$lover->first_name }}</option>
                         @endforeach
                     </select>
                     <a href="/mypage/lovers/register">お相手のご登録がお済みでない方はこちら</a>

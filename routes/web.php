@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/reminder')->group(function () {
             Route::get('/top', 'MyPage\Reminder\TopController');
             Route::get('/register', 'MyPage\Reminder\RegisterController');
+            Route::post('/register', 'MyPage\Reminder\PostRegisterController');
             Route::post('/register_process','MyPage\Reminder\RegisterProcessController');
             Route::post('/detail', 'MyPage\Reminder\DetailController');
             Route::get('/detail', function(){return redirect('/mypage/reminder/top');});
@@ -67,6 +68,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
             Route::post('/register_process','MyPage\Lovers\RegisterProcessController');
+            Route::post('/delete_process','MyPage\Lovers\LoverDeleteProcessController');
         });
         Route::prefix('/register_info')->group(function () {
             Route::get('/top', 'MyPage\Register_info\TopController');
