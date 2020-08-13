@@ -11473,6 +11473,7 @@ section:last-of-type {
 .msg_box {
   font-size: 1.6rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .msg_box button {

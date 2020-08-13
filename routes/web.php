@@ -64,10 +64,12 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/lovers')->group(function () {
             Route::get('/top', 'MyPage\Lovers\TopController');
             Route::post('/lover', 'MyPage\Lovers\LoverController');
-            Route::get('/lover', function(){return redirect('/mypage/lovers/top');});
+            Route::get('/lover', 'MyPage\Lovers\GetLoverController');
             Route::post('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
             Route::post('/register_process','MyPage\Lovers\RegisterProcessController');
+            Route::post('/edit', 'MyPage\Lovers\EditController');
+            Route::post('/edit_process','MyPage\Lovers\EditProcessController');
             Route::post('/delete_process','MyPage\Lovers\LoverDeleteProcessController');
         });
         Route::prefix('/register_info')->group(function () {

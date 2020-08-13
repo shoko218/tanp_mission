@@ -10,6 +10,7 @@
 
 @section('content')
     <section id="lover" class="normal_section">
+        @include('components.msgs')
         <img src="{{ asset( 'image/lover_icons/noimage.png',true)}}" alt="{{ $name }}さん" id="lover_img">
         <p id="lover_name">{{ $name }}さん</p>
         <div class="lovers_btns">
@@ -25,6 +26,11 @@
                 <button type="submit">今まであげたもの</button>
             </form>
         </div>
+        <form method="post" name="edit_form" id="edit_form" action="/mypage/lovers/edit">
+            @csrf
+            <input type="hidden" name="lover_id" value="{{ $id }}">
+        </form>
+        <p class="submit_a"><a href="javascript:edit_form.submit()">登録情報を確認・編集する</a></p>
         <form method="post" name="delete_form" id="delete_form" action="/mypage/lovers/delete_process">
             @csrf
             <input type="hidden" name="lover_id" value="{{ $id }}">
