@@ -102,6 +102,6 @@ class PaymentProcessController extends Controller
             $product_ids='';
             Cookie::queue('cart_product_ids', $product_ids,0);
         }
-        return redirect('/');
+        return redirect('/msg')->with('title','購入完了')->with('msg','購入が完了しました。');
     }
 }
