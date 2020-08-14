@@ -160,30 +160,25 @@
         <!-- Email Body : BEGIN -->
         <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="600" style="margin: auto;" class="email-container">
 
-            <!-- Hero Image, Flush : BEGIN -->
-            <tr>
-				<td>
-					<img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path($)))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
-				</td>
-            </tr>
-            <!-- Hero Image, Flush : END -->
 
             <!-- 1 Column Text : BEGIN -->
             <tr>
                 <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-					{{  }}
+                    下記のURLをクリックして新しいメールアドレスを確定してください。
                     <br><br>
                     <!-- Button : Begin -->
                     <table cellspacing="0" cellpadding="0" border="0" align="center" style="Margin: auto">
                         <tr>
                             <td style="border-radius: 3px; background: #ff9999; text-align: center;" class="button-td">
-                                <a href="{{  }}" style="background: #ff9999; border: 15px solid #ff9999; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffffff">選びに行く</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="{{ $actionUrl }}" style="background: #ff9999; border: 15px solid #ff9999; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffffff">メールアドレス変更</span>&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </td>
                         </tr>
                     </table>
                     <!-- Button : END -->
+                    <br><br>
+                    <span style="font-size: 10px;">※URLの有効期限は一時間以内です。有効期限が切れた場合は、お手数ですがもう一度最初からお手続きを行ってください。<br>※このメールに覚えのない場合には、お手数ですがメールを破棄してくださいますようお願いいたします。</span>
                 </td>
             </tr>
         </table>
@@ -202,4 +197,3 @@
     </center>
 </body>
 </html>
-
