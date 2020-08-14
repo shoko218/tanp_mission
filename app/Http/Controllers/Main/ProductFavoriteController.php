@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Favorite;
 
 class ProductFavoriteController extends Controller
 {
