@@ -583,6 +583,10 @@ section:last-of-type{
     text-align: left;
 }
 
+.submit_a{
+    text-decoration: underline;
+}
+
 //↑スタンダード設定////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -1145,5 +1149,50 @@ section:last-of-type{
 #select_product_detail{
     & .btns{
         margin:1rem 0 $std_my ;
+    }
+}
+
+//登録情報画面///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+#register_info{
+    .submit_a{
+        text-align: center;
+        margin-top: 1rem;
+        >a{
+            font-size: 1.8rem;
+        }
+    }
+    table{
+        margin: 0 auto;
+        th{
+            width: 35%;
+            font-size: 1.6rem;
+        }
+        td{
+            font-size: 1.6rem;
+        }
+    }
+}
+
+
+.go_other_page{
+    >a{
+        text-decoration: underline;
+    }
+}
+
+
+#update_email{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .btns{
+        margin-bottom: $std_my;
+        &>button{
+            width: $btn_wsz;
+        }
     }
 }

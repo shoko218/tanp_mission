@@ -76,6 +76,14 @@ Route::middleware(['auth'])->group(function () {
         });
         Route::prefix('/register_info')->group(function () {
             Route::get('/top', 'MyPage\Register_info\TopController');
+            Route::get('/edit', 'MyPage\Register_info\EditController');
+            Route::post('/edit_process', 'MyPage\Register_info\EditProcessController');
+            Route::get('/edit_email', 'MyPage\Register_info\EditEmailController');
+            Route::post('/send_mail_to_edit_email_process', 'MyPage\Register_info\SendMailToEditEmailProcessController');
+            Route::get('/edit_email_process/{token}', 'MyPage\Register_info\EditEmailProcessController');
+            // Route::get('/edit_pass', 'MyPage\Register_info\EditController');
+            // Route::post('/edit_pass_process', 'MyPage\Register_info\EditProcessController');
+            // Route::post('/delete', 'MyPage\Register_info\DeleteController');
         });
         Route::prefix('/original_catalog')->group(function () {
             Route::get('/top', 'MyPage\Original_catalog\TopController');

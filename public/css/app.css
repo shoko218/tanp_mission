@@ -11481,6 +11481,10 @@ section:last-of-type {
   min-width: 0;
 }
 
+.submit_a {
+  text-decoration: underline;
+}
+
 .normal_section {
   padding: 3rem 1.6rem;
 }
@@ -11977,5 +11981,45 @@ section:last-of-type {
 
 #select_product_detail .btns {
   margin: 1rem 0 3rem;
+}
+
+#register_info .submit_a {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#register_info .submit_a > a {
+  font-size: 1.8rem;
+}
+
+#register_info table {
+  margin: 0 auto;
+}
+
+#register_info table th {
+  width: 35%;
+  font-size: 1.6rem;
+}
+
+#register_info table td {
+  font-size: 1.6rem;
+}
+
+.go_other_page > a {
+  text-decoration: underline;
+}
+
+#update_email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#update_email .btns {
+  margin-bottom: 3rem;
+}
+
+#update_email .btns > button {
+  width: 24rem;
 }
 
