@@ -10,9 +10,7 @@
 
 @section('content')
     <section id="lovers_register" class="normal_section">
-        @if ($errors->any())
-            @include('components.errmsg')
-        @endif
+        @include('components.msgs')
         <h1>{{ $lover->last_name.$lover->first_name }}さんの登録情報を確認・編集</h1>
         <p><span class="form_requires">*</span>は必須項目です</p>
         <form action="/mypage/lovers/edit_process" method="POST" enctype='multipart/form-data' class="input_form">

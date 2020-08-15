@@ -10,9 +10,7 @@
 
 @section('content')
     <section id="event_register" class="normal_section">
-        @if ($errors->any())
-        @include('components.errmsg')
-        @endif
+        @include('components.msgs')
         <h1>イベントの登録情報を確認・編集</h1>
         <p>全て入力してください。</p>
         <form action="/mypage/reminder/edit_process" method="POST" class="input_form">

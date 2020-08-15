@@ -10,6 +10,12 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
 </div>
 @endif
+@if (count($errors))
+<div class="alert alert-danger alert-dismissible fade show msg_box">
+    {{$errors}}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+@endif
 @if (session('suc_msg'))
 <div class="alert alert-success alert-dismissible fade show msg_box">
     {{ session('suc_msg') }}
