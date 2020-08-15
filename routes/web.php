@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/edit_email_process/{token}', 'MyPage\Register_info\EditEmailProcessController');
             Route::get('/edit_pass', 'MyPage\Register_info\EditPassController');
             Route::post('/edit_pass_process', 'MyPage\Register_info\EditPassProcessController');
-            // Route::post('/delete', 'MyPage\Register_info\DeleteController');
+            Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');
         });
         Route::prefix('/original_catalog')->group(function () {
             Route::get('/top', 'MyPage\Original_catalog\TopController');
