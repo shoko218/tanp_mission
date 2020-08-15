@@ -10,6 +10,7 @@
 
 @section('content')
     <section id="register_info" class="normal_section">
+        @include('components.msgs')
         <h1>登録情報</h1>
         <table cellspacing="4">
             <tr>

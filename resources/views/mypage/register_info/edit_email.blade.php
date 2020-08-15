@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pagename')
-    メールアドレスを変更
+    メールアドレス変更
 @endsection
 
 @include('layouts.head')
@@ -11,7 +11,7 @@
 @section('content')
     <section class="normal_section" id="update_email">
         @include('components.msgs')
-        <h1>新しいメールアドレスを<br>入力してください</h1>
+        <h1>メールアドレスを変更する</h1>
         <form action="send_mail_to_edit_email_process" method="POST" class="input_form">
             @csrf
             <div class="inputs">

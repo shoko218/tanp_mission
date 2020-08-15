@@ -37,7 +37,7 @@
                     <p class="go_other_page"><a href="edit_email">メールアドレスの変更はこちらから</a></p>
                 </li>
                 <li class="input_parts">
-                    <p class="go_other_page"><a href="">パスワードの変更はこちらから</a></p>
+                    <p class="go_other_page"><a href="edit_pass">パスワードの変更はこちらから</a></p>
                 </li>
                 <li class="input_parts">
                     <label for="birthday">誕生日<span class="form_requires">*</span></label>

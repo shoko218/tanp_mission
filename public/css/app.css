@@ -12009,17 +12009,20 @@ section:last-of-type {
   text-decoration: underline;
 }
 
-#update_email {
+#update_email,
+#update_pass {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#update_email .btns {
-  margin-bottom: 3rem;
+#update_email .btns,
+#update_pass .btns {
+  margin-top: 3rem;
 }
 
-#update_email .btns > button {
+#update_email .btns > button,
+#update_pass .btns > button {
   width: 24rem;
 }
 

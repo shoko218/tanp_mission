@@ -1185,12 +1185,12 @@ section:last-of-type{
 }
 
 
-#update_email{
+#update_email,#update_pass{
     display: flex;
     flex-direction: column;
     align-items: center;
     & .btns{
-        margin-bottom: $std_my;
+        margin-top: $std_my;
         &>button{
             width: $btn_wsz;
         }
