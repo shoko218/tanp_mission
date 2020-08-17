@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/detail', 'MyPage\Reminder\DetailController');
             Route::get('/detail', 'MyPage\Reminder\GetDetailController');
             Route::post('/delete_process','MyPage\Reminder\EventDeleteProcessController');
+            Route::get('/edit', 'MyPage\Reminder\EditController');
             Route::post('/edit', 'MyPage\Reminder\EditController');
             Route::post('/edit_process', 'MyPage\Reminder\EditProcessController');
         });
