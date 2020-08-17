@@ -14,7 +14,6 @@
         <form action="edit_pass_process" method="POST">
             @csrf
             @include('components.msgs')
-            @include('components.errmsg')
             <ul class="inputs">
                 <li class="input_parts">
                     <label for="current">現在のパスワード</label>
