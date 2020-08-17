@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Product;
 use Illuminate\Support\Facades\Auth;
 
-class MakeProcessController extends Controller
+class RegisterProcessController extends Controller
 {
     public function __invoke(Request $request)
     {

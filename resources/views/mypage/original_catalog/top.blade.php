@@ -13,7 +13,7 @@
     @include('components.msgs')
     <h1>オリジナルカタログ</h1>
     <div class="btns">
-        <button onclick="location.href='make'">新しくカタログを作る</button>
+        <button onclick="location.href='register'">新しくカタログを作る</button>
     </div>
     <h2>今までに作ったオリジナルカタログ</h2>
     @if (count($results))

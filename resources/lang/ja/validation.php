@@ -187,7 +187,7 @@ return [
         'user_prefecture_id'=>'都道府県',
         'user_address'=>'住所(市町村以下)',
         'user_telephone'=>'電話番号',
-        ''=>'',
+        'name'=>'名前',
         ''=>'',
         ''=>'',
         ''=>'',

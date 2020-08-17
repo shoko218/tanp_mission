@@ -90,13 +90,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/top', 'MyPage\Original_catalog\TopController');
             Route::post('/detail', 'MyPage\Original_catalog\DetailController');
             Route::get('/detail', 'MyPage\Original_catalog\GetDetailController');
-            Route::get('/make', 'MyPage\Original_catalog\MakeController');
-            Route::post('/make_process', 'MyPage\Original_catalog\MakeProcessController');
+            Route::get('/register', 'MyPage\Original_catalog\RegisterController');
+            Route::post('/register_process', 'MyPage\Original_catalog\RegisterProcessController');
             Route::get('/select_which_catalog', 'MyPage\Original_catalog\SelectCatalogController');
             Route::post('/select_which_catalog', 'MyPage\Original_catalog\SelectCatalogController');
             Route::post('/add_process', 'MyPage\Original_catalog\AddProcessController');
             Route::post('/remove_process', 'MyPage\Original_catalog\RemoveProcessController');
             Route::post('/send_process', 'MyPage\Original_catalog\SendProcessController');
+            Route::get('/edit', 'MyPage\Original_catalog\EditController');
             Route::post('/edit', 'MyPage\Original_catalog\EditController');
             Route::post('/edit_process', 'MyPage\Original_catalog\EditProcessController');
             Route::post('/delete_process','MyPage\Original_catalog\DeleteProcessController');

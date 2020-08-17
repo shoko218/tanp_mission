@@ -58,12 +58,12 @@
             @csrf
             <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
         </form>
-        <p class="submit_a"><a href="javascript:edit_form.submit()">このイベントを編集する</a></p>
+        <p class="submit_a"><a href="javascript:edit_form.submit()">このカタログを編集する</a></p>
         <form method="post" name="delete_form" id="delete_form" action="/mypage/original_catalog/delete_process">
             @csrf
             <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
         </form>
-        <p class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('このイベントを削除します。\nよろしいですか？');">このイベントを削除する</a></p>
+        <p class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('このカタログを削除します。\nよろしいですか？');">このカタログを削除する</a></p>
     @endif
 </section>
 @endsection

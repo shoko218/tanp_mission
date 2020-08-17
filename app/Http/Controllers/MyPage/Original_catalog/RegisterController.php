@@ -6,10 +6,10 @@ use App\Model\Catalog;
 use Illuminate\Http\Request;
 use App\Model\Product;
 
-class MakeController extends Controller
+class RegisterController extends Controller
 {
     public function __invoke()
     {
-        return view('mypage.original_catalog.make');
+        return view('mypage.original_catalog.register');
     }
 }
