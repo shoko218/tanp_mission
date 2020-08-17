@@ -46,7 +46,7 @@
                 <li class="input_parts">
                     <label for="relationship_id">どのようなご関係ですか？<span class="form_requires">*</span></label>
                     <select name="relationship_id" id="relationship_id">
-                        <option value="" selected>選択してください</option>
+                        <option value="" selected disabled>選択してください</option>
                         @foreach ($relationships as $rel)
                             <option value="{{ $rel->id }}"@if(old('relationship_id')==$rel->id) selected @endif>{{ $rel->name }}</option>
                         @endforeach

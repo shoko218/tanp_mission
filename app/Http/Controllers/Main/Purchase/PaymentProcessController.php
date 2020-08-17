@@ -25,14 +25,14 @@ class PaymentProcessController extends Controller
              'source'=> request()->stripeToken,
         ));
         $order=new Order;
-        $order->last_name=$request->session()->get('last_name');
-        $order->first_name=$request->session()->get('first_name');
-        $order->last_name_furigana=$request->session()->get('last_name_furigana');
-        $order->first_name_furigana=$request->session()->get('first_name_furigana');
-        $order->postal_code=$request->session()->get('postal_code');
-        $order->prefecture_id=$request->session()->get('prefecture_id');
-        $order->address=$request->session()->get('address');
-        $order->telephone=$request->session()->get('telephone');
+        $order->forwarding_last_name=$request->session()->get('forwarding_last_name');
+        $order->forwarding_first_name=$request->session()->get('forwarding_first_name');
+        $order->forwarding_last_name_furigana=$request->session()->get('forwarding_last_name_furigana');
+        $order->forwarding_first_name_furigana=$request->session()->get('forwarding_first_name_furigana');
+        $order->forwarding_postal_code=$request->session()->get('forwarding_postal_code');
+        $order->forwarding_prefecture_id=$request->session()->get('forwarding_prefecture_id');
+        $order->forwarding_address=$request->session()->get('forwarding_address');
+        $order->forwarding_telephone=$request->session()->get('forwarding_telephone');
         if($request->session()->exists('gender')){
             $order->gender=$request->session()->get('gender');
         }
@@ -51,9 +51,18 @@ class PaymentProcessController extends Controller
         if($request->session()->exists('lover_id')&&$request->session()->get('lover_id')!=0){
             $order->lover_id=$request->session()->get('lover_id');
         }
+        $order->user_last_name=$request->session()->get('user_last_name');
+        $order->user_first_name=$request->session()->get('user_first_name');
+        $order->user_last_name_furigana=$request->session()->get('user_last_name_furigana');
+        $order->user_first_name_furigana=$request->session()->get('user_first_name_furigana');
+        $order->user_postal_code=$request->session()->get('user_postal_code');
+        $order->user_prefecture_id=$request->session()->get('user_prefecture_id');
+        $order->user_address=$request->session()->get('user_address');
+        $order->user_telephone=$request->session()->get('user_telephone');
         $order->save();
 
         $order_id = $order->id;
+        $request->session()->forget('lover_id');
 
         if(Auth::check()){
             $user_id=Auth::user()->id;

@@ -1041,8 +1041,8 @@ section:last-of-type{
     display: flex;
     flex-direction: column;
     align-items: center;
-    &>p{
-        text-align: left;
+    h2{
+        margin: 2rem 0;
     }
 }
 //支払情報フォーム///////////////////////////////////////////////

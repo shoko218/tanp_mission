@@ -9,7 +9,7 @@
 @include('layouts.header')
 
 @section('content')
-<section id="login">
+<section id="login" class="normal_section">
     @include('components.msgs')
     <h1>ログインしてください</h1>
     <form method="POST" action="{{ route('login') }}" class="input_form">
