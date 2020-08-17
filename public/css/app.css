@@ -12018,19 +12018,25 @@ section:last-of-type {
 }
 
 #update_email,
-#update_pass {
+#update_pass,
+#pass_reset_mail,
+#pass_reset {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #update_email .btns,
-#update_pass .btns {
+#update_pass .btns,
+#pass_reset_mail .btns,
+#pass_reset .btns {
   margin-top: 3rem;
 }
 
 #update_email .btns > button,
-#update_pass .btns > button {
+#update_pass .btns > button,
+#pass_reset_mail .btns > button,
+#pass_reset .btns > button {
   width: 24rem;
 }
 
