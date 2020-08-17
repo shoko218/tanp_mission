@@ -10,7 +10,6 @@
 
 @section('content')
     <section class="normal_section" id="update_email">
-        @include('components.msgs')
         <h1>メールアドレスを変更する</h1>
         <form action="send_mail_to_edit_email_process" method="POST" class="input_form">
             @csrf

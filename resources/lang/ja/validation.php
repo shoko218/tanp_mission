@@ -192,7 +192,7 @@ return [
         'lover_id'=>'お相手',
         'date'=>'日付',
         'is_repeat'=>'繰り返しの有無',
-        ''=>'',
+        'new-password'=>'新しいパスワード',
     ],
 
 ];
