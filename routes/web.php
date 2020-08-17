@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
             Route::post('/register_process','MyPage\Lovers\RegisterProcessController');
+            Route::get('/edit', 'MyPage\Lovers\EditController');
             Route::post('/edit', 'MyPage\Lovers\EditController');
             Route::post('/edit_process','MyPage\Lovers\EditProcessController');
             Route::post('/delete_process','MyPage\Lovers\LoverDeleteProcessController');
