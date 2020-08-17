@@ -10,7 +10,7 @@
 
 @section('content')
 <section id="pass_reset" class="normal_section">
-    <h1>パスワードリセットメールを送信する</h1>
+    <h1>パスワードをリセット</h1>
     <form method="POST" action="{{ route('password.update') }}" class="input_form">
         @csrf
         <ul class="inputs">
@@ -19,7 +19,7 @@
                 <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}" autocomplete="email" readonly required>
             </li>
             <li class="input_parts">
-                <label for="password">パスワード</label>
+                <label for="password">パスワード(8文字以上の英数字、記号)</label>
                 <input id="password" type="password" name="password" required @if ($errors->has('password')) class="input_alert" @endif>
                 @foreach ($errors->get('password') as $item)
                     <p class="form_alert">{{ $item }}</p>
