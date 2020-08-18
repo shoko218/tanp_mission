@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'Main\IndexController');
 Route::get('/result', 'Main\ResultController');
@@ -48,7 +48,7 @@ Route::get('/logout',function(){
     return redirect('/');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::prefix('/mypage')->group(function () {
         Route::get('/order_history', 'MyPage\OrderHistoryController');
         Route::get('/favorite', 'MyPage\FavoriteController');
@@ -76,17 +76,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/edit_process','MyPage\Lovers\EditProcessController');
             Route::post('/delete_process','MyPage\Lovers\LoverDeleteProcessController');
         });
-        Route::prefix('/register_info')->group(function () {
-            Route::get('/top', 'MyPage\Register_info\TopController');
-            Route::get('/edit', 'MyPage\Register_info\EditController');
-            Route::post('/edit_process', 'MyPage\Register_info\EditProcessController');
-            Route::get('/edit_email', 'MyPage\Register_info\EditEmailController');
-            Route::post('/send_mail_to_edit_email_process', 'MyPage\Register_info\SendMailToEditEmailProcessController');
-            Route::get('/edit_email_process/{token}', 'MyPage\Register_info\EditEmailProcessController');
-            Route::get('/edit_pass', 'MyPage\Register_info\EditPassController');
-            Route::post('/edit_pass_process', 'MyPage\Register_info\EditPassProcessController');
-            Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');
-        });
+
         Route::prefix('/original_catalog')->group(function () {
             Route::get('/top', 'MyPage\Original_catalog\TopController');
             Route::post('/detail', 'MyPage\Original_catalog\DetailController');
@@ -102,6 +92,21 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/edit', 'MyPage\Original_catalog\EditController');
             Route::post('/edit_process', 'MyPage\Original_catalog\EditProcessController');
             Route::post('/delete_process','MyPage\Original_catalog\DeleteProcessController');
+        });
+
+
+        Route::middleware('password.confirm')->group(function(){
+            Route::prefix('/register_info')->group(function () {
+                Route::get('/top', 'MyPage\Register_info\TopController');
+                Route::get('/edit', 'MyPage\Register_info\EditController');
+                Route::post('/edit_process', 'MyPage\Register_info\EditProcessController');
+                Route::get('/edit_email', 'MyPage\Register_info\EditEmailController');
+                Route::post('/send_mail_to_edit_email_process', 'MyPage\Register_info\SendMailToEditEmailProcessController');
+                Route::get('/edit_email_process/{token}', 'MyPage\Register_info\EditEmailProcessController');
+                Route::get('/edit_pass', 'MyPage\Register_info\EditPassController');
+                Route::post('/edit_pass_process', 'MyPage\Register_info\EditPassProcessController');
+                Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');
+            });
         });
     });
 

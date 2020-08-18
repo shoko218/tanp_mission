@@ -1193,14 +1193,31 @@ section:last-of-type{
 }
 
 
-#update_email,#update_pass,#pass_reset_mail,#pass_reset{
+#update_email,#update_pass,#pass_reset_mail,#pass_reset,#pass_verify{
     display: flex;
     flex-direction: column;
     align-items: center;
     & .btns{
-        margin-top: $std_my;
         &>button{
             width: $btn_wsz;
         }
+    }
+}
+
+#please_verify_email{
+    .btns{
+        margin-top: $std_my;
+    }
+}
+
+#pass_verify{
+    .btns{
+        margin-top: 0;
+    }
+    &>p{
+        text-decoration: underline;
+        font-size: $small_fz;
+        text-align: center;
+        margin-top: 2rem;
     }
 }

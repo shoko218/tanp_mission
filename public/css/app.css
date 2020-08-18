@@ -12020,23 +12020,33 @@ section:last-of-type {
 #update_email,
 #update_pass,
 #pass_reset_mail,
-#pass_reset {
+#pass_reset,
+#pass_verify {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#update_email .btns,
-#update_pass .btns,
-#pass_reset_mail .btns,
-#pass_reset .btns {
-  margin-top: 3rem;
-}
-
 #update_email .btns > button,
 #update_pass .btns > button,
 #pass_reset_mail .btns > button,
-#pass_reset .btns > button {
+#pass_reset .btns > button,
+#pass_verify .btns > button {
   width: 24rem;
+}
+
+#please_verify_email .btns {
+  margin-top: 3rem;
+}
+
+#pass_verify .btns {
+  margin-top: 0;
+}
+
+#pass_verify > p {
+  text-decoration: underline;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 

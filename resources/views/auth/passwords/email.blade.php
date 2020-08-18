@@ -23,7 +23,7 @@
                 </li>
             </ul>
             <div class="btns">
-                <button type="submit" onClick="return confirm('パスワードをリセットするためのメールを送信します。\nよろしいですか？');">パスワードリセットメールを送信する</button>
+                <button type="submit" onClick="return confirm('パスワードをリセットするためのメールを送信します。\nよろしいですか？');">メールを送信する</button>
             </div>
         </form>
     </section>

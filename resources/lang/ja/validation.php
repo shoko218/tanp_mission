@@ -116,7 +116,7 @@ return [
     'unique'               => ':attribute は既に存在します',
     'uploaded'             => ':attribute アップロードに失敗しました',
     'url'                  => ':attribute は正しいURL書式のみ有効です',
-
+    'password'             => 'パスワードが正しくありません。',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

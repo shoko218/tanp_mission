@@ -1,27 +1,24 @@
+@extends('layouts.base')
+
+@section('pagename')
+メールアドレスを認証してください
+@endsection
+
+@include('layouts.head')
+
+@include('layouts.header')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
-                </div>
-            </div>
-        </div>
+<section class="normal_section" id="please_verify_email">
+    <h1>メールアドレスの認証が必要です</h1>
+    <p>登録されたメールアドレスあてに認証メールを送信致しました。メールの中のボタンをクリックし、認証を完了させてください。もしもメールが届いていない場合は下のボタンをクリックしてください。</p>
+    <form method="POST" action="{{ route('verification.resend') }}" id="verify">
+        @csrf
+    </form>
+    <div class="btns">
+        <button type="submit" form="verify">再度メールを送信する</button>.
     </div>
-</div>
+</section>
 @endsection
+
+@include('layouts.footer')
