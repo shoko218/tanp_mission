@@ -19,14 +19,14 @@
                 <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}" autocomplete="email" readonly required>
             </li>
             <li class="input_parts">
-                <label for="password">パスワード(8文字以上の英数字、記号)</label>
+                <label for="password">新しいパスワード(8文字以上の英数字、記号)</label>
                 <input id="password" type="password" name="password" required @if ($errors->has('password')) class="input_alert" @endif>
                 @foreach ($errors->get('password') as $item)
                     <p class="form_alert">{{ $item }}</p>
                 @endforeach
             </li>
             <li class="input_parts">
-                <label for="password-confirm">パスワード(確認用)</label>
+                <label for="password-confirm">新しいパスワード(確認用)</label>
                 <input id="password-confirm" type="password" name="password_confirmation" required @if ($errors->has('password_confirmation')) class="input_alert" @endif>
             </li>
         </ul>

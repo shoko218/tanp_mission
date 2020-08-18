@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\VerifyEmailCustom;
+use App\Notifications\PasswordResetNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -42,8 +44,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'first_name'=>['required', 'string', 'max:32'],
         'last_name_furigana'=>['required', 'string', 'max:64'],
         'first_name_furigana'=>['required', 'string', 'max:64'],
-        // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         'birthday'=>['required','date'],
         'gender'=>['required','integer'],
         'postal_code'=>['nullable','string','digits:7'],
@@ -51,6 +51,22 @@ class User extends Authenticatable implements MustVerifyEmail
         'address'=>['nullable','string', 'max:200'],
         'telephone'=>['nullable','string', 'max:21'],
     );
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmailCustom);
+    }
+
+    /**
+     * Override to send for password reset notification.
+     *
+     * @param [type] $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token));
+    }
 
     public function lovers(){
         return $this->hasMany('App\Model\Lover');

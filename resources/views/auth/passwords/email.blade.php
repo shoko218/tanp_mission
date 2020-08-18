@@ -10,18 +10,14 @@
 
 @section('content')
     <section id="pass_reset_mail" class="normal_section">
+        @include('components.msgs')
         <h1>パスワードリセットメールを送信する</h1>
         <form method="POST" action="{{ route('password.email') }}" class="input_form">
             @csrf
-            <ul class="inputs">
-                <li class="input_parts">
-                    <label for="email">メールアドレス</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus required @if ($errors->has('email')) class="input_alert" @endif>
-                    @foreach ($errors->get('email') as $item)
-                        <p class="form_alert">{{ $item }}</p>
-                    @endforeach
-                </li>
-            </ul>
+            @foreach ($errors->get('email') as $item)
+                <p class="form_alert">{{ $item }}</p>
+            @endforeach
+            <input id="email" type="hidden" name="email" value="{{ Auth::user()->email }}" autocomplete="email" autofocus required>
             <div class="btns">
                 <button type="submit" onClick="return confirm('パスワードをリセットするためのメールを送信します。\nよろしいですか？');">メールを送信する</button>
             </div>

@@ -39,6 +39,7 @@ class ChangeEmail extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
+    
     public function toMail($notifiable)
     {
         return (new MailMessage)
