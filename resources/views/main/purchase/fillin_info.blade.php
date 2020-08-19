@@ -87,7 +87,7 @@
                     @endforeach
                 </li>
                 <li class="input_parts">
-                    <label for="forwarding_address">住所(市町村以下)<span class="form_requires">*</span></label>
+                    <label for="forwarding_address">住所(市町村以下、全角英数字不可)<span class="form_requires">*</span></label>
                     <input id="forwarding_address" type="text" name="forwarding_address" @if(old('forwarding_address')!=null) value="{{ old('forwarding_address') }}" @elseif($lover!=null&&$lover->address!=null) value="{{ $lover->address }}" @endif @if ($errors->has('forwarding_address')) class="input_alert" @endif  placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室" required>
                     @foreach ($errors->get('forwarding_address') as $item)
                         <p class="form_alert">{{ $item }}</p>
@@ -163,7 +163,7 @@
                     @endforeach
                 </li>
                 <li class="input_parts">
-                    <label for="user_address">住所(市町村以下)<span class="form_requires">*</span></label>
+                    <label for="user_address">住所(市町村以下、全角英数字不可)<span class="form_requires">*</span></label>
                     <input id="user_address" type="text" name="user_address" @if(old('user_address')!=null)value="{{ old('user_address') }}"@elseif(Auth::check()&&Auth::user()->address!=null)value="{{ Auth::user()->address }}"@endif @if ($errors->has('user_address')) class="input_alert" @endif placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室" required>
                     @foreach ($errors->get('user_address') as $item)
                         <p class="form_alert">{{ $item }}</p>

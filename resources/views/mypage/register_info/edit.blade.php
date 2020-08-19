@@ -88,7 +88,7 @@
                     @endforeach
                 </li>
                 <li class="input_parts">
-                    <label for="address">住所(市町村以下)</label>
+                    <label for="address">住所(市町村以下、全角英数字不可)</label>
                     <textarea id="address" type="text" name="address" placeholder="〇〇市〇〇町x-xx〇〇ハイツxxx号室" rows="2" @if ($errors->has('address')) class="input_alert" @endif>@if(old('address')!=null){{old('address')}}@elseif(Auth::user()->address!=null){{Auth::user()->address}}@endif</textarea>
                     @foreach ($errors->get('address') as $item)
                         <p class="form_alert">{{ $item }}</p>

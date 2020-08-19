@@ -30,7 +30,7 @@
                     <a href="/mypage/lovers/register">お相手のご登録がお済みでない方はこちら</a>
                 </li>
                 <li class="input_parts">
-                    <label for="title">イベント名(30文字以内)</label>
+                    <label for="title">イベント名(30文字以内、全角英数字不可)</label>
                     <input id="title" name="title" value="{{ old('title') }}" required @if ($errors->has('title')) class="input_alert" @endif>
                     @foreach ($errors->get('title') as $item)
                         <p class="form_alert">{{ $item }}</p>
