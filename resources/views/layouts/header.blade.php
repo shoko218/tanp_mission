@@ -12,7 +12,7 @@
     </header>
     <nav id="hb_menu" class="hb_menu_close">
         @if (Auth::check())
-            <p><a href="/mypage/top">こんにちは、{{ Auth::user()->last_name.Auth::user()->first_name }}さん</a></p>
+            <p>こんにちは、{{ Auth::user()->last_name.Auth::user()->first_name }}さん</p>
             <ul>
                 <li><a href="/">トップページ</a></li>
                 <li><a href="/mypage/order_history">注文履歴</a></li>
@@ -24,7 +24,7 @@
                 <li><a href="/logout">ログアウト</a></li>
             </ul>
         @else
-            <p><a href="/mypage/top">こんにちは、ゲストさん</a></p>
+            <p>こんにちは、ゲストさん</p>
             <ul>
                 <li><a href="/">トップページ</a></li>
                 <li><a href="/login">ログイン</a></li>

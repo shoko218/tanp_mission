@@ -276,9 +276,7 @@ header{
     transition: 0.5s;
     padding: $hb_menu_py $hb_menu_px;
     & p{
-        & a{
-            font-size: 2.2rem;
-        }
+        font-size: 2.2rem;
         margin-bottom: $hb_menu_py;
     }
 

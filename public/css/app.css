@@ -11158,11 +11158,8 @@ header {
 }
 
 #hb_menu p {
-  margin-bottom: 1.8rem;
-}
-
-#hb_menu p a {
   font-size: 2.2rem;
+  margin-bottom: 1.8rem;
 }
 
 #hb_menu a {
