@@ -11,16 +11,16 @@ class Lover extends Model
     public static $rules=array(
         'last_name'=>['required', 'string', 'max:32'],
         'first_name'=>['required', 'string', 'max:32'],
-        'last_name_furigana'=>['required', 'string', 'max:64'],
-        'first_name_furigana'=>['required', 'string', 'max:64'],
+        'last_name_furigana'=>['required', 'string', 'max:64','katakana'],
+        'first_name_furigana'=>['required', 'string', 'max:64','katakana'],
         'birthday'=>['required','date'],
         'gender'=>['required','integer'],
         'relationship_id'=>['required','integer'],
         'user_id'=>['required','integer'],
-        'postal_code'=>['nullable','string','digits:7'],
+        'postal_code'=>['nullable','string','digits:7','hankakunum'],
         'prefecture_id'=>['nullable','integer'],
-        'address'=>['nullable','string', 'max:200'],
-        'telephone'=>['nullable','string', 'max:21'],
+        'address'=>['nullable','string', 'max:200','text'],
+        'telephone'=>['nullable','string', 'max:21','hankakunum'],
         'file'=>['nullable','file','mimes:jpeg,png,jpg','max:2048'],
     );
 

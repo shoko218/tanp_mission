@@ -175,6 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        // validator
+        App\Providers\ValidatorKatakanaServiceProvider::class,
+        App\Providers\ValidatorIsOnlyHalfNumberServiceProvider::class,
+        App\Providers\ValidatorTextServiceProvider::class,
+
     ],
 
     /*

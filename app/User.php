@@ -42,14 +42,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public static $except_mail_pass_rules=array(
         'last_name'=>['required', 'string', 'max:32'],
         'first_name'=>['required', 'string', 'max:32'],
-        'last_name_furigana'=>['required', 'string', 'max:64'],
-        'first_name_furigana'=>['required', 'string', 'max:64'],
+        'last_name_furigana'=>['required', 'string', 'max:64','katakana'],
+        'first_name_furigana'=>['required', 'string', 'max:64','katakana'],
         'birthday'=>['required','date'],
         'gender'=>['required','integer'],
-        'postal_code'=>['nullable','string','digits:7'],
+        'postal_code'=>['nullable','string','digits:7','hankakunum'],
         'prefecture_id'=>['nullable','integer'],
-        'address'=>['nullable','string', 'max:200'],
-        'telephone'=>['nullable','string', 'max:21'],
+        'address'=>['nullable','string', 'max:200','text'],
+        'telephone'=>['nullable','string', 'max:21','hankakunum'],
     );
 
     public function sendEmailVerificationNotification()

@@ -116,7 +116,10 @@ return [
     'unique'               => ':attribute は既に存在します',
     'uploaded'             => ':attribute アップロードに失敗しました',
     'url'                  => ':attribute は正しいURL書式のみ有効です',
-    'password'             => 'パスワードが正しくありません。',
+    'password'             => 'パスワードが正しくありません',
+    'katakana'             => ':attribute は全角カナで入力してください',
+    'hankakunum'           => ':attribute は半角数字のみで入力してください',
+    'text'                 => ':attribute に全角英数字を含めないでください',
 
     /*
     |--------------------------------------------------------------------------
