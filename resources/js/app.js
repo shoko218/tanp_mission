@@ -4,7 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./bootstrap')
+import Vue from 'vue'
+import GoodComponent from './components/GoodComponent'
 
 // window.Vue = require('vue');
 
@@ -27,9 +29,12 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// const app = new Vue({
-//     el: '#app',
-// });
+const app = new Vue({
+    el: '#app',
+    components: {
+        GoodComponent,
+    }
+});
 
 window.onload = function onload(){
     var hb_btn=document.getElementById("hb_menu_btn");

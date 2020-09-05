@@ -22,7 +22,6 @@ Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/search', 'Main\SearchController');
 Route::post('/product/favorite', 'Main\ProductFavoriteController');
-Route::post('/product/unfavorite', 'Main\ProductUnfavoriteController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/msg', 'Main\MsgController');
 Route::get('/select_product/{catalog_param}', 'Main\SelectProductController');

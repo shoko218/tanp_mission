@@ -13,12 +13,7 @@
         <div id="product_header">
             <img src="{{ asset( 'image/products/'.sprintf('%05d', $product->id).'.png',true)}}" alt="" class="product_img">
             @if (Auth::check())
-                <form action="product/<?php if($is_fav){echo "unfavorite";}else{echo "favorite";}?>" method="post">
-                    @csrf
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button id="fav_btn" class="<?php if($is_fav){echo "favorite";}else{echo "unfavorite";}?>"></button>
-                </form>
+                <good-component :is-fav='@json($is_fav)' product-id='@json($product->id)'></good-component>
             @endif
 
         </div>

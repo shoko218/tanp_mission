@@ -7,8 +7,10 @@
 <body>
     <div id="wrapper">
         @yield('header')
-        <div id="contents">
-            @yield('content')
+        <div id="app"> 
+            <div id="contents">
+                @yield('content')
+            </div>
         </div>
         @yield('footer')
     </div>
