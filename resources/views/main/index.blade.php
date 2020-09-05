@@ -48,14 +48,8 @@
         <button type="submit" form="season_popularity_search">もっとみる→</button>
     </div>
 </section>
-<section id="random_recommend">
-    <div class="description">
-        <h2>ランダムレコメンド</h2>
-        <p class="comment">こんな商品はいかがですか？</p>
-    </div>
-    <p class="reload_btn"><a href="" onclick="location.reload();return false"><i class="fas fa-sync-alt"></i></a></p>
-    @include('components.product_card',['product_id'=>$rand_product->id,'title'=>$rand_product->name,'genre'=>$rand_product->genre->name,'price'=>$rand_product->price])
-</section>
+
+<random-recommend :product-id={{ $rand_product->id }} title={{ $rand_product->name }} genre={{ $rand_product->genre->name }} price={{ $rand_product->price }}></random-recommend>
 @endsection
 
 @include('layouts.footer')

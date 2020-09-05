@@ -7,6 +7,7 @@
 require('./bootstrap')
 import Vue from 'vue'
 import GoodComponent from './components/GoodComponent'
+import RandomRecommend from './components/RandomRecommend'
 
 // window.Vue = require('vue');
 
@@ -32,7 +33,7 @@ import GoodComponent from './components/GoodComponent'
 const app = new Vue({
     el: '#app',
     components: {
-        GoodComponent,
+        GoodComponent,RandomRecommend,
     }
 });
 

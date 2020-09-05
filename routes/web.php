@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'Main\IndexController');
+Route::get('/change', 'Main\ChangeController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/search', 'Main\SearchController');
