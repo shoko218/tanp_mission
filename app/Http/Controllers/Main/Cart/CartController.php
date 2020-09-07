@@ -17,20 +17,20 @@ class CartController extends Controller
             if(!$cart_goods->isEmpty()){
                 $sum_price=BaseClass::calcPriceInTaxFromDB($cart_goods);
             }else{
-                $cart_goods=null;
+                $cart_goods=[];
                 $sum_price=0;
             }
-            $param=['cart_goods'=>$cart_goods,'sum_price'=>$sum_price,'products'=>0];
+            $param=['cart_goods'=>$cart_goods,'sum_price'=>$sum_price,'products'=>[],'product_count'=>[]];
         }else{
             if(Cookie::get('cart_product_ids')!=null){
                 list($products,$product_count)=BaseClass::getProductsFromCookie();
                 $sum_price=BaseClass::calcPriceInTaxFromCookie($products,$product_count);
             }else{
-                $products=null;
+                $products=[];
                 $product_count=0;
                 $sum_price=0;
             }
-            $param=['products'=>$products,'sum_price'=>$sum_price,'product_count'=>$product_count,'cart_goods'=>0];
+            $param=['cart_goods'=>[],'sum_price'=>$sum_price,'products'=>$products,'product_count'=>$product_count];
         }
         return view('main.cart',$param);
     }

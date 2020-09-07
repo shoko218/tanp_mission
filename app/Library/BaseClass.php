@@ -17,18 +17,24 @@ class BaseClass{
             ->select(DB::raw('carts.*'))
             ->where('user_id','=',$user_id)
             ->orderBy('id','desc')
+            ->with('product.genre')
             ->get();
         return $cart_goods;
     }
 
-    public static function getProductsFromCookie(){
-        $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
+    public static function getProductsFromCookie($str=null){
+        if($str!=null){
+            $product_ids=explode(',',rtrim($str,','));
+        }else{
+            $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
+        }
         $product_notdup_ids=array_values(array_unique($product_ids));
         $products = new Collection();
         $product_count=array();
         foreach ($product_notdup_ids as $product_notdup_id) {
             $product=Product::select(DB::raw('products.*'))
             ->where('id','=',$product_notdup_id)
+            ->with('genre')
             ->first();
             $products->prepend($product);
         }

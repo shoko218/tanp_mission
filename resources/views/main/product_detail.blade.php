@@ -15,22 +15,18 @@
             @if (Auth::check())
                 <good-component :is-fav={{ $is_fav }} product-id={{ $product->id }}></good-component>
             @endif
-
         </div>
         <div id="product_explanation">
             <h1 class="product_name">{{ $product->name }}</h1>
             <h2 class="price">¥{{ number_format($product->price) }}(+tax)</h2>
             <form action="/cart/in" method="post" id="cart_in">
                 @csrf
-                @if (Auth::check())
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                @endif
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
             </form>
             @if (Auth::check())
                 <form action="/mypage/original_catalog/select_which_catalog" method="post" id="catalog_in">
                     @csrf
-                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                 </form>
             @endif
             <div class="btns">

@@ -7,7 +7,7 @@
             <p class="rc_price">¥{{ number_format($price) }}(+tax)</p>
         </div>
     </a>
-    <form action="/cart/out" class="remove_product_btn" method="POST">
+    <form action="/cart/complete_out" class="remove_product_btn" method="POST">
         @csrf
         <input type="hidden" name="product_id" value="{{ $product_id }}">
         @if (Auth::check())
@@ -16,7 +16,7 @@
         <button onClick="return confirm('削除します。\nよろしいですか？');" type="submit">×</button>
     </form>
     <div class="cart_change_count">
-        <form action="/cart/minus_count" method="POST">
+        <form action="/cart/minus" method="POST">
             @csrf
             <input type="hidden" name="product_id" value="{{ $product_id }}">
             @if (Auth::check())
@@ -25,7 +25,7 @@
             <button class="cart_minus_btn" @if ($count==1) onClick="return confirm('削除します。\nよろしいですか？');"@endif>-</button>
         </form>
         <p>{{ $count }}</p>
-        <form action="/cart/plus_count" method="POST">
+        <form action="/cart/plus" method="POST">
             @csrf
             <input type="hidden" name="product_id" value="{{ $product_id }}">
             @if (Auth::check())

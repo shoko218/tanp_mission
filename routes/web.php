@@ -31,9 +31,9 @@ Route::post('/select_product_process', 'Main\SelectProductProcessController');
 Route::prefix('/cart')->group(function () {
     Route::get('/', 'Main\Cart\CartController');
     Route::post('/in', 'Main\Cart\CartInController');
-    Route::post('/out', 'Main\Cart\CartOutController');
-    Route::post('/minus_count', 'Main\Cart\CartMinusController');
-    Route::post('/plus_count', 'Main\Cart\CartPlusController');
+    Route::post('/complete_out', 'Main\Cart\CartCompleteOutController');
+    Route::post('/minus', 'Main\Cart\CartMinusController');
+    Route::post('/plus', 'Main\Cart\CartPlusController');
 });
 Route::prefix('/purchase')->group(function () {
     Route::get('/fillin_info', 'Main\Purchase\FillinInfoController');
