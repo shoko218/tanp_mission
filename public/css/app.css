@@ -11988,6 +11988,14 @@ section:last-of-type {
   margin: 1rem 0 3rem;
 }
 
+.preview_imgs {
+  margin-top: 0.5rem;
+}
+
+.preview_imgs img {
+  width: 100%;
+}
+
 #register_info .submit_a {
   text-align: center;
   margin-top: 1rem;

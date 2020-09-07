@@ -29,18 +29,7 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
-                <li class="input_parts">
-                    <label for="img_num">イメージ画像</label>
-                    <select name="img_num" id="img_num">
-                        <option value="" selected disabled @if ($errors->has('img_num')) class="input_alert" @endif>選択してください</option>
-                        @for ($i = 0; $i < 16; $i++)
-                        <option value="{{ $i+1 }}"@if(old('img_num')==$i+1) selected @endif>{{ $i+1 }}</option>
-                        @endfor
-                    </select>
-                    @foreach ($errors->get('img_num') as $item)
-                        <p class="form_alert">{{ $item }}</p>
-                    @endforeach
-                </li>
+                <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif></catalog-img-component>
             </ul>
             <div class="btns">
                 <button type="submit">登録</button>
