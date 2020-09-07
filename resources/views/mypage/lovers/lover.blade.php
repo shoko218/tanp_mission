@@ -11,7 +11,9 @@
 @section('content')
     <section id="lover" class="normal_section">
         @include('components.msgs')
-        <img src="{{ asset( 'image/lover_icons/noimage.png',true)}}" alt="{{ $name }}さん" id="lover_img">
+        <div class="img_container">
+            <img @if($ext!=null) src="{{ asset('/storage/'.sprintf('%09d', $id).'.'.$ext.'?'.uniqid())}}" @else src="{{ asset( 'image/lover_icons/noimage.png',true)}}" @endif alt="{{ $name }}" alt="{{ $name }}さん" id="lover_img">
+        </div>
         <p id="lover_name">{{ $name }}さん</p>
         <div class="lovers_btns">
             <form method="post" name="register_event_form" id="register_event_form" action="/mypage/reminder/register">

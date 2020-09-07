@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MyPage\Lovers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Library\BaseClass;
+use App\Model\Lover;
 use App\Model\Order_log;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,8 @@ class LoverController extends Controller
         }else{
             $products=null;
         }
-        $param=['id'=>$lover_id,'name'=>$request->name,'products'=>$products];
+        $lover=Lover::find($lover_id);
+        $param=['id'=>$lover_id,'name'=>$request->name,'products'=>$products,'ext'=>$lover->img_extension];
         return view('mypage.lovers.lover',$param);
     }
 }

@@ -2,7 +2,7 @@
     @csrf
     <input type="hidden" name="id" value="{{ $id }}">
     <a href="javascript:form{{ $order }}.submit()">
-        <img src="{{ asset( 'image/lover_icons/noimage.png',true)}}" alt="{{ $name }}さん" class="event_card_img">
+        <img @if($ext!=null) src="{{ asset('/storage/'.sprintf('%09d', $lover_id).'.'.$ext)}}" @else src="{{ asset( 'image/lover_icons/noimage.png',true)}}" @endif alt="{{ $name }}" class="lover_card_img">
         <div class="event_detail">
             <p class="an_date">{{ $date }}</p>
             <p class="an_event">{{ $title }}</p>

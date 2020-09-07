@@ -24,7 +24,7 @@ class GetLoverController extends Controller
         }else{
             $products=null;
         }
-        $param=['id'=>$lover_id,'name'=>$lover->last_name.$lover->first_name,'products'=>$products];
+        $param=['id'=>$lover_id,'name'=>$lover->last_name.$lover->first_name,'products'=>$products,'ext'=>$lover->img_extension];
         return view('mypage.lovers.lover',$param);
     }
 }

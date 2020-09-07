@@ -107,10 +107,14 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
-                {{-- <li>
-                    <label for="relationship_id">写真</label>
-                    <input type="file" name="example" accept="image/jpeg, image/png">
-                </li> --}}
+                <li class="input_parts">
+                    <label for="image">写真(jpeg,png,gif形式、2MB以下)</label>
+                    <input id="image" type="file" name="image" accept="image/jpeg, image/png, image/gif" class="image">
+                    @foreach ($errors->get('image') as $item)
+                        <p class="form_alert">{{ $item }}</p>
+                    @endforeach
+                </li>
+                <lover-img-component :err-msgs='@json($errors->get('image'))' id='@json($lover->id)' ext={{ $lover->img_extension }}></lover-img-component>
             </ul>
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <input type="hidden" name="lover_id" value="{{ $lover->id }}">

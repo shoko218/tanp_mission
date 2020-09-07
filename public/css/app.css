@@ -11076,6 +11076,10 @@ label {
   text-align: left;
 }
 
+.input_parts #image {
+  border: none;
+}
+
 .radio_parts,
 .input_parts {
   margin-bottom: 2rem;
@@ -11809,17 +11813,33 @@ section:last-of-type {
   align-items: center;
 }
 
-#lover_img {
+#lover .img_container {
   width: 50%;
   max-width: 24rem;
-  border-radius: 50%;
+  position: relative;
   margin-bottom: 3rem;
+}
+
+#lover .img_container:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+#lover .img_container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #lover_name {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 #lover button:not(:last-of-type) {
@@ -11829,6 +11849,33 @@ section:last-of-type {
 #lover .submit_a {
   margin-top: 2rem;
   margin-bottom: 0;
+}
+
+.preview_lover_imgs {
+  margin-top: 0.5rem;
+}
+
+.preview_lover_imgs .lover_img {
+  width: 100%;
+  max-width: 24rem;
+  position: relative;
+  margin: 0 auto 3rem;
+}
+
+.preview_lover_imgs .lover_img:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.preview_lover_imgs .lover_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #event_register {

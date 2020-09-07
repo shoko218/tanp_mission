@@ -198,6 +198,7 @@ return [
         'is_repeat'=>'繰り返しの有無',
         'new-password'=>'新しいパスワード',
         'img_num'=>'イメージ画像',
+        'image'=>'写真',
     ],
 
 ];
