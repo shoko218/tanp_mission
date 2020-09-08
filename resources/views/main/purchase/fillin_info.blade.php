@@ -112,6 +112,13 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
+                <li class="input_parts">
+                    <label for="age">年齢</label>
+                    <input id="age" type="text" name="age" @if(old('age')!=null) value="{{ old('age') }}" @elseif($lover!=null&&$age!=null) value="{{ $age }}" @endif @if ($errors->has('age')) class="input_alert" @endif  placeholder="24" required>
+                    @foreach ($errors->get('age') as $item)
+                        <p class="form_alert">{{ $item }}</p>
+                    @endforeach
+                </li>
             </ul>
             <h2>ご注文者様情報の入力</h2>
             <ul class="inputs">

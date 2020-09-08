@@ -22,17 +22,17 @@ class PaymentProcessController extends Controller
         Charge::create(array(
              'amount' => $request->sum_price,
              'currency' => 'jpy',
-             'source'=> request()->stripeToken,
+             'source'=> $request->stripeToken,
         ));
         $order=new Order;
-        $order->forwarding_last_name=$request->session()->get('forwarding_last_name');
-        $order->forwarding_first_name=$request->session()->get('forwarding_first_name');
-        $order->forwarding_last_name_furigana=$request->session()->get('forwarding_last_name_furigana');
-        $order->forwarding_first_name_furigana=$request->session()->get('forwarding_first_name_furigana');
-        $order->forwarding_postal_code=$request->session()->get('forwarding_postal_code');
-        $order->forwarding_prefecture_id=$request->session()->get('forwarding_prefecture_id');
-        $order->forwarding_address=$request->session()->get('forwarding_address');
-        $order->forwarding_telephone=$request->session()->get('forwarding_telephone');
+        $order->last_name=$request->session()->get('forwarding_last_name');
+        $order->first_name=$request->session()->get('forwarding_first_name');
+        $order->last_name_furigana=$request->session()->get('forwarding_last_name_furigana');
+        $order->first_name_furigana=$request->session()->get('forwarding_first_name_furigana');
+        $order->postal_code=$request->session()->get('forwarding_postal_code');
+        $order->prefecture_id=$request->session()->get('forwarding_prefecture_id');
+        $order->address=$request->session()->get('forwarding_address');
+        $order->telephone=$request->session()->get('forwarding_telephone');
         if($request->session()->exists('gender')){
             $order->gender=$request->session()->get('gender');
         }
