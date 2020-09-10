@@ -10986,7 +10986,8 @@ a {
 button,
 input,
 select,
-textarea {
+textarea,
+.button {
   font-family: inherit;
   font-size: 100%;
 }
@@ -11011,7 +11012,8 @@ a:hover {
 }
 
 a:hover > *,
-button:hover {
+button:hover,
+.button:hover {
   opacity: 0.7;
 }
 
@@ -11022,9 +11024,11 @@ a:visited {
 input,
 select,
 button,
+.button,
 *:focus,
 *:active,
-button:focus {
+button:focus,
+.button:focus {
   outline: 0;
 }
 
@@ -11221,7 +11225,8 @@ footer {
   margin-top: 5.6rem;
 }
 
-button {
+button,
+.button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -11238,7 +11243,8 @@ button {
   min-width: 24rem;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   opacity: 0.7;
 }
 
@@ -11493,6 +11499,10 @@ section:last-of-type {
 
 .input_alert {
   border: 1px solid red;
+}
+
+.alert_msg {
+  color: red;
 }
 
 .normal_section {
@@ -11941,6 +11951,47 @@ section:last-of-type {
 
 #payment > p {
   text-align: left;
+}
+
+#payment button {
+  margin-top: 2rem;
+}
+
+button.stripe-button-el,
+button.stripe-button-el > span {
+  background-color: #ff9999 !important;
+  background-image: none;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 1.6rem;
+  background-color: #ff9999;
+  color: #fff;
+  border-radius: 4rem;
+  min-width: 24rem;
+  line-height: 2.8rem;
+  box-shadow: none;
+}
+
+button.stripe-button-el:hover,
+button.stripe-button-el > span:hover {
+  opacity: 0.7;
+}
+
+button.stripe-button-el:focus,
+button.stripe-button-el > span:focus {
+  outline: 0;
+}
+
+button.stripe-button-el {
+  padding: 0.6rem 2rem;
+  text-shadow: none;
 }
 
 #result_notfound {

@@ -95,7 +95,6 @@
                     'product_id': productId,
                 };
                 axios.post('cart/plus',post_data).then(res => {
-                    console.log(res.data.sum_price)
                     this.dataCartGoods=res.data.cart_goods,
                     this.dataSumPrice=res.data.sum_price,
                     this.dataProducts=res.data.products,
