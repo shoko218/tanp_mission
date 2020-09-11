@@ -7,11 +7,16 @@
 <body>
     <div id="wrapper">
         @yield('header')
-        <div id="app"> 
+        @if (!Request::is('purchase/payment'))
+            <div id="app">
+        @endif
             <div id="contents">
                 @yield('content')
             </div>
-        </div>
+
+        @if (!Request::is('purchase/payment'))
+            </div>
+        @endif
         @yield('footer')
     </div>
 </body>

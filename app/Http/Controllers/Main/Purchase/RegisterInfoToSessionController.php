@@ -43,6 +43,7 @@ class RegisterInfoToSessionController extends Controller
         $request->session()->put('user_postal_code', $request->input('user_postal_code'));
         $request->session()->put('user_prefecture_id', $request->input('user_prefecture_id'));
         $request->session()->put('user_address', $request->input('user_address'));
+        $request->session()->put('user_email', $request->input('user_email'));
         $request->session()->put('user_telephone',$request->input('user_telephone'));
         return redirect('/purchase/payment');
     }

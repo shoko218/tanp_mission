@@ -38,6 +38,10 @@
             width: 100% !important;
         }
         
+        body{
+            font-family: 'TsukuARdGothic-Regular',sans-serif;
+            color: #333333;
+        }
         /* What it does: Stops email clients resizing small text. */
         * {
             -ms-text-size-adjust: 100%;
@@ -163,14 +167,14 @@
 
             <!-- 1 Column Text : BEGIN -->
             <tr>
-                <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+                <td style="padding: 40px; text-align: center; font-family: 'TsukuARdGothic-Regular',sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #333;">
                     下記のURLをクリックしてパスワードをリセットしてください。
                     <br><br>
                     <!-- Button : Begin -->
                     <table cellspacing="0" cellpadding="0" border="0" align="center" style="Margin: auto">
                         <tr>
                             <td style="border-radius: 3px; background: #ff9999; text-align: center;" class="button-td">
-                                <a href="{{ $reset_url }}" style="background: #ff9999; border: 15px solid #ff9999; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
+                                <a href="{{ $reset_url }}" style="background: #ff9999; border: 15px solid #ff9999; font-family: 'TsukuARdGothic-Regular',sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffffff">パスワードをリセットする</span>&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </td>
@@ -185,7 +189,7 @@
         <!-- Email Footer : BEGIN -->
         <table cellspacing="0" cellpadding="0" border="0" align="center" width="600" style="margin: auto;" class="email-container">
             <tr>
-                <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #ffffff;">
+                <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: 'TsukuARdGothic-Regular',sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #ffffff;">
                     &copy;&nbsp;ninaworks 2020
                     <br><br>
                 </td>

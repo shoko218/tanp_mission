@@ -49,6 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'postal_code'=>['nullable','string','digits:7','hankakunum'],
         'prefecture_id'=>['nullable','integer'],
         'address'=>['nullable','string', 'max:200','text'],
+        'email'=>['required', 'string', 'max:255'],
         'telephone'=>['nullable','string', 'max:21','hankakunum'],
     );
 

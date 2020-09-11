@@ -10,6 +10,7 @@ import GoodComponent from './components/GoodComponent'
 import CartComponent from './components/CartComponent'
 import CatalogImgComponent from './components/CatalogImgComponent'
 import LoverImgComponent from './components/LoverImgComponent'
+// import StripeComponent from './components/StripeComponent'
 import RandomRecommend from './components/RandomRecommend'
 
 // window.Vue = require('vue');
@@ -108,3 +109,4 @@ window.onload = function onload(){
         });
     }
 }
+

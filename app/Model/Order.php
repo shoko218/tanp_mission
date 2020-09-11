@@ -28,6 +28,7 @@ class Order extends Model
         'user_postal_code'=>['required','string','digits:7','hankakunum'],
         'user_prefecture_id'=>['required','integer'],
         'user_address'=>['required','string', 'max:200','text'],
+        'user_email'=>['required', 'email', 'max:255'],
         'user_telephone'=>['required','string', 'max:21','hankakunum'],
     );
 

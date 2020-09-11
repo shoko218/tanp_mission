@@ -199,6 +199,7 @@ return [
         'new-password'=>'新しいパスワード',
         'img_num'=>'イメージ画像',
         'image'=>'写真',
+        'user_email'=>'メールアドレス',
     ],
 
 ];

@@ -138,7 +138,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="user_last_name_furigana">セイ<span class="form_requires">*</span></label>
-                    <input id="user_last_name_furigana" type="text" name="user_last_name_furigana" @if(old('user_last_name_furigana')!=null)value="{{ old('user_last_name_furigana') }}"@elseif(Auth::check()&&Auth::user()->first_name!=null)value="{{ Auth::user()->first_name }}"@endif @if ($errors->has('user_last_name_furigana')) class="input_alert" @endif placeholder="ヤマダ" required autofocus>
+                    <input id="user_last_name_furigana" type="text" name="user_last_name_furigana" @if(old('user_last_name_furigana')!=null)value="{{ old('user_last_name_furigana') }}"@elseif(Auth::check()&&Auth::user()->last_name_furigana!=null)value="{{ Auth::user()->last_name_furigana }}"@endif @if ($errors->has('user_last_name_furigana')) class="input_alert" @endif placeholder="ヤマダ" required autofocus>
                     @foreach ($errors->get('user_last_name_furigana') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
@@ -177,6 +177,13 @@
                     @endforeach
                 </li>
                 <li class="input_parts">
+                    <label for="user_email">メールアドレス<span class="form_requires">*</span></label>
+                    <input id="user_email" type="email" name="user_email" @if(old('user_email')!=null)value="{{ old('user_email') }}"@elseif(Auth::check()&&Auth::user()->email!=null)value="{{ Auth::user()->email }}"@endif @if ($errors->has('user_email')) class="input_alert" @endif placeholder="example@mail.com" required>
+                    @foreach ($errors->get('user_email') as $item)
+                        <p class="form_alert">{{ $item }}</p>
+                    @endforeach
+                </li>
+                <li class="input_parts">
                     <label for="user_telephone">電話番号(ハイフン抜き)<span class="form_requires">*</span></label>
                     <input id="user_telephone" type="text" name="user_telephone" @if(old('user_telephone')!=null)value="{{ old('user_telephone') }}"@elseif(Auth::check()&&Auth::user()->telephone!=null)value="{{ Auth::user()->telephone }}"@endif @if ($errors->has('user_telephone')) class="input_alert" @endif placeholder="xxxxxxxxxx" required>
                     @foreach ($errors->get('user_telephone') as $item)
@@ -185,10 +192,10 @@
                 </li>
             </ul>
             @if ($lover!=null)
-            <input type="text" name="gender" value="{{ $lover->gender }}">
-            <input type="text" name="relationship_id" value="{{ $lover->relationship_id }}">
-            <input type="text" name="age" value="<?php echo $age?>">
-            <input type="text" name="lover_id" value="{{ $lover->id }}">
+            <input type="hidden" name="gender" value="{{ $lover->gender }}">
+            <input type="hidden" name="relationship_id" value="{{ $lover->relationship_id }}">
+            <input type="hidden" name="age" value="<?php echo $age?>">
+            <input type="hidden" name="lover_id" value="{{ $lover->id }}">
             @endif
             @if (Auth::check())
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

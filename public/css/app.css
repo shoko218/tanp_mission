@@ -11953,10 +11953,6 @@ section:last-of-type {
   text-align: left;
 }
 
-#payment button {
-  margin-top: 2rem;
-}
-
 button.stripe-button-el,
 button.stripe-button-el > span {
   background-color: #ff9999 !important;
@@ -11987,6 +11983,18 @@ button.stripe-button-el > span:hover {
 button.stripe-button-el:focus,
 button.stripe-button-el > span:focus {
   outline: 0;
+}
+
+button.stripe-button-el:active,
+button.stripe-button-el > span:active {
+  opacity: 0.7;
+  background-color: #ff9999;
+}
+
+.stripe-button-el:not(:disabled):active span,
+.stripe-button-el.active span {
+  opacity: 0.7;
+  background-color: #ff9999;
 }
 
 button.stripe-button-el {

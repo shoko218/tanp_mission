@@ -43,7 +43,7 @@ class VerifyEmailCustom extends Notification
         if (static::$toMailCallback) {
             return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
         }
-        session()->flash('suc_msg', 'メールを送信しました。');
+        session()->flash('suc_msg', '認証用メールを送信しました。');
         return (new MailMessage)
             ->subject('メールアドレス認証')
             ->view('mail.verifyemail')
