@@ -15,7 +15,7 @@ class SendMailToEditEmailProcessController extends Controller
 {
     public function __invoke(Request $request){
         $new_email = $request->new_email;
-        if(User::where('email','=','$new_email')->first()==null){
+        if(User::where('email','=',$new_email)->first()==null){
             $token = hash_hmac(
                 'sha256',
                 Str::random(40) . $new_email,
