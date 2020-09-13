@@ -5,7 +5,7 @@
             <button v-bind:class="[currentId==1 ? 'active_tab' : 'inactive_tab']" @click="tab(1)" class="">送信済み</button>
             <button v-bind:class="[currentId==2 ? 'active_tab' : 'inactive_tab']" @click="tab(2)" class="">返答あり</button>
         </div>
-        <div class="oc_cards">
+        <div class="oc_cards" v-if="result.length!==0">
             <form v-for="catalog in result" :key="catalog.id" method="post" :name="'form'+catalog.id" action="/mypage/original_catalog/detail" class="oc_card">
                 <input type="hidden" name="_token" v-bind:value="csrf">
                 <input type="hidden" name="id" :value="catalog.id">
@@ -16,6 +16,9 @@
                     </div>
                 </a>
             </form>
+        </div>
+        <div v-else class="no_catalog_msg">
+            <h3>該当するカタログはありません。</h3>
         </div>
         <paginate
             v-model="page"

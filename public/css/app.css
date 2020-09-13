@@ -11975,7 +11975,6 @@ button.stripe-button-el {
 }
 
 .oc_cards {
-  border-top: 0.1rem solid #ff9999;
   margin-bottom: 3rem;
 }
 
@@ -12079,7 +12078,6 @@ button.stripe-button-el {
 }
 
 .tabs > button {
-  border-bottom: 0;
   border-radius: 4rem 4rem 0 0;
   min-width: 0;
   width: 33.3333333%;
@@ -12123,6 +12121,10 @@ button.stripe-button-el {
 .ori-pagination .disabled {
   background-color: #EEE;
   color: #666;
+}
+
+.no_catalog_msg {
+  margin: 3rem 0;
 }
 
 .preview_imgs {

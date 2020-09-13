@@ -19,7 +19,7 @@ class ResultGetController extends Controller
                 ->where('user_id','=',$user_id)
                 ->where('did_send_mail','=',false)
                 ->where('selected_id','=',null)
-                ->orderBy('id','desc')
+                ->orderBy('updated_at','desc')
                 ->get();
                 break;
             case 1:#送信済み
@@ -27,7 +27,7 @@ class ResultGetController extends Controller
                 ->where('user_id','=',$user_id)
                 ->where('did_send_mail','=',true)
                 ->where('selected_id','=',null)
-                ->orderBy('id','desc')
+                ->orderBy('updated_at','desc')
                 ->get();
                 break;
             case 2:#返答あり
@@ -35,7 +35,7 @@ class ResultGetController extends Controller
                 ->where('user_id','=',$user_id)
                 ->where('did_send_mail','=',true)
                 ->where('selected_id','!=',null)
-                ->orderBy('id','desc')
+                ->orderBy('updated_at','desc')
                 ->get();
                 break;
             default:

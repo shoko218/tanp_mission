@@ -1212,7 +1212,6 @@ button.stripe-button-el{
 
 .oc_{
     &cards{
-        border-top: 0.1rem solid $main_color;
         margin-bottom: $std_my;
     }
     &card{
@@ -1335,7 +1334,6 @@ button.stripe-button-el{
     display: flex;
     width: 100%;
     &>button{
-        border-bottom: 0;
         border-radius: $btn_rs $btn_rs 0 0;
         min-width: 0;
         width: 33.3333333%;
@@ -1374,6 +1372,10 @@ button.stripe-button-el{
         background-color: #EEE;
         color: #666;
     }
+}
+
+.no_catalog_msg{
+    margin: $std_my 0;
 }
 
 //オリジナルカタログ登録画面///////////////////////////////////////////////
