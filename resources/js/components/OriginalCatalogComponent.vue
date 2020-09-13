@@ -20,7 +20,7 @@
         <paginate
             v-model="page"
             :page-count="pageCount"
-            :page-range="1"
+            :page-range="10"
             :click-handler="pageChange"
             :prev-text="'<'"
             :next-text="'>'"
@@ -53,7 +53,7 @@
                 result:Object(),
                 page: 1,
                 pageCount: 0,
-                numOfPage:1
+                numOfPage:10
             }
         },
         mounted() {
