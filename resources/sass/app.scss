@@ -181,6 +181,7 @@ input,select,textarea{
     border-radius: $input_rsz;
     padding: $input_py $input_px;
     font-size: $input_fz;
+    height: $input_hsz;
 }
 
 .inputs{
@@ -1239,31 +1240,6 @@ button.stripe-button-el{
         }
     }
 }
-// .oc_{
-//     &cards{
-//         margin-bottom: $std_my;
-//     }
-//     &card{
-//         width: 100%;
-//         max-width: 100%;
-//         border-bottom: 0.1rem solid $area_border_c;
-//         padding: 5% 0;
-//         &:first-of-type{
-//             border-top: 0.1rem solid $area_border_c;
-//         }
-//     }
-//     &img{
-//         width: 100%;
-//         height: 60vw;
-//         object-fit: cover;
-//     }
-//     &detail{
-//         padding-top: 5%;
-//         & h3{
-//             font-size: 2rem;
-//         }
-//     }
-// }
 
 #original_catalog{
     text-align: center;
@@ -1298,6 +1274,12 @@ button.stripe-button-el{
         margin-top: 2rem;
         margin-bottom: 0;
         text-align: center;
+    }
+    .oc_product_cards{
+        .btns{
+            margin-bottom: 0.4rem;
+            margin-top: $std_my;
+        }
     }
 }
 
@@ -1452,4 +1434,3 @@ button.stripe-button-el{
         margin-top: 2rem;
     }
 }
-

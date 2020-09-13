@@ -49,6 +49,9 @@
                     @include('components.catalog_product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price,'catalog_id'=>$catalog->id])
                 @endif
             @endforeach
+            <div class="btns">
+                <button onclick="location.href='/search'">商品を探しに行く→</button>
+            </div>
         </div>
     @else
         @include('components.nothing_msgs')

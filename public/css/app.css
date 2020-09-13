@@ -10966,6 +10966,7 @@ textarea {
   border-radius: 0.6rem;
   padding: 0.5rem 1rem;
   font-size: 1.6rem;
+  height: 3.6rem;
 }
 
 .inputs {
@@ -12045,6 +12046,11 @@ button.stripe-button-el {
   margin-top: 2rem;
   margin-bottom: 0;
   text-align: center;
+}
+
+#original_catalog_detail .oc_product_cards .btns {
+  margin-bottom: 0.4rem;
+  margin-top: 3rem;
 }
 
 #select_product h2 {

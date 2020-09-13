@@ -10,7 +10,7 @@
                                 <div class="product_detail">
                                     <p class="rc_title">{{ dataProduct.product.name }}</p>
                                     <p class="rc_genre">{{ dataProduct.product.genre.name }}</p>
-                                    <p class="rc_price">¥{{ dataProduct.product.price }}(+tax)</p>
+                                    <p class="rc_price">{{ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(dataProduct.product.price) }}(+tax)</p>
                                 </div>
                             </a>
                             <input type="hidden" name="product_id" :value="dataProduct.product.id">

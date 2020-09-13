@@ -11,7 +11,7 @@
                 <div class="product_detail">
                     <p class="rc_title">{{ dataTitle }}</p>
                     <p class="rc_genre">{{ dataGenre }}</p>
-                    <p class="rc_price">¥{{ dataPrice }}(+tax)</p>
+                    <p class="rc_price">{{ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(dataPrice) }}(+tax)</p>
                 </div>
             </a>
         </div>
