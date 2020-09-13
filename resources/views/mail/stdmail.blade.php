@@ -167,11 +167,13 @@
         <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="600" style="margin: auto;" class="email-container">
 
             <!-- Hero Image, Flush : BEGIN -->
-            <tr>
-				<td>
-					<img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path($img_path)))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
-				</td>
-            </tr>
+            @if ($img_path!=null)
+                <tr>
+                    <td>
+                        <img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path($img_path)))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
+                    </td>
+                </tr>
+            @endif
             <!-- Hero Image, Flush : END -->
 
             <!-- 1 Column Text : BEGIN -->
