@@ -20,17 +20,17 @@
         <paginate
             v-model="page"
             :page-count="pageCount"
-            :page-range="10"
+            :page-range="1"
             :click-handler="pageChange"
-            :prev-text="'<<'"
-            :next-text="'>>'"
-            :container-class="'ori-pagination'"
-            :page-class="'item'"
-            :page-link-class="'link'"
-            :prev-class="'arrow'"
-            :prev-link-class="'link'"
-            :next-class="'arrow'"
-            :next-link-class="'link'">
+            :prev-text="'<'"
+            :next-text="'>'"
+            :container-class="'pagination'"
+            :page-class="'page-item'"
+            :page-link-class="'page-link'"
+            :prev-class="'page-item'"
+            :prev-link-class="'page-link'"
+            :next-class="'page-item'"
+            :next-link-class="'page-link'">
         </paginate>
     </div>
 </template>
@@ -53,7 +53,7 @@
                 result:Object(),
                 page: 1,
                 pageCount: 0,
-                numOfPage:10
+                numOfPage:1
             }
         },
         mounted() {

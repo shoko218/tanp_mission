@@ -598,6 +598,55 @@ section:last-of-type{
 .alert_msg{
     color:red;
 }
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.4rem;
+    .page-item{
+        border: 0.1rem solid $main_color;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        >.page-link{
+            width: 3rem;
+            line-height: 3rem;
+            color: $main_color;
+        }
+    }
+    .active{
+        background-color: $main_color;
+        >.page-link{
+            color: white;
+        }
+    }
+    .disabled{
+        background-color: #EEE;
+        border: 0.1rem solid #AAA;
+        >.page-link{
+            color: #888;
+        }
+    }
+    .page-item:last-child,.page-item:first-child{
+        border-radius: 10%;
+        height: 3rem;
+        width: 4.8rem;
+        line-height: 3rem;
+        background-color: $main_color;
+        >.page-link{
+            color: white;
+        }
+    }
+    .page-item:last-child.disabled,.page-item:first-child.disabled{
+        background-color: #EEE;
+        border: 0.1rem solid #AAA;
+        >.page-link{
+            color: #888;
+        }
+    }
+}
 //↑スタンダード設定////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -776,7 +825,7 @@ section:last-of-type{
 }
 
 #results{
-    padding: 0 $std_px;
+    padding: 0 $std_px $std_py;
     .product_card:first-of-type{
         border-top: none;
     }
