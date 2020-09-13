@@ -16,13 +16,8 @@
         <button onclick="location.href='register'">新しくカタログを作る</button>
     </div>
     <h2>今までに作ったオリジナルカタログ</h2>
+    <original-catalog-component :csrf="{{json_encode(csrf_token())}}"></original-catalog-component>
     @if (count($results))
-        <div class="rc_cards">
-        @foreach ($results as $result)
-            @include('components.original_catalog_card',['catalog_id'=>$result->id,'img_id'=>$result->img_num,'name'=>$result->name])
-        @endforeach
-        </div>
-        {{$results->appends(request()->input())->links()}}
     @else
         <h3>まだカタログはありません。</h3>
     @endif

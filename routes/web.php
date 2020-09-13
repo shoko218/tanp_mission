@@ -80,6 +80,7 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::prefix('/original_catalog')->group(function () {
             Route::get('/top', 'MyPage\Original_catalog\TopController');
             Route::post('/detail', 'MyPage\Original_catalog\DetailController');
+            Route::post('/result_get', 'MyPage\Original_catalog\ResultGetController');
             Route::get('/detail', 'MyPage\Original_catalog\GetDetailController');
             Route::get('/register', 'MyPage\Original_catalog\RegisterController');
             Route::post('/register_process', 'MyPage\Original_catalog\RegisterProcessController');

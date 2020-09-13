@@ -10,6 +10,7 @@ import GoodComponent from './components/GoodComponent'
 import CartComponent from './components/CartComponent'
 import CatalogImgComponent from './components/CatalogImgComponent'
 import LoverImgComponent from './components/LoverImgComponent'
+import OriginalCatalogComponent from './components/OriginalCatalogComponent'
 // import StripeComponent from './components/StripeComponent'
 import RandomRecommend from './components/RandomRecommend'
 
@@ -37,9 +38,10 @@ import RandomRecommend from './components/RandomRecommend'
 const app = new Vue({
     el: '#app',
     components: {
-        GoodComponent,CartComponent,RandomRecommend,CatalogImgComponent,LoverImgComponent
-    }
+        GoodComponent,CartComponent,RandomRecommend,CatalogImgComponent,LoverImgComponent,OriginalCatalogComponent,
+    },
 });
+
 
 window.onload = function onload(){
     var hb_btn=document.getElementById("hb_menu_btn");

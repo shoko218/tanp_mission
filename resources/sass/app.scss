@@ -442,17 +442,15 @@ section:last-of-type{
     &>a{
         display: flex;
     }
-}
-
-.product_card:first-of-type{
-    border-top: 0.1rem solid $area_border_c;
-}
-
-.product_card_img{
-    width: 40%;
-    height: 24vw;
-    object-fit: cover;
-    padding-right: 3%;
+    &:first-of-type{
+        border-top: 0.1rem solid $area_border_c;
+    }
+    &_img{
+        width: 40%;
+        height: 24vw;
+        object-fit: cover;
+        padding-right: 3%;
+    }
 }
 
 .remove_product_btn{
@@ -1165,29 +1163,59 @@ button.stripe-button-el{
 
 .oc_{
     &cards{
+        border-top: 0.1rem solid $main_color;
         margin-bottom: $std_my;
     }
     &card{
-        width: 100%;
-        max-width: 100%;
+        display: flex;
+        max-width: none;
+        text-align: left;
+        padding: 2% 0;
         border-bottom: 0.1rem solid $area_border_c;
-        padding: 5% 0;
-        &:first-of-type{
-            border-top: 0.1rem solid $area_border_c;
+        position: relative;
+        &>a{
+            display: flex;
         }
     }
     &img{
-        width: 100%;
-        height: 60vw;
+        width: 40%;
+        height: 24vw;
         object-fit: cover;
+        padding-right: 3%;
     }
     &detail{
-        padding-top: 5%;
+        width: 60%;
+        padding-right: $clear_btn_wsz;
         & h3{
             font-size: 2rem;
         }
     }
 }
+// .oc_{
+//     &cards{
+//         margin-bottom: $std_my;
+//     }
+//     &card{
+//         width: 100%;
+//         max-width: 100%;
+//         border-bottom: 0.1rem solid $area_border_c;
+//         padding: 5% 0;
+//         &:first-of-type{
+//             border-top: 0.1rem solid $area_border_c;
+//         }
+//     }
+//     &img{
+//         width: 100%;
+//         height: 60vw;
+//         object-fit: cover;
+//     }
+//     &detail{
+//         padding-top: 5%;
+//         & h3{
+//             font-size: 2rem;
+//         }
+//     }
+// }
 
 #original_catalog{
     text-align: center;
@@ -1245,6 +1273,57 @@ button.stripe-button-el{
 #select_product_detail{
     & .btns{
         margin:1rem 0 $std_my ;
+    }
+}
+
+.inactive_tab{
+    background-color: #fff;
+    color: $main_color;
+    border: 0.1rem solid $main_color;
+}
+
+.tabs{
+    display: flex;
+    width: 100%;
+    &>button{
+        border-bottom: 0;
+        border-radius: $btn_rs $btn_rs 0 0;
+        min-width: 0;
+        width: 33.3333333%;
+    }
+}
+
+.ori-pagination{
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    .item{
+        border: 0.1rem solid $main_color;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        >a{
+            line-height: 3rem;
+            color: $main_color;
+        }
+    }
+    .active{
+        background-color: $main_color;
+        >a{
+            color: white;
+        }
+    }
+    .arrow{
+        border-radius: 10%;
+        height: 3rem;
+        width: 4.8rem;
+        line-height: 3rem;
+        background-color: $main_color;
+        color: white;
+    }
+    .disabled{
+        background-color: #EEE;
+        color: #666;
     }
 }
 
