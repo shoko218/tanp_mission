@@ -13,7 +13,7 @@ class TopController extends Controller
         $results=Catalog::select('*')
         ->where('user_id','=',Auth::user()->id)
         ->orderBy('id','desc')
-        ->paginate(10);
+        ->paginate(12);
         $param=['results'=>$results];
         return view('mypage.original_catalog.top',$param);
     }

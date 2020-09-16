@@ -2,49 +2,47 @@
     <div>
         <div v-if="dataCartGoods.length>0||dataProducts.length>0">
             <div id="orders">
-                <div id="od_cards">
-                    <div v-if="dataCartGoods.length > 0">
-                        <div v-for="dataProduct in dataCartGoods" :key="dataProduct.id" class="product_card">
-                            <a :href="'/product?id='+dataProduct.product.id">
-                                <img :src="'/image/products/'+('00000'+dataProduct.product.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img">
-                                <div class="product_detail">
-                                    <p class="rc_title">{{ dataProduct.product.name }}</p>
-                                    <p class="rc_genre">{{ dataProduct.product.genre.name }}</p>
-                                    <p class="rc_price">{{ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(dataProduct.product.price) }}(+tax)</p>
-                                </div>
-                            </a>
-                            <input type="hidden" name="product_id" :value="dataProduct.product.id">
-                            <div class="remove_product_btn">
-                                <button v-on:click="comp_out(dataProduct.product.id)">×</button>
+                <div v-if="dataCartGoods.length > 0" id="od_cards">
+                    <div v-for="dataProduct in dataCartGoods" :key="dataProduct.id" class="product_card">
+                        <a :href="'/product?id='+dataProduct.product.id">
+                            <img :src="'/image/products/'+('00000'+dataProduct.product.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img">
+                            <div class="product_detail cart_card_detail">
+                                <p class="rc_title">{{ dataProduct.product.name }}</p>
+                                <p class="rc_genre">{{ dataProduct.product.genre.name }}</p>
+                                <p class="rc_price">{{ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(dataProduct.product.price) }}(+tax)</p>
                             </div>
+                        </a>
+                        <input type="hidden" name="product_id" :value="dataProduct.product.id">
+                        <div class="cart_action_btns">
                             <div class="cart_change_count">
                                 <button v-on:click="minus(dataProduct.product.id)" class="cart_minus_btn">-</button>
                                 <p>{{ dataProduct.count }}</p>
                                 <button v-if="dataProduct.count>254" class="cart_cannot_plus_btn" type="button">+</button>
                                 <button v-else v-on:click="plus(dataProduct.product.id)" class="cart_plus_btn">+</button>
                             </div>
+                            <p v-on:click="comp_out(dataProduct.product.id)"><u>削除</u></p>
                         </div>
                     </div>
-                    <div v-else>
-                        <div v-for="(dataProduct,i) in dataProducts" :key="dataProduct.id" class="product_card">
-                            <a :href="'/product?id='+dataProduct.id">
-                                <img :src="'/image/products/'+('00000'+dataProduct.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img">
-                                <div class="product_detail">
-                                    <p class="rc_title">{{ dataProduct.name }}</p>
-                                    <p class="rc_genre">{{ dataProduct.genre.name }}</p>
-                                    <p class="rc_price">¥{{ dataProduct.price }}(+tax)</p>
-                                </div>
-                            </a>
-                            <input type="hidden" name="product_id" :value="dataProduct.productId">
-                            <div class="remove_product_btn">
-                                <button v-on:click="comp_out(dataProduct.id)">×</button>
+                </div>
+                <div v-else id="od_cards">
+                    <div v-for="(dataProduct,i) in dataProducts" :key="dataProduct.id" class="product_card">
+                        <a :href="'/product?id='+dataProduct.id">
+                            <img :src="'/image/products/'+('00000'+dataProduct.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img">
+                            <div class="product_detail">
+                                <p class="rc_title">{{ dataProduct.name }}</p>
+                                <p class="rc_genre">{{ dataProduct.genre.name }}</p>
+                                <p class="rc_price">¥{{ dataProduct.price }}(+tax)</p>
                             </div>
-                            <div class="cart_change_count">
-                                <button v-on:click="minus(dataProduct.id)" class="cart_minus_btn">-</button>
-                                <p>{{ dataProductCount[i] }}</p>
-                                <button v-if="dataProductCount[i]>254" class="cart_cannot_plus_btn" type="button">+</button>
-                                <button v-else v-on:click="plus(dataProduct.id)" class="cart_plus_btn">+</button>
-                            </div>
+                        </a>
+                        <input type="hidden" name="product_id" :value="dataProduct.productId">
+                        <div class="remove_product_btn">
+                            <button v-on:click="comp_out(dataProduct.id)">×</button>
+                        </div>
+                        <div class="cart_change_count">
+                            <button v-on:click="minus(dataProduct.id)" class="cart_minus_btn">-</button>
+                            <p>{{ dataProductCount[i] }}</p>
+                            <button v-if="dataProductCount[i]>254" class="cart_cannot_plus_btn" type="button">+</button>
+                            <button v-else v-on:click="plus(dataProduct.id)" class="cart_plus_btn">+</button>
                         </div>
                     </div>
                 </div>

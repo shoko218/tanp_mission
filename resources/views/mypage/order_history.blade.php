@@ -18,8 +18,8 @@
                 @include('components.order_card',['product_id'=>$order_log->product_id,'title'=>$order_log->product->name,'date'=>$order_log->created_at,'person'=>$order_log->order->last_name.$order_log->order->first_name,'count'=>$order_log->count])
                 @endforeach
             </div>
-            {{ $order_logs->links() }}
         </div>
+        {{ $order_logs->links() }}
         @else
             @include('components.nothing_msgs')
         @endif

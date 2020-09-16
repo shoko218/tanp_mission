@@ -16,7 +16,8 @@ class TopController extends Controller
         $events=Event::join('lovers', 'lover_id', '=', 'lovers.id')
         ->where('lovers.user_id',$user_id)
         ->select(DB::raw('events.*'))
-        ->get();
+        ->orderby('date','asc')
+        ->paginate(12);
         $param=['events'=>$events];
         return view('mypage.reminder.top',$param);
     }

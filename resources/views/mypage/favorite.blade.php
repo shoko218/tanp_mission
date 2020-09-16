@@ -18,8 +18,8 @@
                     @include('components.product_card',['product_id'=>$favorite_product->id,'title'=>$favorite_product->name,'genre'=>$favorite_product->genre->name,'price'=>$favorite_product->price])
                     @endforeach
                 </div>
-                {{ $favorite_products->links() }}
             </div>
+            {{ $favorite_products->links() }}
         @else
             @include('components.nothing_msgs')
         @endif

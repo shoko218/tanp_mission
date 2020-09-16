@@ -15,7 +15,7 @@ class SelectCatalogController extends Controller
         ->where('user_id','=',Auth::user()->id)
         ->where('did_send_mail','=',false)
         ->orderBy('id','desc')
-        ->paginate(10);
+        ->paginate(12);
         $param=['results'=>$results];
         return view('mypage.original_catalog.select_catalog',$param);
     }

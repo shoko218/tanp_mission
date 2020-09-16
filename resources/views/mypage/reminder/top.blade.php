@@ -17,6 +17,7 @@
             @include('components.event_card',['date'=>$event->date,'name'=>$event->lover->last_name.$event->lover->first_name,'title'=>$event->title,'id'=>$event->id,'order'=>$loop->index,'ext'=>$event->lover->img_extension,'lover_id'=>$event->lover->id])
             @endforeach
         </div>
+        {{$events->appends(request()->input())->links()}}
         <div class="btns">
             <button onclick="location.href='/mypage/reminder/register'">新しいイベントを登録→</button>
         </div>

@@ -56,12 +56,23 @@ window.onload = function onload(){
     var target_generation_id=document.getElementById("target_generation_id");
     var inputs=document.getElementById("inputs");
     var search_bar=document.getElementById("search_bar");
-
+    var add_condition=document.getElementById("add_condition");
+    var option_condition=document.getElementById("option_condition");
     if(change_btn!=null){
-        if(change_btn.classList.contains("conditions_to_key_btn")){
-            search_bar.style.display ="none";
-        }else{
+        if(search_bar.value!=''){
+            search_bar.style.display ="block";
             inputs.style.display ="none";
+            change_btn.innerHTML="条件検索にする"
+            change_btn.className = "key_to_conditions_btn";
+        }else{
+            inputs.style.display ="block";
+            search_bar.style.display ="none";
+            change_btn.innerHTML="キーワード検索にする"
+            change_btn.className = "conditions_to_key_btn";
+            if(target_genre_id.value!=''||target_gender.value!=''||target_generation_id.value!=''){{
+                option_condition.style.display ="block";
+                add_condition.style.display ="none";
+            }}
         }
     }
 
@@ -108,6 +119,12 @@ window.onload = function onload(){
                 search_bar.value="";
                 change_btn.innerHTML="キーワード検索にする"
             }
+        });
+    }
+    if(add_condition!=null){
+        add_condition.addEventListener("click", function() {
+            option_condition.style.display ="block";
+            add_condition.style.display ="none";
         });
     }
 }

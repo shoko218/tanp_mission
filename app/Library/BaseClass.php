@@ -167,7 +167,7 @@ class BaseClass{
         if($limit){
             $results=$mainQuery->limit($limit)->get();
         }else{
-            $results=$mainQuery->paginate(10);
+            $results=$mainQuery->paginate(12);
         }
 
         return $results;
@@ -226,7 +226,7 @@ class BaseClass{
 
         $temp_array=[];
         foreach ($lover_logs as $lover_log) {
-            if(count($recommend_ids)>4||$lover_log['simpson']<=0) break;
+            if(count($recommend_ids)>2||$lover_log['simpson']<=0) break;
             $new_arrays=BaseClass::get_differences($target,$lover_log['items'],$product_counts);
             foreach ($new_arrays as $new_array) {
                 if(!in_array($new_array[0],$temp_array)){
@@ -235,8 +235,8 @@ class BaseClass{
                 }
             }
         }
-        if($recommend_ids>4){
-            array_splice($recommend_ids,5);
+        if($recommend_ids>2){
+            array_splice($recommend_ids,3);
         }
         $recommend_ids=array_column($recommend_ids,'0');
         $products = new Collection();

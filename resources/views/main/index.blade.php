@@ -10,11 +10,10 @@
 
 @section('content')
 @include('components.msgs')
-<section id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+{{-- <section id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        {{-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> --}}
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -32,6 +31,11 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+</section> --}}
+<section id="banner">
+    <a href="">
+        <img src="{{ asset( 'image/banner_imgs/banner01.png',true)}}" alt="バナー画像" id="banner_img">
+    </a>
 </section>
 <section id="search_area">
     <h1>プレゼントを探す</h1>

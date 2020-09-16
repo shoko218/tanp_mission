@@ -12,7 +12,7 @@ class OrderHistoryController extends Controller
     public function __invoke()
     {
         $user_id=Auth::user()->id;
-        $order_logs=Order_log::join('orders','orders.id',"order_id")->select('order_logs.*')->where('user_id','=',$user_id)->orderBy('id', 'desc')->paginate(10);
+        $order_logs=Order_log::join('orders','orders.id',"order_id")->select('order_logs.*')->where('user_id','=',$user_id)->orderBy('id', 'desc')->paginate(12);
         $param=['order_logs'=>$order_logs];
         return view('mypage.order_history',$param);
     }
