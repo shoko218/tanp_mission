@@ -19,7 +19,7 @@ class CartInController extends Controller
             if (!empty($target)) {
                 $target->update(['count'=>$target->count+1]);
             } else {
-                Cart::create(['user_id'=>$user_id,'product_id'=>$request->product_id,'count']);
+                Cart::create(['user_id'=>$user_id,'product_id'=>$request->product_id,'count'=>'1']);
             }
         } else {
             $product_ids=Cookie::get('cart_product_ids');
