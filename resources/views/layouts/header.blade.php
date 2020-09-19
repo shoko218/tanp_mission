@@ -1,12 +1,12 @@
 @section('header')
     <header>
-        <a href="/"><img src="{{ asset( 'image/logo.png',true)}}" alt="ロゴ" class="logo"></a>
+        <a href="/"><img src="/image/logo.png" alt="ロゴ" class="logo"></a>
         <div class="header_btns">
             <button onfocus="this.blur();" onclick="location.href='/cart'">
-                <img src="{{ asset( 'image/icons/cart.png',true)}}" alt="cart" class="header_icon">
+                <img src="/image/icons/cart.png" alt="cart" class="header_icon">
             </button>
             <button onfocus="this.blur();" id="hb_menu_btn">
-                <img src="{{ asset( 'image/icons/menu.png',true)}}" alt="menu" class="header_icon" id="hb_menu_btn_img">
+                <img src="/image/icons/menu.png" alt="menu" class="header_icon" id="hb_menu_btn_img">
             </button>
         </div>
     </header>
