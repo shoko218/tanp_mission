@@ -11135,6 +11135,7 @@ button:hover,
 }
 
 .cart_btn {
+  background: url("https://tanp_mission.jp/image/icons/cart.png") left 3rem top 1.8rem no-repeat;
   background-size: 2.4rem;
   background-color: #ff9999;
   height: 6rem;
