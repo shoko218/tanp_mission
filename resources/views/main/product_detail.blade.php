@@ -12,7 +12,7 @@
     <section id="product_detail">
         <div id="product_top">
             <div id="product_header">
-                <img src="{{ asset( 'image/products/'.sprintf('%05d', $product->id).'.png',true)}}" alt="" class="product_img">
+                <img src="/image/products/{{ sprintf('%05d', $product->id) }}.png" alt="" class="product_img">
                 @if (Auth::check())
                     <good-component :is-fav='@json($is_fav)' product-id='@json($product->id)'></good-component>
                 @endif

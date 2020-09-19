@@ -2,7 +2,7 @@
     @csrf
     <input type="hidden" name="id" value="{{ $catalog_id }}">
     <a href="javascript:form{{ $catalog_id }}.submit()">
-        <img src="{{ asset( 'image/catalog_imgs/'.sprintf('%05d', $img_id).'.png',true)}}" alt="{{ $name }}さんへのギフトカタログのイメージ画像" class="oc_img">
+        <img src="/image/catalog_imgs/{{ sprintf('%05d', $img_id) }}.png" alt="{{ $name }}さんへのギフトカタログのイメージ画像" class="oc_img">
         <div class="oc_detail">
             <h3>{{ $name }}さんへの<br>ギフトカタログ</h3>
         </div>

@@ -1,6 +1,6 @@
 <div class="product_card">
     <a href="/product?id={{ $product_id }}">
-        <img src="{{ asset( 'image/products/'.sprintf('%05d', $product_id).'.png',true)}}" alt="{{ $title }}" class="product_card_img">
+        <img src="/image/products/{{ sprintf('%05d', $product_id) }}.png',true)}}" alt="{{ $title }}" class="product_card_img">
         <div class="product_detail">
             <p class="od_title">{{ $title }}</p>
             <p class="od_for">{{ $person }}さんへ</p>

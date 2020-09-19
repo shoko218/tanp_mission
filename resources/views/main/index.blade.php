@@ -17,10 +17,10 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ asset( 'image/sliders/slider01.png',true)}}" alt="スライダー画像" id="slider_img">
+            <img class="d-block w-100" src="/image/sliders/slider01.png',true)}}" alt="スライダー画像" id="slider_img">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset( 'image/sliders/slider02.png',true)}}" alt="スライダー画像" id="slider_img">
+            <img class="d-block w-100" src="/image/sliders/slider02.png',true)}}" alt="スライダー画像" id="slider_img">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -34,7 +34,7 @@
 </section> --}}
 <section id="banner">
     <a href="{{ config('constant.domain') }}/result?_token=SrFd4V3jQaYGSc696NP8kzwXpK6cBdhQFBJRHfwt&target_scene_id=8&target_relationship_id=6&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
-        <img src="{{ asset( 'image/banner_imgs/banner01.png',true)}}" alt="バナー画像" id="banner_img">
+        <img src="/image/banner_imgs/banner01.png" alt="バナー画像" id="banner_img">
     </a>
 </section>
 <section id="search_area">

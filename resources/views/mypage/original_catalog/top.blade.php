@@ -17,10 +17,6 @@
     </div>
     <h2>今までに作ったオリジナルカタログ</h2>
     <original-catalog-component :csrf="{{json_encode(csrf_token())}}"></original-catalog-component>
-    @if (count($results))
-    @else
-        <h3>まだカタログはありません。</h3>
-    @endif
 </section>
 @endsection
 

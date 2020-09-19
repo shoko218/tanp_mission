@@ -12,7 +12,7 @@
     <section id="select_product_detail">
         <div id="product_top">
             <div id="product_header">
-                <img src="{{ asset( 'image/products/'.sprintf('%05d', $product->id).'.png',true)}}" alt="" class="product_img">
+                <img src="/image/products/{{ sprintf('%05d', $product->id) }}.png" alt="" class="product_img">
             </div>
             <div id="product_explanation">
                 <h1 class="product_name">{{ $product->name }}</h1>
