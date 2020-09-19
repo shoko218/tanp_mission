@@ -11186,7 +11186,8 @@ section:last-of-type {
 .header_btns > button {
   min-width: 2.24rem;
   width: 2.24rem;
-  margin-left: 0.8rem;
+  margin-left: 2rem;
+  padding: 0;
 }
 
 .header_icon {

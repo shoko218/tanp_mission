@@ -414,7 +414,8 @@ section:last-of-type{
     &>button{
         min-width: $header_hsz*0.4;
         width: $header_hsz*0.4;
-        margin-left: 0.8rem;
+        margin-left: 2rem;
+        padding: 0;
     }
 }
 .header_icon{
