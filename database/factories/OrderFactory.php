@@ -7,7 +7,7 @@ use App\Model\Lover;
 use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
-    $user_id=$faker->numberBetween(1, 204);
+    $user_id=$faker->numberBetween(1, 200);
     $faker->boolean(20) ? (Lover::where('user_id',$user_id)->first() ? $lover=Lover::where('user_id',$user_id)->first() :$lover=null) :$lover=null;
 
     return [
@@ -25,5 +25,14 @@ $factory->define(Order::class, function (Faker $faker) {
         'gender'=>$lover ? $lover->gender: $faker->numberBetween(0, 2),
         'generation_id'=>$lover ? intval(floor((intval(date ( 'Ymd', time ()))-intval(str_replace('-', '', $lover->birthday)))/10000)/10)+1: $faker->numberBetween(1, 10),
         'relationship_id'=>$lover ? $lover->relationship_id: $faker->numberBetween(1, 14),
+        'user_last_name' =>$faker->lastName ,
+        'user_first_name' =>$faker->firstName ,
+        'user_last_name_furigana' =>$faker->lastKanaName ,
+        'user_first_name_furigana' =>$faker->firstKanaName ,
+        'user_postal_code'=>$faker->postcode,
+        'user_prefecture_id'=>$faker->numberBetween(1, 47),
+        'user_address'=>$faker->city.$faker->streetAddress,
+        'user_telephone'=>$faker->phoneNumber,
+        'user_email'=> $faker->unique()->safeEmail,
     ];
 });

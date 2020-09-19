@@ -35,6 +35,6 @@ class CatalogReplyNotificationMail extends Mailable
           ->from('shoko4prog@gmail.com')
           ->subject($this->catalog->name."様よりカタログのご返答が届いております。")
           ->view('mail.stdmail')
-          ->with(['img_path' => null,'msg' => $this->catalog->name."様より"."カタログのご返答が届いております。\n下記ボタンよりtanp_missionにアクセスし、ご確認ください。",'link_path' => "http://tanp_mission.jp/mypage/original_catalog/top"]);
+          ->with(['img_path' => null,'msg' => $this->catalog->name."様より"."カタログのご返答が届いております。\n下記ボタンよりPleasedにアクセスし、ご確認ください。",'link_path' => config('constant.domain')."/mypage/original_catalog/top"]);
     }
 }

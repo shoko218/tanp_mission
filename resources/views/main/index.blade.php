@@ -33,7 +33,7 @@
       </a>
 </section> --}}
 <section id="banner">
-    <a href="http://tanp_mission.jp/result?_token=SrFd4V3jQaYGSc696NP8kzwXpK6cBdhQFBJRHfwt&target_scene_id=8&target_relationship_id=6&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
+    <a href="{{ config('constant.domain') }}/result?_token=SrFd4V3jQaYGSc696NP8kzwXpK6cBdhQFBJRHfwt&target_scene_id=8&target_relationship_id=6&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
         <img src="{{ asset( 'image/banner_imgs/banner01.png',true)}}" alt="バナー画像" id="banner_img">
     </a>
 </section>

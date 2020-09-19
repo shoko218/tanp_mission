@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Order_log::class, function (Faker $faker) {
     return [
-        'order_id'=>$faker->numberBetween(1001, 1400),
+        'order_id'=>$faker->numberBetween(1, 400),
         'product_id'=>$faker->numberBetween(1, 75),
         'count'=>$faker->numberBetween(1, 3),
     ];

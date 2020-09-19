@@ -25,7 +25,7 @@ class PasswordResetNotification extends ResetPassword
         return (new MailMessage)
         ->subject('パスワードをリセットする')
         ->view('mail.resetpass', [
-            'reset_url' => url('http://tanp_mission.jp'.route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false))
+            'reset_url' => url(config('constant.domain').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false))
         ]);
     }
 }

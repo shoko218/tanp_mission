@@ -11,5 +11,6 @@ $factory->define(Event::class, function (Faker $faker) {
         'title'=>$faker->word(),
         'scene_id'=>$faker->numberBetween(1,9),
         'date' => $faker->dateTimeBetween('-40 years', '-0years')->format('Y-m-d'),
+        'is_repeat'=>'false'
     ];
 });

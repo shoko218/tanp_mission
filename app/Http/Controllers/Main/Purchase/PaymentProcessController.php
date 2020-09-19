@@ -47,7 +47,11 @@ class PaymentProcessController extends Controller
                 $order->relationship_id=$request->relationship_id;
             }
             if ($request->age!=null) {
-                $order->generation_id=$request->age/10+1;
+                if(($request->age/10+1)<11){
+                    $order->generation_id=$request->age/10+1;
+                }else{
+                    $order->generation_id=10;
+                }
             }
             if ($request->scene_id!=null) {
                 $order->scene_id=$request->scene_id;

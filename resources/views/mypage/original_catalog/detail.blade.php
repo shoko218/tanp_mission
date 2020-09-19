@@ -40,7 +40,7 @@
                     <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
                 </form>
                 <div class="btns">
-                    <button form="send_mail" onClick="return confirm('カタログをメールで送信します。\nカタログを送ると商品の変更はできなくなりますが、よろしいですか？');">カタログの中身を決定し、カタログを送る</button>
+                    <button form="send_mail" onClick="return confirm('カタログをメールで送信します。\nカタログを送ると商品の変更はできなくなりますが、よろしいですか？');">カタログの中身を決定し、<span class="no_wrap">カタログを送る<span></button>
                 </div>
             @endif
         </div>

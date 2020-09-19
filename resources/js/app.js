@@ -82,13 +82,13 @@ window.onload = function onload(){
             hb_btn.className = "";
             hb_menu.className="hb_menu_close";
             cover.style.visibility="hidden";
-            hb_btn_img.setAttribute('src','https://tanp_mission.jp/image/icons/menu.png');
+            hb_btn_img.setAttribute('src','/image/icons/menu.png');
             $('html').removeClass('scroll-prevent');
         }else{
             hb_btn.className = "open";
             hb_menu.className="hb_menu_open";
             cover.style.visibility="visible";
-            hb_btn_img.setAttribute('src','https://tanp_mission.jp/image/icons/x.png');
+            hb_btn_img.setAttribute('src','/image/icons/x.png');
             $('html').addClass('scroll-prevent');
         }
     });
@@ -96,7 +96,7 @@ window.onload = function onload(){
         hb_btn.className = "";
         hb_menu.className="hb_menu_close";
         cover.style.visibility="hidden";
-        hb_btn_img.setAttribute('src','https://tanp_mission.jp/image/icons/menu.png');
+        hb_btn_img.setAttribute('src','/image/icons/menu.png');
         $('html').removeClass('scroll-prevent');
     });
 

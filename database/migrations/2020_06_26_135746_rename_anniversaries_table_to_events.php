@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameEventsTableToEvents extends Migration
+class RenameAnniversariesTableToEvents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class RenameEventsTableToEvents extends Migration
      */
     public function up()
     {
-        Schema::rename('events','events');
+        Schema::rename('anniversaries','events');
     }
 
     /**
@@ -23,6 +23,6 @@ class RenameEventsTableToEvents extends Migration
      */
     public function down()
     {
-        Schema::rename('events','events');
+        Schema::rename('events','anniversaries');
     }
 }

@@ -365,7 +365,6 @@ button:hover,.button:hover{
 }
 
 .cart_btn{
-    background: url("https://tanp_mission.jp/image/icons/cart.png") left 3rem top 1.8rem no-repeat;
     background-size: 2.4rem;
     background-color: $main_color;
     height: 6rem;
@@ -390,12 +389,12 @@ button:hover,.button:hover{
 }
 
 .favorite{
-    background: url("https://tanp_mission.jp/image/icons/heart.png") left 1.5rem top 1.5rem no-repeat;
+    background: url("/image/icons/heart.png") left 1.5rem top 1.5rem no-repeat;
     background-color: $main_color;
 }
 
 .unfavorite{
-    background: url("https://tanp_mission.jp/image/icons/heart_g.png") left 1.5rem top 1.5rem no-repeat;
+    background: url("/image/icons/heart_g.png") left 1.5rem top 1.5rem no-repeat;
     background-color: #eee;
 }
 
@@ -547,7 +546,6 @@ section:last-of-type{
 .rc_{
     &cards{
         margin-bottom: $std_my;
-        border-top: 0.1rem solid $area_border_c;
     }
     &title{
         font-size: 1.8rem;
@@ -724,7 +722,7 @@ section:last-of-type{
 }
 
 .search_bar{
-    background: url("https://tanp_mission.jp/image/icons/glass_g.png") left $search_bar_py top $search_bar_py no-repeat;
+    background: url("/image/icons/glass_g.png") left $search_bar_py top $search_bar_py no-repeat;
     background-size: $search_bar_hsz - $search_bar_py*2;
     background-color: #eee;
     border: 0rem;
@@ -1298,7 +1296,7 @@ button.stripe-button-el{
         margin-bottom: 4rem;
     }
     & h2{
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
     }
 }
 

@@ -12,7 +12,7 @@
                 <a :href="'javascript:form'+catalog.id+'.submit()'">
                     <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img">
                     <div class="oc_detail">
-                        <h3>{{ catalog.name }}さんへの<br>オリジナルギフトカタログ</h3>
+                        <h3>{{ catalog.name }}さんへの<br>ギフトカタログ</h3>
                     </div>
                 </a>
             </form>

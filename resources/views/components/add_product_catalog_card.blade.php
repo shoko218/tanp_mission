@@ -4,7 +4,7 @@
     <a href="javascript:form{{ $catalog_id }}.submit()">
         <img src="{{ asset( 'image/catalog_imgs/'.sprintf('%05d', $img_id).'.png',true)}}" alt="{{ $name }}さんへのギフトカタログのイメージ画像" class="oc_img">
         <div class="oc_detail">
-            <h3>{{ $name }}さんへの<br>オリジナルギフトカタログ</h3>
+            <h3>{{ $name }}さんへの<br>ギフトカタログ</h3>
         </div>
     </a>
 </form>
