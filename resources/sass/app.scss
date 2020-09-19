@@ -416,7 +416,7 @@ section:last-of-type{
         width: $header_hsz*0.4;
         margin-left: 2rem;
         padding: 0;
-        border: none;
+        border-radius: 0;
     }
 }
 .header_icon{
