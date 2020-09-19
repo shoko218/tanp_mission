@@ -490,6 +490,12 @@ section:last-of-type{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    .delete_btn{
+        &:hover{
+            cursor: pointer;
+            opacity: $opacity;
+        }
+    }
 }
 
 .cart_change_count{

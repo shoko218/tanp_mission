@@ -20,7 +20,7 @@
                                 <button v-if="dataProduct.count>254" class="cart_cannot_plus_btn" type="button">+</button>
                                 <button v-else v-on:click="plus(dataProduct.product.id)" class="cart_plus_btn">+</button>
                             </div>
-                            <p v-on:click="comp_out(dataProduct.product.id)"><u>削除</u></p>
+                            <p v-on:click="comp_out(dataProduct.product.id)" class="delete_btn"><u>削除</u></p>
                         </div>
                     </div>
                 </div>
