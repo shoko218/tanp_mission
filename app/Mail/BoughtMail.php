@@ -36,7 +36,7 @@ class BoughtMail extends Mailable
         return $this
           ->from('shoko4prog@gmail.com')
           ->subject('Pleasedより注文完了のお知らせ')
-          ->view('mail.boughtmail')
+          ->view('mail.boughtMail')
           ->with(['order' => $this->order,'order_logs' => $this->order_logs,'sum_price'=>$this->sum_price]);
     }
 }
