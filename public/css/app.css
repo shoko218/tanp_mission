@@ -12481,6 +12481,10 @@ button.stripe-button-el {
     margin: 2rem 0;
   }
 
+  #event_reminder h2 {
+    text-align: center;
+  }
+
   #event_reminder .btns {
     margin-top: 3rem;
   }
