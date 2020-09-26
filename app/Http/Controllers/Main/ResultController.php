@@ -19,8 +19,12 @@ class ResultController extends Controller
         $genres=Genre::all();
         $relationships=Relationship::all();
         $generations=Generation::all();
-        $results=BaseClass::searchProducts(Request('keyword'),Request('target_scene_id'),Request('target_genre_id'),Request('target_relationship_id'),Request('target_gender'),Request('target_generation_id'),Request('sort_by'));
-        $param=['results'=>$results,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
-        return view('main.result',$param);
+        if(Request('keyword')==null&&Request('target_scene_id')==null&&Request('target_genre_id')==null&&Request('target_relationship_id')==null&&Request('target_gender')==null&&Request('target_generation_id')==null){
+            return redirect('/search');
+        }else{
+            $results=BaseClass::searchProducts(Request('keyword'),Request('target_scene_id'),Request('target_genre_id'),Request('target_relationship_id'),Request('target_gender'),Request('target_generation_id'),Request('sort_by'));
+            $param=['results'=>$results,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
+            return view('main.result',$param);
+        }
     }
 }
