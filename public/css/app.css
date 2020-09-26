@@ -11776,8 +11776,6 @@ section:last-of-type {
 .lover_card_img {
   width: 20vw;
   height: 20vw;
-  max-width: 20rem;
-  max-height: 20rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -12528,6 +12526,11 @@ button.stripe-button-el {
 
   .lover_card:first-of-type {
     border-top: none;
+  }
+
+  .lover_card_img {
+    max-width: 20rem;
+    max-height: 20rem;
   }
 
   .lover_detail_top {
