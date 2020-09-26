@@ -17,7 +17,7 @@
             @foreach ($errors->get('email') as $item)
                 <p class="form_alert">{{ $item }}</p>
             @endforeach
-            <input id="email" type="hidden" name="email" value="{{ Auth::user()->email }}" autocomplete="email" autofocus required>
+            <input id="email" type="hidden" name="email" value="{{ Auth::user()->email }}" autocomplete="email"  required>
             <div class="btns">
                 <button type="submit" onClick="return confirm('パスワードをリセットするためのメールを送信します。\nよろしいですか？');">メールを送信する</button>
             </div>
@@ -50,7 +50,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" >
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

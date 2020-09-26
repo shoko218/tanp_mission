@@ -23,7 +23,7 @@
         <ul class="inputs">
             <li class="input_parts">
                 <label for="email">メールアドレス</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus required>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email"  required>
             </li>
             <li class="input_parts">
                 <label for="password">パスワード</label>

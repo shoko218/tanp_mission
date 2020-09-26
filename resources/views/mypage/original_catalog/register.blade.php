@@ -17,7 +17,7 @@
             <ul class="inputs">
                 <li class="input_parts">
                     <label for="name">お相手の名前</label>
-                    <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="山田太郎" required autofocus @if ($errors->has('name')) class="input_alert" @endif>
+                    <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="山田太郎" required  @if ($errors->has('name')) class="input_alert" @endif>
                     @foreach ($errors->get('name') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach

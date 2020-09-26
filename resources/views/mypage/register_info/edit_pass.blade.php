@@ -17,7 +17,7 @@
             <ul class="inputs">
                 <li class="input_parts">
                     <label for="current">現在のパスワード</label>
-                    <input type="password" id="current" name="current-password" required autofocus>
+                    <input type="password" id="current" name="current-password" required >
                 </li>
                 <li class="input_parts">
                     <label for="password">新しいパスワード(8文字以上の英数字、記号)</label>
@@ -28,7 +28,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="confirm">新しいパスワード(確認用)</label>
-                    <input type="password" id="confirm" name="new-password_confirmation" required autofocus>
+                    <input type="password" id="confirm" name="new-password_confirmation" required >
                 </li>
                 <div class="btns">
                     <button type="submit">変更する</button>

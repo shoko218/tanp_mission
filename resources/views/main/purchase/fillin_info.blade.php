@@ -26,7 +26,7 @@
             @csrf
             <div class="input_parts">
                 <label for="lover_id">大切な人リストに登録した方へのお届けですか？</label>
-                <select id="lover_id" name="lover_id" onchange="submit(this.form)" autofocus>
+                <select id="lover_id" name="lover_id" onchange="submit(this.form)" >
                     <option selected value="">いいえ</option>
                     @foreach ($lovers as $item)
                     <option value="{{ $item->id }}" @if($lover!=null&&$lover->id==$item->id) selected @endif>{{ $item->last_name.$item->first_name }}</option>
@@ -43,7 +43,7 @@
                     <ul class="inputs">
                         <li class="input_parts">
                             <label for="forwarding_last_name">姓<span class="form_requires">*</span></label>
-                            <input id="forwarding_last_name" type="text" name="forwarding_last_name" @if(old('forwarding_last_name')!=null)value="{{ old('forwarding_last_name') }}"@elseif($lover!=null&&$lover->last_name!=null) value="{{ $lover->last_name }}" @endif @if ($errors->has('forwarding_last_name')) class="input_alert" @endif  placeholder="山田" required @if(!Auth::check()) autofocus @endif>
+                            <input id="forwarding_last_name" type="text" name="forwarding_last_name" @if(old('forwarding_last_name')!=null)value="{{ old('forwarding_last_name') }}"@elseif($lover!=null&&$lover->last_name!=null) value="{{ $lover->last_name }}" @endif @if ($errors->has('forwarding_last_name')) class="input_alert" @endif  placeholder="山田" required >
                             @foreach ($errors->get('forwarding_last_name') as $item)
                                 <p class="form_alert">{{ $item }}</p>
                             @endforeach

@@ -18,7 +18,7 @@
             <ul class="inputs">
                 <li class="input_parts">
                     <label for="last_name">姓<span class="form_requires">*</span></label>
-                    <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="山田" @if ($errors->has('last_name')) class="input_alert" @endif required autofocus>
+                    <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="山田" @if ($errors->has('last_name')) class="input_alert" @endif required >
                     @foreach ($errors->get('last_name') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
@@ -32,7 +32,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="last_name_furigana">セイ<span class="form_requires">*</span></label>
-                    <input id="last_name_furigana" type="text" name="last_name_furigana" value="{{ old('last_name_furigana') }}" placeholder="ヤマダ" @if ($errors->has('last_name_furigana')) class="input_alert" @endif equired autofocus>
+                    <input id="last_name_furigana" type="text" name="last_name_furigana" value="{{ old('last_name_furigana') }}" placeholder="ヤマダ" @if ($errors->has('last_name_furigana')) class="input_alert" @endif equired >
                     @foreach ($errors->get('last_name_furigana') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
