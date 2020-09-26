@@ -26,7 +26,7 @@
             @csrf
             <div class="input_parts">
                 <label for="lover_id">大切な人リストに登録した方へのお届けですか？</label>
-                <select id="lover_id" name="lover_id" onchange="submit(this.form)">
+                <select id="lover_id" name="lover_id" onchange="submit(this.form)" autofocus>
                     <option selected value="">いいえ</option>
                     @foreach ($lovers as $item)
                     <option value="{{ $item->id }}" @if($lover!=null&&$lover->id==$item->id) selected @endif>{{ $item->last_name.$item->first_name }}</option>
@@ -128,7 +128,7 @@
                     <ul class="inputs">
                             <li class="input_parts">
                                 <label for="user_last_name">姓<span class="form_requires">*</span></label>
-                                <input id="user_last_name" type="text" name="user_last_name" @if(old('user_last_name')!=null)value="{{ old('user_last_name') }}"@elseif(Auth::check()&&Auth::user()->last_name!=null)value="{{ Auth::user()->last_name }}"@endif @if ($errors->has('user_last_name')) class="input_alert" @endif placeholder="山田" required autofocus>
+                                <input id="user_last_name" type="text" name="user_last_name" @if(old('user_last_name')!=null)value="{{ old('user_last_name') }}"@elseif(Auth::check()&&Auth::user()->last_name!=null)value="{{ Auth::user()->last_name }}"@endif @if ($errors->has('user_last_name')) class="input_alert" @endif placeholder="山田" required>
                                 @foreach ($errors->get('user_last_name') as $item)
                                     <p class="form_alert">{{ $item }}</p>
                                 @endforeach
