@@ -43,7 +43,7 @@
                     <ul class="inputs">
                         <li class="input_parts">
                             <label for="forwarding_last_name">姓<span class="form_requires">*</span></label>
-                            <input id="forwarding_last_name" type="text" name="forwarding_last_name" @if(old('forwarding_last_name')!=null)value="{{ old('forwarding_last_name') }}"@elseif($lover!=null&&$lover->last_name!=null) value="{{ $lover->last_name }}" @endif @if ($errors->has('forwarding_last_name')) class="input_alert" @endif  placeholder="山田" required autofocus>
+                            <input id="forwarding_last_name" type="text" name="forwarding_last_name" @if(old('forwarding_last_name')!=null)value="{{ old('forwarding_last_name') }}"@elseif($lover!=null&&$lover->last_name!=null) value="{{ $lover->last_name }}" @endif @if ($errors->has('forwarding_last_name')) class="input_alert" @endif  placeholder="山田" required @if(!Auth::check()) autofocus @endif>
                             @foreach ($errors->get('forwarding_last_name') as $item)
                                 <p class="form_alert">{{ $item }}</p>
                             @endforeach
@@ -57,7 +57,7 @@
                         </li>
                         <li class="input_parts">
                             <label for="forwarding_last_name_furigana">セイ<span class="form_requires">*</span></label>
-                            <input id="forwarding_last_name_furigana" type="text" name="forwarding_last_name_furigana" @if(old('forwarding_last_name_furigana')!=null)value="{{ old('forwarding_last_name_furigana') }}"@elseif($lover!=null&&$lover->last_name_furigana!=null) value="{{ $lover->last_name_furigana }}" @endif @if ($errors->has('forwarding_last_name_furigana')) class="input_alert" @endif  placeholder="ヤマダ" required autofocus>
+                            <input id="forwarding_last_name_furigana" type="text" name="forwarding_last_name_furigana" @if(old('forwarding_last_name_furigana')!=null)value="{{ old('forwarding_last_name_furigana') }}"@elseif($lover!=null&&$lover->last_name_furigana!=null) value="{{ $lover->last_name_furigana }}" @endif @if ($errors->has('forwarding_last_name_furigana')) class="input_alert" @endif  placeholder="ヤマダ" required>
                             @foreach ($errors->get('forwarding_last_name_furigana') as $item)
                                 <p class="form_alert">{{ $item }}</p>
                             @endforeach
@@ -142,7 +142,7 @@
                             </li>
                             <li class="input_parts">
                                 <label for="user_last_name_furigana">セイ<span class="form_requires">*</span></label>
-                                <input id="user_last_name_furigana" type="text" name="user_last_name_furigana" @if(old('user_last_name_furigana')!=null)value="{{ old('user_last_name_furigana') }}"@elseif(Auth::check()&&Auth::user()->last_name_furigana!=null)value="{{ Auth::user()->last_name_furigana }}"@endif @if ($errors->has('user_last_name_furigana')) class="input_alert" @endif placeholder="ヤマダ" required autofocus>
+                                <input id="user_last_name_furigana" type="text" name="user_last_name_furigana" @if(old('user_last_name_furigana')!=null)value="{{ old('user_last_name_furigana') }}"@elseif(Auth::check()&&Auth::user()->last_name_furigana!=null)value="{{ Auth::user()->last_name_furigana }}"@endif @if ($errors->has('user_last_name_furigana')) class="input_alert" @endif placeholder="ヤマダ" required>
                                 @foreach ($errors->get('user_last_name_furigana') as $item)
                                     <p class="form_alert">{{ $item }}</p>
                                 @endforeach
