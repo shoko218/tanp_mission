@@ -21,7 +21,7 @@ class Lover extends Model
         'prefecture_id'=>['nullable','integer'],
         'address'=>['nullable','string', 'max:200','text'],
         'telephone'=>['nullable','string', 'max:21','hankakunum'],
-        'image'=>['nullable','file','mimes:jpeg,png,jpg','max:2048'],
+        'image'=>['nullable','file','mimes:jpeg,png,jpg','max:10240'],
     );
 
     public function order(){

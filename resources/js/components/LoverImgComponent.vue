@@ -1,6 +1,6 @@
 <template>
     <li class="input_parts">
-        <label for="image">写真(jpeg,png,gif形式、2MB以下)</label>
+        <label for="image">写真(jpeg,png,gif形式、10MB以下)</label>
         <input id="image" type="file" name="image" accept="image/jpeg, image/png, image/gif" class="image" @change="onFileChange($event)">
         <p v-for="errMsg in errMsgs" :key="errMsg.id" class="form_alert">{{ errMsg }}</p>
         <div class="preview_lover_imgs" v-if="selectedImg!=null">
@@ -12,7 +12,7 @@
         <div class="preview_lover_imgs" v-else-if="ext">
             <p>プレビュー</p>
             <div class="lover_img">
-                <img :src="'/storage/'+('000000000'+id).slice( -9 )+'.'+ext" alt="プレビュー画像">
+                <img :src="'/storage/lover_imgs/'+('000000000'+id).slice( -9 )+'.'+ext" alt="プレビュー画像">
             </div>
         </div>
         <div class="preview_lover_imgs" v-else>
