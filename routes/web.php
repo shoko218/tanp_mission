@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => false]);
+// Auth::routes(['verify' => true]);
 
 Route::get('/', 'Main\IndexController');
 Route::get('/change', 'Main\ChangeController');
@@ -48,7 +49,7 @@ Route::get('/logout',function(){
     return redirect('/');
 });
 
-Route::middleware(['auth','verified'])->group(function () {
+// Route::middleware(['auth','verified'])->group(function () {
     Route::prefix('/mypage')->group(function () {
         Route::get('/order_history', 'MyPage\OrderHistoryController');
         Route::get('/favorite', 'MyPage\FavoriteController');
@@ -112,5 +113,5 @@ Route::middleware(['auth','verified'])->group(function () {
         });
     });
 
-});
+// });
 
