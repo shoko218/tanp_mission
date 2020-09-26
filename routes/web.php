@@ -68,6 +68,7 @@ Route::middleware(['auth','verified'])->group(function () {
             Route::get('/top', 'MyPage\Lovers\TopController');
             Route::post('/lover', 'MyPage\Lovers\LoverController');
             Route::get('/lover', 'MyPage\Lovers\GetLoverController');
+            Route::get('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::post('/gift_history', 'MyPage\Lovers\GiftHistoryController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
             Route::post('/register_process','MyPage\Lovers\RegisterProcessController');

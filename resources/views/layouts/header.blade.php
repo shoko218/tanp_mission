@@ -1,13 +1,15 @@
 @section('header')
     <header>
-        <a href="/"><img src="/image/logo.png" alt="ロゴ" class="logo"></a>
-        <div class="header_btns">
-            <button onfocus="this.blur();" onclick="location.href='/cart'">
-                <img src="/image/icons/cart.png" alt="cart" class="header_icon">
-            </button>
-            <button onfocus="this.blur();" id="hb_menu_btn">
-                <img src="/image/icons/menu.png" alt="menu" class="header_icon" id="hb_menu_btn_img">
-            </button>
+        <div class="header_contents">
+            <a href="/"><img src="/image/logo.png" alt="ロゴ" class="logo"></a>
+            <div class="header_btns">
+                <button onfocus="this.blur();" onclick="location.href='/cart'">
+                    <img src="/image/icons/cart.png" alt="cart" class="header_icon">
+                </button>
+                <button onfocus="this.blur();" id="hb_menu_btn">
+                    <img src="/image/icons/menu.png" alt="menu" class="header_icon" id="hb_menu_btn_img">
+                </button>
+            </div>
         </div>
     </header>
     <nav id="hb_menu" class="hb_menu_close">

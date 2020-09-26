@@ -269,7 +269,15 @@ header{
     left: 0px;
     z-index: 999;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_contents{
+    width: 100%;
+    display: flex;
     justify-content: space-between;
+    max-width: 960px;
 }
 
 .logo{
@@ -343,6 +351,7 @@ footer{
 
 #contents{
     margin-top: $header_hsz;
+    margin-bottom: $std_my;
 }
 
 button,.button{
@@ -1048,39 +1057,30 @@ section:last-of-type{
     flex-direction: column;
     align-items: center;
 
-    .img_container{
-        width: 50%;
+    .lover_img {
+        width: 50vw;
+        height: 50vw;
         max-width: 24rem;
-        position: relative;
-        margin-bottom: $std_my;
-        &:before {
-            content: "";
-            display: block;
-            padding-top: 100%;
-        }
-        & img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            object-fit: cover;
-        }
-    }
-
-    &_name{
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    & button{
-        &:not(:last-of-type){
-            margin-bottom: $std_my/2;
-        }
+        max-height: 24rem;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 3%;
     }
     .submit_a{
+        text-align: center;
         margin-top: 2rem;
         margin-bottom: 0;
+    }
+    .lover_name{
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 2rem 0;
+    }
+    .lover_btns{
+        button{
+            margin-bottom: $std_my/2;
+        }
     }
 }
 
@@ -1729,5 +1729,48 @@ button.stripe-button-el{
 
     #reminder_detail_explanation{
         width: 40%;
+    }
+
+    //大切な人リストトップ
+    #lovers{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .lover_card{
+        width: 33.333%;
+        border: none;
+    }
+    .lover_card>a{
+        width: 100%;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .lover_detail{
+        padding: 1.6rem 0;
+        text-align: center;
+    }
+    .lover_card:first-of-type {
+        border-top: none;
+    }
+    //大切な人詳細
+    .lover_detail_top{
+        display: flex;
+        justify-content: space-between;
+    }
+    .lover_details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-right: 3rem;
+    }
+    .lover_actions{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 3rem;
     }
 }
