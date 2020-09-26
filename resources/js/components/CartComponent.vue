@@ -35,14 +35,14 @@
                             </div>
                         </a>
                         <input type="hidden" name="product_id" :value="dataProduct.productId">
-                        <div class="remove_product_btn">
-                            <button v-on:click="comp_out(dataProduct.id)">×</button>
-                        </div>
-                        <div class="cart_change_count">
-                            <button v-on:click="minus(dataProduct.id)" class="cart_minus_btn">-</button>
-                            <p>{{ dataProductCount[i] }}</p>
-                            <button v-if="dataProductCount[i]>254" class="cart_cannot_plus_btn" type="button">+</button>
-                            <button v-else v-on:click="plus(dataProduct.id)" class="cart_plus_btn">+</button>
+                        <div class="cart_action_btns">
+                            <div class="cart_change_count">
+                                <button v-on:click="minus(dataProduct.id)" class="cart_minus_btn">-</button>
+                                <p>{{ dataProductCount[i] }}</p>
+                                <button v-if="dataProductCount[i]>254" class="cart_cannot_plus_btn" type="button">+</button>
+                                <button v-else v-on:click="plus(dataProduct.id)" class="cart_plus_btn">+</button>
+                            </div>
+                            <p v-on:click="comp_out(dataProduct.id)" class="delete_btn"><u>削除</u></p>
                         </div>
                     </div>
                 </div>
