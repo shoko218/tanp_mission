@@ -11489,6 +11489,10 @@ section:last-of-type {
   color: #888;
 }
 
+.alert-dismissible .close {
+  height: 100%;
+}
+
 .normal_section {
   padding: 3rem 1.6rem;
 }
