@@ -11755,6 +11755,10 @@ section:last-of-type {
   margin-right: 2%;
 }
 
+#event_reminder h2 {
+  text-align: center;
+}
+
 .lover_card {
   width: 100%;
   max-width: 100%;
@@ -12479,10 +12483,6 @@ button.stripe-button-el {
 
   .event_detail {
     margin: 2rem 0;
-  }
-
-  #event_reminder h2 {
-    text-align: center;
   }
 
   #event_reminder .btns {

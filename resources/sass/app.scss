@@ -984,6 +984,12 @@ section:last-of-type{
     margin-right: 2%;
 }
 
+#event_reminder{
+    h2{
+        text-align: center;
+    }
+}
+
 //↓大事な人リスト///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -1708,9 +1714,6 @@ button.stripe-button-el{
     }
 
     #event_reminder{
-        h2{
-            text-align: center;
-        }
         .btns{
             margin-top: $std_my;
         }
