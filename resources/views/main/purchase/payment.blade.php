@@ -11,6 +11,11 @@
 @section('content')
 <section id="payment" class="normal_section">
 @include('components.msgs')
+<div class="alert alert-danger alert-dismissible fade show msg_box">
+    ※このサービスはデモであり、購入処理をされても商品は届きません。<br>
+    また、クレジットカードの処理決済もデモですので引き落とされることはありません。<br>
+    デモ決済を行う場合は、カード番号の部分に[4242 4242 4242 4242]と入力してください。
+</div>
 <h1>ご注文情報の確認</h1>
 <div id="orders">
     <div id="od_cards">
