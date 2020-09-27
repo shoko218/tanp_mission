@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use App\Notifications\VerifyEmailCustom;
 use App\Notifications\PasswordResetNotification;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
+// class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
