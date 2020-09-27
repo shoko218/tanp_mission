@@ -1,78 +1,57 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<h1>プレゼント専門ECサイト「<a href="https://pleased.sumomo.ne.jp/">Pleased</a>」</h1>
+<h2>概要</h2>
+誰かにプレゼントをする際に便利なECサイトです。贈り物をするにあたって役に立つ機能をたくさん兼ね備えています。<br>
+このサービスは[TechTrainさん](https://techbowl.co.jp/techtrain)で公開されている課題に挑戦した際に制作したものです。<br>
+そのため一部は自分のアイデアではなく、課題の中で参考にするように指定されたECサイト様にある機能をそのまま実装した部分もございますのでご了承ください。<br>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<h2>使用した技術</h2>
+<ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>SCSS</li>
+    <li>JavaScript</li>
+    <li>Vue.js</li>
+    <li>Bootstrap</li>
+    <li>PHP7.x</li>
+    <li>Laravel6.x</li>
+    <li>MySQL</li>
+    <li>Stripe.js</li>
+</ul>
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h2>機能</h2>
+<p>以降、オリジナルで作成した機能の見出しは＊で挟みます。参考元サイト様にある機能(確認できたもの)を実装しただけの部分は無印とします。</p><br>
+<h3>会員登録機能</h3>
+<p>会員登録が行えます。会員登録をせずともプレゼントの購入は行えますが、会員登録をすると多様な機能が利用できるようになります。</p><br>
+<h3>カート機能</h3>
+<p>一度に複数購入できるカート機能を実装しています。ログインしている場合はDBでカート内容を保存しています。ログインしていない場合はCookieへカートを用いて内容を保存しています。個数の増減処理はVue.jsで行っています。</p>
+<h4>＊自動カート移し替え機能＊</h4>
+<p>未ログイン時にカートに入れたものはログインする際に自動でDBで管理するように処理します。</p><br>
+<h3>大切な人登録機能</h3>
+<p>よくプレゼントを送る大切な人の情報を登録できます。</p>
+<h4>＊大切な人へのプレゼント履歴機能＊</h4>
+<p>プレゼント購入時に大切な人へのプレゼントであることを設定しておくと、大切な人の専用ページから今までに送ったものの履歴を閲覧できます。</p>
+<h4>＊大切な人へのプレゼントレコメンド＊</h4>
+<p>大切な人へのプレゼント履歴が一つ以上ある場合、協調フィルタリング方式でその人が好みそうな商品をレコメンドします。</p><br>
+<h3>イベントリマインダー機能</h3>
+<p>誕生日や記念日など、忘れてはいけない大切な日を登録しておくことができます。イベントの日を過ぎると、一度きりのイベントであった場合、イベント情報は自動で削除されます。毎年繰り返すイベントならば自動で次年度の分のイベント情報を登録します。※イベントを登録するにはお相手を大切な人に登録しておく必要があります。</p>
+<h4>＊イベント通知メール＊</h4>
+<p>登録したイベントの予定日1ヶ月前になると、メールでお知らせします。メールに添付したリンクを開くと、そのイベントのシーンやイベントのお相手に沿ったプレゼントの検索画面に遷移することができます。</p><br>
+<h3>商品購入機能</h3>
+<p>カート内に入っている商品を購入できます。決済はStripe.jsのデモ決済で実装しています。</p>
+<h4>＊宛先情報オート入力機能＊</h4>
+<p>大切な人として登録している人にプレゼントを送る際、お名前と一緒に住所なども登録していれば、宛先情報を自動で入力することができます。</p><br>
+<h3>＊オリジナルギフトカタログ機能＊</h3>
+<p>サービス内の商品を利用して擬似的なギフトカタログを自分で作れる機能です。</p>
+<ol>
+    <li>カタログに必要事項を入力し、カタログを登録する</li>
+    <li>登録したカタログにお好みの商品を入れていく</li>
+    <li>カタログが完成したら送信ボタンで相手にメール送信</li>
+    <li>カタログを受け取った相手が商品を選ぶのを待つ</li>
+    <li>商品が選ばれたら通知のメールが送られてくるので確認して購入</li>
+</ol><br>
+<h3>＊ランダムレコメンド機能＊</h3>
+<p></p><br>
+<h3></h3>
+<p></p><br>
+<h3></h3>
+<p></p><br>
