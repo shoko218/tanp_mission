@@ -31,6 +31,7 @@ class PaymentProcessController extends Controller
         }
         DB::beginTransaction();
         try {
+            $old_product_ids=null;
             $order=new Order;
             $order->last_name=$request->last_name;
             $order->first_name=$request->first_name;
@@ -119,7 +120,6 @@ class PaymentProcessController extends Controller
                 $user_id=Auth::user()->id;
                 $cart_goods=Cart::where('user_id', '=', $user_id)
                 ->delete();
-                $old_product_ids=null;
             } else {
                 $old_product_ids=Cookie::get('cart_product_ids');
                 $product_ids='';
