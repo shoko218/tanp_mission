@@ -16,7 +16,7 @@ class EditPassProcessController extends Controller
 
         $validated_data = $request->validate([
             'current-password' => 'required',
-            'new-password' => 'required|string|min:8|confirmed',
+            'new-password' => 'required|string|min:8|confirmed|halfalphanum|max:256',
         ]);
 
         $user = Auth::user();

@@ -50,7 +50,7 @@
                     @endforeach
                 </li>
                 <li class="input_parts">
-                    <label for="password">パスワード(8文字以上の英数字、記号)<span class="form_requires">*</span></label>
+                    <label for="password">パスワード(8文字以上の英数字)<span class="form_requires">*</span></label>
                     <input id="password" type="password" name="password" placeholder="password" @if ($errors->has('password')) class="input_alert" @endif required>
                     @foreach ($errors->get('password') as $item)
                         <p class="form_alert">{{ $item }}</p>

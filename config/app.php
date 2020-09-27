@@ -180,6 +180,7 @@ return [
         App\Providers\ValidatorKatakanaServiceProvider::class,
         App\Providers\ValidatorIsOnlyHalfNumberServiceProvider::class,
         App\Providers\ValidatorTextServiceProvider::class,
+        App\Providers\ValidatorHalfAlphaNumServiceProvider::class,
 
     ],
 
