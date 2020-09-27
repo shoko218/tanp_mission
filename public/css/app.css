@@ -11343,6 +11343,7 @@ section:last-of-type {
 
 .rc_cards {
   margin-bottom: 3rem;
+  border-top: 1px solid #cccccc;
 }
 
 .rc_title {
@@ -12283,7 +12284,6 @@ button.stripe-button-el {
   .rc_cards {
     display: flex;
     flex-wrap: wrap;
-    border-top: 0.1rem solid #cccccc;
   }
 
   .product_card {

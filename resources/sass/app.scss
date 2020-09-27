@@ -564,6 +564,7 @@ section:last-of-type{
 .rc_{
     &cards{
         margin-bottom: $std_my;
+        border-top: 1px solid $area_border_c;
     }
     &title{
         font-size: 1.8rem;
@@ -1539,7 +1540,6 @@ button.stripe-button-el{
     .rc_cards{
         display: flex;
         flex-wrap: wrap;
-        border-top: 0.1rem solid $area_border_c;
     }
     .product_card{
         display: flex;
