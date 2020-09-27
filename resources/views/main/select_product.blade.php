@@ -10,7 +10,7 @@
 
 @section('content')
 <section id="select_product" class="normal_section">
-    <h1>{{ $catalog->user->last_name.$catalog->user->first_name }}様より、<br>{{ $catalog->name }}様専用のカタログを<br>お届け致します。</h1>
+    <h1><span class="no_wrap">{{ $catalog->user->last_name.$catalog->user->first_name }}様より、</span><span class="no_wrap">{{ $catalog->name }}様専用のカタログを</span><span class="no_wrap">お届け致します。</span></h1>
     <p><img src="/image/catalog_imgs/{{ sprintf('%05d', $catalog->img_num) }}.png" alt="{{ $catalog->name }}さんへのギフトカタログのイメージ画像" class="oc_detail_img"></p>
     <p class="msg">お好きな商品を一つお選びください。</p>
     <h2>商品一覧</h2>
