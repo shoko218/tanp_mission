@@ -350,8 +350,8 @@ footer{
 }
 
 #contents{
-    margin-top: $header_hsz;
-    margin-bottom: $std_my;
+    padding-top: $header_hsz;
+    padding-bottom: $std_my;
 }
 
 button,.button{
@@ -722,8 +722,12 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+#index .alert{
+    margin-top: $std_my;
+}
+
 #banner{
-    margin-top: 8.6rem;
+    margin-top: $std_my;
 }
 
 #banner_img{
@@ -1160,6 +1164,9 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 #reminder_detail{
+    .alert{
+        margin-top: $std_my;
+    }
     &_img{
         width: 100%;
     }
@@ -1726,7 +1733,7 @@ button.stripe-button-el{
     }
 
 //イベントリマインダー詳細
-    #reminder_detail{
+    #reminder_detail_top{
         display: flex;
         padding-top: $std_py;
     }

@@ -11116,8 +11116,8 @@ footer {
 }
 
 #contents {
-  margin-top: 5.6rem;
-  margin-bottom: 3rem;
+  padding-top: 5.6rem;
+  padding-bottom: 3rem;
 }
 
 button,
@@ -11501,8 +11501,12 @@ section:last-of-type {
   text-align: center;
 }
 
+#index .alert {
+  margin-top: 3rem;
+}
+
 #banner {
-  margin-top: 8.6rem;
+  margin-top: 3rem;
 }
 
 #banner_img {
@@ -11903,6 +11907,10 @@ section:last-of-type {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#reminder_detail .alert {
+  margin-top: 3rem;
 }
 
 #reminder_detail_img {
@@ -12494,7 +12502,7 @@ button.stripe-button-el {
     margin-top: 3rem;
   }
 
-  #reminder_detail {
+  #reminder_detail_top {
     display: flex;
     padding-top: 3rem;
   }

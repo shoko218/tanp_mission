@@ -14,6 +14,6 @@ class EditProcessController extends Controller
         $this->validate($request,Event::$rules);
         Event::find($request->event_id)->fill($request->except('event_id'))->save();
         $request->session()->forget('event_id');
-        return redirect('/mypage/reminder/top')->with('suc_msg','変更しました。')->with('event_id',$request->event_id);
+        return redirect('/mypage/reminder/detail')->with('suc_msg','変更しました。')->with('event_id',$request->event_id);
     }
 }
