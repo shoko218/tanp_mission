@@ -564,7 +564,6 @@ section:last-of-type{
 .rc_{
     &cards{
         margin-bottom: $std_my;
-        border-top: 1px solid $area_border_c;
     }
     &title{
         font-size: 1.8rem;
@@ -1435,6 +1434,12 @@ button.stripe-button-el{
 
 .no_catalog_msg{
     margin: $std_my 0;
+}
+
+#original_catalog_select{
+    .rc_cards{
+        border-top: 1px solid $area_border_c;
+    }
 }
 
 //オリジナルカタログ登録画面///////////////////////////////////////////////

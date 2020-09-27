@@ -11343,7 +11343,6 @@ section:last-of-type {
 
 .rc_cards {
   margin-bottom: 3rem;
-  border-top: 1px solid #cccccc;
 }
 
 .rc_title {
@@ -12182,6 +12181,10 @@ button.stripe-button-el {
 
 .no_catalog_msg {
   margin: 3rem 0;
+}
+
+#original_catalog_select .rc_cards {
+  border-top: 1px solid #cccccc;
 }
 
 .preview_imgs {
