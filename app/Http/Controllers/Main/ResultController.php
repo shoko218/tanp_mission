@@ -20,7 +20,7 @@ class ResultController extends Controller
         $relationships=Relationship::all();
         $generations=Generation::all();
         if(Request('keyword')==null&&Request('target_scene_id')==null&&Request('target_genre_id')==null&&Request('target_relationship_id')==null&&Request('target_gender')==null&&Request('target_generation_id')==null){
-            return redirect('/search');
+            return redirect('/search')->with('err_msg','検索条件を一つ以上選択してください。');
         }else{
             $results=BaseClass::searchProducts(Request('keyword'),Request('target_scene_id'),Request('target_genre_id'),Request('target_relationship_id'),Request('target_gender'),Request('target_generation_id'),Request('sort_by'));
             $param=['results'=>$results,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations];
