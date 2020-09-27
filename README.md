@@ -1,7 +1,7 @@
 <h1>プレゼント専門ECサイト「<a href="https://pleased.sumomo.ne.jp/">Pleased</a>」</h1>
 <h2>概要</h2>
 誰かにプレゼントをする際に便利なECサイトです。贈り物をするにあたって役に立つ機能をたくさん兼ね備えています。<br>
-このサービスは[TechTrainさん](https://techbowl.co.jp/techtrain)で公開されている課題に挑戦した際に制作したものです。<br>
+このサービスは<a href="https://techbowl.co.jp/techtrain">TechTrainさん</a>で公開されている課題に挑戦した際に制作したものです。<br>
 そのため一部は自分のアイデアではなく、課題の中で参考にするように指定されたECサイト様にある機能をそのまま実装した部分もございますのでご了承ください。<br>
 
 <h2>使用した技術</h2>
@@ -26,31 +26,32 @@
 <p>一度に複数購入できるカート機能を実装しています。ログインしている場合はDBでカート内容を保存しています。ログインしていない場合はCookieへカートを用いて内容を保存しています。個数の増減処理はVue.jsで行っています。</p>
 <h4>＊自動カート移し替え機能＊</h4>
 <p>未ログイン時にカートに入れたものはログインする際に自動でDBで管理するように処理します。</p>
-[demo](https://github.com/shoko218/tanp_mission/images/00000.gif)
+<img src="https://user-images.githubusercontent.com/52749338/94375498-fd14ae80-014e-11eb-8379-30024eddbfc9.gif" alt="自動カート移し替え機能のデモgif">
 <br>
 <h3>＊お気に入り登録機能＊</h3>
 <p>商品画面でハートボタンを押すとお気に入り登録できます。登録処理にはVue.jsを利用しています。</p>
-![demo](https://github.com/shoko218/tanp_mission/images/00001.gif)
+<img src="https://user-images.githubusercontent.com/52749338/94375563-82985e80-014f-11eb-86dc-751ae046b982.gif" alt="お気に入り登録機能のデモgif">
 <br>
 <h3>大切な人登録機能</h3>
 <p>よくプレゼントを送る大切な人の情報を登録できます。</p>
-![demo](https://github.com/shoko218/tanp_mission/images/00002.gif)
+<img src="https://user-images.githubusercontent.com/52749338/94375562-81ffc800-014f-11eb-8eea-8824d478299e.gif" alt="大切な人登録機能のデモgif">
 <br>
 <h4>＊大切な人へのプレゼント履歴機能＊</h4>
 <p>プレゼント購入時に大切な人へのプレゼントであることを設定しておくと、大切な人の専用ページから今までに送ったものの履歴を閲覧できます。</p>
-<h4>＊大切な人へのプレゼントレコメンド＊</h4>
+<h4>＊大切な人へのプレゼントレコメンド機能＊</h4>
 <p>大切な人へのプレゼント履歴が一つ以上ある場合、協調フィルタリング方式でその人が好みそうな商品をレコメンドします。</p>
-![demo](https://github.com/shoko218/tanp_mission/images/00004.gif)
+<img src="https://user-images.githubusercontent.com/52749338/94375557-7e6c4100-014f-11eb-83ae-980030ba1a08.gif" alt="大切な人へのプレゼント履歴機能&大切な人へのプレゼントレコメンド機能のデモgif">
 <br>
 <h3>イベントリマインダー機能</h3>
 <p>誕生日や記念日など、忘れてはいけない大切な日を登録しておくことができます。イベントの日を過ぎると、一度きりのイベントであった場合、イベント情報は自動で削除されます。毎年繰り返すイベントならば自動で次年度の分のイベント情報を登録します。※イベントを登録するにはお相手を大切な人に登録しておく必要があります。</p>
+<img width="317" alt="イベントリマインダーメールのプレビュー" src="https://user-images.githubusercontent.com/52749338/94375717-9f816180-0150-11eb-9305-c6b319c8d142.png">
 <h4>＊イベント通知メール＊</h4>
 <p>登録したイベントの予定日の約1ヶ月前になると、メールでイベントが近づいていることをお知らせします。メールに添付したリンクを開くと、そのイベントのシーンやイベントのお相手に沿ったプレゼントの検索画面に遷移することができます。</p><br>
 <h3>商品購入機能</h3>
 <p>カート内に入っている商品を購入できます。決済はStripe.jsのデモ決済で実装しています。</p>
 <h4>＊宛先情報オート入力機能＊</h4>
 <p>大切な人として登録している人にプレゼントを送る際、お名前と一緒に住所なども登録していれば、宛先情報を自動で入力することができます。</p>
-<img src="https://github.com/shoko218/tanp_mission/images/00003.gif">
+<img src="https://user-images.githubusercontent.com/52749338/94375559-80360480-014f-11eb-9efa-204144857534.gif" alt="商品購入機能&宛先情報オート入力機能のデモgif">
 <br>
 <h3>＊オリジナルギフトカタログ機能＊</h3>
 <p>サービス内の商品を利用して擬似的なギフトカタログを自分で作れる機能です。</p>
@@ -62,15 +63,17 @@
     <li>商品が選ばれたら通知のメールが送られてくるので確認して購入</li>
 </ol>
 <p>この5ステップでより相手が喜ぶプレゼントを知ることができます。</p>
-![demo](https://github.com/shoko218/tanp_mission/images/00006.gif)
+<img src="https://user-images.githubusercontent.com/52749338/94375549-73191580-014f-11eb-8c40-22510e9edba3.gif" alt="オリジナルギフトカタログ機能のデモgif">
 <br>
 <h3>＊ランダムレコメンド機能＊</h3>
 <p>何の条件もなくランダムに商品をレコメンドします。思わぬ商品との出会いがあるかもしれません。</p>
-![demo](https://github.com/shoko218/tanp_mission/images/00005.gif)
+<img src="https://user-images.githubusercontent.com/52749338/94375556-7dd3aa80-014f-11eb-965e-285c7e4a8200.gif" alt="ランダムレコメンド機能のデモgif">
 <br>
 <h3>＊ユーザへのバースデーメール＊</h3>
 <p>ユーザーの誕生日当日、朝10時ごろにレコメンドを兼ねたお祝いのメールを送ります。</p>
+<img width="316" alt="ユーザへのバースデーメールのプレビュー" src="https://user-images.githubusercontent.com/52749338/94375714-9db79e00-0150-11eb-8302-0b6ee9564b2c.png">
 <br>
 <h3>＊プレミアムフライデーにメール送信＊</h3>
 <p>プレミアムフライデー当日、正午ごろに全てのユーザにレコメンドを兼ねた労いのメールを送ります。</p>
+<img width="317" alt="プレミアムフライデーメールのプレビュー" src="https://user-images.githubusercontent.com/52749338/94375712-9b554400-0150-11eb-8a06-d2d8a354dae8.png">
 <br>
