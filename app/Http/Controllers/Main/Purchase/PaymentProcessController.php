@@ -139,7 +139,7 @@ class PaymentProcessController extends Controller
             if($old_product_ids!=null){
                 Cookie::queue('cart_product_ids', $old_product_ids, 86400);
             }
-            return redirect()->back()->with('err_msg',  $e->getMessage());
+            return redirect()->back()->with('err_msg', 'エラーが発生しました。');
         }
         return redirect('/msg')->with('title', '購入完了')->with('msg', '購入が完了しました。');
     }
