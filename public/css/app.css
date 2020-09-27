@@ -12187,6 +12187,10 @@ button.stripe-button-el {
   margin: 3rem 0;
 }
 
+#original_catalog_select h2 {
+  text-align: center;
+}
+
 #original_catalog_select .rc_cards {
   border-top: 1px solid #cccccc;
 }
