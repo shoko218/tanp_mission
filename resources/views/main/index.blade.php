@@ -42,7 +42,7 @@
     @include('components.search_form')
 </section>
 <section class="popularity_rank">
-    <h2>人気プレゼントランキング</h2>
+    <h2>20代の方に人気のプレゼントランキング</h2>
     <div class="rc_cards">
         @foreach ($popularityRanks as $item)
         @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
@@ -50,6 +50,7 @@
     </div>
     <form action="/result" id="popularity_search" method="get">
         @csrf
+        <input type="hidden" name="target_generation_id" value="3">
         <input type="hidden" name="sort_by" value="1">
     </form>
     <div class="btns">

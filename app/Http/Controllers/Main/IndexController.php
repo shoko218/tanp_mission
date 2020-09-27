@@ -20,7 +20,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,null,1,3);
+        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,3,1,3);
 
         $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);
 
