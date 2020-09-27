@@ -84,7 +84,9 @@
             text-decoration: underline !important;
         }
 
-        
+        .product_cards{
+            border-spacing: 0 20px;
+        }
       
     </style>
     
@@ -174,9 +176,9 @@
             </tr>
             <tr>
                 <td style="font-family: 'TsukuARdGothic-Regular',sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #333;">
-                    <table cellspacing="0" cellpadding="0" border="0" align="center" style="width: 90%; padding:0 5%; Margin: auto padding 0 20px 20px">
+                    <table cellspacing="0" cellpadding="0" border="0" align="center" style="width: 90%; padding:0 5%; Margin: auto padding 0 20px 20px" class="product_cards">
                         @foreach ($order_logs as $order_log)
-                            <tr style="margin-bottom 10px;">
+                            <tr class="product_card" style="margin-bottom 10px;">
                                 <td style="width: 40%;height: 20vw; max-height:125px;">
                                     <img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path('image/products/'.sprintf('%05d', $order_log->product->id).'.png')))}}" alt="{{ $order_log->product->name }}_img" border="0" style="height: 20vw; width:32vw; max-width:200px; max-height:125px; object-fit: cover;">
                                 </td>
