@@ -12,6 +12,9 @@
     <section id="lovers_list" class="normal_section">
         @include('components.msgs')
         <h1>大切な人リスト</h1>
+        @if (count($lovers)===0)
+            <h2>まだ大切な人は登録されていません。</h2>
+        @endif
         <div id="lovers">
             @foreach ($lovers as $lover)
             @include('components.lover_card',['name'=>$lover->last_name.$lover->first_name,'relationship'=>$lover->name,'order'=>$loop->index,'id'=>$lover->id,'ext'=>$lover->img_extension])
