@@ -20,21 +20,33 @@ class RegisterInfoToSessionController extends Controller
         $request->session()->put('forwarding_telephone', preg_replace('/[^0-9]/', '', $request->input('forwarding_telephone')));
         if ($request->input('gender')!=null) {
             $request->session()->put('gender', $request->input('gender'));
+        }else{
+            $request->session()->put('gender', null);
         }
         if ($request->input('relationship_id')!=null) {
             $request->session()->put('relationship_id', $request->input('relationship_id'));
+        }else{
+            $request->session()->put('relationship_id', null);
         }
         if ($request->input('age')!=null) {
             $request->session()->put('age', $request->input('age'));
+        }else{
+            $request->session()->put('age', null);
         }
         if ($request->input('scene_id')!=null) {
             $request->session()->put('scene_id', $request->input('scene_id'));
+        }else{
+            $request->session()->put('scene_id', null);
         }
         if($request->input('user_id')!=null){
             $request->session()->put('user_id', $request->input('user_id'));
+        }else{
+            $request->session()->put('user_id', null);
         }
         if($request->input('lover_id')!=null){
             $request->session()->put('lover_id', $request->input('lover_id'));
+        }else{
+            $request->session()->put('lover_id', null);
         }
         $request->session()->put('user_last_name', $request->input('user_last_name'));
         $request->session()->put('user_first_name', $request->input('user_first_name'));
