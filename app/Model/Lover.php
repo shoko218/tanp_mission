@@ -20,7 +20,7 @@ class Lover extends Model
         'postal_code'=>['nullable','string','digits:7','hankakunum'],
         'prefecture_id'=>['nullable','integer'],
         'address'=>['nullable','string', 'max:200','text'],
-        'telephone'=>['nullable','string', 'max:21','hankakunum'],
+        'telephone'=>['nullable','string','min:9','max:27','hankakunum'],
         'image'=>['nullable','file','mimes:jpeg,png,jpg','max:10240'],
     );
 
