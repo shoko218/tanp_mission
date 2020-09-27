@@ -7,10 +7,10 @@
             <p class="rc_price">¥{{ number_format($price) }}(+tax)</p>
         </div>
     </a>
-    <form action="/mypage/original_catalog/remove_process" class="remove_product_btn remove_product_from_catalog_btn" method="POST" name="remove_product">
+    <form action="/mypage/original_catalog/remove_process" class="remove_product_btn remove_product_from_catalog_btn" method="POST" name="remove_product_{{ $product_id }}">
         @csrf
         <input type="hidden" name="catalog_id" value="{{ $catalog_id }}">
         <input type="hidden" name="product_id" value="{{ $product_id }}">
-        <p onClick="return confirm('削除します。\nよろしいですか？');" type="submit" for="remove_product">削除</p>
+        <p><a href="javascript:remove_product_{{ $product_id }}.submit()" onClick="return confirm('削除します。\nよろしいですか？');">削除</a></p>
     </form>
 </div>
