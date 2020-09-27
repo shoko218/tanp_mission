@@ -121,6 +121,29 @@
                                 <p class="form_alert">{{ $item }}</p>
                             @endforeach
                         </li>
+                        <li class="radio_parts">
+                            <p class="radiobtns_label">性別</p>
+                            <div class="radiobtns">
+                                <label class="radio"><input type="radio" name="gender" value="0" class="radiobtn" @if(old('gender')==='0')checked="checked" @elseif($lover!=null&&$lover->gender==0) checked="checked" @endif>男性</label>
+                                <label class="radio"><input type="radio" name="gender" value="1" class="radiobtn" @if(old('gender')==='1')checked="checked" @elseif($lover!=null&&$lover->gender==1) checked="checked" @endif>女性</label>
+                                <label class="radio"><input type="radio" name="gender" value="2" class="radiobtn" @if(old('gender')==='2')checked="checked" @elseif($lover!=null&&$lover->gender==2) checked="checked" @endif>その他</label>
+                            </div>
+                            @foreach ($errors->get('gender') as $item)
+                                <p class="form_alert">{{ $item }}</p>
+                            @endforeach
+                        </li>
+                        <li class="input_parts">
+                            <label for="relationship_id">どのようなご関係ですか？</label>
+                            <select name="relationship_id" id="relationship_id" @if ($errors->has('relationship_id')) class="input_alert" @endif >
+                                <option value="" selected disabled>選択してください</option>
+                                @foreach ($relationships as $rel)
+                                    <option value="{{ $rel->id }}"@if(old('relationship_id')===$rel->id) selected @elseif($lover!=null&&$lover->relationship_id!=null&&$lover->relationship_id===$rel->id) selected @endif>{{ $rel->name }}</option>
+                                @endforeach
+                            </select>
+                            @foreach ($errors->get('relationship_id') as $item)
+                                <p class="form_alert">{{ $item }}</p>
+                            @endforeach
+                        </li>
                     </ul>
                 </div>
                 <div class="fillin_form_div">
@@ -198,13 +221,14 @@
                 </div>
             </div>
             @if ($lover!=null)
-            <input type="hidden" name="gender" value="{{ $lover->gender }}">
-            <input type="hidden" name="relationship_id" value="{{ $lover->relationship_id }}">
-            <input type="hidden" name="age" value="<?php echo $age?>">
-            <input type="hidden" name="lover_id" value="{{ $lover->id }}">
+                <input type="hidden" name="lover_id" value="{{ $lover->id }}">
+            @else
+                <input type="hidden" name="lover_id" value="">
             @endif
             @if (Auth::check())
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            @else
+                <input type="hidden" name="user_id" value="">
             @endif
             <div class="btns">
                 <button type="submit">次へ進む</button>
