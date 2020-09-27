@@ -17,7 +17,7 @@ class Order extends Model
         'forwarding_telephone'=>['nullable','string','min:9','max:27','hankakunum'],
         'gender'=>['nullable','integer'],
         'relationship_id'=>['nullable','integer'],
-        'age'=>['nullable','integer','max:150'],
+        'age'=>['nullable','integer','min:0','max:150'],
         'scene_id'=>['nullable','integer'],
         'user_id'=>['nullable','integer'],
         'lover_id'=>['nullable','integer'],
