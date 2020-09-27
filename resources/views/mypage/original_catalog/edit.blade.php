@@ -11,6 +11,7 @@
 @section('content')
 <section id="fillin_info" class="normal_section">
     <h1>オリジナルカタログを確認・編集する</h1>
+    <p>全て入力してください。</p>
         <form method="POST" action="edit_process" class="input_form">
             @csrf
             <ul class="inputs">
