@@ -49,7 +49,7 @@ Route::get('/logout',function(){
     return redirect('/');
 });
 
-// Route::middleware(['auth','verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::prefix('/mypage')->group(function () {
         Route::get('/order_history', 'MyPage\OrderHistoryController');
         Route::get('/favorite', 'MyPage\FavoriteController');
@@ -113,5 +113,5 @@ Route::get('/logout',function(){
         });
     });
 
-// });
+});
 
