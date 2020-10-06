@@ -6,7 +6,7 @@
         </div>
         <p class="reload_btn"><a v-on:click="change"><i class="fas fa-sync-alt"></i></a></p>
         <div class="product_card">
-            <a :href="'/product?id='+dataProductId">
+            <a :href="'/product?id='+dataProductId" onClick="ga('send', 'event', 'link', 'click', 'ランダムレコメンド');">
                 <img :src="'/image/products/'+('00000'+dataProductId).slice( -5 )+'.png'" :alt="dataTitle" class="product_card_img">
                 <div class="product_detail">
                     <p class="rc_title">{{ dataTitle }}</p>
