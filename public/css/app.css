@@ -11768,6 +11768,17 @@ section:last-of-type {
   margin-bottom: 3rem;
 }
 
+.lover_img {
+  width: 50vw;
+  height: 50vw;
+  max-width: 24rem;
+  max-height: 24rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 3%;
+}
+
 .lover_card {
   width: 100%;
   max-width: 100%;
