@@ -14,7 +14,11 @@
         <div class="lover_detail_top">
             <div class="lover_details">
                 <p class="img_container">
-                    <img @if($ext!=null) src="/storage/lover_imgs/{{ sprintf('%09d', $id).'.'.$ext.'?'.uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
+                    @if (env('APP_ENV') === 'production')
+                        <img @if($ext!=null) src="{{ Storage::disk('s3')->url('lover_imgs/'.sprintf('%09d', $id).'.'.$ext.'?'.uniqid()) }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
+                    @else
+                        <img @if($ext!=null) src="/storage/lover_imgs/{{ sprintf('%09d', $id).'.'.$ext.'?'.uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
+                    @endif
                 </p>
                 <p class="lover_name">{{ $name }}さん</p>
             </div>

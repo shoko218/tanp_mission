@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MyPage\Lovers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Lover;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterProcessController extends Controller
 {
@@ -15,7 +16,11 @@ class RegisterProcessController extends Controller
         'user_id'=>$request->user_id,'postal_code'=>$request->postal_code,'prefecture_id'=>$request->prefecture_id,'address'=>$request->address,'telephone'=>$request->telephone]);
         if($request->file('image')!=null){
             $file_ex = $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('public/lover_imgs/',sprintf('%09d', $lover->id).'.'.$file_ex);
+            if (env('APP_ENV') === 'production') {
+                Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),sprintf('%09d', $lover->id).'.'.$file_ex, 'public');
+            }else{
+                $request->file('image')->storeAs('public/lover_imgs/',sprintf('%09d', $lover->id).'.'.$file_ex);
+            }
             $lover->update(['img_extension'=>$file_ex]);
         }
         return redirect('/mypage/lovers/top')->with('suc_msg','追加しました。');

@@ -15,7 +15,11 @@ class EditProcessController extends Controller
         $lover->fill($request->except(['lover_id','image']))->save();
         if($request->file('image')!=null){
             $file_ex = $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('public/lover_imgs/',sprintf('%09d', $lover->id).'.'.$file_ex);
+            if (env('APP_ENV') === 'production') {
+                Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),sprintf('%09d', $lover->id).'.'.$file_ex, 'public');
+            }else{
+                $request->file('image')->storeAs('public/lover_imgs/', sprintf('%09d', $lover->id).'.'.$file_ex);
+            }
             $lover->update(['img_extension'=>$file_ex]);
         }
         $request->session()->forget('lover_id');

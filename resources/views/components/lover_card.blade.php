@@ -3,7 +3,11 @@
         <input type="hidden" name="id" value="{{ $id }}">
         <input type="hidden" name="name" value="{{ $name }}">
         <a href="javascript:form{{ $order }}.submit()">
-            <img @if($ext!=null) src="/storage/lover_imgs/{{ sprintf('%09d', $lover->id).'.'.$ext.'?'.uniqid()}}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" class="lover_card_img">
+            @if (env('APP_ENV') === 'production')
+                <img @if($ext!=null) src="{{ Storage::disk('s3')->url('lover_imgs/'.sprintf('%09d', $id).'.'.$ext.'?'.uniqid()) }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
+            @else
+                <img @if($ext!=null) src="/storage/lover_imgs/{{ sprintf('%09d', $id).'.'.$ext.'?'.uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
+            @endif
             <div class="lover_detail">
                 <p class="lv_name">{{ $name }} さん</p>
                 <p class="lv_relationship"><i class="fas fa-people-arrows"></i>{{ $relationship}}</p>
