@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MyPage\Lovers;
 use App\Http\Controllers\Controller;
 use App\Model\Lover;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EditProcessController extends Controller
 {
