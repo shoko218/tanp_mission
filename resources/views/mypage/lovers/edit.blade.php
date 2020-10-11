@@ -107,7 +107,7 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
-                <lover-img-component :err-msgs='@json($errors->get('image'))' id='@json($lover->id)' img-path={{ $lover->img_path }} @if(env('APP_ENV') == 'production' && $lover->img_path!=null) s3-url={{ Storage::disk('s3')->url('lover_imgs/'.$img_path)}} @else s3-url=null></lover-img-component>
+                <lover-img-component :err-msgs='@json($errors->get('image'))' id='@json($lover->id)' img-path={{ $lover->img_path }} @if(env('APP_ENV') == 'production' && $lover->img_path!=null) s3-url={{ Storage::disk('s3')->url('lover_imgs/'.$img_path)}} @else s3-url=null @endif></lover-img-component>
             </ul>
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <input type="hidden" name="lover_id" value="{{ $lover->id }}">
