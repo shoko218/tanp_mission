@@ -29,6 +29,7 @@
         "aws-sdk": "^2.771.0",
         "fs": "0.0.1-security",
         "laravel-vue-pagination": "^2.3.1",
+        "vue-analytics": "^5.22.1",
         "vuejs-paginate": "^2.1.0",
         "vuetify": "^2.3.10"
     }

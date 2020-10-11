@@ -13,6 +13,7 @@ import LoverImgComponent from './components/LoverImgComponent'
 import OriginalCatalogComponent from './components/OriginalCatalogComponent'
 // import StripeComponent from './components/StripeComponent'
 import RandomRecommend from './components/RandomRecommend'
+import VueAnalytics from 'vue-analytics'
 
 // window.Vue = require('vue');
 
@@ -42,6 +43,9 @@ const app = new Vue({
     },
 });
 
+Vue.use(VueAnalytics, {
+    id: UA-179570799-1
+})
 
 window.onload = function onload(){
     var hb_btn=document.getElementById("hb_menu_btn");
