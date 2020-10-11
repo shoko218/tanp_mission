@@ -16,12 +16,19 @@ class EditProcessController extends Controller
         $lover->fill($request->except(['lover_id','image']))->save();
         if($request->file('image')!=null){
             $file_ex = $request->file('image')->getClientOriginalExtension();
+            $file_name = uniqid(rand());
             if (env('APP_ENV') === 'production') {
-                Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),sprintf('%09d', $lover->id).'.'.$file_ex, 'public');
+                if($lover->img_path!=null){
+                    Storage::disk('s3')->delete('/lover_imgs'.$lover->img_path);
+                }
+                Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),$file_name.'.'.$file_ex, 'public');
             }else{
-                $request->file('image')->storeAs('public/lover_imgs/', sprintf('%09d', $lover->id).'.'.$file_ex);
+                if($lover->img_path!=null){
+                    Storage::delete('public/lover_imgs/'.$lover->img_path);
+                }
+                $request->file('image')->storeAs('public/lover_imgs/',$file_name.'.'.$file_ex);
             }
-            $lover->update(['img_extension'=>$file_ex]);
+            $lover->update(['img_path'=>$file_name.'.'.$file_ex]);
         }
         $request->session()->forget('lover_id');
         return redirect('mypage/lovers/lover')->with('suc_msg','変更しました。')->with('lover_id',$request->lover_id);

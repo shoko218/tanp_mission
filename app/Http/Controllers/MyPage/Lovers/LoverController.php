@@ -20,7 +20,7 @@ class LoverController extends Controller
             $products=null;
         }
         $lover=Lover::find($lover_id);
-        $param=['id'=>$lover_id,'name'=>$request->name,'products'=>$products,'ext'=>$lover->img_extension];
+        $param=['id'=>$lover_id,'name'=>$request->name,'products'=>$products,'img_path'=>$lover->img_path];
         return view('mypage.lovers.lover',$param);
     }
 }

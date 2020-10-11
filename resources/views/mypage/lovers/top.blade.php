@@ -17,7 +17,7 @@
         @endif
         <div id="lovers">
             @foreach ($lovers as $lover)
-            @include('components.lover_card',['name'=>$lover->last_name.$lover->first_name,'relationship'=>$lover->name,'order'=>$loop->index,'id'=>$lover->id,'ext'=>$lover->img_extension])
+            @include('components.lover_card',['name'=>$lover->last_name.$lover->first_name,'relationship'=>$lover->name,'order'=>$loop->index,'id'=>$lover->id,'img_path'=>$lover->img_path])
             @endforeach
         </div>
         <div class="btns">

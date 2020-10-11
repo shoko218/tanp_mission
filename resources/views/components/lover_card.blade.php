@@ -4,9 +4,9 @@
         <input type="hidden" name="name" value="{{ $name }}">
         <a href="javascript:form{{ $order }}.submit()">
             @if (env('APP_ENV') === 'production')
-                <img @if($ext!=null) src="{{ Storage::disk('s3')->url('lover_imgs/'.sprintf('%09d', $id)).'.'.$ext}}?{{ uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_card_img">
+                <img @if($img_path!=null) src="{{ Storage::disk('s3')->url('lover_imgs/'.$img_path)}}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_card_img">
             @else
-                <img @if($ext!=null) src="/storage/lover_imgs/{{ sprintf('%09d', $id).'.'.$ext.'?'.uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_card_img">
+                <img @if($img_path!=null) src="/storage/lover_imgs/{{ $img_path }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_card_img">
             @endif
             <div class="lover_detail">
                 <p class="lv_name">{{ $name }} さん</p>

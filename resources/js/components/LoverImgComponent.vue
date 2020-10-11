@@ -3,20 +3,19 @@
         <label for="image">写真(jpeg,png,gif形式、10MB以下)</label>
         <input id="image" type="file" name="image" accept="image/jpeg, image/png, image/gif" class="image" @change="onFileChange($event)">
         <p v-for="errMsg in errMsgs" :key="errMsg.id" class="form_alert">{{ errMsg }}</p>
+        <p>プレビュー</p>
         <div class="preview_lover_imgs" v-if="selectedImg!=null">
-            <p>プレビュー</p>
             <div class="lover_img">
                 <img :src="selectedImg" alt="プレビュー画像">
             </div>
         </div>
-        <div class="preview_lover_imgs" v-else-if="ext">
-            <p>プレビュー</p>
+        <div class="preview_lover_imgs" v-else-if="imgPath!=null">
             <div class="lover_img">
-                <img :src="'/storage/lover_imgs/'+('000000000'+id).slice( -9 )+'.'+ext" alt="プレビュー画像">
+                <img :src="'/storage/lover_imgs/'+imgPath" alt="プレビュー画像" v-if="isS3=='true'">
+                <img :src="'/storage/lover_imgs/'+imgPath" alt="プレビュー画像" v-else>
             </div>
         </div>
         <div class="preview_lover_imgs" v-else>
-            <p>プレビュー</p>
             <div class="lover_img">
                 <img :src="'/image/somethings/lover_img_preview.png'" alt="プレビュー画像">
             </div>
@@ -33,9 +32,12 @@
             id:{
                 type: String,
             },
-            ext: {
+            imgPath: {
                 type: String,
             },
+            isS3: {
+                type: String,
+            }
         },
         data(){
             return {

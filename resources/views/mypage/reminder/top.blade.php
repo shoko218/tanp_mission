@@ -15,7 +15,7 @@
         @if(count($events)>0)
             <div id="events">
                 @foreach ($events as $event)
-                @include('components.event_card',['date'=>$event->date,'name'=>$event->lover->last_name.$event->lover->first_name,'title'=>$event->title,'id'=>$event->id,'order'=>$loop->index,'ext'=>$event->lover->img_extension,'lover_id'=>$event->lover->id])
+                @include('components.event_card',['date'=>$event->date,'name'=>$event->lover->last_name.$event->lover->first_name,'title'=>$event->title,'id'=>$event->id,'order'=>$loop->index,'img_path'=>$event->lover->img_path,'lover_id'=>$event->lover->id])
                 @endforeach
             </div>
             {{$events->appends(request()->input())->links()}}

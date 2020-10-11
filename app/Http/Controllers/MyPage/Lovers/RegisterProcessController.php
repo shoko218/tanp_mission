@@ -16,12 +16,13 @@ class RegisterProcessController extends Controller
         'user_id'=>$request->user_id,'postal_code'=>$request->postal_code,'prefecture_id'=>$request->prefecture_id,'address'=>$request->address,'telephone'=>$request->telephone]);
         if($request->file('image')!=null){
             $file_ex = $request->file('image')->getClientOriginalExtension();
+            $file_name = uniqid(rand());
             if (env('APP_ENV') === 'production') {
-                Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),sprintf('%09d', $lover->id).'.'.$file_ex, 'public');
+                Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),$file_name.'.'.$file_ex, 'public');
             }else{
-                $request->file('image')->storeAs('public/lover_imgs/',sprintf('%09d', $lover->id).'.'.$file_ex);
+                $request->file('image')->storeAs('public/lover_imgs/',$file_name.'.'.$file_ex);
             }
-            $lover->update(['img_extension'=>$file_ex]);
+            $lover->update(['img_path'=>$file_name.'.'.$file_ex]);
         }
         return redirect('/mypage/lovers/top')->with('suc_msg','追加しました。');
     }
