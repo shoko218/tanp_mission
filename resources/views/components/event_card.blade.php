@@ -3,7 +3,7 @@
     <input type="hidden" name="id" value="{{ $id }}">
     <a href="javascript:form{{ $order }}.submit()" class="event_card_contents">
         @if (env('APP_ENV') === 'production')
-            <img @if($ext!=null) src="{{ Storage::disk('s3')->url('lover_imgs/'.sprintf('%09d', $lover_id)).'.'.$ext.'?'.uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
+            <img @if($ext!=null) src="{{ Storage::disk('s3')->url('lover_imgs/'.sprintf('%09d', $lover_id)).'.'.$ext}}?{{ uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
         @else
             <img @if($ext!=null) src="/storage/lover_imgs/{{ sprintf('%09d', $lover_id).'.'.$ext.'?'.uniqid() }}" @else src="/image/lover_icons/noimage.png" @endif alt="{{ $name }}" alt="{{ $name }}さん" class="lover_img">
         @endif
