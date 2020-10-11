@@ -19,7 +19,7 @@ class EditProcessController extends Controller
             $file_name = uniqid(rand());
             if (env('APP_ENV') === 'production') {
                 if($lover->img_path!=null){
-                    Storage::disk('s3')->delete('/lover_imgs'.$lover->img_path);
+                    Storage::disk('s3')->delete('/lover_imgs/'.$lover->img_path);
                 }
                 Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),$file_name.'.'.$file_ex, 'public');
             }else{
