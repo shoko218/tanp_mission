@@ -28,7 +28,8 @@
                 <div v-else id="od_cards">
                     <div v-for="(dataProduct,i) in dataProducts" :key="dataProduct.id" class="product_card">
                         <a :href="'/product?id='+dataProduct.id">
-                            <img :src="'/image/products/'+('00000'+dataProduct.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img">
+                            <img :src="s3Directory+('00000'+dataProduct.product.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img" v-if="s3Directory!=null">
+                            <img :src="'/image/products/'+('00000'+dataProduct.product.id).slice( -5 )+'.png'" :alt="dataProduct.title" class="product_card_img" v-else>
                             <div class="product_detail">
                                 <p class="rc_title">{{ dataProduct.name }}</p>
                                 <p class="rc_genre">{{ dataProduct.genre.name }}</p>

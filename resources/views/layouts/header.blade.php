@@ -3,7 +3,7 @@
         <div class="header_contents">
             <a href="/">
                 @if(env('APP_ENV') == 'production')
-                    <img src="{{ Storage::disk('s3')->url('/image/logo.png')}}" alt="ロゴ" class="logo">
+                    <img src="{{ Storage::disk('s3')->url('logo.png')}}" alt="ロゴ" class="logo">
                 @else
                     <img src="/image/logo.png" alt="ロゴ" class="logo">
                 @endif
