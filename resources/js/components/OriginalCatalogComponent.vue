@@ -11,7 +11,7 @@
                 <input type="hidden" name="id" :value="catalog.id">
                 <a :href="'javascript:form'+catalog.id+'.submit()'">
                     <img :src="s3Directory+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-if="s3Directory!=null">
-                    <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img">
+                    <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-else>
                     <div class="oc_detail">
                         <h3>{{ catalog.name }}さんへの<br>ギフトカタログ</h3>
                     </div>
