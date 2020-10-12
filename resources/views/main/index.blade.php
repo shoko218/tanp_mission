@@ -74,7 +74,6 @@
             <button type="submit" form="season_popularity_search">もっとみる→</button>
         </div>
     </section>
-    <a href="#" onclick="gtag('event','click', {'event_category': 'link','event_label': 'ランダムレコメンド'});">テスト</a>
     <random-recommend :product-id={{ $rand_product->id }} title={{ $rand_product->name }} genre={{ $rand_product->genre->name }} price={{ $rand_product->price }}></random-recommend>
     @endsection
 </div>
