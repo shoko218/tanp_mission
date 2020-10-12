@@ -44,7 +44,7 @@ const app = new Vue({
 });
 
 Vue.use(VueAnalytics, {
-    id: UA-179570799-1
+    id: 'UA-179570799-1'
 })
 
 window.onload = function onload(){
