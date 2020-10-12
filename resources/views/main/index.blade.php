@@ -35,7 +35,11 @@
     </section> --}}
     <section id="banner">
         <a href="{{ config('constant.domain') }}/result?_token=SrFd4V3jQaYGSc696NP8kzwXpK6cBdhQFBJRHfwt&target_scene_id=8&target_relationship_id=6&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
-            <img src="/image/banner_imgs/banner01.png" alt="バナー画像" id="banner_img">
+            @if (env('APP_ENV') == 'production')
+                <img src="{{ Storage::disk('s3')->url('banner_imgs/banner01.png')}}" alt="バナー画像" id="banner_img">
+            @else
+                <img src="/image/banner_imgs/banner01.png" alt="バナー画像" id="banner_img">
+            @endif
         </a>
     </section>
     <section id="search_area">
@@ -74,7 +78,7 @@
             <button type="submit" form="season_popularity_search">もっとみる→</button>
         </div>
     </section>
-    <random-recommend :product-id={{ $rand_product->id }} title={{ $rand_product->name }} genre={{ $rand_product->genre->name }} price={{ $rand_product->price }}></random-recommend>
+    <random-recommend :product-id={{ $rand_product->id }} title={{ $rand_product->name }} genre={{ $rand_product->genre->name }} price={{ $rand_product->price }} @if(env('APP_ENV') == 'production') s3-directory={{ Storage::disk('s3')->url('products/')}}@endif></random-recommend>
     @endsection
 </div>
 

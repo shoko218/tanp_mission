@@ -10,6 +10,7 @@
                 <input type="hidden" name="_token" v-bind:value="csrf">
                 <input type="hidden" name="id" :value="catalog.id">
                 <a :href="'javascript:form'+catalog.id+'.submit()'">
+                    <img :src="s3Directory+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-if="s3Directory!=null">
                     <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img">
                     <div class="oc_detail">
                         <h3>{{ catalog.name }}さんへの<br>ギフトカタログ</h3>
@@ -47,7 +48,10 @@
             csrf: {
                 type: String,
                 required: true,
-            }
+            },
+            s3Directory: {
+                type: String,
+            },
         },
         data(){
             return {

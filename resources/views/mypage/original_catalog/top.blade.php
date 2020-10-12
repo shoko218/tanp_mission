@@ -16,7 +16,7 @@
         <button onclick="location.href='register'">新しくカタログを作る</button>
     </div>
     <h2>今までに作ったオリジナルカタログ</h2>
-    <original-catalog-component :csrf="{{json_encode(csrf_token())}}"></original-catalog-component>
+    <original-catalog-component :csrf="{{json_encode(csrf_token())}}" @if(env('APP_ENV') == 'production') :s3-directory={{ Storage::disk('s3')->url('catalog_imgs/')}} @endif></original-catalog-component>
 </section>
 @endsection
 

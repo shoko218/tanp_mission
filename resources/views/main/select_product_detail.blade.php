@@ -12,7 +12,11 @@
     <section id="select_product_detail">
         <div id="product_top">
             <div id="product_header">
-                <img src="/image/products/{{ sprintf('%05d', $product->id) }}.png" alt="" class="product_img">
+                @if (env('APP_ENV') == 'production')
+                    <img src="{{ Storage::disk('s3')->url('products/'.sprintf('%05d', $product->id).'.png')}}" alt="{{ $product->title }}" class="product_img">
+                @else
+                    <img src="/image/products/{{ sprintf('%05d', $product->id) }}.png" alt="{{ $product->title }}" class="product_img">
+                @endif
             </div>
             <div id="product_explanation">
                 <h1 class="product_name">{{ $product->name }}</h1>

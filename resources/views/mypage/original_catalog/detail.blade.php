@@ -13,7 +13,11 @@
     @include('components.msgs')
     <div id="catalog_top">
         <div id="catalog_header">
-            <img src="/image/catalog_imgs/{{ sprintf('%05d', $catalog->img_num) }}.png" alt="{{ $catalog->name }}さんへのギフトカタログのイメージ画像" class="oc_detail_img">
+            @if (env('APP_ENV') == 'production')
+                <img src="{{ Storage::disk('s3')->url('catalog_imgs/'.sprintf('%05d', $catalog->img_num))}}" alt="{{ $catalog->name }}さんへのギフトカタログのイメージ画像" class="oc_detail_img">
+            @else
+                <img src="/image/catalog_imgs/{{ sprintf('%05d', $catalog->img_num) }}.png" alt="{{ $catalog->name }}さんへのギフトカタログのイメージ画像" class="oc_detail_img">
+            @endif
         </div>
         <div id="catalog_explanation">
             <h1>{{ $catalog->name }}さんへの<br>オリジナルカタログ</h1>

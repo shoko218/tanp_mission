@@ -12,7 +12,11 @@
 <section id="reminder_detail">
         @include('components.msgs')
         <div id="reminder_detail_top">
-            <img src="/image/event_imgs/{{ sprintf('%05d', $event->scene_id)}}.png" alt="" id="reminder_detail_img">
+            @if (env('APP_ENV') == 'production')
+                <img src="{{ Storage::disk('s3')->url('event_imgs/'.sprintf('%05d', $event->scene_id)).'.png'}}" alt="" id="reminder_detail_img">
+            @else
+                <img src="/image/event_imgs/{{ sprintf('%05d', $event->scene_id)}}.png" alt="" id="reminder_detail_img">
+            @endif
             <div id="reminder_detail_explanation">
                 <h1 id="reminder_detail_explanation_title">{{ $event->title }}まで<br><span>あと{{ $diff->days }}日</span></h1>
                 <p class="name"><i class="fas fa-user"></i>{{ $event->lover->last_name.$event->lover->first_name }}さん</p>

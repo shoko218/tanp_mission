@@ -1,7 +1,13 @@
 @section('header')
     <header>
         <div class="header_contents">
-            <a href="/"><img src="/image/logo.png" alt="ロゴ" class="logo"></a>
+            <a href="/">
+                @if(env('APP_ENV') == 'production')
+                    <img src="{{ Storage::disk('s3')->url('/image/logo.png')}}" alt="ロゴ" class="logo">
+                @else
+                    <img src="/image/logo.png" alt="ロゴ" class="logo">
+                @endif
+            </a>
             <div class="header_btns">
                 <button onfocus="this.blur();" onclick="location.href='/cart'">
                     <img src="/image/icons/cart.png" alt="cart" class="header_icon">

@@ -21,7 +21,8 @@
         </div>
         <div class="preview_lover_imgs" v-else>
             <div class="lover_img">
-                <img :src="'/image/somethings/lover_img_preview.png'" alt="プレビュー画像">
+                <img :src="s3SomethingsDirectory+'lover_img_preview.png'" alt="プレビュー画像" v-if="s3SomethingsDirectory!=null">
+                <img :src="'/image/somethings/lover_img_preview.png'" alt="プレビュー画像" v-else>
             </div>
         </div>
     </li>
@@ -41,7 +42,10 @@
             },
             s3Url: {
                 type: String,
-            }
+            },
+            s3SomethingsDirectory: {
+                type: String,
+            },
         },
         data(){
             return {
