@@ -31,7 +31,7 @@
                         <input type="hidden" name="product_id" value="{{ $selected->id }}">
                     </form>
                     <div class="btns">
-                        <button type="submit" form="cart_in" class="cart_btn">カートに入れる</button>
+                        <button type="submit" form="cart_in" class="cart_btn" onclick="gtag('event','click', {'event_category': 'link','event_label': 'カタログへの回答からカートイン'});">カートに入れる</button>
                     </div>
                 @else
                     <p class="reply">

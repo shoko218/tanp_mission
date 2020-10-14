@@ -35,7 +35,7 @@
                     </form>
                 @endif
                 <div class="btns">
-                    <button type="submit" form="cart_in" class="cart_btn">カートに入れる</button>
+                    <button type="submit" form="cart_in" class="cart_btn" onclick="gtag('event','click', {'event_category': 'link','event_label': 'カートイン'});">カートに入れる</button>
                     @if (Auth::check())
                     <button type="submit" form="catalog_in" class="catalog_in_btn">カタログに追加</button>
                     @endif

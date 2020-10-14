@@ -33,7 +33,7 @@
                         @csrf
                         <input type="hidden" name="id" value="{{ $id }}">
                         <input type="hidden" name="name" value="{{ $name }}">
-                        <button type="submit">今まであげたもの</button>
+                        <button type="submit" onclick="gtag('event','click', {'event_category': 'link','event_label': '今まであげたもの一覧'});">今まであげたもの</button>
                     </form>
                 </div>
                 <form method="post" name="edit_form" id="edit_form" action="/mypage/lovers/edit">
@@ -54,7 +54,7 @@
         <h2>{{ $name }}さんにおすすめのプレゼント</h2>
         <div class="rc_cards">
             @foreach ($products as $product)
-            @include('components.product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price])
+            @include('components.lover_recommend_product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price])
             @endforeach
         </div>
         <div class="btns">
