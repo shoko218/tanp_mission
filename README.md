@@ -1,4 +1,4 @@
-<h1>プレゼント専門ECサイト「<a href="https://pleased.sumomo.ne.jp/">Pleased</a>」</h1>
+<h1>プレゼント専門ECサイト「<a href="https://tanp-mission.tk/">Pleased</a>」</h1>
 <h2>概要</h2>
 誰かにプレゼントをする際に便利なECサイトです。贈り物をするにあたって役に立つ機能をたくさん兼ね備えています。<br>
 このサービスは<a href="https://techbowl.co.jp/techtrain">TechTrainさん</a>で公開されている課題に挑戦した際に制作したものです。<br>
