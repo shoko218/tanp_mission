@@ -12,7 +12,7 @@
 <div id="index">
     @include('components.msgs')
     <section id="banner">
-        <a href="{{ config('constant.domain') }}/result?_token=SrFd4V3jQaYGSc696NP8kzwXpK6cBdhQFBJRHfwt&target_scene_id=8&target_relationship_id=6&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
+        <a href="{{ config('constant.domain') }}/result?_token=gXpeRbRtwshz1RbNnFaOXQYPD5sWwVXNv75B5u9k&target_scene_id=3&target_relationship_id=&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
             @if (env('APP_ENV') == 'production')
                 <img src="{{ Storage::disk('s3')->url('banner_imgs/banner01.png')}}" alt="バナー画像" id="banner_img">
             @else
