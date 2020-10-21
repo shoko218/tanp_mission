@@ -11181,6 +11181,7 @@ button:hover,
 section {
   background-color: #ffffff;
   margin-bottom: 3rem;
+  min-width: 36rem;
 }
 
 section:last-of-type {
@@ -11871,13 +11872,17 @@ section:last-of-type {
   margin-bottom: 1.5rem;
 }
 
+#lover .img_container {
+  text-align: center;
+}
+
 .preview_lover_imgs {
   margin-top: 0.5rem;
 }
 
 .preview_lover_imgs .lover_img {
-  width: 100%;
-  max-width: 24rem;
+  width: 24rem;
+  height: 24rem;
   position: relative;
   margin: 0 auto 3rem;
 }

@@ -411,6 +411,7 @@ button:hover,.button:hover{
 section{
     background-color: $contents_bgc;
     margin-bottom: $section_my;
+    min-width: 36rem;
 }
 
 section:last-of-type{
@@ -1104,6 +1105,9 @@ section:last-of-type{
             margin-bottom: $std_my/2;
         }
     }
+    .img_container{
+        text-align: center;
+    }
 }
 
 //↓大事な人登録///////////////////////////////////////////////
@@ -1114,8 +1118,8 @@ section:last-of-type{
 .preview_lover_imgs{
     margin-top: 0.5rem;
     .lover_img{
-        width: 100%;
-        max-width: 24rem;
+        width: 24rem;
+        height: 24rem;
         position: relative;
         margin: 0 auto $std_my;
         &:before {
