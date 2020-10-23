@@ -411,7 +411,6 @@ button:hover,.button:hover{
 section{
     background-color: $contents_bgc;
     margin-bottom: $section_my;
-    min-width: 36rem;
 }
 
 section:last-of-type{
@@ -460,9 +459,6 @@ section:last-of-type{
     position: relative;
     &>a{
         display: flex;
-    }
-    &:first-of-type{
-        border-top: 0.1rem solid $area_border_c;
     }
     &_img{
         width: $card_img;
@@ -565,6 +561,7 @@ section:last-of-type{
 .rc_{
     &cards{
         margin-bottom: $std_my;
+        border-top: 0.1rem solid $area_border_c;
     }
     &title{
         font-size: 1.8rem;
@@ -711,6 +708,7 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 .normal_section{
     padding: $std_py $std_px;
+    min-width: 36rem;
     h1{
         text-align: center;
     }
@@ -1610,7 +1608,7 @@ button.stripe-button-el{
         padding-right: 0;
         .product_card{
             width: 100%;
-            padding: 6% 0;
+            padding: 6% 3%;
         }
         a{
             width: 100%;

@@ -11181,7 +11181,6 @@ button:hover,
 section {
   background-color: #ffffff;
   margin-bottom: 3rem;
-  min-width: 36rem;
 }
 
 section:last-of-type {
@@ -11234,10 +11233,6 @@ section:last-of-type {
 
 .product_card > a {
   display: flex;
-}
-
-.product_card:first-of-type {
-  border-top: 0.1rem solid #cccccc;
 }
 
 .product_card_img {
@@ -11344,6 +11339,7 @@ section:last-of-type {
 
 .rc_cards {
   margin-bottom: 3rem;
+  border-top: 0.1rem solid #cccccc;
 }
 
 .rc_title {
@@ -11496,6 +11492,7 @@ section:last-of-type {
 
 .normal_section {
   padding: 3rem 1.6rem;
+  min-width: 36rem;
 }
 
 .normal_section h1 {
@@ -12361,7 +12358,7 @@ button.stripe-button-el {
 
   #random_recommend .product_card {
     width: 100%;
-    padding: 6% 0;
+    padding: 6% 3%;
   }
 
   #random_recommend a {

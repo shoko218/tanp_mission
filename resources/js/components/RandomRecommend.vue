@@ -1,20 +1,22 @@
 <template>
     <section id="random_recommend">
-        <div class="description">
-            <h2>ランダムレコメンド</h2>
-            <p class="comment">こんな商品はいかがですか？</p>
-        </div>
-        <p class="reload_btn"><a v-on:click="change"><i class="fas fa-sync-alt"></i></a></p>
-        <div class="product_card">
-            <a :href="'/product?id='+dataProductId" onclick="gtag('event','click', {'event_category': 'link','event_label': 'ランダムレコメンド'});">
-                <img :src="s3Directory+('00000'+dataProductId).slice( -5 )+'.png'" :alt="dataTitle" class="product_card_img" v-if="s3Directory!=null">
-                <img :src="'/image/products/'+('00000'+dataProductId).slice( -5 )+'.png'" :alt="dataTitle" class="product_card_img" v-else>
-                <div class="product_detail">
-                    <p class="rc_title">{{ dataTitle }}</p>
-                    <p class="rc_genre">{{ dataGenre }}</p>
-                    <p class="rc_price">{{ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(dataPrice) }}(+tax)</p>
-                </div>
-            </a>
+        <div class="random_recommend_contents">
+            <div class="description">
+                <h2>ランダムレコメンド</h2>
+                <p class="comment">こんな商品はいかがですか？</p>
+            </div>
+            <p class="reload_btn"><a v-on:click="change"><i class="fas fa-sync-alt"></i></a></p>
+            <div class="product_card">
+                <a :href="'/product?id='+dataProductId" onclick="gtag('event','click', {'event_category': 'link','event_label': 'ランダムレコメンド'});">
+                    <img :src="s3Directory+('00000'+dataProductId).slice( -5 )+'.png'" :alt="dataTitle" class="product_card_img" v-if="s3Directory!=null">
+                    <img :src="'/image/products/'+('00000'+dataProductId).slice( -5 )+'.png'" :alt="dataTitle" class="product_card_img" v-else>
+                    <div class="product_detail">
+                        <p class="rc_title">{{ dataTitle }}</p>
+                        <p class="rc_genre">{{ dataGenre }}</p>
+                        <p class="rc_price">{{ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(dataPrice) }}(+tax)</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 </template>
