@@ -9,8 +9,8 @@
             <div v-for="catalog in result" :key="catalog.id" class="oc_card">
                 <a :href="'/mypage/original_catalog/'+catalog.id">
                     <p>
-                        <img :src="s3Directory+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-if="s3Directory!=null">
-                        <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-else>
+                        <img :src="s3Directory+('00000'+catalog.img_num).slice( -5 )+'.jpg'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-if="s3Directory!=null">
+                        <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.jpg'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-else>
                     </p>
                     <div class="oc_detail">
                         <h3>{{ catalog.name }}さんへの<br>ギフトカタログ</h3>

@@ -180,7 +180,7 @@
                         @foreach ($order_logs as $order_log)
                             <tr class="product_card" style="margin-bottom 10px;">
                                 <td style="width: 40%;height: 20vw; max-height:125px;">
-                                    <img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path('image/products/'.sprintf('%05d', $order_log->product->id).'.png')))}}" alt="{{ $order_log->product->name }}_img" border="0" style="height: 20vw; width:32vw; max-width:200px; max-height:125px; object-fit: cover;">
+                                    <img src="data:image/jpg;base64,{{base64_encode(file_get_contents(resource_path('image/products/'.sprintf('%05d', $order_log->product->id).'.jpg')))}}" alt="{{ $order_log->product->name }}_img" border="0" style="height: 20vw; width:32vw; max-width:200px; max-height:125px; object-fit: cover;">
                                 </td>
                                 <td style="width: 60%; height: 20vw; padding-left:15%;" align="left">
                                     <table style="margin: 0;">

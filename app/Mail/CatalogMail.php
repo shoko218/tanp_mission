@@ -35,6 +35,6 @@ class CatalogMail extends Mailable
           ->from('shoko4prog@gmail.com')
           ->subject('Pleasedよりカタログのお届けです')
           ->view('mail.stdmail')
-          ->with(['img_path' => 'image/catalog_imgs/'.sprintf('%05d', $this->catalog->img_num).'.png','msg' => $this->catalog->user->last_name.$this->catalog->user->first_name."様より".$this->catalog->name."様専用のカタログをお届けに参りました。\nお好きな商品をお選びください。",'link_path' => config('constant.domain')."/select_product/".$this->catalog->url_str]);
+          ->with(['img_path' => 'image/catalog_imgs/'.sprintf('%05d', $this->catalog->img_num).'.jpg','msg' => $this->catalog->user->last_name.$this->catalog->user->first_name."様より".$this->catalog->name."様専用のカタログをお届けに参りました。\nお好きな商品をお選びください。",'link_path' => config('constant.domain')."/select_product/".$this->catalog->url_str]);
     }
 }

@@ -58,7 +58,7 @@ return [
         'string'  => ':attributeは:value文字以上で入力してください。',
         'array'   => ':attributeにはvalue個以上の項目が必要です。',
     ],
-    'image'                => ':attribute画像は「jpg」「png」「bmp」「gif」「svg」のみ有効です',
+    'image'                => ':attribute画像は「jpg」「png」のみ有効です',
     'in'                   => ':attributeは無効な値です',
     'in_array'             => ':attributeは:other と一致する必要があります',
     'integer'              => ':attributeは整数のみ有効です',

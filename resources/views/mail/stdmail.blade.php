@@ -170,7 +170,7 @@
             @if ($img_path!=null)
                 <tr>
                     <td>
-                        <img src="data:image/png;base64,{{base64_encode(file_get_contents(resource_path($img_path)))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
+                        <img src="data:image/jpg;base64,{{base64_encode(file_get_contents(resource_path($img_path)))}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
                     </td>
                 </tr>
             @endif

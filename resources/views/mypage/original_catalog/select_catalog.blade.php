@@ -21,7 +21,7 @@
     @else
         <h2>まだカタログはありません。</h2>
         <div class="btns">
-            <button onclick="location.href='register'">新しくカタログを作る</button>
+            <button onclick="location.href='/mypage/original_catalog/register'">新しくカタログを作る</button>
         </div>
     @endif
 </section>

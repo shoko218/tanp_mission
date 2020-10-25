@@ -23,6 +23,9 @@ Auth::routes(['verify' => false]);
 // Auth::routes(['verify' => true]);
 
 Route::get('/', 'Main\IndexController');
+Route::get('/rules',function(){
+    return view('main.rules');
+});
 Route::get('/change', 'Main\ChangeController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');

@@ -13,9 +13,9 @@
         <div id="product_top">
             <div id="product_header">
                 @if (env('APP_ENV') == 'production')
-                    <img src="{{ Storage::disk('s3')->url('products/'.sprintf('%05d', $product->id).'.png')}}" alt="{{ $product->title }}" class="product_img">
+                    <img src="{{ Storage::disk('s3')->url('products/'.sprintf('%05d', $product->id).'.jpg')}}" alt="{{ $product->title }}" class="product_img">
                 @else
-                    <img src="/image/products/{{ sprintf('%05d', $product->id) }}.png" alt="{{ $product->title }}" class="product_img">
+                    <img src="/image/products/{{ sprintf('%05d', $product->id) }}.jpg" alt="{{ $product->title }}" class="product_img">
                 @endif
             </div>
             <div id="product_explanation">
