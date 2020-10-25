@@ -24,7 +24,7 @@ class EditProcessController extends Controller
                 if($lover->img_path!=null){
                     Storage::disk('s3')->delete('/lover_imgs/'.$lover->img_path);
                 }
-                Storage::disk('s3')->put('/lover_imgs'. $image, 'public');
+                Storage::disk('s3')->put('/'. $image, 'public');
             }else{
                 if($lover->img_path!=null){
                     Storage::delete('public/lover_imgs/'.$lover->img_path);
