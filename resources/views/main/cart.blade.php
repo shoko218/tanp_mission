@@ -16,7 +16,7 @@
         </div>
         <h1>お買い物カゴ</h1>
         @if (!count($products)==0||!count($cart_goods)==0)
-        <cart-component :products='@json($products)' :cart-goods='@json($cart_goods)' :sum-price='@json($sum_price)' :product-count='@json($product_count)' @if(env('APP_ENV') == 'production') s3-directory={{ Storage::disk('s3')->url('products/')}}@endif></cart-component>
+        <cart-component :products='@json($products)' :cart-goods='@json($cart_goods)' :sum-price='@json($sum_price)' :product-count='@json($product_count)'></cart-component>
         @else
         @include('components.nothing_msgs')
         @endif

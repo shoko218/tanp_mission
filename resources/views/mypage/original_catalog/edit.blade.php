@@ -31,7 +31,7 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
-                <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if($catalog->img_num!=null) :old-img-num='@json((string)$catalog->img_num)'  @elseif(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif @if(env('APP_ENV') == 'production') s3-directory={{ Storage::disk('s3')->url('catalog_imgs/')}}@endif></catalog-img-component>
+                <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if($catalog->img_num!=null) :old-img-num='@json((string)$catalog->img_num)'  @elseif(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif></catalog-img-component>
             </ul>
             <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
             <div class="btns">

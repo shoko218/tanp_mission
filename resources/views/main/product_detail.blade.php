@@ -12,11 +12,7 @@
     <section id="product_detail">
         <div id="product_top">
             <div id="product_header">
-                @if (env('APP_ENV') == 'production')
-                    <img src="{{ Storage::disk('s3')->url('products/'.sprintf('%05d', $product->id).'.jpg')}}" alt="{{ $product->title }}" class="product_img">
-                @else
-                    <img src="/image/products/{{ sprintf('%05d', $product->id) }}.jpg" alt="{{ $product->title }}" class="product_img">
-                @endif
+                <img src="/image/products/{{ sprintf('%05d', $product->id) }}.jpg" alt="{{ $product->title }}" class="product_img">
                 @if (Auth::check())
                     <good-component :is-fav='@json($is_fav)' product-id='@json($product->id)'></good-component>
                 @endif

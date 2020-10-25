@@ -70,8 +70,8 @@
                 <td>@if (Auth::user()->prefecture_id!=null){{ Auth::user()->telephone }} @else 未設定 @endif</td>
             </tr>
         </table>
-        <h2 class="submit_a"><a href="edit">登録情報を編集する</a></h2>
-        <form method="post" name="delete_form" action="delete">@csrf</form>
+        <h2 class="submit_a"><a href="/mypage/register_info/edit">登録情報を編集する</a></h2>
+        <form method="post" name="delete_form" action="/mypage/register_info/delete">@csrf</form>
         <h2 class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('退会すると登録している情報は削除され、二度と復元できなくなってしまいます。\n本当によろしいですか？');">Pleasedを退会する</a></h2>
     </section>
 @endsection

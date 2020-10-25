@@ -3,11 +3,7 @@
     <input type="hidden" name="id" value="{{ $catalog_id }}">
     <input type="hidden" name="product_id" value="{{ $product_id }}">
     <a href="javascript:form{{ $catalog_id }}.submit()">
-        @if (env('APP_ENV') == 'production')
-            <img src="{{ Storage::disk('s3')->url('catalog_imgs/'.sprintf('%05d', $img_id).'.jpg')}}" alt="{{ $name }}さんへのギフトカタログのイメージ画像" class="oc_img">
-        @else
-            <img src="/image/catalog_imgs/{{ sprintf('%05d', $img_id) }}.jpg" alt="{{ $name }}さんへのギフトカタログのイメージ画像" class="oc_img">
-        @endif
+        <img src="/image/catalog_imgs/{{ sprintf('%05d', $img_id) }}.jpg" alt="{{ $name }}さんへのギフトカタログのイメージ画像" class="oc_img">
         <div class="oc_detail">
             <h3>{{ $name }}さんへの<br>ギフトカタログ</h3>
         </div>

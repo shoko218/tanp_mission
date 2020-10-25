@@ -8,8 +8,7 @@
             <p class="reload_btn"><a v-on:click="change"><i class="fas fa-sync-alt"></i></a></p>
             <div class="product_card">
                 <a :href="'/product?id='+dataProductId" onclick="gtag('event','click', {'event_category': 'link','event_label': 'ランダムレコメンド'});">
-                    <img :src="s3Directory+('00000'+dataProductId).slice( -5 )+'.jpg'" :alt="dataTitle" class="product_card_img" v-if="s3Directory!=null">
-                    <img :src="'/image/products/'+('00000'+dataProductId).slice( -5 )+'.jpg'" :alt="dataTitle" class="product_card_img" v-else>
+                    <img :src="'/image/products/'+('00000'+dataProductId).slice( -5 )+'.jpg'" :alt="dataTitle" class="product_card_img">
                     <div class="product_detail">
                         <p class="rc_title">{{ dataTitle }}</p>
                         <p class="rc_genre">{{ dataGenre }}</p>
@@ -35,9 +34,6 @@
                 type: String,
             },
             price: {
-                type: String,
-            },
-            s3Directory: {
                 type: String,
             },
         },

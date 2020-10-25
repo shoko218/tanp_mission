@@ -24,8 +24,7 @@
         <div class="preview_imgs" v-if="selectedImgNum!=''">
             <p>プレビュー</p>
             <p>
-                <img :src="s3Directory+('00000'+selectedImgNum).slice( -5 )+'.jpg'" alt="プレビュー画像" v-if="s3Directory!=null">
-                <img :src="'/image/catalog_imgs/'+('00000'+selectedImgNum).slice( -5 )+'.jpg'" alt="プレビュー画像" v-else>
+                <img :src="'/image/catalog_imgs/'+('00000'+selectedImgNum).slice( -5 )+'.jpg'" alt="プレビュー画像">
             </p>
         </div>
     </li>
@@ -38,9 +37,6 @@
                 type: Array,
             },
             oldImgNum: {
-                type: String,
-            },
-            s3Directory: {
                 type: String,
             },
         },

@@ -29,7 +29,7 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
-                <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif @if(env('APP_ENV') == 'production') s3-directory={{ Storage::disk('s3')->url('catalog_imgs/')}}@endif></catalog-img-component>
+                <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif></catalog-img-component>
             </ul>
             <div class="btns">
                 <button type="submit">登録</button>
