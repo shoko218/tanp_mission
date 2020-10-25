@@ -9,6 +9,11 @@
                 <img :src="selectedImg" alt="プレビュー画像">
             </div>
         </div>
+        <div class="preview_lover_imgs" v-else-if="s3Url!=null">
+            <div class="lover_img">
+                <img :src="s3Url" alt="プレビュー画像">
+            </div>
+        </div>
         <div class="preview_lover_imgs" v-else-if="imgPath!=null">
             <div class="lover_img">
                 <img :src="'/storage/lover_imgs/'+imgPath" alt="プレビュー画像">
@@ -32,6 +37,9 @@
                 type: String,
             },
             imgPath: {
+                type: String,
+            },
+            s3Url: {
                 type: String,
             },
         },
