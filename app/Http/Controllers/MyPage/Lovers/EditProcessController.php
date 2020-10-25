@@ -24,7 +24,7 @@ class EditProcessController extends Controller
                 if($lover->img_path!=null){
                     Storage::disk('s3')->delete('/lover_imgs/'.$lover->img_path);
                 }
-                Storage::disk('s3')->put('/lover_imgs',$file_name.'.jpg', 'public');
+                Storage::disk('s3')->put('/lover_imgs/'.$file_name.'.jpg',(string)$image->encode(),'public');
             }else{
                 if($lover->img_path!=null){
                     Storage::delete('public/lover_imgs/'.$lover->img_path);
@@ -33,22 +33,6 @@ class EditProcessController extends Controller
             }
             $lover->update(['img_path'=>$file_name.'.jpg']);
         }
-        // if($request->file('image')!=null){
-        //     $file_ex = $request->file('image')->getClientOriginalExtension();
-        //     $file_name = uniqid(rand());
-        //     if (env('APP_ENV') === 'production') {
-        //         if($lover->img_path!=null){
-        //             Storage::disk('s3')->delete('/lover_imgs/'.$lover->img_path);
-        //         }
-        //         Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),$file_name.'.'.$file_ex, 'public');
-        //     }else{
-        //         if($lover->img_path!=null){
-        //             Storage::delete('public/lover_imgs/'.$lover->img_path);
-        //         }
-        //         $request->file('image')->storeAs('public/lover_imgs/',$file_name.'.'.$file_ex);
-        //     }
-        //     $lover->update(['img_path'=>$file_name.'.'.$file_ex]);
-        // }
         return redirect('/mypage/lovers/'.$lover->id)->with('suc_msg','変更しました。')->with('lover_id',$request->lover_id);
     }
 }

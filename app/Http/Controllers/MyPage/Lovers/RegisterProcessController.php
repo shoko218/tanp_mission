@@ -22,22 +22,12 @@ class RegisterProcessController extends Controller
                 $constraint->upsize();
             });
             if (env('APP_ENV') === 'production') {
-                Storage::disk('s3')->putFileAs('/lover_imgs', $image ,$file_name.'.jpg', 'public');
+                Storage::disk('s3')->put('/lover_imgs/'.$file_name.'.jpg',(string)$image->encode(),'public');
             }else{
                 $image->save('storage/lover_imgs/'.$file_name.'.jpg');
             }
             $lover->update(['img_path'=>$file_name.'.jpg']);
         }
-        // if($request->file('image')!=null){
-        //     $file_ex = $request->file('image')->getClientOriginalExtension();
-        //     $file_name = uniqid(rand());
-        //     if (env('APP_ENV') === 'production') {
-        //         Storage::disk('s3')->putFileAs('/lover_imgs', $request->file('image'),$file_name.'.'.$file_ex, 'public');
-        //     }else{
-        //         $request->file('image')->storeAs('public/lover_imgs/',$file_name.'.'.$file_ex);
-        //     }
-        //     $lover->update(['img_path'=>$file_name.'.'.$file_ex]);
-        // }
         return redirect('/mypage/lovers/')->with('suc_msg','追加しました。');
     }
 }
