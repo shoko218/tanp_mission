@@ -35,7 +35,7 @@
                     </div>
                 @else
                     <p class="reply">
-                        {{ $catalog->name }}さんからの返信は<br>まだ届いていません。
+                        <span class="no_wrap">{{ $catalog->name }}さんからの</span><span class="no_wrap">返信は</span><span class="no_wrap">まだ届いていません。</span>
                     </p>
                 @endif
             @elseif(count($catalog->products)>1)
@@ -61,23 +61,23 @@
                     @endif
                 @endforeach
             </div>
-            <div class="btns">
-                <button onclick="location.href='/search'">商品を探しに行く→</button>
-            </div>
+            @if($catalog->did_send_mail==false)
+                <div class="btns">
+                    <button onclick="location.href='/search'">商品を探しに行く→</button>
+                </div>
+            @endif
         @else
             @include('components.nothing_msgs')
         @endif
         @if(!$catalog->did_send_mail)
-            <form method="post" name="edit_form" id="edit_form" action="/mypage/original_catalog/edit">
-                @csrf
-                <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
-            </form>
-            <p class="submit_a"><a href="javascript:edit_form.submit()">このカタログを編集する</a></p>
-            <form method="post" name="delete_form" id="delete_form" action="/mypage/original_catalog/delete_process">
-                @csrf
-                <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
-            </form>
-            <p class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('このカタログを削除します。\nよろしいですか？');">このカタログを削除する</a></p>
+            <div class="change_actions">
+                <p class="submit_a"><a href="/mypage/original_catalog/{{ $catalog->id }}/edit">このカタログを編集する</a></a>
+                <form method="post" name="delete_form" id="delete_form" action="/mypage/original_catalog/delete_process">
+                    @csrf
+                    <input type="hidden" name="catalog_id" value="{{ $catalog->id }}">
+                </form>
+                <p class="submit_a"><a href="javascript:delete_form.submit()" onClick="return confirm('このカタログを削除します。\nよろしいですか？');">このカタログを削除する</a></p>
+            </div>
         @endif
     </div>
 </section>

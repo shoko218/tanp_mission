@@ -39,13 +39,13 @@ class CleanEvents extends Command
      */
     public function handle()
     {
-        $repeat_events=Event::whereDate('date', date('Y-m-d',strtotime("-1 day")))->where('is_repeat','=','1')->get();
+        $repeat_events=Event::whereDate('date','<', date('Y-m-d'))->where('is_repeat','=','1')->get();
         $old_event_day=new Carbon(date('Y-m-d',strtotime("-1 day")));
         $new_event_day=$old_event_day->addYear();
         foreach ($repeat_events as $repeat_event) {
             $repeat_event->update(['date'=>$new_event_day]);
         }
-        $delete_events=Event::whereDate('date', date('Y-m-d',strtotime("-1 day")))->where('is_repeat','=','0')->get();
+        $delete_events=Event::whereDate('date','<', date('Y-m-d'))->where('is_repeat','=','0')->get();
         foreach ($delete_events as $delete_event) {
             $delete_event->delete();
         }

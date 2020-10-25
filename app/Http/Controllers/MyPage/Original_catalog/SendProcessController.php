@@ -14,11 +14,15 @@ class SendProcessController extends Controller
         $catalog=Catalog::select('*')->where('id', $request->catalog_id)->first();
         $did_send=$catalog->did_send_mail;;
         if(!$did_send){
-            Mail::to($catalog->email)->send(new CatalogMail($catalog));
-            Catalog::where('id', $request->catalog_id)->update(['did_send_mail' => true]);
-            return redirect('mypage/original_catalog/detail')->with('catalog_id',$request->catalog_id)->with('suc_msg','送信しました。');
+            try {
+                Mail::to($catalog->email)->send(new CatalogMail($catalog));
+                Catalog::where('id', $request->catalog_id)->update(['did_send_mail' => true]);
+            } catch (\Throwable $th) {
+                return redirect('mypage/original_catalog/'.$request->catalog_id)->with('err_msg','エラーが発生しました。');
+            }
+            return redirect('mypage/original_catalog/'.$request->catalog_id)->with('suc_msg','送信しました。');
         }else{
-            return redirect('mypage/original_catalog/detail')->with('catalog_id',$request->catalog_id)->with('err_msg','既に送信しています。');
+            return redirect('mypage/original_catalog/'.$request->catalog_id)->with('err_msg','既に送信しています。');
         }
     }
 }

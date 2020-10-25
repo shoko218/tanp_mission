@@ -24,7 +24,7 @@ class RegisterProcessController extends Controller
             }
             $lover->update(['img_path'=>$file_name.'.'.$file_ex]);
         }
-        return redirect('/mypage/lovers/top')->with('suc_msg','追加しました。');
+        return redirect('/mypage/lovers/')->with('suc_msg','追加しました。');
     }
 }
 

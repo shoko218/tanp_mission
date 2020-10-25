@@ -8,19 +8,19 @@ use App\Library\BaseClass;
 use App\Model\Lover;
 use App\Model\Order_log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class LoverController extends Controller
+class DetailController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke($lover_id)
     {
-        $lover_id=$request->id;
+        $lover=Lover::find($lover_id);
         if(Order_log::join('orders','orders.id','=','order_id')->select('orders.id')->where('lover_id','=',$lover_id)->first()){
             $products=BaseClass::get_reccomends($lover_id);
         }else{
             $products=null;
         }
-        $lover=Lover::find($lover_id);
-        $param=['id'=>$lover_id,'name'=>$request->name,'products'=>$products,'img_path'=>$lover->img_path];
+        $param=['id'=>$lover_id,'name'=>$lover->last_name.$lover->first_name,'products'=>$products,'img_path'=>$lover->img_path];
         return view('mypage.lovers.lover',$param);
     }
 }

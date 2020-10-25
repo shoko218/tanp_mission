@@ -39,7 +39,7 @@ class ChangeEmail extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    
+
     public function toMail($notifiable)
     {
         return (new MailMessage)
@@ -47,7 +47,7 @@ class ChangeEmail extends Notification
             ->view('mail.changeEmail')
             ->action(
                 'メールアドレス変更',
-                url('mypage/register_info/edit_email_process', $this->token)
+                url('edit_email_process', $this->token)
             );
     }
 

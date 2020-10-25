@@ -39,7 +39,7 @@ class ResultGetController extends Controller
                 ->get();
                 break;
             default:
-                return redirect('/mypage/original_catalog/top')->with('err_msg','エラーが発生しました。');
+                return redirect('/mypage/original_catalog')->with('err_msg','エラーが発生しました。');
         }
         $param=['results'=>$results];
         return $param;

@@ -13,6 +13,6 @@ class RegisterProcessController extends Controller
     {
         $this->validate($request, Catalog::$rules);
         Catalog::create(['user_id'=>Auth::user()->id,'name'=>$request->name,'email'=>$request->email,'url_str'=>strtolower(substr(str_replace(['/', '+'], ['_'], base64_encode(random_bytes(32))), 0, 32)),'img_num'=>$request->img_num]);
-        return redirect('/mypage/original_catalog/top')->with('suc_msg','カタログを作成しました。');
+        return redirect('/mypage/original_catalog')->with('suc_msg','カタログを作成しました。');
     }
 }

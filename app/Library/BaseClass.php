@@ -88,12 +88,12 @@ class BaseClass{
             $keywords=[];
             foreach ($temps as $key =>$temp) {
                 $keywords[$key]=array(
-                "normal"=>$temp,
-                "hiragana"=>mb_convert_kana($temp, "c"),
-                "katakana"=>mb_convert_kana($temp, "C"),
-                "lower"=>strtolower($temp),
-                "upper"=>strtoupper($temp),
-            );
+                    "normal"=>$temp,
+                    "hiragana"=>mb_convert_kana($temp, "c"),
+                    "katakana"=>mb_convert_kana($temp, "C"),
+                    "lower"=>strtolower($temp),
+                    "upper"=>strtoupper($temp),
+                );
             }
             $mainQuery->where(function ($keywordSQL) use ($keywords) {
                 foreach ($keywords as $keyword) {

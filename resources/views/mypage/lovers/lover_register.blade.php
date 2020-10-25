@@ -46,7 +46,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="birthday">誕生日<span class="form_requires">*</span></label>
-                    <input id="birthday" type="date" name="birthday" value="{{ old('birthday') }}" @if ($errors->has('birthday')) class="input_alert" @endif required>
+                    <input id="birthday" type="date" name="birthday" value="{{ old('birthday') }}" @if ($errors->has('birthday')) class="input_alert" @endif required placeholder="1987-01-01">
                     @foreach ($errors->get('birthday') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach

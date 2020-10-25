@@ -9,9 +9,9 @@
 @include('layouts.header')
 
 @section('content')
-    <section id="event_reminder" class="normal_section">
-        @include('components.msgs')
-        <h1>イベントリマインダー</h1>
+<section id="event_reminder" class="normal_section">
+    @include('components.msgs')
+    <h1>イベントリマインダー</h1>
         @if(count($events)>0)
             <div id="events">
                 @foreach ($events as $event)
@@ -27,5 +27,4 @@
         </div>
     </section>
 @endsection
-
 @include('layouts.footer')

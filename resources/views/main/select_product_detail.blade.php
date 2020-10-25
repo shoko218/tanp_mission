@@ -20,7 +20,7 @@
             </div>
             <div id="product_explanation">
                 <h1 class="product_name">{{ $product->name }}</h1>
-                <form action="/select_product_process" method="post" id="select_product_process">
+                <form action="/select_product_process/{{ $url_str }}" method="post" id="select_product_process">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                 </form>

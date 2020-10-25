@@ -13,7 +13,7 @@ class Lover extends Model
         'first_name'=>['required', 'string', 'max:32'],
         'last_name_furigana'=>['required', 'string', 'max:64','katakana'],
         'first_name_furigana'=>['required', 'string', 'max:64','katakana'],
-        'birthday'=>['required','date'],
+        'birthday'=>['required','datetype','date','past'],
         'gender'=>['required','integer'],
         'relationship_id'=>['required','integer'],
         'user_id'=>['required','integer'],

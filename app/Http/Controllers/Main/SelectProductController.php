@@ -15,7 +15,6 @@ class SelectProductController extends Controller
         if($catalog->selected_id!=null){
             return redirect('/msg')->with('title','選択済み')->with('msg','既に商品が選択されています。');
         }else if($catalog!=null&&$catalog->did_send_mail){
-            $request->session()->put('catalog_id',$catalog->id);
             $param=['catalog'=>$catalog];
             return view('main.select_product',$param);
         }else{

@@ -29,18 +29,9 @@
                         <input type="hidden" name="lover_id" value="{{ $id }}">
                         <button type="submit" form="register_event_form">イベント登録+</button>
                     </form>
-                    <form action="/mypage/lovers/gift_history" method="POST">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $id }}">
-                        <input type="hidden" name="name" value="{{ $name }}">
-                        <button type="submit" onclick="gtag('event','click', {'event_category': 'link','event_label': '今まであげたもの一覧'});">今まであげたもの</button>
-                    </form>
+                    <button type="submit" onclick="gtag('event','click', {'event_category': 'link','event_label': '今まであげたもの一覧'});location.href='/mypage/lovers/{{ $id }}/gift_history'">今まであげたもの</button>
                 </div>
-                <form method="post" name="edit_form" id="edit_form" action="/mypage/lovers/edit">
-                    @csrf
-                    <input type="hidden" name="lover_id" value="{{ $id }}">
-                </form>
-                <p class="submit_a"><a href="javascript:edit_form.submit()">登録情報を確認・編集する</a></p>
+                <p class="submit_a"><a href="/mypage/lovers/{{ $id }}/edit">登録情報を確認・編集する</a></p>
                 <form method="post" name="delete_form" id="delete_form" action="/mypage/lovers/delete_process">
                     @csrf
                     <input type="hidden" name="lover_id" value="{{ $id }}">

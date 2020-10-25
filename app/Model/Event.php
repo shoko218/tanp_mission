@@ -12,14 +12,14 @@ class Event extends Model
         'lover_id'=>['required','integer'],
         'title'=>['required','string','max:30','text'],
         'scene_id'=>['required','integer'],
-        'date'=>['required','date'],
+        'date'=>['required','datetype','date','future'],
         'is_repeat'=>['required','boolean'],
     );
 
     public function lover(){
         return $this->belongsTo('App\Model\Lover');
     }
-    
+
     public function scene(){
         return $this->belongsTo('App\Model\Scene');
     }

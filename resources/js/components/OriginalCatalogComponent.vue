@@ -6,17 +6,17 @@
             <button v-bind:class="[currentId==2 ? 'active_tab' : 'inactive_tab']" @click="tab(2)" class="">返答あり</button>
         </div>
         <div class="oc_cards" v-if="result.length!==0">
-            <form v-for="catalog in result" :key="catalog.id" method="post" :name="'form'+catalog.id" action="/mypage/original_catalog/detail" class="oc_card">
-                <input type="hidden" name="_token" v-bind:value="csrf">
-                <input type="hidden" name="id" :value="catalog.id">
-                <a :href="'javascript:form'+catalog.id+'.submit()'">
-                    <img :src="s3Directory+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-if="s3Directory!=null">
-                    <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-else>
+            <div v-for="catalog in result" :key="catalog.id" class="oc_card">
+                <a :href="'/mypage/original_catalog/'+catalog.id">
+                    <p>
+                        <img :src="s3Directory+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-if="s3Directory!=null">
+                        <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.png'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img" v-else>
+                    </p>
                     <div class="oc_detail">
                         <h3>{{ catalog.name }}さんへの<br>ギフトカタログ</h3>
                     </div>
                 </a>
-            </form>
+            </div>
         </div>
         <div v-else class="no_catalog_msg">
             <h3>該当するカタログはありません。</h3>
@@ -60,7 +60,7 @@
                 result:Object(),
                 page: 1,
                 pageCount: 0,
-                numOfPage:10
+                numOfPage:12
             }
         },
         mounted() {

@@ -5,18 +5,19 @@ use App\Http\Controllers\Controller;
 use App\Model\Catalog;
 use Illuminate\Http\Request;
 use App\Model\Product;
+use Illuminate\Support\Facades\Auth;
 
 class DetailController extends Controller
 {
-    public function __invoke()
+    public function __invoke($catalog_id)
     {
-        $result=Catalog::find(Request('id'));
-        if($result->selected_id!=null){
-            $selected=Product::find($result->selected_id);
+        $catalog=Catalog::find($catalog_id);
+        if($catalog->selected_id!=null){
+            $selected=Product::find($catalog->selected_id);
         }else{
             $selected=null;
         }
-        $param=['catalog'=>$result,'selected'=>$selected];
+        $param=['catalog'=>$catalog,'selected'=>$selected];
         return view('mypage.original_catalog.detail', $param);
     }
 }

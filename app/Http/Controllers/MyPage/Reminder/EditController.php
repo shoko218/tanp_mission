@@ -11,17 +11,10 @@ use App\Model\Scene;
 
 class EditController extends Controller
 {
-    public function __invoke(Request $request){
-        if($request->event_id!=null){
-            $event=Event::find($request->event_id);
-        }elseif(session('event_id')!=null){
-            $event=Event::find(session('event_id'));
-        }else{
-            return redirect('/mypage/reminder/top')->with('err_msg','エラーが発生しました。');
-        }
-        $user_id=Auth::user()->id;
+    public function __invoke($event_id){
+        $event=Event::find($event_id);
         $lovers = Lover::select('last_name','first_name','lovers.id')
-        ->where('user_id',$user_id)
+        ->where('user_id',Auth::user()->id)
         ->get();
         $scenes = Scene::all();
         $param=['lovers'=>$lovers,'scenes'=>$scenes,'event'=>$event];

@@ -50,7 +50,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="date">日付</label>
-                    <input type="date" name="date" @if (old('date')!=null) value="{{ old('date') }}" @elseif($event->date!=null) value="{{ $event->date }}" @endif min="<?php echo date('Y-m-d')?>" required @if ($errors->has('date')) class="input_alert" @endif>
+                    <input type="date" name="date" @if (old('date')!=null) value="{{ old('date') }}" @elseif($event->date!=null) value="{{ $event->date }}" @endif min="<?php echo date('Y-m-d')?>" required @if ($errors->has('date')) class="input_alert" @endif placeholder="1987-01-01">
                     @foreach ($errors->get('date') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach

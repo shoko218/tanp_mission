@@ -7,18 +7,13 @@ use Illuminate\Http\Request;
 use App\Model\Prefecture;
 use App\Model\Relationship;
 use App\Model\Lover;
+use Illuminate\Support\Facades\Auth;
 
 class EditController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke($lover_id)
     {
-        if($request->lover_id!=null){
-            $lover=Lover::find($request->lover_id);
-        }elseif(session('lover_id')!=null){
-            $lover=Lover::find(session('lover_id'));
-        }else{
-            return redirect('/mypage/lovers/top')->with('err_msg','エラーが発生しました。');
-        }
+        $lover=Lover::find($lover_id);
         $prefectures = Prefecture::select('id','name')->get();
         $relationships = Relationship::select('id','name')->get();
         $param=['prefectures'=>$prefectures,'relationships'=>$relationships,'lover'=>$lover];

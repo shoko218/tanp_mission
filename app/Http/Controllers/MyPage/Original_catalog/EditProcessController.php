@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 class EditProcessController extends Controller
 {
     public function __invoke(Request $request){
-        session()->flash('catalog_id',$request->catalog_id);
+
         $this->validate($request,Catalog::$rules);
         Catalog::find($request->catalog_id)->fill($request->except(['catalog_id']))->save();
-        $request->session()->forget('catalog_id');
-        return redirect('/mypage/original_catalog/detail')->with('suc_msg','変更しました。')->with('catalog_id',$request->catalog_id);
+        return redirect('/mypage/original_catalog/'.$request->catalog_id)->with('suc_msg','変更しました。');
     }
 }

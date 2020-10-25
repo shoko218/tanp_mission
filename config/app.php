@@ -181,6 +181,9 @@ return [
         App\Providers\ValidatorIsOnlyHalfNumberServiceProvider::class,
         App\Providers\ValidatorTextServiceProvider::class,
         App\Providers\ValidatorHalfAlphaNumServiceProvider::class,
+        App\Providers\ValidatorDateTypeServiceProvider::class,
+        App\Providers\ValidatorPastServiceProvider::class,
+        App\Providers\ValidatorFutureServiceProvider::class,
 
     ],
 

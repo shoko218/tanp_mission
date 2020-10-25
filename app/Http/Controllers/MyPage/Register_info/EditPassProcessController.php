@@ -23,6 +23,6 @@ class EditPassProcessController extends Controller
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
 
-        return redirect('/mypage/register_info/top')->with('suc_msg', 'パスワードを変更しました。');
+        return redirect('/mypage/register_info')->with('suc_msg', 'パスワードを変更しました。');
     }
 }

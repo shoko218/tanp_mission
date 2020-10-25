@@ -16,8 +16,11 @@
             @csrf
             <div class="inputs">
                 <div class="input_parts">
-                    <label for="last_name">新しいメールアドレス</label>
-                    <input @if (session('err_msg')) class="input_alert" @endif id="new_email" type="email" name="new_email" value="{{ session('new_email') }}">
+                    <label for="email">新しいメールアドレス</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="example@mail.com" required autocomplete="email" @if ($errors->has('email')) class="input_alert" @endif>
+                    @foreach ($errors->get('email') as $item)
+                        <p class="form_alert">{{ $item }}</p>
+                    @endforeach
                 </div>
             </div>
             <div class="btns">

@@ -10,6 +10,6 @@ class DeleteProcessController extends Controller
 {
     public function __invoke(Request $request){
         Catalog::find($request->catalog_id)->delete();
-        return redirect('mypage/original_catalog/top')->with('suc_msg','削除しました。');
+        return redirect('mypage/original_catalog')->with('suc_msg','削除しました。');
     }
 }

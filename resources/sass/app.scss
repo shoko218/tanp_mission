@@ -650,10 +650,15 @@ section:last-of-type{
         border-radius: 50%;
         height: 3rem;
         width: 3rem;
+        position: relative;
         >.page-link{
-            width: 3rem;
-            line-height: 3rem;
             color: $main_color;
+            line-height: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     }
     .active{
@@ -886,9 +891,6 @@ section:last-of-type{
 
 #results{
     padding: 0 $std_px $std_py;
-    .product_card:last-of-type{
-        border-bottom: none;
-    }
 }
 
 //↓商品詳細///////////////////////////////////////////////
@@ -905,6 +907,7 @@ section:last-of-type{
 
 #product_header{
     position: relative;
+    width: 60%;
     & button{
         position: absolute;
         bottom: 2rem;
@@ -914,6 +917,7 @@ section:last-of-type{
 
 #product_explanation{
     padding: $std_py $std_px;
+    width: 40%;
     & .product_name{
         margin-bottom: $std_my/2;
     }
@@ -1293,6 +1297,7 @@ button.stripe-button-el{
 .oc_{
     &cards{
         margin-bottom: $std_my;
+        border-top: 0.1rem solid $area_border_c;
     }
     &card{
         display: flex;
@@ -1349,6 +1354,9 @@ button.stripe-button-el{
         // text-align: center;
         margin-bottom: 2rem;
     }
+    .change_actions{
+        margin-top: 4rem;
+    }
     .reply{
         font-size: $h2_fz;
         text-align: center;
@@ -1370,6 +1378,7 @@ button.stripe-button-el{
         text-align: center;
     }
     .oc_product_cards{
+        border-top: 0.1rem solid $area_border_c;
         .btns{
             margin-bottom: 0.4rem;
             margin-top: $std_my;
@@ -1379,13 +1388,15 @@ button.stripe-button-el{
 
 #select_product{
     h2{
-        // text-align: center;
         margin-bottom:$std_my;
     }
     & .msg{
         text-align: center;
         font-size: 2rem;
         margin-bottom: $std_my;
+    }
+    .oc_product_cards{
+        border-top: 0.1rem solid $area_border_c;
     }
 }
 
@@ -1621,6 +1632,12 @@ button.stripe-button-el{
         }
     }
 
+//商品検索画面
+    #results{
+        .oc_cards{
+            border-top:none;
+        }
+    }
 //商品詳細画面
     #product_top{
         display: flex;
@@ -1698,9 +1715,15 @@ button.stripe-button-el{
         }
     }
 //オリジナルカタログ詳細
+    #original_catalog_detail{
+        .btns{
+            margin-top: 2rem;
+        }
+    }
+
     .oc_product_cards{
-        border-top: 0.1rem solid $area_border_c;
         border-bottom: 0.1rem solid $area_border_c;
+        margin-bottom: 2rem;
     }
     .remove_product_from_catalog_btn{
         top:85%;
@@ -1722,6 +1745,10 @@ button.stripe-button-el{
         height: 33.33vw;
         max-height: 40rem;
         object-fit: cover;
+    }
+
+    #catalog_header{
+        width: 60%;
     }
 
     #catalog_explanation{

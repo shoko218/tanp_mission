@@ -52,7 +52,7 @@
                 </li>
                 <li class="input_parts">
                     <label for="birthday">誕生日<span class="form_requires">*</span></label>
-                    <input id="birthday" type="date" name="birthday" @if(old('birthday')!=null) value="{{ old('birthday') }}" @elseif(Auth::user()->birthday!=null) value="{{ Auth::user()->birthday->format('Y-m-d') }}" @endif required @if ($errors->has('birthday')) class="input_alert" @endif>
+                    <input id="birthday" type="date" name="birthday" @if(old('birthday')!=null) value="{{ old('birthday') }}" @elseif(Auth::user()->birthday!=null) value="{{ Auth::user()->birthday->format('Y-m-d') }}" @endif required @if ($errors->has('birthday')) class="input_alert" @endif placeholder="1987-01-01">
                     @foreach ($errors->get('birthday') as $item)
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach

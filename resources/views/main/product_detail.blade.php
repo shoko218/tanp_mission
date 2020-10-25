@@ -28,16 +28,10 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                 </form>
-                @if (Auth::check())
-                    <form action="/mypage/original_catalog/select_which_catalog" method="post" id="catalog_in">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    </form>
-                @endif
                 <div class="btns">
                     <button type="submit" form="cart_in" class="cart_btn" onclick="gtag('event','click', {'event_category': 'link','event_label': 'カートイン'});">カートに入れる</button>
                     @if (Auth::check())
-                    <button type="submit" form="catalog_in" class="catalog_in_btn">カタログに追加</button>
+                    <button type="button" class="catalog_in_btn" onclick="location.href='/mypage/original_catalog/select_which_catalog/{{ $product->id }}'">カタログに追加</button>
                     @endif
                 </div>
             </div>

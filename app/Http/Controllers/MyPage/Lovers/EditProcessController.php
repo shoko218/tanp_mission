@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 class EditProcessController extends Controller
 {
     public function __invoke(Request $request){
-        session()->flash('lover_id',$request->lover_id);
         $this->validate($request,Lover::$rules);
         $lover=Lover::find($request->lover_id);
         $lover->fill($request->except(['lover_id','image']))->save();
@@ -30,7 +29,6 @@ class EditProcessController extends Controller
             }
             $lover->update(['img_path'=>$file_name.'.'.$file_ex]);
         }
-        $request->session()->forget('lover_id');
-        return redirect('mypage/lovers/lover')->with('suc_msg','変更しました。')->with('lover_id',$request->lover_id);
+        return redirect('/mypage/lovers/'.$lover->id)->with('suc_msg','変更しました。')->with('lover_id',$request->lover_id);
     }
 }

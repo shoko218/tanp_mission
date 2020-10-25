@@ -17,6 +17,7 @@ class FavoriteController extends Controller
         $favorite_products=Product::join('favorites','products.id','=','product_id')
         ->select(DB::raw('products.*'))
         ->where('favorites.user_id','=',$user_id)
+        ->orderBy('favorites.id','desc')
         ->paginate(12);
         $param=['favorite_products'=>$favorite_products];
         return view('mypage.favorite',$param);

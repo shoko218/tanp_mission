@@ -63,13 +63,13 @@ class RegisterController extends Controller
             'first_name'=>['required', 'string', 'max:32'],
             'last_name_furigana'=>['required', 'string', 'max:64','katakana'],
             'first_name_furigana'=>['required', 'string', 'max:64','katakana'],
-            'birthday'=>['required','date'],
+            'birthday'=>['required','datetype','date','past'],
             'gender'=>['required','integer'],
             'postal_code'=>['nullable','string','digits:7','hankakunum'],
             'prefecture_id'=>['nullable','integer'],
             'address'=>['nullable','string', 'max:200','text'],
-            'password'=>['required','halfalphanum','max:256'],
-            'email'=>['required', 'string', 'max:255'],
+            'password'=>['required','halfalphanum' ,'string','min:8','max:256','confirmed'],
+            'email'=>['required', 'string', 'max:255','unique:users'],
             'telephone'=>['nullable','string','min:9','max:27','hankakunum'],
         ]);
     }

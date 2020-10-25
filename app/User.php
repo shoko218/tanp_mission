@@ -45,7 +45,7 @@ class User extends Authenticatable
         'first_name'=>['required', 'string', 'max:32'],
         'last_name_furigana'=>['required', 'string', 'max:64','katakana'],
         'first_name_furigana'=>['required', 'string', 'max:64','katakana'],
-        'birthday'=>['required','date'],
+        'birthday'=>['required','datetype','date','past'],
         'gender'=>['required','integer'],
         'postal_code'=>['nullable','string','digits:7','hankakunum'],
         'prefecture_id'=>['nullable','integer'],
