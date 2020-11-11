@@ -18,6 +18,7 @@
     <li>Laravel6.x</li>
     <li>MySQL</li>
     <li>Stripe.js</li>
+    <li>AWS(EC2, RDS, ElasticBeanstalk, Route53, LoadBalancer)</li>
 </ul>
 
 <h2>機能</h2>
