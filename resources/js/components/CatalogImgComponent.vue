@@ -8,8 +8,8 @@
             <option value="13">フラワー(ホワイト)</option>
             <option value="9">バラ(ピンク)</option>
             <option value="10">バラ(ブルー)</option>
-            <option value="11">ハート型の花(ピンク)</option>
-            <option value="12">ハート型の花(ホワイト)</option>
+            <option value="11">ハート型の花(ピンクピンク)</option>
+            <option value="12">ハート型の花(ピンクホワイト)</option>
             <option value="14">ハート型の花(カラフル)</option>
             <option value="1">バースデーカード</option>
             <option value="2">バースデーキャンドル</option>
