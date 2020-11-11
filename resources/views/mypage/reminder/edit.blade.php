@@ -58,8 +58,8 @@
                 <li class="radio_parts">
                     <p class="radiobtns_label">毎年繰り返しますか？</p>
                     <div class="radiobtns">
-                        <label class="radio"><input type="radio" name="is_repeat" value="1" class="radiobtn" @if(old('repeat')==='1')checked="checked" @elseif($event->repeat==1) checked="checked" @endif >はい</label>
-                        <label class="radio"><input type="radio" name="is_repeat" value="0" class="radiobtn" @if(old('repeat')==='0')checked="checked" @elseif($event->repeat==0) checked="checked" @endif@endif>いいえ</label>
+                        <label class="radio"><input type="radio" name="is_repeat" value="1" class="radiobtn" @if(old('repeat')==='1')checked="checked" @elseif($event->is_repeat==1) checked="checked" @endif >はい</label>
+                        <label class="radio"><input type="radio" name="is_repeat" value="0" class="radiobtn" @if(old('repeat')==='0')checked="checked" @elseif($event->is_repeat==0) checked="checked" @endif@endif>いいえ</label>
                     </div>
                     @foreach ($errors->get('is_repeat') as $item)
                         <p class="form_alert">{{ $item }}</p>
