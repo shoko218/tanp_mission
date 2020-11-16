@@ -45,7 +45,7 @@ class LoginController extends Controller
     protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
         if(Cookie::get('cart_product_ids')!=null){
-            list($products,$product_count)=BaseClass::getProductsFromCookie();
+            list($products,$product_count)=BaseClass::getProductsFromCookieCart();
             $user_id=Auth::user()->id;
             for ($i=0; $i < count($products); $i++) {
                 $cart_product=Cart::where('user_id','=',$user_id)->where('product_id','=',$products[$i]->id)->first();

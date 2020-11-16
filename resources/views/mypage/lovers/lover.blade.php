@@ -49,7 +49,7 @@
             @endforeach
         </div>
         <div class="btns">
-            <button onclick="location.href='/result'">プレゼントを探しに行く→</button>
+            <button onclick="location.href='/search'">プレゼントを探しに行く→</button>
         </div>
     </section>
     @endif

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 
 class BaseClass{
-    public static function getProductsFromDB(){
+    public static function getProductsFromDBCart(){//DBからカートの中の商品を取り出す
         $user_id=Auth::user()->id;
         $cart_goods=Cart::join('products','products.id','=','product_id')
             ->select(DB::raw('carts.*'))
@@ -22,23 +22,30 @@ class BaseClass{
         return $cart_goods;
     }
 
-    public static function getProductsFromCookie($str=null){
-        if($str!=null){
-            $product_ids=explode(',',rtrim($str,','));
-        }else{
-            $product_ids=explode(',',rtrim(Cookie::get('cart_product_ids'),','));
-        }
-        $product_notdup_ids=array_values(array_unique($product_ids));
+    public static function getProductsFromCookieCart($str=null){
+        //Cookieからカートの中の商品を取り出す 挙動の関係上、Cookieの更新前にカートの中身を取り出してしまうことがあるので引数からも取れるようにしている
+
+        /*
+        Cookie内では 'cart_product_ids'というキーに
+            ex. '13,23,9,23,6,6'
+        というように、商品を入れた順に並べた文字列が登録されている。
+        これをphp内に取り込み、配列化して様々な処理を行うことでそれぞれの商品idや個数、入れた順番などの必要な情報を解釈する。
+        */
+
+        if($str==null)$str=Cookie::get('cart_product_ids');
+
+        $product_ids=explode(',',trim($str,','));//配列化
+        $product_notdup_ids=array_values(array_unique($product_ids));//商品の一つ目を入れた順番を調べる
         $products = new Collection();
-        $product_count=array();
-        foreach ($product_notdup_ids as $product_notdup_id) {
+        foreach ($product_notdup_ids as $product_notdup_id) {//商品情報を取得する
             $product=Product::select(DB::raw('products.*'))
             ->where('id','=',$product_notdup_id)
             ->with('genre')
             ->first();
             $products->prepend($product);
         }
-        foreach ($product_notdup_ids as $product_notdup_id) {
+        $product_count=array();
+        foreach ($product_notdup_ids as $product_notdup_id) {//商品の個数を調べる
             $temp_count=0;
             foreach ($product_ids as $product_id) {
                 if($product_notdup_id==$product_id){
@@ -50,24 +57,30 @@ class BaseClass{
         return array($products,$product_count);
     }
 
-    public static function calcPriceInTaxFromDB($cart_goods){
+    public static function calcPriceInTaxFromDBCart(){//DBから取り出したカートの中の商品の合計金額を算出する
+        $cart_goods=BaseClass::getProductsFromDBCart();
         $sum_price=0.0;
         foreach ($cart_goods as $cart_good) {
-            if ($cart_good->product->genre_id==1) {
+            if ($cart_good->product->genre_id==1) {//食品(軽減税率8％)
                 $sum_price+=$cart_good->product->price*$cart_good->count*1.08;
-            }else{
+            }else{//その他(税率10%)
                 $sum_price+=$cart_good->product->price*$cart_good->count*1.1;
             }
         }
         return $sum_price;
     }
 
-    public static function calcPriceInTaxFromCookie($products,$product_count){
+    public static function calcPriceInTaxFromCookieCart($products=null,$product_count=null){//Cookieから取り出したカートの中の商品の合計金額を算出する 挙動の関係上、Cookieの更新前にカートの中身を取り出してしまうことがあるので引数からも取れるようにしている
+        if($products==null&&$product_count==null){
+            list($products,$product_count)=BaseClass::getProductsFromCookieCart();
+        }else if(($products!=null&&$product_count==null)||($products==null&&$product_count!=null)){
+            return -1;
+        }
         $sum_price=0.0;
         foreach ($products as $key => $product) {
-            if($product->genre_id==1){
+            if($product->genre_id==1){//食品(軽減税率8％)
                 $sum_price+=$product->price*$product_count[$key]*1.08;
-            }else{
+            }else{//その他(税率10%)
                 $sum_price+=$product->price*$product_count[$key]*1.1;
             }
         }

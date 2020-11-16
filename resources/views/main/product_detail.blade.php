@@ -10,6 +10,7 @@
 
 @section('content')
     <section id="product_detail">
+        @include('components.msgs')
         <div id="product_top">
             <div id="product_header">
                 <img src="/image/products/{{ sprintf('%05d', $product->id) }}.jpg" alt="{{ $product->title }}" class="product_img">

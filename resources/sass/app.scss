@@ -898,6 +898,13 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+#product_detail{
+    .alert{
+        margin: $std_my $std_mx;
+        width: auto;
+    }
+}
+
 .product_img{
     width: 100%;
     height: 66.66vw;
@@ -907,7 +914,7 @@ section:last-of-type{
 
 #product_header{
     position: relative;
-    width: 60%;
+    width: 100%;
     & button{
         position: absolute;
         bottom: 2rem;
@@ -917,7 +924,7 @@ section:last-of-type{
 
 #product_explanation{
     padding: $std_py $std_px;
-    width: 40%;
+    width: 100%;
     & .product_name{
         margin-bottom: $std_my/2;
     }
@@ -1563,7 +1570,7 @@ button.stripe-button-el{
         padding-bottom: 2%;
     }
 }
-@media screen and (min-width:768px) and ( max-width:960px) { 
+@media screen and (min-width:768px) and ( max-width:960px) {
     .oc_img{
         max-height:18rem;
     }
@@ -1643,6 +1650,14 @@ button.stripe-button-el{
         display: flex;
     }
 
+     #product_header{
+        width: 60%;
+    }
+
+    #product_explanation{
+        width: 40%;
+    }
+
     #product_description{
         padding: $std_py;
     }
@@ -1651,7 +1666,12 @@ button.stripe-button-el{
     }
     #product_detail{
         padding-top: $std_py;
+        .alert{
+            margin: 0 0 $std_my;
+            width: 100%;
+        }
     }
+
 //お気に入り
     #od_cards{
         display: flex;
@@ -1755,6 +1775,7 @@ button.stripe-button-el{
         width: 40%;
         padding: 0 $std_px;
     }
+
 //イベントリマインダー
     #events{
         display: flex;

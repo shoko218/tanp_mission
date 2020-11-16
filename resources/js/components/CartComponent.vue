@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="alert alert-danger alert-dismissible fade show msg_box" v-if="errMsg!=''">
+            {{ errMsg }}
+            <button type="button" class="close" @click="deleteErrMsg()">&times;</button>
+        </div>
         <div v-if="dataCartGoods.length>0||dataProducts.length>0">
             <div id="orders">
                 <div v-if="dataCartGoods.length > 0" id="od_cards">
@@ -85,6 +89,7 @@
                 dataSumPrice: this.sumPrice,
                 dataProducts: this.products,
                 dataProductCount: this.productCount,
+                errMsg:'',
             }
         },
         methods: {
@@ -107,7 +112,8 @@
                     this.dataCartGoods=res.data.cart_goods,
                     this.dataSumPrice=res.data.sum_price,
                     this.dataProducts=res.data.products,
-                    this.dataProductCount=res.data.product_count
+                    this.dataProductCount=res.data.product_count,
+                    this.errMsg=res.data.errMsg
                 });
             },
             comp_out(productId){
@@ -118,8 +124,12 @@
                     this.dataCartGoods=res.data.cart_goods,
                     this.dataSumPrice=res.data.sum_price,
                     this.dataProducts=res.data.products,
-                    this.dataProductCount=res.data.product_count
+                    this.dataProductCount=res.data.product_count,
+                    this.errMsg=res.data.errMsg
                 });
+            },
+            deleteErrMsg(){
+                this.errMsg='';
             }
         }
     }
