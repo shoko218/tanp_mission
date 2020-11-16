@@ -11,18 +11,14 @@ use App\Model\Order;
 use App\Model\Relationship;
 use App\Model\Scene;
 use App\Library\BaseClass;
-use App\User;
-use DB;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\PremiumFridayMail;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//トップぺージ表示
     {
-        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,3,1,3);
+        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,3,1,3);//今は20代人気ランキング
 
-        $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);
+        $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);//今はグルメプレゼントランキング
 
         $rand_product=Product::where('id','=',rand(1,Product::count()))->first();
 

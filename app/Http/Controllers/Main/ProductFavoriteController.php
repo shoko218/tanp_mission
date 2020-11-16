@@ -9,17 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductFavoriteController extends Controller
 {
-    public function __invoke(Request $request){
+    public function __invoke(Request $request){//いいね/いいね解除処理
         $user_id=Auth::user()->id;
-        $favorited=Favorite::where('product_id',$request->product_id)->where('user_id',$user_id)->first();
-        if($favorited==null){
+        $favorited=Favorite::where('product_id',$request->product_id)->where('user_id',$user_id)->first();//既にいいねをしているか調べる
+        if($favorited==null){//していなければレコードを作る
             Favorite::create(['user_id'=>$user_id,'product_id'=>$request->product_id]);
-        }else{
-            $favorited->delete();
-        }
-        if((Favorite::where('product_id',$request->product_id)->where('user_id',$user_id)->first())!=null){
             $is_fav=true;
-        }else{
+        }else{//していれば削除する
+            $favorited->delete();
             $is_fav=false;
         }
         $params=['is_fav'=>$is_fav];

@@ -87,20 +87,20 @@ class BaseClass{
         return $sum_price;
     }
 
-    public static function searchProducts($keyword,$target_scene_id,$target_genre_id,$target_relationship_id,$target_gender,$target_generation_id,$sort_by,$limit=null){
+    public static function searchProducts($keyword,$target_scene_id,$target_genre_id,$target_relationship_id,$target_gender,$target_generation_id,$sort_by,$limit=null){//検索する関数
         $condition_count=0;
-        $countSQL=DB::table('order_logs')
+        $countSQL=DB::table('order_logs')//
         ->join('orders', 'order_id', '=', 'orders.id')
         ->select('product_id', DB::raw('sum(count) as count'))
         ->groupBy('product_id');
 
-        $mainQuery = Product::leftJoinSub($countSQL, 'counts', 'products.id', 'counts.product_id')->select('products.*', 'counts.count as count');
+        $mainQuery = Product::leftJoinSub($countSQL, 'counts', 'products.id', 'counts.product_id')->select('products.*', 'counts.count as count');//商品情報テーブルに販売個数の情報を付与
 
-        if ($keyword) {
+        if ($keyword!=null) {//キーワード検索
             $temps=explode(" ", $keyword);
             $keywords=[];
             foreach ($temps as $key =>$temp) {
-                $keywords[$key]=array(
+                $keywords[$key]=array(//ある程度の表記揺れに対応
                     "normal"=>$temp,
                     "hiragana"=>mb_convert_kana($temp, "c"),
                     "katakana"=>mb_convert_kana($temp, "C"),
@@ -120,66 +120,66 @@ class BaseClass{
             $condition_count++;
         }
 
-        if ($target_scene_id) {
+        if ($target_scene_id!=null) {//シーン検索
             $sceneSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
             ->select('product_id', DB::raw('count(*) as scene_count_raw'))
             ->where('orders.scene_id', '=', $target_scene_id)
-            ->groupBy('product_id');
-            $mainQuery->joinSub($sceneSQL, 'scene_counts', 'products.id', 'scene_counts.product_id')->orderBy('scene_count_raw', 'desc');
+            ->groupBy('product_id');//シーン数別の購入数情報を付与
+            $mainQuery->joinSub($sceneSQL, 'scene_counts', 'products.id', 'scene_counts.product_id')->orderBy('scene_count_raw', 'desc');//シーン別購入数でのソート条件を付与
             $condition_count++;
         }
 
-        if ($target_genre_id) {
-            $mainQuery->where('products.genre_id', '=', $target_genre_id);
+        if ($target_genre_id!=null) {//ジャンル検索
+            $mainQuery->where('products.genre_id', '=', $target_genre_id);//ジャンル絞りの条件を付与
             $condition_count++;
         }
 
-        if ($target_relationship_id) {
+        if ($target_relationship_id!=null) {//関係性検索
             $relationshipSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
             ->select('product_id', DB::raw('count(*) as relationship_count_raw'))
             ->where('orders.relationship_id', '=', $target_relationship_id)
-            ->groupBy('product_id');
-            $mainQuery->joinSub($relationshipSQL, 'relationship_counts', 'products.id', 'relationship_counts.product_id')->orderBy('relationship_count_raw', 'desc');
+            ->groupBy('product_id');//関係性別の購入数情報を付与
+            $mainQuery->joinSub($relationshipSQL, 'relationship_counts', 'products.id', 'relationship_counts.product_id')->orderBy('relationship_count_raw', 'desc');//関係性別購入数でのソート条件を付与
             $condition_count++;
         }
 
-        if ($target_gender) {
+        if ($target_gender!=null) {
             if($target_gender!=2){
                 $genderSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
                 ->select('product_id', DB::raw('count(*) as gender_count_raw'))
                 ->where('orders.gender', '=', $target_gender)
-                ->groupBy('product_id');
-                $mainQuery->joinSub($genderSQL, 'gender_counts', 'products.id', 'gender_counts.product_id')->orderBy('gender_count_raw', 'desc');
+                ->groupBy('product_id');//性別別での購入数情報を付与
+                $mainQuery->joinSub($genderSQL, 'gender_counts', 'products.id', 'gender_counts.product_id')->orderBy('gender_count_raw', 'desc');//性別別購入数でのソート条件を付与
             }
             $condition_count++;
         }
 
-        if ($target_generation_id) {
+        if ($target_generation_id!=null) {
             $generationSQL=Order_log::join('orders', 'order_id', '=', 'orders.id')
             ->select('product_id', DB::raw('count(*) as generation_count_raw'))
             ->where('orders.generation_id', '=', $target_generation_id)
-            ->groupBy('product_id');
-            $mainQuery->joinSub($generationSQL, 'generation_counts', 'products.id', 'generation_counts.product_id')->orderBy('generation_count_raw', 'desc');
+            ->groupBy('product_id');//世代別での購入数情報を付与
+            $mainQuery->joinSub($generationSQL, 'generation_counts', 'products.id', 'generation_counts.product_id')->orderBy('generation_count_raw', 'desc');//世代別購入数でのソート条件を付与
             $condition_count++;
         }
 
-        switch($sort_by){
+        switch($sort_by){//全体ソート
             case 0:
-                if($condition_count<2){
+                if($condition_count<2){//全体ソート以外の条件が1つのみだった時に限り関連度の高い順ソートとして購入数ソートを採用
                     $mainQuery->orderby('count','desc');
                 }
                 break;
-            case 1:
+            case 1://人気度の高い順ソートとして購入数でソートする
                 $mainQuery->orderby('count','desc');
                 break;
-            case 2:
+            case 2://新着順でソートする
                 $mainQuery->orderBy('products.id', 'desc');
                 break;
         }
 
-        if($limit){
+        if($limit!=null){//最大個数制限がある場合はそれに従う
             $results=$mainQuery->limit($limit)->get();
-        }else{
+        }else{//最大個数制限がなければ12個ずつ表示する
             $results=$mainQuery->paginate(12);
         }
 
