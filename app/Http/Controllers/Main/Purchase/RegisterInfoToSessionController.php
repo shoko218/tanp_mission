@@ -5,10 +5,18 @@ namespace App\Http\Controllers\Main\Purchase;
 use App\Http\Controllers\Controller;
 use App\Model\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Model\Lover;
 
 class RegisterInfoToSessionController extends Controller
 {
     public function __invoke(Request $request){//一度確認画面を挟むため、セッションに入力情報を保持
+        if(Auth::check()&&$request->lover_id!=null){
+            $lover=Lover::find($request->lover_id);
+            if($lover==null||$lover->user_id!=Auth::user()->id){
+                return back()->with('err_msg','エラーが発生しました。');
+            }
+        }
         $this->validate($request,Order::$rules);
         try {
             $request->session()->put('forwarding_last_name', $request->input('forwarding_last_name'));

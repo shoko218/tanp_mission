@@ -14,7 +14,7 @@ class EditProcessController extends Controller
     public function __invoke(Request $request){
         if($request->lover_id!=null){
             $lover=Lover::find($request->lover_id);
-            if($lover!=null&&$lover->user_id!=Auth::user()->id){
+            if($lover==null||$lover->user_id!=Auth::user()->id){
                 return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
             }
         }else{

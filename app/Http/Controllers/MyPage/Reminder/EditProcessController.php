@@ -10,6 +10,12 @@ class EditProcessController extends Controller
 {
     public function __invoke(Request $request)
     {
+        if($request->lover_id!=null){
+            $lover=Lover::find($request->lover_id);
+            if($lover==null||$lover->user_id!=Auth::user()->id){
+                return back()->with('err_msg','エラーが発生しました。');
+            }
+        }
         $this->validate($request,Event::$rules);
         Event::find($request->event_id)->fill($request->except('event_id'))->save();
         return redirect('/mypage/reminder/'.$request->event_id)->with('suc_msg','変更しました。')->with('event_id',$request->event_id);
