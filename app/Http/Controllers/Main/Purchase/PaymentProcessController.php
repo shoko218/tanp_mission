@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Main\Purchase;
 
 use App\Http\Controllers\Controller;
+use App\Library\BaseClass;
 use App\Model\Order;
 use App\Model\Order_log;
 use Illuminate\Http\Request;
@@ -20,127 +21,114 @@ use App\Mail\BoughtMail;
 class PaymentProcessController extends Controller
 {
     public function __invoke(Request $request){
-        if (Auth::check()) {
-            if(count(Cart::where('user_id', '=', Auth::user()->id)->get())==0){
-                return redirect('/msg')->with('title', '不正なリダイレクト')->with('msg', '不正なリダイレクトを検出しました。最初からやり直してください。');
+        if (Auth::check()) {//カートの中身がない場合はエラー
+            if(count(Cart::where('user_id', '=', Auth::user()->id)->get())===0){
+                return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。時間を開けて再度お試しください。');
             }
         }else{
             if(Cookie::get('cart_product_ids')==''){
-                return redirect('/msg')->with('title', '不正なリダイレクト')->with('msg', '不正なリダイレクトを検出しました。最初からやり直してください。');
+                return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。時間を開けて再度お試しください。');
             }
         }
+
         DB::beginTransaction();
         try {
-            $old_product_ids=null;
-            $order=new Order;
-            $order->last_name=$request->last_name;
-            $order->first_name=$request->first_name;
-            $order->last_name_furigana=$request->last_name_furigana;
-            $order->first_name_furigana=$request->first_name_furigana;
-            $order->postal_code=$request->postal_code;
-            $order->prefecture_id=$request->prefecture_id;
-            $order->address=$request->address;
-            $order->telephone=$request->telephone;
-            if ($request->gender!=null) {
-                $order->gender=$request->gender;
-            }
-            if ($request->relationship_id!=null) {
-                $order->relationship_id=$request->relationship_id;
-            }
-            if ($request->age!=null) {
-                if(($request->age/10+1)<11){
-                    $order->generation_id=$request->age/10+1;
+            $old_cart=null;
+            if (session('age')!=null) {//年齢から年代計算
+                if((session('age')/10+1)<11){
+                    $request->session()->put('generation_id',session('age')/10+1);
                 }else{
-                    $order->generation_id=10;
+                    $request->session()->put('generation_id',10);
                 }
+                $request->session()->forget('age');
             }
-            if ($request->scene_id!=null) {
-                $order->scene_id=$request->scene_id;
-            }
-            if ($request->user_id!=null) {
-                $order->user_id=$request->user_id;
-            }
-            if ($request->lover_id!=null) {
-                $order->lover_id=$request->lover_id;
-            }
-            $order->user_last_name=$request->user_last_name;
-            $order->user_first_name=$request->user_first_name;
-            $order->user_last_name_furigana=$request->user_last_name_furigana;
-            $order->user_first_name_furigana=$request->user_first_name_furigana;
-            $order->user_postal_code=$request->user_postal_code;
-            $order->user_prefecture_id=$request->user_prefecture_id;
-            $order->user_address=$request->user_address;
-            $order->user_email=$request->user_email;
-            $order->user_telephone=$request->user_telephone;
+
+            $order=new Order($request->session()->all());//注文顧客データ保存
             $order->save();
 
-            $order_id = $order->id;
-            $request->session()->forget('lover_id');
-
-            if (Auth::check()) {
-                $user_id=Auth::user()->id;
-                $cart_goods=Cart::where('user_id', '=', $user_id)->get();
+            $order_log=new Order_log;
+            if (Auth::check()) {//注文情報(注文idと商品と個数)作成
+                $cart_goods=BaseClass::getProductsFromDBCart();
                 foreach ($cart_goods as $cart_good) {
-                    $order_log=new Order_log;
-                    $order_log->order_id=$order_id;
+                    $order_log->order_id=$order->id;
                     $order_log->product_id=$cart_good->product_id;
                     $order_log->count=$cart_good->count;
                     $order_log->save();
                 }
             } else {
-                $product_ids=explode(',', rtrim(Cookie::get('cart_product_ids'), ','));
-                $product_notdup_ids=array_values(array_unique($product_ids));
-                $products = new Collection();
-                $product_count=array();
-                foreach ($product_notdup_ids as $product_notdup_id) {
-                    $product=Product::select(DB::raw('products.*'))
-                    ->where('id', '=', $product_notdup_id)
-                    ->first();
-                    $products->push($product);
-                }
-                foreach ($product_notdup_ids as $product_notdup_id) {
-                    $temp_count=0;
-                    foreach ($product_ids as $product_id) {
-                        if ($product_notdup_id==$product_id) {
-                            $temp_count++;
-                        }
-                    }
-                    $product_count[]=$temp_count;
-                }
+                list($products,$product_count)=BaseClass::getProductsFromCookieCart();
                 foreach ($products as $key => $product) {
-                    $order_log=new Order_log;
-                    $order_log->order_id=$order_id;
+                    $order_log->order_id=$order->id;
                     $order_log->product_id=$product->id;
                     $order_log->count=$product_count[$key];
                     $order_log->save();
                 }
             }
 
-            if (Auth::check()) {
+            if (Auth::check()) { //商品削除処理
                 $user_id=Auth::user()->id;
-                $cart_goods=Cart::where('user_id', '=', $user_id)
-                ->delete();
+                Cart::where('user_id', '=', $user_id)->delete();
             } else {
-                $old_product_ids=Cookie::get('cart_product_ids');
+                $old_cart=Cookie::get('cart_product_ids');
                 $product_ids='';
                 Cookie::queue('cart_product_ids', $product_ids, 0);
             }
-            Stripe::setApiKey(config('constant.sec_key'));
+
+            Stripe::setApiKey(config('constant.sec_key'));//支払い処理
             Charge::create(array(
                  'amount' => $request->sum_price,
                  'currency' => 'jpy',
                  'source' => $request->stripeToken,
             ));
-            $order_logs=Order_log::where('order_id','=',$order->id)->get();
-            Mail::to($request->user_email)->send(new BoughtMail($order,$order_logs,$request->sum_price));
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            if($old_product_ids!=null){
-                Cookie::queue('cart_product_ids', $old_product_ids, 86400);
+
+            if($old_cart!=null){//Cookieの状態を元に戻す
+                Cookie::queue('cart_product_ids', $old_cart, 86400);
             }
+
             return redirect()->back()->with('err_msg', 'エラーが発生しました。');
         }
+        $order_logs=Order_log::where('order_id','=',$order->id)->get();
+        Mail::to($order->user_email)->send(new BoughtMail($order,$order_logs,$request->sum_price));
+
+        session()->forget('forwarding_last_name');//セッション情報の削除
+        session()->forget('forwarding_first_name');
+        session()->forget('forwarding_last_name_furigana');
+        session()->forget('forwarding_first_name_furigana');
+        session()->forget('forwarding_postal_code');
+        session()->forget('forwarding_prefecture_id');
+        session()->forget('forwarding_address');
+        session()->forget('forwarding_telephone');
+        if ($request->session()->has('gender')) {
+            session()->forget('gender');
+        }
+        if ($request->session()->has('relationship_id')) {
+            session()->forget('relationship_id');
+        }
+        if ($request->session()->has('generation_id')) {
+            session()->forget('generation_id');
+        }
+        if ($request->session()->has('scene_id')) {
+            session()->forget('scene_id');
+        }
+        if ($request->session()->has('user_id')) {
+            session()->forget('user_id');
+        }
+        if ($request->session()->has('lover_id')) {
+            session()->forget('lover_id');
+        }
+        session()->forget('user_last_name');
+        session()->forget('user_first_name');
+        session()->forget('user_last_name_furigana');
+        session()->forget('user_first_name_furigana');
+        session()->forget('user_postal_code');
+        session()->forget('user_prefecture_id');
+        session()->forget('user_address');
+        session()->forget('user_email');
+        session()->forget('user_telephone');
         return redirect('/msg')->with('title', '購入完了')->with('msg', '購入が完了しました。');
     }
 }

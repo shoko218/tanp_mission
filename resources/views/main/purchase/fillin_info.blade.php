@@ -19,6 +19,7 @@
 
 @section('content')
     <section id="fillin_info" class="normal_section">
+        @include('components.msgs')
         <h1>購入情報の入力</h1>
         <p><span class="form_requires">*</span>は必須項目です</p>
         @if (Auth::check())

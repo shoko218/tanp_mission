@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+
+    protected $guarded=['id','created_at','updated_at'];
+
     public static $rules=array(
         'forwarding_last_name'=>['required', 'string', 'max:32'],
         'forwarding_first_name'=>['required', 'string', 'max:32'],

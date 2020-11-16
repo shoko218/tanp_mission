@@ -33,41 +33,6 @@
 <p class="cart_sum">商品合計:<b>¥{{ number_format($sum_price) }}</b></p>
 <form action="/purchase/payment_process" method="POST">
     @csrf
-    <input type="hidden" value="{{ Session::get('forwarding_last_name') }}" name="last_name">
-    <input type="hidden" value="{{ Session::get('forwarding_first_name') }}" name="first_name">
-    <input type="hidden" value="{{ Session::get('forwarding_last_name_furigana') }}" name="last_name_furigana">
-    <input type="hidden" value="{{ Session::get('forwarding_first_name_furigana') }}" name="first_name_furigana">
-    <input type="hidden" value="{{ Session::get('forwarding_postal_code') }}" name="postal_code">
-    <input type="hidden" value="{{ Session::get('forwarding_prefecture_id') }}" name="prefecture_id">
-    <input type="hidden" value="{{ Session::get('forwarding_address') }}" name="address">
-    <input type="hidden" value="{{ Session::get('forwarding_telephone') }}" name="telephone">
-    @if (Session::get('gender')!=null)
-        <input type="hidden" value="{{ Session::get('gender') }}" name="gender">
-    @endif
-    @if (Session::get('relationship_id')!=null)
-        <input type="hidden" value="{{ Session::get('relationship_id') }}" name="relationship_id">
-    @endif
-    @if (Session::get('age')!=null)
-        <input type="hidden" value="{{ Session::get('age') }}" name="age">
-    @endif
-    @if (Session::get('scene_id')!=null)
-        <input type="hidden" value="{{ Session::get('scene_id') }}" name="scene_id">
-    @endif
-    @if (Session::get('user_id')!=null)
-        <input type="hidden" value="{{ Session::get('user_id') }}" name="user_id">
-    @endif
-    @if (Session::get('lover_id')!=null)
-        <input type="hidden" value="{{ Session::get('lover_id') }}" name="lover_id">
-    @endif
-    <input type="hidden" value="{{ Session::get('user_last_name') }}" name="user_last_name">
-    <input type="hidden" value="{{ Session::get('user_first_name') }}" name="user_first_name">
-    <input type="hidden" value="{{ Session::get('user_last_name_furigana') }}" name="user_last_name_furigana">
-    <input type="hidden" value="{{ Session::get('user_first_name_furigana') }}" name="user_first_name_furigana">
-    <input type="hidden" value="{{ Session::get('user_postal_code') }}" name="user_postal_code">
-    <input type="hidden" value="{{ Session::get('user_prefecture_id') }}" name="user_prefecture_id">
-    <input type="hidden" value="{{ Session::get('user_address') }}" name="user_address">
-    <input type="hidden" value="{{ Session::get('user_email') }}" name="user_email">
-    <input type="hidden" value="{{ Session::get('user_telephone') }}" name="user_telephone">
     <input type="hidden" value="{{ $sum_price }}" name="sum_price">
     <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"

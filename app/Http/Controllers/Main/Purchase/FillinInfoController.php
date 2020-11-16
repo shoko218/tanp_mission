@@ -13,23 +13,26 @@ use App\Model\Relationship;
 class FillinInfoController extends Controller
 {
     public function __invoke(Request $request){
-        if(Auth::check()&&session('lover_id')!=null){
-            $lover=Lover::where('id','=',session('lover_id'))->first();
-        }else{
-            $lover=null;
+        try {
+            if(Auth::check()&&session('lover_id')!=null&&Lover::find(session('lover_id'))!=null&&Lover::find(session('lover_id'))->user_id===Auth::user()->id){ //会員で、自分が登録している大切な人を送り先に指定していていれば大切な人の登録情報を取得(フィルインに利用)
+                $lover=Lover::find(session('lover_id'));
+            }else{
+                $lover=null;
+            }
+            if(Auth::check()){//会員登録しているならば大切な人一覧を取得
+                $lovers = Lover::select('last_name','first_name','lovers.id')
+                ->where('user_id',Auth::user()->id)
+                ->get();
+            }else{
+                $lovers=null;
+            }
+            $scenes = Scene::all();
+            $prefectures = Prefecture::select('id','name')->get();
+            $relationships = Relationship::select('id','name')->get();
+            $param=['lover'=>$lover,'lovers'=>$lovers,'scenes'=>$scenes,'prefectures'=>$prefectures,'relationships'=>$relationships];
+            return view('main.purchase.fillin_info',$param);
+        } catch (\Throwable $th) {
+            return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。時間を開けて再度お試しください。');
         }
-        if(Auth::check()){
-            $user_id=Auth::user()->id;
-            $lovers = Lover::select('last_name','first_name','lovers.id')
-            ->where('user_id',$user_id)
-            ->get();
-        }else{
-            $lovers=null;
-        }
-        $scenes = Scene::all();
-        $prefectures = Prefecture::select('id','name')->get();
-        $relationships = Relationship::select('id','name')->get();
-        $param=['lover'=>$lover,'lovers'=>$lovers,'scenes'=>$scenes,'prefectures'=>$prefectures,'relationships'=>$relationships];
-        return view('main.purchase.fillin_info',$param);
     }
 }
