@@ -109,7 +109,6 @@
                 </li>
                 <lover-img-component :err-msgs='@json($errors->get('image'))' id={{ null }} img-path={{ null }}></lover-img-component>
             </ul>
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <div class="btns">
                 <button>登録</button>
             </div>

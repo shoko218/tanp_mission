@@ -40,11 +40,11 @@
             </div>
         </div>
     </section>
-    @if ($products!=null)
+    @if ($reccomend_products!=null)
     <section class="recommend_rank">
         <h2>{{ $name }}さんにおすすめのプレゼント</h2>
         <div class="rc_cards">
-            @foreach ($products as $product)
+            @foreach ($reccomend_products as $product)
             @include('components.lover_recommend_product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price])
             @endforeach
         </div>

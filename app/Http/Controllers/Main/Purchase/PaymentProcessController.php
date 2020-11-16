@@ -44,6 +44,9 @@ class PaymentProcessController extends Controller
             }
 
             $order=new Order($request->session()->all());//注文顧客データ保存
+            if(Auth::check()){
+                $order->user_id=Auth::user()->id;
+            }
             $order->save();
 
             $order_log=new Order_log;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lover extends Model
 {
-    protected $guarded =array('id');
+    protected $guarded = ['id','user_id','created_at','updated_at'];
 
     public static $rules=array(
         'last_name'=>['required', 'string', 'max:32'],
@@ -16,7 +16,6 @@ class Lover extends Model
         'birthday'=>['required','datetype','date','past'],
         'gender'=>['required','integer'],
         'relationship_id'=>['required','integer'],
-        'user_id'=>['required','integer'],
         'postal_code'=>['nullable','string','digits:7','hankakunum'],
         'prefecture_id'=>['nullable','integer'],
         'address'=>['nullable','string', 'max:200','text'],

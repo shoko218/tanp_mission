@@ -9,7 +9,7 @@ use App\Model\Relationship;
 
 class RegisterController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//大切な人登録画面表示
     {
         $prefectures = Prefecture::select('id','name')->get();
         $relationships = Relationship::select('id','name')->get();

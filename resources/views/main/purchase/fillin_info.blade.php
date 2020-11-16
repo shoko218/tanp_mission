@@ -226,11 +226,6 @@
             @else
                 <input type="hidden" name="lover_id" value="">
             @endif
-            @if (Auth::check())
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-            @else
-                <input type="hidden" name="user_id" value="">
-            @endif
             <div class="btns">
                 <button type="submit">次へ進む</button>
             </div>

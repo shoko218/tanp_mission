@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class GiftHistoryController extends Controller
 {
-    public function __invoke($lover_id)
+    public function __invoke($lover_id)//大切な人に今まであげたもののリスト
     {
         $lover=Lover::find($lover_id);
         $order_logs=Order_log::join('orders','orders.id',"order_id")

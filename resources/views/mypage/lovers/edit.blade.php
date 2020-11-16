@@ -54,7 +54,7 @@
                 <li class="radio_parts">
                     <p class="radiobtns_label">性別<span class="form_requires">*</span></p>
                     <div class="radiobtns">
-                        <label class="radio"><input type="radio" name="gender" value="0" class="radiobtn" @if(old('gender')==='0')checked="checked" @elseif($lover->gender===0) checked="checked" @endif>男性</label>
+                        <label class="radio"><input type="radio" name="gender" value="0" class="radiobtn" @if(old('gender')==='0')checked="checked" @elseif($lover->gender===0) checked="checked" @endif required>男性</label>
                         <label class="radio"><input type="radio" name="gender" value="1" class="radiobtn" @if(old('gender')==='1')checked="checked" @elseif($lover->gender===1) checked="checked" @endif>女性</label>
                         <label class="radio"><input type="radio" name="gender" value="2" class="radiobtn" @if(old('gender')==='2')checked="checked" @elseif($lover->gender===2) checked="checked" @endif>その他</label>
                     </div>
@@ -109,8 +109,7 @@
                 </li>
                 <lover-img-component :err-msgs='@json($errors->get('image'))' id='@json($lover->id)' @if($lover->img_path!=null)img-path={{ $lover->img_path }}@endif @if(env('APP_ENV') == 'production' && $lover->img_path!=null) s3-url={{ Storage::disk('s3')->url('lover_imgs/'.$lover->img_path)}}@endif></lover-img-component>
             </ul>
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-            <input type="hidden" name="lover_id" value="{{ $lover->id }}">
+            <input type="hidden" name="lover_id" value="{{ $lover->id }}" required>
             <div class="btns">
                 <button type="submit">変更する</button>
             </div>

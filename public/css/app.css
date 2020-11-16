@@ -11908,6 +11908,19 @@ section:last-of-type {
      object-fit: cover;
 }
 
+#gift_history {
+  margin-bottom: 0;
+}
+
+#gift_history #od_cards {
+  border-top: 0.1rem solid #cccccc;
+  margin-bottom: 3rem;
+}
+
+#gift_history #orders {
+  margin: 0;
+}
+
 #event_register {
   display: flex;
   flex-direction: column;
@@ -12642,6 +12655,10 @@ button.stripe-button-el {
     text-align: center;
     align-items: center;
     margin-left: 3rem;
+  }
+
+  #gift_history #od_cards {
+    border-top: none;
   }
 }
 

@@ -39,11 +39,6 @@ class RegisterInfoToSessionController extends Controller
             }else{
                 $request->session()->put('scene_id', null);
             }
-            if($request->input('user_id')!=null){
-                $request->session()->put('user_id', $request->input('user_id'));
-            }else{
-                $request->session()->put('user_id', null);
-            }
             if($request->input('lover_id')!=null){
                 $request->session()->put('lover_id', $request->input('lover_id'));
             }else{

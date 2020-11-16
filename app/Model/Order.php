@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
 
-    protected $guarded=['id','created_at','updated_at'];
+    protected $guarded=['id','created_at','updated_at','user_id'];
 
     public static $rules=array(
         'forwarding_last_name'=>['required', 'string', 'max:32'],
@@ -22,7 +22,6 @@ class Order extends Model
         'relationship_id'=>['nullable','integer'],
         'age'=>['nullable','integer','min:0','max:150'],
         'scene_id'=>['nullable','integer'],
-        'user_id'=>['nullable','integer'],
         'lover_id'=>['nullable','integer'],
         'user_last_name'=>['required', 'string', 'max:32'],
         'user_first_name'=>['required', 'string', 'max:32'],

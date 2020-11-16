@@ -186,19 +186,19 @@ class BaseClass{
         return $results;
     }
 
-    public static function get_simpson($target,$comparator){
-        $intersec=array_intersect(array_values(array_unique($target)),array_values(array_unique($comparator)));
-        $num_of_intersec=count($intersec);
-        $num_of_target=count($target);
-        $num_of_comparator=count($comparator);
-        try {
+    public static function get_simpson($target,$comparator){//Simpson係数を算出する関数
+        $intersec=array_intersect(array_values(array_unique($target)),array_values(array_unique($comparator)));//集合を取る
+        $num_of_intersec=count($intersec);//集合の数
+        $num_of_target=count($target);//比較元の母数
+        $num_of_comparator=count($comparator);//比較対象の母数
+        try {//Simpson係数(| X ∩ Y | / min(|X|,|Y|))を算出
             return (float)$num_of_intersec/min($num_of_target,$num_of_comparator);
         } catch (\Throwable $th) {
             return -1.0;
         }
     }
 
-    public static function get_differences($target,$comparator,$product_counts){
+    public static function get_differences($target,$comparator,$product_counts){//類似度の高い人が購入されているものの中でまだ購入していない商品を取り出す関数
         $difference_ids=array_diff(array_values(array_unique($comparator)),array_values(array_unique($target)));
         $difference_counts=[];
         foreach ($difference_ids as $difference_id) {
@@ -209,9 +209,10 @@ class BaseClass{
         return $datas;
     }
 
-    public static function get_reccomends($target_id){
-        $order_logs=Order_log::join('orders','orders.id','=','order_id')->select('lover_id','product_id')->where('lover_id','!=',NULL)->orderby('order_logs.id')->get();
-        $lover_logs=array();
+    public static function get_reccomends($target_id){//購入履歴を元にレコメンドする商品を求める(協調フィルタリングを簡単に実装したもの)
+        $order_logs=Order_log::join('orders','orders.id','=','order_id')->select('lover_id','product_id')->where('lover_id','!=',NULL)->orderby('order_logs.id')->get();//購入系統を把握できるように、相手を一意に特定できる大切な人への購入ログのみを取得
+
+        $lover_logs=array();//大切な人ごとにログを振り分け
         foreach ($order_logs as $order_log) {
             if(empty($lover_logs[$order_log->lover_id])){
                 $lover_logs[$order_log->lover_id]=array('items'=>[],'simpson'=>0.0);
@@ -220,7 +221,7 @@ class BaseClass{
         }
         ksort($lover_logs);
 
-        $order_log_counts=Order_log::join('orders', 'order_id', '=', 'orders.id')
+        $order_log_counts=Order_log::join('orders', 'order_id', '=', 'orders.id')//それぞれの商品が購入された数を求める
         ->select('product_id', DB::raw('sum(count) as count'))
         ->groupBy('product_id')->orderby('product_id')->get();
         $product_counts=array();
@@ -229,26 +230,26 @@ class BaseClass{
         }
 
         $recommend_ids=[];
-        $target=$lover_logs[$target_id]['items'];
+        $target=$lover_logs[$target_id]['items'];//推薦する人に購入されているもの
         foreach ($lover_logs as &$lover_log) {
-            $lover_log['simpson']=BaseClass::get_simpson($target,$lover_log['items']);
+            $lover_log['simpson']=BaseClass::get_simpson($target,$lover_log['items']);//それぞれの大切な人の購入履歴との類似度(Simpson係数)を算出
         }
         unset($lover_log);
 
-        array_multisort(array_column($lover_logs, 'simpson'), SORT_DESC, $lover_logs);
+        array_multisort(array_column($lover_logs, 'simpson'), SORT_DESC, $lover_logs);//類似度が高い順にソート
 
         $temp_array=[];
         foreach ($lover_logs as $lover_log) {
-            if(count($recommend_ids)>2||$lover_log['simpson']<=0) break;
-            $new_arrays=BaseClass::get_differences($target,$lover_log['items'],$product_counts);
+            if(count($recommend_ids)>2||$lover_log['simpson']<=0) break; //しレコメンドする商品が3つ選べた、もしくは類似度が0の領域に達したら終了
+            $new_arrays=BaseClass::get_differences($target,$lover_log['items'],$product_counts);//類似度の高い人が購入されているものの中でまだ購入していない商品を取り出す
             foreach ($new_arrays as $new_array) {
-                if(!in_array($new_array[0],$temp_array)){
+                if(!in_array($new_array[0],$temp_array)){//二重でレコメンドされないか確認するための配列
                     $temp_array[]=$new_array[0];
                     array_push($recommend_ids,$new_array);
                 }
             }
         }
-        if($recommend_ids>2){
+        if($recommend_ids>2){//4つ以上要素があれば3つにする
             array_splice($recommend_ids,3);
         }
         $recommend_ids=array_column($recommend_ids,'0');

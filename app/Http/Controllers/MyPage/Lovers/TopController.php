@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TopController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//大切な人一覧表示
     {
         $user_id=Auth::user()->id;
         $lovers = Lover::join('relationships', 'relationship_id', '=', 'relationships.id')
