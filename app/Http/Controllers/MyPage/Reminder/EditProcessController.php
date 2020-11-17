@@ -5,6 +5,8 @@ namespace App\Http\Controllers\MyPage\Reminder;
 use App\Http\Controllers\Controller;
 use App\Model\Event;
 use Illuminate\Http\Request;
+use App\Model\Lover;
+use Illuminate\Support\Facades\Auth;
 
 class EditProcessController extends Controller
 {
