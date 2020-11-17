@@ -69,9 +69,11 @@ class PaymentProcessController extends Controller
             }
 
             if (Auth::check()) { //商品削除処理
+                $price=BaseClass::calcPriceInTaxFromDBCart();
                 $user_id=Auth::user()->id;
                 Cart::where('user_id', '=', $user_id)->delete();
             } else {
+                $price=BaseClass::calcPriceInTaxFromCookieCart();
                 $old_cart=Cookie::get('cart_product_ids');
                 $product_ids='';
                 Cookie::queue('cart_product_ids', $product_ids, 0);
@@ -79,7 +81,7 @@ class PaymentProcessController extends Controller
 
             Stripe::setApiKey(config('constant.sec_key'));//支払い処理
             Charge::create(array(
-                 'amount' => $request->sum_price,
+                 'amount' => $price,
                  'currency' => 'jpy',
                  'source' => $request->stripeToken,
             ));

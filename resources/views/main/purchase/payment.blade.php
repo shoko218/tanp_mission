@@ -33,7 +33,6 @@
 <p class="cart_sum">商品合計:<b>¥{{ number_format($sum_price) }}</b></p>
 <form action="/purchase/payment_process" method="POST">
     @csrf
-    <input type="hidden" value="{{ $sum_price }}" name="sum_price">
     <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{ config('constant.pub_key') }}"
