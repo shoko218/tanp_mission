@@ -18,8 +18,16 @@ class EditProcessController extends Controller
                 return back()->with('err_msg','エラーが発生しました。');
             }
         }
-        $this->validate($request,Event::$rules);
-        Event::find($request->event_id)->fill($request->except('event_id'))->save();
-        return redirect('/mypage/reminder/'.$request->event_id)->with('suc_msg','変更しました。')->with('event_id',$request->event_id);
+        if($request->event_id!=null){
+            $event=Event::find($request->event_id);
+            if($event==null){
+                return back()->with('err_msg','エラーが発生しました。');
+            }
+            $this->validate($request,Event::$rules);
+            Event::find($request->event_id)->fill($request->except('event_id'))->save();
+            return redirect('/mypage/reminder/'.$request->event_id)->with('suc_msg','変更しました。')->with('event_id',$request->event_id);
+        }else{
+            return back()->with('err_msg','エラーが発生しました。');
+        }
     }
 }
