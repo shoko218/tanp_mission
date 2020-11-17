@@ -15,10 +15,10 @@ class EditProcessController extends Controller
         if($request->lover_id!=null){
             $lover=Lover::find($request->lover_id);
             if($lover==null||$lover->user_id!=Auth::user()->id){
-                return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
+                return back()->with('err_msg','エラーが発生しました。');
             }
         }else{
-            return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
+            return back()->with('err_msg','エラーが発生しました。');
         }
         $this->validate($request,Lover::$rules);
         DB::beginTransaction();

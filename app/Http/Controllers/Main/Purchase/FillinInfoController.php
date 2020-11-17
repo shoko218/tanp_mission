@@ -32,7 +32,7 @@ class FillinInfoController extends Controller
             $param=['lover'=>$lover,'lovers'=>$lovers,'scenes'=>$scenes,'prefectures'=>$prefectures,'relationships'=>$relationships];
             return view('main.purchase.fillin_info',$param);
         } catch (\Throwable $th) {
-            return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。時間を開けて再度お試しください。');
+            return back()->with('err_msg','エラーが発生しました。');
         }
     }
 }
