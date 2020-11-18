@@ -11,7 +11,7 @@ class Event extends Model
     public static $rules=array(
         'lover_id'=>['required','integer'],
         'title'=>['required','string','max:30','text'],
-        'scene_id'=>['required','integer'],
+        'scene_id'=>['required','integer','between:1,17'],
         'date'=>['required','datetype','date','future'],
         'is_repeat'=>['required','boolean'],
     );
