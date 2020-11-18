@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Product;
+use App\Model\Catalog;
+use Illuminate\Support\Facades\DB;
 
 class SelectProductDetailController extends Controller
 {
