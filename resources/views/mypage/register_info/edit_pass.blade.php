@@ -10,6 +10,7 @@
 
 @section('content')
     <section class="normal_section" id="update_pass">
+        @include('components.msgs')
         <h1>パスワードを変更する</h1>
         <form action="edit_pass_process" method="POST">
             @csrf

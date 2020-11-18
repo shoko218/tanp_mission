@@ -10,6 +10,7 @@
 
 @section('content')
 <section id="conditions">
+    @include('components.msgs')
     <h1>検索結果</h1>
     @include('components.search_form')
 </section>

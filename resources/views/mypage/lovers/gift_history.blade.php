@@ -10,6 +10,7 @@
 
 @section('content')
     <section id="gift_history" class="normal_section">
+        @include('components.msgs')
         <h1>{{ $name }}さんにいままであげたもの</h1>
         @if (!$order_logs->isEmpty())
         <div id="orders">
