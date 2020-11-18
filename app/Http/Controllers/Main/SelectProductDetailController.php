@@ -25,7 +25,7 @@ class SelectProductDetailController extends Controller
             foreach ($catalog_products as $catalog_product) {
                 $catalog_product_ids[]=(string)$catalog_product->product_id;
             }
-            if (!in_array($request->product_id, $catalog_product_ids, true)) {//カタログの中にある商品か確認
+            if (!in_array($request->input('id'), $catalog_product_ids, true)) {//カタログの中にある商品か確認
                 return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
             }
             $product=Product::where('id', $request->input('id'))->first();
