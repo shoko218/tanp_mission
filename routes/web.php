@@ -91,15 +91,15 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/result_get', 'MyPage\Original_catalog\ResultGetController');
             Route::get('/register', 'MyPage\Original_catalog\RegisterController');
             Route::post('/register_process', 'MyPage\Original_catalog\RegisterProcessController');
-            Route::post('/add_process', 'MyPage\Original_catalog\AddProcessController');
-            Route::post('/remove_process', 'MyPage\Original_catalog\RemoveProcessController');
-            Route::post('/send_process', 'MyPage\Original_catalog\SendProcessController');
-            Route::post('/edit_process', 'MyPage\Original_catalog\EditProcessController');
-            Route::post('/delete_process','MyPage\Original_catalog\DeleteProcessController');
             Route::get('/select_which_catalog/{product_id}', 'MyPage\Original_catalog\SelectCatalogController');
             Route::group(['middleware' => ['catalog.check']], function () {
-                Route::get('/{catalog_id}/edit', 'MyPage\Original_catalog\EditController');
                 Route::get('/{catalog_id}', 'MyPage\Original_catalog\DetailController');
+                Route::get('/{catalog_id}/edit', 'MyPage\Original_catalog\EditController');
+                Route::post('/add_process', 'MyPage\Original_catalog\AddProcessController');
+                Route::post('/edit_process', 'MyPage\Original_catalog\EditProcessController');
+                Route::post('/send_process', 'MyPage\Original_catalog\SendProcessController');
+                Route::post('/remove_process', 'MyPage\Original_catalog\RemoveProcessController');
+                Route::post('/delete_process','MyPage\Original_catalog\DeleteProcessController');
             });
         });
 

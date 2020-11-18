@@ -1377,7 +1377,15 @@ button.stripe-button-el{
         margin-bottom: 4rem;
     }
     .oc_cards{
+        min-width: 36rem;
         border-top: none;
+        .oc_img{
+            min-height: 10rem;
+            min-width: 16rem;
+        }
+        .oc_detail{
+            min-width: 18rem;
+        }
     }
 }
 

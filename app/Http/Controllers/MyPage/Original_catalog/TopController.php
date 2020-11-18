@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TopController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//カタログ一覧を表示
     {
         $results=Catalog::select('*')
         ->where('user_id','=',Auth::user()->id)

@@ -9,10 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterProcessController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request)//新しくカタログを作成する
     {
         $this->validate($request, Catalog::$rules);
-        Catalog::create(['user_id'=>Auth::user()->id,'name'=>$request->name,'email'=>$request->email,'url_str'=>strtolower(substr(str_replace(['/', '+'], ['_'], base64_encode(random_bytes(32))), 0, 32)),'img_num'=>$request->img_num]);
+        try {
+            $catalog=new Catalog();
+            $catalog->user_id=Auth::user()->id;
+            $catalog->url_str=strtolower(substr(str_replace(['/', '+'], ['_'], base64_encode(random_bytes(32))), 0, 32));//メール送信時に添付するURLにつけるランダムな文字列
+            $catalog->fill($request->all())->save();
+        } catch (\Throwable $th) {
+            return back()->with('err_msg','エラーが発生しました。');
+        }
         return redirect('/mypage/original_catalog')->with('suc_msg','カタログを作成しました。');
     }
 }

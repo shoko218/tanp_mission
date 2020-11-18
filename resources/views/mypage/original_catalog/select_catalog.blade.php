@@ -10,6 +10,7 @@
 
 @section('content')
 <section id="original_catalog_select" class="normal_section">
+    @include('components.msgs')
     <h1>どのカタログに商品を追加しますか？</h1>
     @if (count($results))
         <div class="rc_cards">

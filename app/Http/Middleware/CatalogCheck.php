@@ -15,7 +15,7 @@ class CatalogCheck
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next)//カタログが存在しているかどうかとユーザーのカタログであるかどうかを確認
     {
         $catalog=Catalog::find($request->catalog_id);
         if($catalog==null||$catalog->user_id!=Auth::user()->id){

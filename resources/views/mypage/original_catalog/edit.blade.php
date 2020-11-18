@@ -10,6 +10,7 @@
 
 @section('content')
 <section id="fillin_info" class="normal_section">
+    @include('components.msgs')
     <h1>オリジナルカタログを確認・編集する</h1>
     <p>全て入力してください。</p>
         <form method="POST" action="/mypage/original_catalog/edit_process" class="input_form">

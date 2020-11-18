@@ -10,6 +10,7 @@
 
 @section('content')
 <section id="fillin_info" class="normal_section">
+    @include('components.msgs')
     <h1>オリジナルカタログを作成</h1>
     <p>全て入力してください。</p>
         <form method="POST" action="register_process" class="input_form">

@@ -12106,7 +12106,17 @@ button.stripe-button-el {
 }
 
 #original_catalog .oc_cards {
+  min-width: 36rem;
   border-top: none;
+}
+
+#original_catalog .oc_cards .oc_img {
+  min-height: 10rem;
+  min-width: 16rem;
+}
+
+#original_catalog .oc_cards .oc_detail {
+  min-width: 18rem;
 }
 
 #original_catalog_detail h2 {

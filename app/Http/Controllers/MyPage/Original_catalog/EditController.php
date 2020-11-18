@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EditController extends Controller
 {
-    public function __invoke($catalog_id){
+    public function __invoke($catalog_id){//カタログ編集画面を表示
         $catalog=Catalog::find($catalog_id);
         $param=['catalog'=>$catalog];
         return view('mypage.original_catalog.edit',$param);

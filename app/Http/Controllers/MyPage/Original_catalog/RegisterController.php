@@ -8,7 +8,7 @@ use App\Model\Product;
 
 class RegisterController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//オリジナルカタログを登録
     {
         return view('mypage.original_catalog.register');
     }

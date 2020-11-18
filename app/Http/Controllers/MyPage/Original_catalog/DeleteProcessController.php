@@ -9,7 +9,12 @@ use Illuminate\Http\Request;
 class DeleteProcessController extends Controller
 {
     public function __invoke(Request $request){
-        Catalog::find($request->catalog_id)->delete();
-        return redirect('mypage/original_catalog')->with('suc_msg','削除しました。');
+        try {
+            $catalog=Catalog::find($request->catalog_id);
+            $catalog->delete();
+            return redirect('mypage/original_catalog')->with('suc_msg','削除しました。');
+        } catch (\Throwable $th) {
+            return back()->with('err_msg','エラーが発生しました。');
+        }
     }
 }
