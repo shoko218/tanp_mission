@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class FavoriteController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//いいねした商品を表示
     {
         $user_id=Auth::user()->id;
         $favorite_products=Product::join('favorites','products.id','=','product_id')
