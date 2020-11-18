@@ -1,4 +1,4 @@
-<template>
+<template><!--オリジナルカタログのジャンル別タブ-->
   <button @click="$emit('input', id)" :class="[active, 'tab']">
     {{ label }}
   </button>
@@ -12,7 +12,7 @@ export default {
     value: Number
   },
   computed: {
-    active() {
+    active() {//選択されているタブを変更
       return this.value === this.id ? 'active' : false
     }
   }

@@ -107,7 +107,7 @@
                         <p class="form_alert">{{ $item }}</p>
                     @endforeach
                 </li>
-                <lover-img-component :err-msgs='@json($errors->get('image'))' id={{ null }} img-path={{ null }}></lover-img-component>
+                <lover-img-component :err-msgs='@json($errors->get('image'))' img-path={{ null }}></lover-img-component>
             </ul>
             <div class="btns">
                 <button>登録</button>

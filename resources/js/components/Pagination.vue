@@ -1,4 +1,4 @@
-<template>
+<template><!--ページネーション-->
   <paginate
     v-model="page"
     :page-count="20"

@@ -1,4 +1,4 @@
-<template>
+<template><!--ランダムレコメンド-->
     <section id="random_recommend">
         <div class="random_recommend_contents">
             <div class="description">
@@ -24,29 +24,29 @@
     export default {
         name:'random-recommend',
         props: {
-            productId: {
+            productId: {//商品id
                 type: Number,
             },
-            title: {
+            title: {//商品名
                 type: String,
             },
-            genre: {
+            genre: {//商品のジャンル
                 type: String,
             },
-            price: {
+            price: {//商品の値段
                 type: String,
             },
         },
         data(){
             return {
-                dataProductId: this.productId,
-                dataTitle: this.title,
-                dataGenre: this.genre,
-                dataPrice: this.price,
+                dataProductId: this.productId,//商品id
+                dataTitle: this.title,//商品名
+                dataGenre: this.genre,//商品のジャンル
+                dataPrice: this.price,//商品の値段
             }
         },
         methods: {
-            change(){
+            change(){//別の商品を表示
                 axios.get('/change').then(res => {
                     this.dataProductId=res.data.rand_product.id,
                     this.dataTitle=res.data.rand_product.name,

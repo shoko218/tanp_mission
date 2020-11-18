@@ -1,4 +1,4 @@
-<template>
+<template><!--カタログのイメージ画像選択-->
     <li class="input_parts">
         <label for="img_num">イメージ画像</label>
         <select name="img_num" id="img_num" v-model="selectedImgNum" required>
@@ -24,7 +24,7 @@
         <div class="preview_imgs" v-if="selectedImgNum!=''">
             <p>プレビュー</p>
             <p>
-                <img :src="'/image/catalog_imgs/'+('00000'+selectedImgNum).slice( -5 )+'.jpg'" alt="プレビュー画像">
+                <img :src="'/image/catalog_imgs/'+('00000'+selectedImgNum).slice( -5 )+'.jpg'" alt="プレビュー画像"><!--選んだものがリアルタイムでプレビューされる-->
             </p>
         </div>
     </li>
@@ -33,17 +33,17 @@
 <script>
     export default {
         props: {
-            errMsgs: {
+            errMsgs: {//エラーメッセージ
                 type: Array,
             },
-            oldImgNum: {
+            oldImgNum: {//選択していた画像の番号
                 type: String,
             },
         },
         data(){
             return {
-                dataErrMsgs: this.errMsgs,
-                selectedImgNum: this.oldImgNum,
+                dataErrMsgs: this.errMsgs,//エラーメッセージ
+                selectedImgNum: this.oldImgNum,//選択していた画像の番号
             }
         },
     }
