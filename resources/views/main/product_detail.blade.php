@@ -28,7 +28,7 @@
                 <div class="btns">
                     <button type="submit" form="cart_in" class="cart_btn" onclick="gtag('event','click', {'event_category': 'link','event_label': 'カートイン'});">カートに入れる</button>
                     @if (Auth::check())
-                    <button type="button" class="catalog_in_btn" onclick="location.href='/mypage/original_catalog/select_which_catalog/{{ $product->id }}'">カタログに追加</button>
+                    <button type="button" class="reverse_btn" onclick="location.href='/mypage/original_catalog/select_which_catalog/{{ $product->id }}'">カタログに追加</button>
                     @endif
                 </div>
             </div>

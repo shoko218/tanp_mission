@@ -373,6 +373,13 @@ button:hover,.button:hover{
     opacity:$opacity;
 }
 
+.reverse_btn{
+    background-color: #fff;
+    border: 1px solid $main_color;
+    color: $main_color;
+    text-align: center;
+}
+
 .cart_btn{
     background: url("/image/icons/cart.png") left 3rem top 1.8rem no-repeat;
     background-size: 2.4rem;
@@ -931,12 +938,8 @@ section:last-of-type{
     & .price{
         margin-bottom: $std_my;
     }
-    & .catalog_in_btn{
-        background-color: #fff;
-        border: 1px solid $main_color;
-        color: $main_color;
+    & .reverse_btn{
         width: 30rem;
-        text-align: center;
         margin: 0 auto $std_my;
     }
 }

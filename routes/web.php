@@ -27,6 +27,7 @@ Route::get('/rules',function(){
     return view('main.rules');
 });
 Route::get('/change', 'Main\ChangeController');
+Route::get('/change', 'Main\ChangeController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/search', 'Main\SearchController');
@@ -104,16 +105,18 @@ Route::middleware(['auth'])->group(function () {
         });
 
 
-        Route::middleware('password.confirm')->group(function(){
-            Route::prefix('/register_info')->group(function () {
-                Route::get('/', 'MyPage\Register_info\TopController');
-                Route::get('/edit', 'MyPage\Register_info\EditController');
-                Route::post('/edit_process', 'MyPage\Register_info\EditProcessController');
-                Route::get('/edit_email', 'MyPage\Register_info\EditEmailController');
-                Route::post('/send_mail_to_edit_email_process', 'MyPage\Register_info\SendMailToEditEmailProcessController');
-                Route::get('/edit_pass', 'MyPage\Register_info\EditPassController');
-                Route::post('/edit_pass_process', 'MyPage\Register_info\EditPassProcessController');
-                Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');
+        Route::group(['middleware' => ['test.user.check']], function () {
+            Route::middleware('password.confirm')->group(function(){
+                Route::prefix('/register_info')->group(function () {
+                    Route::get('/', 'MyPage\Register_info\TopController');
+                    Route::get('/edit', 'MyPage\Register_info\EditController');
+                    Route::post('/edit_process', 'MyPage\Register_info\EditProcessController');
+                    Route::get('/edit_email', 'MyPage\Register_info\EditEmailController');
+                    Route::post('/send_mail_to_edit_email_process', 'MyPage\Register_info\SendMailToEditEmailProcessController');
+                    Route::get('/edit_pass', 'MyPage\Register_info\EditPassController');
+                    Route::post('/edit_pass_process', 'MyPage\Register_info\EditPassProcessController');
+                    Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');
+                });
             });
         });
     });

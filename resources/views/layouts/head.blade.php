@@ -22,4 +22,5 @@ if(env('APP_ENV')==='production'){
 <script src="https://unpkg.com/vuejs-paginate@latest"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta http-equiv="content-language" content="ja">
 @endsection

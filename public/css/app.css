@@ -11143,6 +11143,13 @@ button:hover,
   opacity: 0.7;
 }
 
+.reverse_btn {
+  background-color: #fff;
+  border: 1px solid #ff9999;
+  color: #ff9999;
+  text-align: center;
+}
+
 .cart_btn {
   background: url("/image/icons/cart.png") left 3rem top 1.8rem no-repeat;
   background-size: 2.4rem;
@@ -11702,12 +11709,8 @@ section:last-of-type {
   margin-bottom: 3rem;
 }
 
-#product_explanation .catalog_in_btn {
-  background-color: #fff;
-  border: 1px solid #ff9999;
-  color: #ff9999;
+#product_explanation .reverse_btn {
   width: 30rem;
-  text-align: center;
   margin: 0 auto 3rem;
 }
 

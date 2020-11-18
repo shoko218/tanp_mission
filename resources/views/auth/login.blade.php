@@ -37,6 +37,14 @@
             <button type="submit">ログイン</button>
         </div>
     </form>
+    <form method="POST" action="{{ route('login') }}" class="input_form">
+        @csrf
+        <input id="email" type="hidden" name="email" value="test@example.com" required>
+        <input id="password" type="hidden" name="password" value="test870923" required>
+        <div class="btns">
+            <button type="submit" class="reverse_btn">テストアカウントで<br>ログイン</button>
+        </div>
+    </form>
     <ul class="login_nav">
         <li>
             <a href="{{ route('password.request') }}">パスワードをお忘れですか?</a>
