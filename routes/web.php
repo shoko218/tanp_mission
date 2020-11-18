@@ -47,10 +47,12 @@ Route::prefix('/cart')->group(function () {
 });
 Route::prefix('/purchase')->group(function () {
     Route::get('/fillin_info', 'Main\Purchase\FillinInfoController');
-    Route::post('/fillin_lover_info', 'Main\Purchase\FillinLoverInfoController');
     Route::post('/register_to_session', 'Main\Purchase\RegisterInfoToSessionController');
     Route::get('/payment','Main\Purchase\PaymentController');
     Route::post('/payment_process','Main\Purchase\PaymentProcessController');
+    Route::middleware(['auth'])->group(function () {
+        Route::post('/fillin_lover_info', 'Main\Purchase\FillinLoverInfoController');
+    });
 });
 
 Route::get('/logout',function(){

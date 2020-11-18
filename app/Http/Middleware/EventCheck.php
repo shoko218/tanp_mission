@@ -20,10 +20,10 @@ class EventCheck
         if($request->event_id!=null){
             $event=Event::find($request->event_id);
             if($event==null||Auth::user()->id!=$event->lover->user_id){
-                return back()->with('err_msg','エラーが発生しました。');
+                return redirect('/mypage/reminder')->with('err_msg','エラーが発生しました。');
             }
         }else{
-            return back()->with('err_msg','エラーが発生しました。');
+            return redirect('/mypage/reminder')->with('err_msg','エラーが発生しました。');
         }
         return $next($request);
     }
