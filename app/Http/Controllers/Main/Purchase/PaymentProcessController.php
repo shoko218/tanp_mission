@@ -97,7 +97,7 @@ class PaymentProcessController extends Controller
             return redirect()->back()->with('err_msg', 'エラーが発生しました。');
         }
         $order_logs=Order_log::where('order_id','=',$order->id)->get();
-        Mail::to($order->user_email)->send(new BoughtMail($order,$order_logs,$request->sum_price));
+        Mail::to($order->user_email)->send(new BoughtMail($order,$order_logs,$price));
 
         session()->forget('forwarding_last_name');//セッション情報の削除
         session()->forget('forwarding_first_name');

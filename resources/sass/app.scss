@@ -1277,6 +1277,9 @@ section:last-of-type{
     &>p{
         text-align: left;
     }
+    .od_cards{
+        border-top: 0.1rem solid $area_border_c;
+    }
 }
 
 button.stripe-button-el,
@@ -1752,6 +1755,13 @@ button.stripe-button-el{
     }
     .fillin_form_div{
         width: $form_mxwsz;
+    }
+
+//支払情報フォーム
+    #payment{
+        .od_cards{
+            border-top: none;
+        }
     }
 //オリジナルカタログ
     .oc_card{

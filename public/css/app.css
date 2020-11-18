@@ -12002,6 +12002,10 @@ section:last-of-type {
   text-align: left;
 }
 
+#payment .od_cards {
+  border-top: 0.1rem solid #cccccc;
+}
+
 button.stripe-button-el,
 button.stripe-button-el > span {
   background-color: #ff9999 !important;
@@ -12489,6 +12493,10 @@ button.stripe-button-el {
 
   .fillin_form_div {
     width: 28rem;
+  }
+
+  #payment .od_cards {
+    border-top: none;
   }
 
   .oc_card {
