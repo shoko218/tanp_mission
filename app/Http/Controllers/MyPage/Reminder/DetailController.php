@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class DetailController extends Controller
 {
-    public function __invoke($event_id)
+    public function __invoke($event_id)//イベントの詳細を取得
     {
-        $event=Event::find($event_id);
+        $event=Event::find($event_id);//イベントまでの残り日数計算
         $to=new DateTime($event->date);
         $from=new DateTime();
         $from=date_create('today');

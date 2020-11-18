@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class TopController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//イベントトップページを表示
     {
         $user_id=Auth::user()->id;
         $events=Event::join('lovers', 'lover_id', '=', 'lovers.id')

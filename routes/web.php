@@ -65,13 +65,17 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/reminder')->group(function () {
             Route::get('/', 'MyPage\Reminder\TopController');
             Route::get('/register', 'MyPage\Reminder\RegisterController');
-            Route::post('/register', 'MyPage\Reminder\PostRegisterController');
-            Route::post('/register_process','MyPage\Reminder\RegisterProcessController');
-            Route::post('/edit_process', 'MyPage\Reminder\EditProcessController');
-            Route::post('/delete_process','MyPage\Reminder\DeleteProcessController');
+            Route::group(['middleware' => ['lover.check']], function () {
+                Route::post('/register_process','MyPage\Reminder\RegisterProcessController');
+                Route::post('/register', 'MyPage\Reminder\PostRegisterController');
+            });
             Route::group(['middleware' => ['event.check']], function () {
-                Route::get('/{event_id}/edit', 'MyPage\Reminder\EditController');
+                Route::group(['middleware' => ['lover.check']], function () {
+                    Route::post('/edit_process', 'MyPage\Reminder\EditProcessController');
+                });
                 Route::get('/{event_id}', 'MyPage\Reminder\DetailController');
+                Route::get('/{event_id}/edit', 'MyPage\Reminder\EditController');
+                Route::post('/delete_process','MyPage\Reminder\DeleteProcessController');
             });
         });
         Route::prefix('/lovers')->group(function () {

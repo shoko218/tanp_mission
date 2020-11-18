@@ -11955,7 +11955,8 @@ section:last-of-type {
 }
 
 #reminder_detail .alert {
-  margin-top: 3rem;
+  margin: 3rem 2rem;
+  width: auto;
 }
 
 #reminder_detail_img {

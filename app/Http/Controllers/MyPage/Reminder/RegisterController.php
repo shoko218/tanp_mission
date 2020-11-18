@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    public function __invoke()
+    public function __invoke()//イベント登録画面を表示
     {
         $user_id=Auth::user()->id;
         $lovers = Lover::select('last_name','first_name','lovers.id')

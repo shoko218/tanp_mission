@@ -1228,7 +1228,8 @@ section:last-of-type{
 ////////////////////////////////////////////////////////////////
 #reminder_detail{
     .alert{
-        margin-top: $std_my;
+        margin: $std_my $std_mx;
+        width: auto;
     }
     &_img{
         width: 100%;
