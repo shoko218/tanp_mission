@@ -18,7 +18,7 @@
 </div>
 <h1>ご注文情報の確認</h1>
 <div id="orders">
-    <div id="od_cards">
+    <div class="od_cards">
         @if (Auth::check())
             @foreach ($cart_goods as $cart_good)
             @include('components.confirm_product_card',['product_id'=>$cart_good->product->id,'title'=>$cart_good->product->name,'genre'=>$cart_good->product->genre->name,'price'=>$cart_good->product->price,'count'=>$cart_good->count])

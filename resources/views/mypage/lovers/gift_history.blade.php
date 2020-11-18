@@ -13,7 +13,7 @@
         <h1>{{ $name }}さんにいままであげたもの</h1>
         @if (!$order_logs->isEmpty())
         <div id="orders">
-            <div id="od_cards">
+            <div class="od_cards">
                 @foreach ($order_logs as $order_log)
                 @include('components.order_card',['product_id'=>$order_log->product_id,'title'=>$order_log->product->name,'date'=>$order_log->created_at,'person'=>$order_log->order->forwarding_last_name.$order_log->order->forwarding_first_name,'count'=>$order_log->count])
                 @endforeach

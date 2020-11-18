@@ -1720,7 +1720,7 @@ button.stripe-button-el{
         }
     }
 
-//お気に入り
+//カート
     #cart{
         .od_cards{
             border-top:  none;
@@ -1928,6 +1928,13 @@ button.stripe-button-el{
 
     #gift_history{
         #od_cards{
+            border-top: none;
+        }
+    }
+
+    //お気に入り
+    #favorites{
+        .oc_cards{
             border-top: none;
         }
     }

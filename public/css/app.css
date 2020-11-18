@@ -12679,5 +12679,9 @@ button.stripe-button-el {
   #gift_history #od_cards {
     border-top: none;
   }
+
+  #favorites .oc_cards {
+    border-top: none;
+  }
 }
 

@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-else id="od_cards">
+                <div v-else class="od_cards">
                     <div v-for="(dataProduct,i) in dataProducts" :key="dataProduct.id" class="product_card">
                         <a :href="'/product?id='+dataProduct.id">
                             <img :src="'/image/products/'+('00000'+dataProduct.id).slice( -5 )+'.jpg'" :alt="dataProduct.title" class="product_card_img">
