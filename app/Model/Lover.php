@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lover extends Model
 {
-    protected $guarded = ['id','user_id','created_at','updated_at'];
+    protected $guarded = ['id','user_id','created_at','updated_at','img_path'];
 
     public static $rules=array(
         'last_name'=>['required', 'string', 'max:32'],

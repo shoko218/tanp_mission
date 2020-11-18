@@ -11716,6 +11716,10 @@ section:last-of-type {
   padding: 0 1.6rem 3rem;
 }
 
+#cart .od_cards {
+  border-top: 0.1rem solid #cccccc;
+}
+
 .event_card {
   display: flex;
   width: 100%;
@@ -12450,7 +12454,8 @@ button.stripe-button-el {
     width: 100%;
   }
 
-  #od_cards {
+  #cart .od_cards {
+    border-top: none;
     display: flex;
     flex-wrap: wrap;
   }
@@ -12464,7 +12469,7 @@ button.stripe-button-el {
     padding: 3rem;
   }
 
-  #od_cards {
+  .od_cards {
     display: flex;
     flex-wrap: wrap;
   }

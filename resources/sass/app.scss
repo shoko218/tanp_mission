@@ -946,6 +946,17 @@ section:last-of-type{
     padding: 0 $std_px $std_py;
 }
 
+//↓カート///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+#cart{
+    .od_cards{
+        border-top: 0.1rem solid $area_border_c;
+    }
+}
+
 
 
 //↓イベントリマインダー///////////////////////////////////////////////
@@ -1706,9 +1717,12 @@ button.stripe-button-el{
     }
 
 //お気に入り
-    #od_cards{
-        display: flex;
-        flex-wrap: wrap;
+    #cart{
+        .od_cards{
+            border-top:  none;
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 //オリジナルカタログお届け画面
     .oc_product_cards{
@@ -1720,7 +1734,7 @@ button.stripe-button-el{
         padding: $std_py;
     }
 //カート
-    #od_cards{
+    .od_cards{
         display: flex;
         flex-wrap: wrap;
     }

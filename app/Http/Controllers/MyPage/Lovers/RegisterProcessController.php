@@ -27,7 +27,8 @@ class RegisterProcessController extends Controller
                 $image->fit(480,480,function($constraint){//リサイズ
                     $constraint->upsize();
                 });
-                $lover->update(['img_path'=>$file_name.'.jpg']);
+                $lover->img_path=$file_name.'.jpg';
+                $lover->save();
                 if (env('APP_ENV') === 'production') {
                     Storage::disk('s3')->put('/lover_imgs/'.$file_name.'.jpg',(string)$image->encode(),'public');
                 }else{

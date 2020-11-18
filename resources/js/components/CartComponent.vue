@@ -6,7 +6,7 @@
         </div>
         <div v-if="dataCartGoods.length>0||dataProducts.length>0">
             <div id="orders">
-                <div v-if="dataCartGoods.length > 0" id="od_cards">
+                <div v-if="dataCartGoods.length > 0" class="od_cards">
                     <div v-for="dataProduct in dataCartGoods" :key="dataProduct.id" class="product_card">
                         <a :href="'/product?id='+dataProduct.product.id">
                             <img :src="'/image/products/'+('00000'+dataProduct.product.id).slice( -5 )+'.jpg'" :alt="dataProduct.title" class="product_card_img">

@@ -13,7 +13,10 @@ class ProductFavoriteController extends Controller
         $user_id=Auth::user()->id;
         $favorited=Favorite::where('product_id',$request->product_id)->where('user_id',$user_id)->first();//既にいいねをしているか調べる
         if($favorited==null){//していなければレコードを作る
-            Favorite::create(['user_id'=>$user_id,'product_id'=>$request->product_id]);
+            $fav=new Favorite();
+            $fav->user_id=$user_id;
+            $fav->product_id=$request->product_id;
+            $fav->save();
             $is_fav=true;
         }else{//していれば削除する
             $favorited->delete();

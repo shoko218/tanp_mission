@@ -20,7 +20,10 @@ class CartInController extends Controller
                 if ($target!=null) {//入っていれば(=2個目以降)該当レコードの個数フィールドの値を+1
                     $target->update(['count'=>$target->count+1]);
                 } else {//入っていなければ(=1個目)DBに新規レコードを作成
-                    Cart::create(['user_id'=>$user_id,'product_id'=>$request->product_id,'count'=>'1']);
+                    $cart=new Cart();
+                    $cart->user_id=$user_id;
+                    $cart->product_id=$request->product_id;
+                    $cart->save();
                 }
             } catch (\Throwable $th) {
                 return back()->with('err_msg','エラーが発生しました。時間を開けて再度お試しください。');

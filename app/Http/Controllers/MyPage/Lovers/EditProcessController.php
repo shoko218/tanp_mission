@@ -25,8 +25,8 @@ class EditProcessController extends Controller
                     $constraint->upsize();
                 });
                 $old_path=$lover->img_path;
-                $lover->update(['img_path'=>$file_name.'.jpg']);
-
+                $lover->img_path=$file_name.'.jpg';
+                $lover->save();
                 if (env('APP_ENV') === 'production') {
                     Storage::disk('s3')->put('/lover_imgs/'.$file_name.'.jpg',(string)$image->encode(),'public');
                     if($old_path!=null){
