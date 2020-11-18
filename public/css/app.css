@@ -12262,7 +12262,7 @@ button.stripe-button-el {
 }
 
 #original_catalog_select .rc_cards {
-  border-top: 1px solid #cccccc;
+  border-bottom: none;
 }
 
 .preview_imgs {

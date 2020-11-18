@@ -11,6 +11,9 @@ class DeleteProcessController extends Controller
     public function __invoke(Request $request){
         try {
             $catalog=Catalog::find($request->catalog_id);
+            if($catalog->did_send_mail){
+                return redirect('mypage/original_catalog')->with('err_msg','既に相手に送っているカタログは削除できません。');
+            }
             $catalog->delete();
             return redirect('mypage/original_catalog')->with('suc_msg','削除しました。');
         } catch (\Throwable $th) {
