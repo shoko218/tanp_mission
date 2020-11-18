@@ -13,7 +13,7 @@ class SelectProductDetailController extends Controller
     public function __invoke(Request $request,$url_str)//カタログ受取人用の商品詳細画面を表示
     {
         $catalog=Catalog::select('*')->where('url_str','=',$url_str)->first();
-        if($catalog==null||$request->product_id==null){
+        if($catalog==null){
             return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
         }
         if ($catalog->selected_id==null) {//まだカタログの商品を選んでいないか確認
