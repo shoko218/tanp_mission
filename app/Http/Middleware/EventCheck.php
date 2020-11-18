@@ -15,7 +15,7 @@ class EventCheck
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next)//イベントが指定されているか、イベントが実在のものか、ユーザーのイベントかを確認
     {
         if($request->event_id!=null){
             $event=Event::find($request->event_id);
