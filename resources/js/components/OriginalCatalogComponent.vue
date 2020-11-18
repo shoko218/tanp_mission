@@ -8,9 +8,7 @@
         <div class="oc_cards" v-if="result.length!==0">
             <div v-for="catalog in result" :key="catalog.id" class="oc_card">
                 <a :href="'/mypage/original_catalog/'+catalog.id">
-                    <p>
-                        <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.jpg'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img">
-                    </p>
+                    <img :src="'/image/catalog_imgs/'+('00000'+catalog.img_num).slice( -5 )+'.jpg'" :alt="catalog.name+'さんへのギフトカタログのイメージ画像'" class="oc_img">
                     <div class="oc_detail">
                         <h3>{{ catalog.name }}さんへの<br>ギフトカタログ</h3>
                     </div>
