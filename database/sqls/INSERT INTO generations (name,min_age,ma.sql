@@ -1,5 +1,5 @@
 INSERT INTO generations (name,min_age,max_age) VALUES
-('10際未満',0,9),
+('10才未満',0,9),
 ('10代',10,19),
 ('20代',20,29),
 ('30代',30,39),
