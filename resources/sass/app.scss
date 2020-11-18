@@ -1636,7 +1636,7 @@ button.stripe-button-el{
     .rc_cards{
         display: flex;
         flex-wrap: wrap;
-        border-bottom: 1px solid $area_border_c;
+        border-top: none;
     }
     .product_card{
         display: flex;

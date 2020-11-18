@@ -12365,7 +12365,7 @@ button.stripe-button-el {
   .rc_cards {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid #cccccc;
+    border-top: none;
   }
 
   .product_card {

@@ -12,6 +12,9 @@ class DetailController extends Controller
     public function __invoke($catalog_id)//カタログの詳細を表示
     {
         $catalog=Catalog::find($catalog_id);
+        if($catalog->did_send_mail){
+            return redirect('mypage/original_catalog')->with('err_msg','既に相手に送っているカタログは編集できません。');
+        }
         if($catalog->selected_id!=null){
             $selected=Product::find($catalog->selected_id);
         }else{
