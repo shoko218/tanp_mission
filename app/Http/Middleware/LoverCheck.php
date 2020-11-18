@@ -15,11 +15,15 @@ class LoverCheck
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next)//大切な人idが指定されているか、大切な人が存在しているか、ユーザーの大切な人かを確認
     {
-        $lover=Lover::find($request->lover_id);//ユーザーが登録した大切な人か確認する
-        if($lover==null||Auth::user()->id!=$lover->user_id){
-            return redirect('/mypage/lovers/')->with('err_msg','エラーが発生しました。');
+        if($request->lover_id!=null){
+            $lover=Lover::find($request->lover_id);
+            if($lover==null||$lover->user_id!=Auth::user()->id){
+                return back()->with('err_msg','エラーが発生しました。');
+            }
+        }else{
+            return back()->with('err_msg','エラーが発生しました。');
         }
         return $next($request);
     }

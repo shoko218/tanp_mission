@@ -12,17 +12,10 @@ use Illuminate\Support\Facades\Storage;
 class EditProcessController extends Controller
 {
     public function __invoke(Request $request){
-        if($request->lover_id!=null){
-            $lover=Lover::find($request->lover_id);
-            if($lover==null||$lover->user_id!=Auth::user()->id){
-                return back()->with('err_msg','エラーが発生しました。');
-            }
-        }else{
-            return back()->with('err_msg','エラーが発生しました。');
-        }
         $this->validate($request,Lover::$rules);
         DB::beginTransaction();
         try {
+            $lover=Lover::find($request->lover_id);
             $lover->fill($request->except(['lover_id','image']))->save();
             if($request->file('image')!=null){
                 $file_name = uniqid(rand());//ランダムなファイル名を作成

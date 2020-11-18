@@ -75,14 +75,14 @@ Route::middleware(['auth'])->group(function () {
         });
         Route::prefix('/lovers')->group(function () {
             Route::get('/', 'MyPage\Lovers\TopController');
-            Route::post('/edit_process','MyPage\Lovers\EditProcessController');
             Route::get('/register', 'MyPage\Lovers\RegisterController');
             Route::post('/register_process','MyPage\Lovers\RegisterProcessController');
-            Route::post('/delete_process','MyPage\Lovers\DeleteProcessController');
             Route::group(['middleware' => ['lover.check']], function () {
                 Route::get('/{lover_id}/gift_history', 'MyPage\Lovers\GiftHistoryController');
                 Route::get('/{lover_id}/edit', 'MyPage\Lovers\EditController');
                 Route::get('/{lover_id}', 'MyPage\Lovers\DetailController');
+                Route::post('/edit_process','MyPage\Lovers\EditProcessController');
+                Route::post('/delete_process','MyPage\Lovers\DeleteProcessController');
             });
         });
 
