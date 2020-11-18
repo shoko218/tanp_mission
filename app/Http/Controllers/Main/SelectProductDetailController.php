@@ -26,7 +26,7 @@ class SelectProductDetailController extends Controller
                 $catalog_product_ids[]=(string)$catalog_product->product_id;
             }
             if (!in_array($request->input('id'), $catalog_product_ids, true)) {//カタログの中にある商品か確認
-                return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
+                return redirect('/select_product/'.$url_str)->with('err_msg','エラーが発生しました。');
             }
             $product=Product::where('id', $request->input('id'))->first();
             $param=['product'=>$product,'url_str'=>$url_str];
