@@ -17,6 +17,7 @@ use App\Model\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BoughtMail;
+use Illuminate\Support\Facades\Log;
 
 class PaymentProcessController extends Controller
 {
@@ -49,10 +50,11 @@ class PaymentProcessController extends Controller
             }
             $order->save();
 
-            $order_log=new Order_log;
             if (Auth::check()) {//注文情報(注文idと商品と個数)作成
                 $cart_goods=BaseClass::getProductsFromDBCart();
+                Log::info($cart_goods);
                 foreach ($cart_goods as $cart_good) {
+                    $order_log=new Order_log;
                     $order_log->order_id=$order->id;
                     $order_log->product_id=$cart_good->product_id;
                     $order_log->count=$cart_good->count;
@@ -60,7 +62,10 @@ class PaymentProcessController extends Controller
                 }
             } else {
                 list($products,$product_count)=BaseClass::getProductsFromCookieCart();
+                Log::info($products);
+                Log::info($product_count);
                 foreach ($products as $key => $product) {
+                    $order_log=new Order_log;
                     $order_log->order_id=$order->id;
                     $order_log->product_id=$product->id;
                     $order_log->count=$product_count[$key];
