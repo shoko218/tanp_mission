@@ -13,7 +13,11 @@
     @include('components.msgs')
     <section id="banner">
         <a href="{{ config('constant.domain') }}/result?_token=0hNWNgMMY274yxNkans2NKjteMh6XuMfZpjTYato&target_scene_id=4&target_relationship_id=&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
-            <img src="/image/banner_imgs/banner02.png" alt="バナー画像" id="banner_img">
+            @if (env('APP_ENV') === 'production')
+                <img src="{{ Storage::disk('s3')->url('banner_imgs/banner01.jpg')}}" alt="バナー画像" id="banner_img">
+            @else
+                <img src="/image/banner_imgs/banner02.png" alt="バナー画像" id="banner_img">
+            @endif
         </a>
     </section>
     <section id="search_area">
