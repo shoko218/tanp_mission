@@ -15,26 +15,26 @@
         </div>
     </header>
     <nav id="hb_menu" class="hb_menu_close">
-        @if (Auth::check())
-            <p>こんにちは、{{ Auth::user()->last_name.Auth::user()->first_name }}さん</p>
-            <ul>
-                <li><a href="/">トップページ</a></li>
-                <li><a href="/mypage/order_history">注文履歴</a></li>
-                <li><a href="/mypage/reminder">イベントリマインダー</a></li>
-                <li><a href="/mypage/lovers">大切な人リスト</a></li>
-                <li><a href="/mypage/favorite">お気に入り</a></li>
-                <li><a href="/mypage/original_catalog">オリジナルカタログ</a></li>
-                <li><a href="/mypage/register_info">登録確認/修正/退会</a></li>
-                <li><a href="/logout">ログアウト</a></li>
-            </ul>
-        @else
-            <p>こんにちは、ゲストさん</p>
-            <ul>
-                <li><a href="/">トップページ</a></li>
-                <li><a href="/login">ログイン</a></li>
-                <li><a href="/register">新規登録</a></li>
-            </ul>
-        @endif
+            @if (Auth::check())
+                <p>こんにちは、{{ Auth::user()->last_name.Auth::user()->first_name }}さん</p>
+                <ul>
+                    <li><a href="/">トップページ</a></li>
+                    <li><a href="/mypage/order_history">注文履歴</a></li>
+                    <li><a href="/mypage/reminder">イベントリマインダー</a></li>
+                    <li><a href="/mypage/lovers">大切な人リスト</a></li>
+                    <li><a href="/mypage/favorite">お気に入り</a></li>
+                    <li><a href="/mypage/original_catalog">オリジナルカタログ</a></li>
+                    <li><a href="/mypage/register_info">登録確認/修正/退会</a></li>
+                    <li><a href="/logout">ログアウト</a></li>
+                </ul>
+            @else
+                <p>こんにちは、ゲストさん</p>
+                <ul>
+                    <li><a href="/">トップページ</a></li>
+                    <li><a href="/login">ログイン</a></li>
+                    <li><a href="/register">新規登録</a></li>
+                </ul>
+            @endif
     </nav>
     <div id="darker"></div>
 @endsection

@@ -285,13 +285,12 @@ header{
 }
 
 #hb_menu{
-    background: #fff;
     position: fixed;
     width: 70%;
     height: 100%;
-    top: $header_hsz;
     z-index: 998;
     transition: 0.5s;
+    background: #fff;
     padding: $hb_menu_py $hb_menu_px;
     & p{
         font-size: 2.2rem;
@@ -309,10 +308,12 @@ header{
 }
 
 .hb_menu_close{
+    top: $header_hsz;
     left: -70%;
 }
 
 .hb_menu_open{
+    top: $header_hsz;
     left: 0;
 }
 
@@ -1627,6 +1628,25 @@ button.stripe-button-el{
     }
 }
 @media screen and (min-width:960px) {
+    #hb_menu{
+        width: 960px;
+        height: auto;
+        top:auto;
+        bottom: calc(100% - 5.6rem);
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: $hb_menu_py;
+    }
+
+    .hb_menu_close{
+        transform: translateY(0);
+    }
+
+    .hb_menu_open{
+        transform: translateY(100%);
+    }
+
     #contents{
         width: 80%;
         max-width: 86rem;
