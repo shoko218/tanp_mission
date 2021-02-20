@@ -1,79 +1,11 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-$main_color:#ff9999;
-
-// $wrap_bgc:#f5f5f5;
-$wrap_bgc:#fff;
-$header_bgc:$main_color;
-$contents_bgc:#ffffff;
-$footer_bgc:#f5f5f5;
-
-$font_c:#333333;
-
-$area_border_c:#cccccc;
-
-$header_hsz:5.6rem;
-$header_px:1.6rem;
-
-$search_area_px:1rem;
-$search_area_py:2rem;
-
-$search_bar_wsz:32rem;
-$search_bar_hsz:5.2rem;
-$search_bar_px:2rem;
-$search_bar_py:1.8rem;
-
-$h1_fz:2.6rem;
-$h2_fz:2.2rem;
-$h3_fz:2.0rem;
-$h4_fz:1.8rem;
-$h5_fz:1.6rem;
-$h6_fz:1.4rem;
-$normal_fz:1.4rem;
-$small_fz:1.2rem;
-
-$form_wsz:85%;
-$form_mxwsz:28rem;
-
-$input_fz:1.6rem;
-$input_hsz:3.6rem;
-$input_py:($input_hsz - $input_fz)/4;
-$input_px:$input_py*2;
-$input_rsz:0.6rem;
-
-$form_parts_my:2rem;
-
-$btn_fz:1.6rem;
-$btn_hsz:4rem;
-$btn_rs:$btn_hsz;
-$btn_py:0.6rem;
-$btn_px:2rem;
-$btn_my:2rem;
-$btn_wsz:24rem;
-
-$opacity:0.7;
-
-$std_my:3rem;
-$std_mx:2rem;
-$std_py:3rem;
-$std_px:1.6rem;
-
-$section_my:3rem;
-
-$hb_menu_py:1.8rem;
-$hb_menu_px:0.8rem;
-
-$clear_btn_wsz:3rem;
-$clear_btn_hsz:3rem;
-
-$card_img:50%;
 
 html{
     font-size: 62.5%;
@@ -84,7 +16,7 @@ html,body{
 }
 
 body{
-    font-family: 'TsukuARdGothic-Regular',sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     position: relative;
     color: $font_c;
 }
