@@ -36,5 +36,5 @@
                 </ul>
             @endif
     </nav>
-    <div id="darker"></div>
+    <div id="darker" class="darker_invisible"></div>
 @endsection

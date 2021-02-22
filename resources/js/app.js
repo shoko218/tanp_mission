@@ -80,13 +80,13 @@ window.onload = function onload(){
         if(hb_btn.classList.contains("open")){
             hb_btn.className = "";
             hb_menu.className="hb_menu_close";
-            cover.style.visibility="hidden";
+            cover.className="darker_invisible";
             hb_btn_img.setAttribute('src','/image/icons/menu.png');
             $('html').removeClass('scroll-prevent');
         }else{
             hb_btn.className = "open";
             hb_menu.className="hb_menu_open";
-            cover.style.visibility="visible";
+            cover.className="darker_visible";
             hb_btn_img.setAttribute('src','/image/icons/x.png');
             $('html').addClass('scroll-prevent');
         }
@@ -94,7 +94,7 @@ window.onload = function onload(){
     cover.addEventListener("click", function() {
         hb_btn.className = "";
         hb_menu.className="hb_menu_close";
-        cover.style.visibility="hidden";
+        cover.className="darker_invisible";
         hb_btn_img.setAttribute('src','/image/icons/menu.png');
         $('html').removeClass('scroll-prevent');
     });
