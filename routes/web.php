@@ -15,10 +15,6 @@ if (env('APP_ENV') === 'production') {
     URL::forceScheme('https');
 }
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes(['verify' => false]);
 // Auth::routes(['verify' => true]);
 
@@ -27,7 +23,7 @@ Route::get('/rules',function(){
     return view('main.rules');
 });
 Route::get('/change', 'Main\ChangeController');
-Route::get('/change', 'Main\ChangeController');
+Route::get('/make_result_url','Main\MakeResultUrlController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/search', 'Main\SearchController');
