@@ -12,7 +12,7 @@
 <div id="index">
     @include('components.msgs')
     <section id="banner">
-        <a href="{{ config('constant.domain') }}/result?_token=Nu38QubRDzNNJBiO0yztgGbDJhsrcEdaIxlkgWHD&target_scene_id=5&target_relationship_id=&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
+        <a href="{{ config('constant.domain') }}/make_result_url?target_scene_id=5&target_relationship_id=&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
             @if (env('APP_ENV') === 'production')
                 <img src="{{ Storage::disk('s3')->url('banner_imgs/banner01.jpg')}}" alt="バナー画像" id="banner_img">
             @else
@@ -31,7 +31,7 @@
             @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
             @endforeach
         </div>
-        <form action="/result" id="popularity_search" method="get">
+        <form action="/make_result_url" id="popularity_search" method="get">
             @csrf
             <input type="hidden" name="target_generation_id" value="3">
             <input type="hidden" name="sort_by" value="1">
@@ -47,7 +47,7 @@
             @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
             @endforeach
         </div>
-        <form action="/result" id="season_popularity_search" method="get">
+        <form action="/make_result_url" id="season_popularity_search" method="get">
             @csrf
             <input type="hidden" name="target_genre_id" value="1">
             <input type="hidden" name="sort_by" value="1">

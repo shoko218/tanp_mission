@@ -1,4 +1,4 @@
-<form action="/result" class="search_form" method="get">
+<form action="/make_result_url" class="search_form" method="get">
     @csrf
     <ul id="inputs" class="inputs">
         <li class="input_parts">
