@@ -12,9 +12,9 @@
 <div id="index">
     @include('components.msgs')
     <section id="banner">
-        <a href="{{ config('constant.domain') }}/make_result_url?target_scene_id=5&target_relationship_id=&target_genre_id=&target_gender=&target_generation_id=&sort_by=0&keyword=">
+        <a href="{{ config('constant.domain') }}/result?target_scene_id=12&sort_by=0">
             @if (env('APP_ENV') === 'production')
-                <img src="{{ Storage::disk('s3')->url('banner_imgs/banner01.jpg')}}" alt="バナー画像" id="banner_img">
+                <img src="{{ Storage::disk('s3')->url('banner_imgs/banner.jpg')}}" alt="バナー画像" id="banner_img">
             @else
                 <img src="/image/banner_imgs/banner01.jpg" alt="バナー画像" id="banner_img">
             @endif
