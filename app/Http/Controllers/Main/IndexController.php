@@ -16,19 +16,19 @@ class IndexController extends Controller
 {
     public function __invoke()//トップぺージ表示
     {
-        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,3,0,3);//今は20代人気ランキング
+        $popularityRanks = BaseClass::searchProducts(null, null, null, null, null, 3, 0, 3);//今は20代人気ランキング
 
-        $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);//今はグルメプレゼントランキング
+        $seasonRanks = BaseClass::searchProducts(null, null, 1, null, null, null, 1, 3);//今はグルメプレゼントランキング
 
-        $rand_product=Product::where('id','=',rand(1,Product::count()))->first();
+        $rand_product = Product::where('id', '=', rand(1, Product::count()))->first();
 
-        $scenes=Scene::all();
-        $genres=Genre::all();
-        $relationships=Relationship::all();
-        $generations=Generation::all();
+        $scenes = Scene::all();
+        $genres = Genre::all();
+        $relationships = Relationship::all();
+        $generations = Generation::all();
 
-        $param=['popularityRanks'=>$popularityRanks,'seasonRanks'=>$seasonRanks,'scenes'=>$scenes,'genres'=>$genres,'relationships'=>$relationships,'generations'=>$generations,'rand_product'=>$rand_product];
+        $param = ['popularityRanks' => $popularityRanks,'seasonRanks' => $seasonRanks,'scenes' => $scenes,'genres' => $genres,'relationships' => $relationships,'generations' => $generations,'rand_product' => $rand_product];
 
-        return view('main.index',$param);
+        return view('main.index', $param);
     }
 }

@@ -10,8 +10,8 @@ class EditController extends Controller
 {
     public function __invoke()
     {
-        $prefectures = Prefecture::select('id','name')->get();
-        $param=['prefectures'=>$prefectures];
+        $prefectures = Prefecture::select('id', 'name')->get();
+        $param = ['prefectures' => $prefectures];
         return view('mypage.register_info.edit', $param);
     }
 }

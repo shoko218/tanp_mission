@@ -16,8 +16,8 @@ class TestUserCheck
      */
     public function handle($request, Closure $next)//テストユーザーではないかを確認
     {
-        if(Auth::user()->email=='test@example.com'){
-            return redirect('/msg')->with('title','エラー')->with('msg','テストアカウントは編集・削除できません。');
+        if (Auth::user()->email == 'test@example.com') {
+            return redirect('/msg')->with('title', 'エラー')->with('msg', 'テストアカウントは編集・削除できません。');
         }
         return $next($request);
     }

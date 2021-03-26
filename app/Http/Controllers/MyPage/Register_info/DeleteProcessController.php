@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class DeleteProcessController extends Controller
 {
-    public function __invoke(Request $request){
+    public function __invoke(Request $request)
+    {
         User::find(Auth::user()->id)->delete();
-        return redirect('/msg')->with('title','退会処理完了')->with('msg','退会処理が完了しました。');
+        return redirect('/msg')->with('title', '退会処理完了')->with('msg', '退会処理が完了しました。');
     }
 }

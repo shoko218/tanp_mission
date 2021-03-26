@@ -12,6 +12,6 @@ class PostRegisterController extends Controller
 {
     public function __invoke(Request $request)//大切な人画面からイベントを登録する
     {
-        return redirect('/mypage/reminder/register')->with('selected_lover_id',$request->lover_id);
+        return redirect('/mypage/reminder/register')->with('selected_lover_id', $request->lover_id);
     }
 }

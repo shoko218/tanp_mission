@@ -10,7 +10,7 @@ use App\User;
 
 class EditEmailProcessController extends Controller
 {
-    public function __invoke(Request $request,$token)
+    public function __invoke(Request $request, $token)
     {
         $email_resets = DB::table('email_resets')
             ->where('token', $token)
@@ -18,7 +18,6 @@ class EditEmailProcessController extends Controller
 
         $expires = 60 * 60;
         if ($email_resets && !Carbon::parse($email_resets->created_at)->addSeconds($expires)->isPast()) {
-
             $user = User::find($email_resets->user_id);
             $user->email = $email_resets->new_email;
             $user->save();

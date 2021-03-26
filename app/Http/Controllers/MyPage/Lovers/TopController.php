@@ -11,9 +11,9 @@ class TopController extends Controller
 {
     public function __invoke()//大切な人一覧表示
     {
-        $user_id=Auth::user()->id;
-        $lovers = Lover::where('user_id',$user_id)->get();
-        $param=['lovers'=>$lovers];
-        return view('mypage.lovers.top',$param);
+        $user_id = Auth::user()->id;
+        $lovers = Lover::where('user_id', $user_id)->get();
+        $param = ['lovers' => $lovers];
+        return view('mypage.lovers.top', $param);
     }
 }

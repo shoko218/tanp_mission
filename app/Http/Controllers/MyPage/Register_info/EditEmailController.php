@@ -9,5 +9,6 @@ class EditEmailController extends Controller
 {
     public function __invoke(Request $request){
         return view('mypage.register_info.edit_email');
+
     }
 }

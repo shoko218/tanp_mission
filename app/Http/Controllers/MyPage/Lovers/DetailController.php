@@ -14,13 +14,13 @@ class DetailController extends Controller
 {
     public function __invoke($lover_id)//大切な人の詳細表示
     {
-        $lover=Lover::find($lover_id);
-        if(Order_log::join('orders','orders.id','=','order_id')->select('orders.id')->where('lover_id','=',$lover_id)->first()){
-            $reccomend_products=BaseClass::get_reccomends($lover_id);//その人に買ったものに合わせて商品をレコメンド
-        }else{
-            $reccomend_products=null;
+        $lover = Lover::find($lover_id);
+        if (Order_log::join('orders', 'orders.id', '=', 'order_id')->select('orders.id')->where('lover_id', '=', $lover_id)->first()) {
+            $reccomend_products = BaseClass::get_reccomends($lover_id);//その人に買ったものに合わせて商品をレコメンド
+        } else {
+            $reccomend_products = null;
         }
-        $param=['id'=>$lover_id,'name'=>$lover->last_name.$lover->first_name,'reccomend_products'=>$reccomend_products,'img_path'=>$lover->img_path];
-        return view('mypage.lovers.detail',$param);
+        $param = ['id' => $lover_id,'name' => $lover->last_name.$lover->first_name,'reccomend_products' => $reccomend_products,'img_path' => $lover->img_path];
+        return view('mypage.lovers.detail', $param);
     }
 }

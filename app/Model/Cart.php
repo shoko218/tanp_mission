@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    protected $guarded=['id','count'=>1,'created_at','updated_at'];
+    protected $guarded = ['id','count' => 1,'created_at','updated_at'];
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo('App\Model\Product');
     }
 }

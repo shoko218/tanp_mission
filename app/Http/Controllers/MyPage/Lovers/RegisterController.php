@@ -13,7 +13,7 @@ class RegisterController extends Controller
     {
         $prefectures = Prefecture::select('id','name')->get();
         $relationships = Relationship::select('id','name')->get();
-        $param=['prefectures'=>$prefectures,'relationships'=>$relationships];
+        $param = ['prefectures' => $prefectures,'relationships' => $relationships];
         return view('mypage.lovers.register',$param);
     }
 }

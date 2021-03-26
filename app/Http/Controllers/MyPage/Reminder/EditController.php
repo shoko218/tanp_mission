@@ -11,13 +11,14 @@ use App\Model\Scene;
 
 class EditController extends Controller
 {
-    public function __invoke($event_id){//イベント編集画面を表示
+    public function __invoke($event_id)//イベント編集画面を表示
+    {
         $event = Event::find($event_id);
-        $lovers = Lover::select('last_name','first_name','lovers.id')
-        ->where('user_id',Auth::user()->id)
+        $lovers = Lover::select('last_name', 'first_name', 'lovers.id')
+        ->where('user_id', Auth::user()->id)
         ->get();
         $scenes = Scene::all();
-        $param = ['lovers'=>$lovers,'scenes'=>$scenes,'event'=>$event];
-        return view('mypage.reminder.edit',$param);
+        $param = ['lovers' => $lovers,'scenes' => $scenes,'event' => $event];
+        return view('mypage.reminder.edit', $param);
     }
 }

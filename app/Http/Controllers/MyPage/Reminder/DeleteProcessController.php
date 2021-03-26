@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 
 class DeleteProcessController extends Controller
 {
-    public function __invoke(Request $request){//イベントを削除
-        $event=Event::find($request->event_id);
+    public function __invoke(Request $request)//イベントを削除
+
+    {
+        $event = Event::find($request->event_id);
         $event->delete();
-        return redirect('mypage/reminder')->with('suc_msg','削除しました。');
+        return redirect('mypage/reminder')->with('suc_msg', '削除しました。');
     }
 }

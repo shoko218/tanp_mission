@@ -13,10 +13,10 @@ class EditController extends Controller
 {
     public function __invoke($lover_id)//大切な人の登録情報を編集する
     {
-        $lover=Lover::find($lover_id);
-        $prefectures = Prefecture::select('id','name')->get();
-        $relationships = Relationship::select('id','name')->get();
-        $param=['prefectures'=>$prefectures,'relationships'=>$relationships,'lover'=>$lover];
-        return view('mypage.lovers.edit',$param);
+        $lover = Lover::find($lover_id);
+        $prefectures = Prefecture::select('id', 'name')->get();
+        $relationships = Relationship::select('id', 'name')->get();
+        $param=['prefectures' => $prefectures,'relationships' => $relationships,'lover' => $lover];
+        return view('mypage.lovers.edit', $param);
     }
 }

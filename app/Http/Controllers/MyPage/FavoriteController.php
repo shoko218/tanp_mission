@@ -13,13 +13,13 @@ class FavoriteController extends Controller
 {
     public function __invoke()//いいねした商品を表示
     {
-        $user_id=Auth::user()->id;
-        $favorite_products=Product::join('favorites','products.id','=','product_id')
+        $user_id = Auth::user()->id;
+        $favorite_products = Product::join('favorites', 'products.id', '=', 'product_id')
         ->select(DB::raw('products.*'))
-        ->where('favorites.user_id','=',$user_id)
-        ->orderBy('favorites.id','desc')
+        ->where('favorites.user_id', '=', $user_id)
+        ->orderBy('favorites.id', 'desc')
         ->paginate(12);
-        $param=['favorite_products'=>$favorite_products];
-        return view('mypage.favorite',$param);
+        $param = ['favorite_products' => $favorite_products];
+        return view('mypage.favorite', $param);
     }
 }

@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class EditPassController extends Controller
 {
-    public function __invoke(Request $request){
+    public function __invoke(Request $request)
+    {
         return view('mypage.register_info.edit_pass');
     }
 }

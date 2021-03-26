@@ -16,13 +16,13 @@ class ProductCheck
      */
     public function handle($request, Closure $next)//Productが存在しているかを確認
     {
-        if($request->product_id != null){
+        if ($request->product_id != null) {
             $product = Product::find($request->product_id);
-            if($product == null){
-                return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
+            if ($product == null) {
+                return redirect('/msg')->with('title', 'エラー')->with('msg', 'エラーが発生しました。');
             }
-        }else{
-            return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
+        } else {
+            return redirect('/msg')->with('title', 'エラー')->with('msg', 'エラーが発生しました。');
         }
         return $next($request);
     }

@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class EditProcessController extends Controller
 {
-    public function __invoke(Request $request){
-        $this->validate($request,User::$except_mail_pass_rules);
+    public function __invoke(Request $request)
+    {
+        $this->validate($request, User::$except_mail_pass_rules);
         try {
             User::find(Auth::user()->id)->fill($request->all())->save();
-            return redirect('/mypage/register_info')->with('suc_msg','登録情報を変更しました。');
+            return redirect('/mypage/register_info')->with('suc_msg', '登録情報を変更しました。');
         } catch (\Throwable $th) {
-            return redirect('/mypage/register_info/edit')->with('err_msg','エラーが発生しました。');
+            return redirect('/mypage/register_info/edit')->with('err_msg', 'エラーが発生しました。');
         }
     }
 }

@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class EditPassProcessController extends Controller
 {
-    public function __invoke(Request $request){
-        if(!(Hash::check($request->get('current_password'), Auth::user()->password))) {
+    public function __invoke(Request $request)
+    {
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
             return redirect('/mypage/register_info/edit_pass_process')->with('err_msg', '現在のパスワードが間違っています。');
         }
 

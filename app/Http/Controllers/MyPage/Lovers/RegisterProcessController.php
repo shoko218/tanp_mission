@@ -17,14 +17,14 @@ class RegisterProcessController extends Controller
         DB::beginTransaction();
         try {
             $lover = new Lover();
-            $lover->user_id=Auth::user()->id;
+            $lover->user_id = Auth::user()->id;
             $lover->fill($request->except('image'))->save();
 
-            if($request->file('image')!=null){
+            if($request->file('image') != null){
                 $base_name = $request->file('image')->getClientOriginalName();
                 $file_name = uniqid(rand());
-                $path=$request->image->path();
-                $image=\Image::make($path);
+                $path = $request->image->path();
+                $image = \Image::make($path);
                 $image->fit(480,480,function($constraint){//リサイズ
                     $constraint->upsize();
                 });

@@ -12,13 +12,13 @@ class TopController extends Controller
 {
     public function __invoke()//イベントトップページを表示
     {
-        $user_id=Auth::user()->id;
-        $events=Event::join('lovers', 'lover_id', '=', 'lovers.id')
-        ->where('lovers.user_id',$user_id)
+        $user_id = Auth::user()->id;
+        $events = Event::join('lovers', 'lover_id', '=', 'lovers.id')
+        ->where('lovers.user_id', $user_id)
         ->select(DB::raw('events.*'))
-        ->orderby('date','asc')
+        ->orderby('date', 'asc')
         ->paginate(12);
-        $param=['events'=>$events];
-        return view('mypage.reminder.top',$param);
+        $param = ['events' => $events];
+        return view('mypage.reminder.top', $param);
     }
 }

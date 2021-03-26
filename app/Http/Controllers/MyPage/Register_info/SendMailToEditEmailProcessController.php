@@ -10,10 +10,10 @@ use App\User;
 use Str;
 use Illuminate\Support\Facades\Auth;
 
-
 class SendMailToEditEmailProcessController extends Controller
 {
-    public function __invoke(Request $request){
+    public function __invoke(Request $request)
+    {
         $validated_data = $request->validate([
             'email' => ['required', 'string', 'max:255','unique:users']
         ]);
