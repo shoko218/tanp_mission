@@ -18,8 +18,8 @@
                 <div class="input_parts">
                     <label for="email">新しいメールアドレス</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="example@mail.com" required autocomplete="email" @if ($errors->has('email')) class="input_alert" @endif>
-                    @foreach ($errors->get('email') as $item)
-                        <p class="form_alert">{{ $item }}</p>
+                    @foreach ($errors->get('email') as $error)
+                        <p class="form_alert">{{ $error }}</p>
                     @endforeach
                 </div>
             </div>

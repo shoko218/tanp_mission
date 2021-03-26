@@ -19,15 +19,15 @@
                 <li class="input_parts">
                     <label for="name">お相手の名前</label>
                     <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="山田太郎" required  @if ($errors->has('name')) class="input_alert" @endif>
-                    @foreach ($errors->get('name') as $item)
-                        <p class="form_alert">{{ $item }}</p>
+                    @foreach ($errors->get('name') as $error)
+                        <p class="form_alert">{{ $error }}</p>
                     @endforeach
                 </li>
                 <li class="input_parts">
                     <label for="email">メールアドレス</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="example@mail.com" required autocomplete="email" @if ($errors->has('email')) class="input_alert" @endif>
-                    @foreach ($errors->get('email') as $item)
-                        <p class="form_alert">{{ $item }}</p>
+                    @foreach ($errors->get('email') as $error)
+                        <p class="form_alert">{{ $error }}</p>
                     @endforeach
                 </li>
                 <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif></catalog-img-component>

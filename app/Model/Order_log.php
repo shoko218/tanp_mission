@@ -15,8 +15,4 @@ class Order_log extends Model
     public function order(){
         return $this->belongsTo('App\Model\Order');
     }
-
-    public function event(){
-        return $this->belongsTo('App\Model\Event');
-    }
 }

@@ -1,7 +1,19 @@
 <?php
 
+use App\Model\Generation;
+use App\Model\Genre;
 use App\Model\Order;
 use App\Model\Order_log;
+use App\Model\Prefecture;
+use App\Model\Product;
+use App\Model\Relationship;
+use App\Model\Scene;
+use App\User;
+use App\Model\Lover;
+use App\Model\Event;
+use App\Model\Favorite;
+use App\Model\Cart;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +25,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(BaseSeeder::class);
+        factory(Product::class,10)->create();
+        factory(User::class,5)->create();
+        factory(Lover::class,5)->create();
+        factory(Event::class,20)->create();
+        factory(Order::class,50)->create();
+        factory(Order_log::class,80)->create();
+        factory(Favorite::class,20)->create();
+        factory(Cart::class,15)->create();
+
         // factory(\App\User::class,200)->create();
         // factory(\App\Model\Lover::class,400)->create();
         // factory(\App\Model\Event::class,600)->create();
@@ -20,7 +42,7 @@ class DatabaseSeeder extends Seeder
         // factory(\App\Model\Favorite::class,150)->create();
         // factory(\App\Model\Cart::class,150)->create();
         // factory(\App\Model\Order_log::class,600)->create();
-        // $faker = Faker\Factory::create('ja_JP');
+        // $faker = Faker\Factory::create'ja_JP');
         // for($scene = 1;$scene < 18;$scene++){
         //     Order::create([
         //         'user_id'=>$faker->numberBetween(1, 200),
@@ -33,7 +55,7 @@ class DatabaseSeeder extends Seeder
         //         'forwarding_postal_code'=>$faker->postcode,
         //         'forwarding_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'forwarding_address'=>$faker->city.$faker->streetAddress,
-        //         'forwarding_telephone'=>$faker->phoneNumber,
+        //         'forwarding_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'gender'=>null,
         //         'generation_id'=>null,
         //         'relationship_id'=>null,
@@ -44,7 +66,7 @@ class DatabaseSeeder extends Seeder
         //         'user_postal_code'=>$faker->postcode,
         //         'user_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'user_address'=>$faker->city.$faker->streetAddress,
-        //         'user_telephone'=>$faker->phoneNumber,
+        //         'user_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'user_email'=> $faker->unique()->safeEmail,
         //     ]);
         // }
@@ -60,7 +82,7 @@ class DatabaseSeeder extends Seeder
         //         'forwarding_postal_code'=>$faker->postcode,
         //         'forwarding_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'forwarding_address'=>$faker->city.$faker->streetAddress,
-        //         'forwarding_telephone'=>$faker->phoneNumber,
+        //         'forwarding_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'gender'=>$gender,
         //         'generation_id'=>null,
         //         'relationship_id'=>null,
@@ -71,7 +93,7 @@ class DatabaseSeeder extends Seeder
         //         'user_postal_code'=>$faker->postcode,
         //         'user_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'user_address'=>$faker->city.$faker->streetAddress,
-        //         'user_telephone'=>$faker->phoneNumber,
+        //         'user_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'user_email'=> $faker->unique()->safeEmail,
         //     ]);
         // }
@@ -87,7 +109,7 @@ class DatabaseSeeder extends Seeder
         //         'forwarding_postal_code'=>$faker->postcode,
         //         'forwarding_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'forwarding_address'=>$faker->city.$faker->streetAddress,
-        //         'forwarding_telephone'=>$faker->phoneNumber,
+        //         'forwarding_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'gender'=>null,
         //         'generation_id'=>$age,
         //         'relationship_id'=>null,
@@ -98,7 +120,7 @@ class DatabaseSeeder extends Seeder
         //         'user_postal_code'=>$faker->postcode,
         //         'user_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'user_address'=>$faker->city.$faker->streetAddress,
-        //         'user_telephone'=>$faker->phoneNumber,
+        //         'user_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'user_email'=> $faker->unique()->safeEmail,
         //     ]);
         // }
@@ -114,7 +136,7 @@ class DatabaseSeeder extends Seeder
         //         'forwarding_postal_code'=>$faker->postcode,
         //         'forwarding_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'forwarding_address'=>$faker->city.$faker->streetAddress,
-        //         'forwarding_telephone'=>$faker->phoneNumber,
+        //         'forwarding_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'gender'=>null,
         //         'generation_id'=>null,
         //         'relationship_id'=>$relation,
@@ -125,7 +147,7 @@ class DatabaseSeeder extends Seeder
         //         'user_postal_code'=>$faker->postcode,
         //         'user_prefecture_id'=>$faker->numberBetween(1, 47),
         //         'user_address'=>$faker->city.$faker->streetAddress,
-        //         'user_telephone'=>$faker->phoneNumber,
+        //         'user_telephone'=>str_replace('-','',$faker->phoneNumber),
         //         'user_email'=> $faker->unique()->safeEmail,
         //     ]);
         // }

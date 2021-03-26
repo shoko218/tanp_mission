@@ -25,8 +25,8 @@ class AlterOrdersTableChangeUserIdNullable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable(false)->change();
-        });
+        // Schema::table('orders', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('user_id')->nullable(false)->change();
+        // });
     }
 }

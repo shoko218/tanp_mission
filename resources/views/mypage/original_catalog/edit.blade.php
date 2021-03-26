@@ -20,16 +20,16 @@
                     <label for="name">お相手の名前</label>
                     <input id="name" type="text" name="name" @if (old('name')!=null) value="{{ old('name') }}" @elseif($catalog->name!=null)
                      value="{{ $catalog->name }}" @endif placeholder="山田太郎" required  @if ($errors->has('name')) class="input_alert" @endif>
-                     @foreach ($errors->get('name') as $item)
-                         <p class="form_alert">{{ $item }}</p>
+                     @foreach ($errors->get('name') as $error)
+                         <p class="form_alert">{{ $error }}</p>
                      @endforeach
                 </li>
                 <li class="input_parts">
                     <label for="email">メールアドレス</label>
                     <input id="email" type="email" name="email"  @if (old('email')!=null) value="{{ old('email') }}" @elseif($catalog->email!=null)
                     value="{{ $catalog->email }}" @endif placeholder="example@mail.com" required autocomplete="email" @if ($errors->has('email')) class="input_alert" @endif>
-                    @foreach ($errors->get('email') as $item)
-                        <p class="form_alert">{{ $item }}</p>
+                    @foreach ($errors->get('email') as $error)
+                        <p class="form_alert">{{ $error }}</p>
                     @endforeach
                 </li>
                 <catalog-img-component :err-msgs='@json($errors->get('img_num'))' @if($catalog->img_num!=null) :old-img-num='@json((string)$catalog->img_num)'  @elseif(old('img_num')==null) :old-img-num='@json('0')' @else :old-img-num='@json(old('img_num'))'@endif></catalog-img-component>

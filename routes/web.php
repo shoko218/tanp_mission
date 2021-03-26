@@ -27,25 +27,29 @@ Route::get('/make_result_url','Main\MakeResultUrlController');
 Route::get('/result', 'Main\ResultController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/search', 'Main\SearchController');
-Route::post('/product/favorite', 'Main\ProductFavoriteController');
 Route::get('/product', 'Main\ProductController');
 Route::get('/msg', 'Main\MsgController');
-Route::get('/select_product/{catalog_param}', 'Main\SelectProductController');
+Route::get('/select_product/{url_str}', 'Main\SelectProductController');
 Route::get('/select_product_detail/{url_str}', 'Main\SelectProductDetailController');
 Route::post('/select_product_process/{url_str}', 'Main\SelectProductProcessController');
 Route::get('/edit_email_process/{token}', 'MyPage\Register_info\EditEmailProcessController');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/product/favorite', 'Main\ProductFavoriteController');
+});
 Route::prefix('/cart')->group(function () {
     Route::get('/', 'Main\Cart\CartController');
-    Route::post('/in', 'Main\Cart\CartInController');
-    Route::post('/complete_out', 'Main\Cart\CartCompleteOutController');
-    Route::post('/minus', 'Main\Cart\CartMinusController');
-    Route::post('/plus', 'Main\Cart\CartPlusController');
+    Route::middleware(['product.check'])->group(function () {
+        Route::post('/in', 'Main\Cart\CartInController');
+        Route::post('/complete_out', 'Main\Cart\CartCompleteOutController');
+        Route::post('/minus', 'Main\Cart\CartMinusController');
+        Route::post('/plus', 'Main\Cart\CartPlusController');
+    });
 });
 Route::prefix('/purchase')->group(function () {
     Route::get('/fillin_info', 'Main\Purchase\FillinInfoController');
     Route::post('/register_to_session', 'Main\Purchase\RegisterInfoToSessionController');
     Route::get('/payment','Main\Purchase\PaymentController');
-    Route::post('/payment_process','Main\Purchase\PaymentProcessController');
+    Route::post('/payment_process','Main\Purchase\PaymentProcessController');//モックを作る必要あり
     Route::middleware(['auth'])->group(function () {
         Route::post('/fillin_lover_info', 'Main\Purchase\FillinLoverInfoController');
     });
@@ -94,7 +98,9 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/result_get', 'MyPage\Original_catalog\ResultGetController');
             Route::get('/register', 'MyPage\Original_catalog\RegisterController');
             Route::post('/register_process', 'MyPage\Original_catalog\RegisterProcessController');
-            Route::get('/select_which_catalog/{product_id}', 'MyPage\Original_catalog\SelectCatalogController');
+            Route::middleware(['product.check'])->group(function () {
+                Route::get('/select_which_catalog/{product_id}', 'MyPage\Original_catalog\SelectCatalogController');
+            });
             Route::group(['middleware' => ['catalog.check']], function () {
                 Route::get('/{catalog_id}', 'MyPage\Original_catalog\DetailController');
                 Route::get('/{catalog_id}/edit', 'MyPage\Original_catalog\EditController');
@@ -117,7 +123,7 @@ Route::middleware(['auth'])->group(function () {
                     Route::post('/send_mail_to_edit_email_process', 'MyPage\Register_info\SendMailToEditEmailProcessController');
                     Route::get('/edit_pass', 'MyPage\Register_info\EditPassController');
                     Route::post('/edit_pass_process', 'MyPage\Register_info\EditPassProcessController');
-                    Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');
+                    Route::post('/delete', 'MyPage\Register_info\DeleteProcessController');//e
                 });
             });
         });

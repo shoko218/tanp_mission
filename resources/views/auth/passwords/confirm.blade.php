@@ -16,7 +16,7 @@
         <ul class="inputs">
             <li class="input_parts">
                 <label for="password">パスワード</label>
-                <input  id="password" type="password" @if ($errors->has('password')) class="input_alert" @endif name="password" required autocomplete="current-password">
+                <input  id="password" type="password" @if ($errors->has('password')) class="input_alert" @endif name="password" required autocomplete="current_password">
                 @foreach ($errors->get('password') as $item)
                     <p class="form_alert">{{ $item }}</p>
                 @endforeach

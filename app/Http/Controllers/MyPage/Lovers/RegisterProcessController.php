@@ -21,19 +21,24 @@ class RegisterProcessController extends Controller
             $lover->fill($request->except('image'))->save();
 
             if($request->file('image')!=null){
+                $base_name = $request->file('image')->getClientOriginalName();
                 $file_name = uniqid(rand());
                 $path=$request->image->path();
                 $image=\Image::make($path);
                 $image->fit(480,480,function($constraint){//リサイズ
                     $constraint->upsize();
                 });
-                $lover->img_path=$file_name.'.jpg';
-                $lover->save();
                 if (env('APP_ENV') === 'production') {
                     Storage::disk('s3')->put('/lover_imgs/'.$file_name.'.jpg',(string)$image->encode(),'public');
-                }else{
+                    $lover->img_path = $file_name.'.jpg';
+                }else if(env('APP_ENV') === 'local'){
                     $image->save('storage/lover_imgs/'.$file_name.'.jpg');
+                    $lover->img_path = $file_name.'.jpg';
+                }else if(env('APP_ENV') === 'testing'){
+                    Storage::disk('fake')->put('/lover_imgs/'.$base_name,(string)$image->encode(),'public');
+                    $lover->img_path = $base_name;
                 }
+                $lover->save();
             }
             DB::commit();
         } catch (\Throwable $th) {

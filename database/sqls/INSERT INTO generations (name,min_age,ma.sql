@@ -8,4 +8,4 @@ INSERT INTO generations (name,min_age,max_age) VALUES
 ('60代',60,69),
 ('70代',70,79),
 ('80代',80,89),
-('90代',90,99);
+('90代以上',90,200);

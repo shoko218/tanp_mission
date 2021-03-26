@@ -43,19 +43,11 @@
             </tr>
             <tr>
                 <th>性別</th>
-                <td>
-                    @if (Auth::user()->gender===0)
-                        男性
-                    @elseif(Auth::user()->gender===1)
-                        女性
-                    @elseif(Auth::user()->gender===2)
-                        その他
-                    @endif
-                </td>
+                <td>@if(Auth::user()->gender===0) 男性 @elseif(Auth::user()->gender===1) 女性 @elseif(Auth::user()->gender===2) その他 @endif</td>
             </tr>
             <tr>
                 <th>郵便番号</th>
-                <td>@if (Auth::user()->prefecture_id!=null){{ Auth::user()->postal_code }} @else 未設定 @endif</td>
+                <td>@if (Auth::user()->postal_code!=null){{ Auth::user()->postal_code }} @else 未設定 @endif</td>
             </tr>
             <tr>
                 <th>都道府県</th>
@@ -63,11 +55,11 @@
             </tr>
             <tr>
                 <th>住所</th>
-                <td>@if (Auth::user()->prefecture_id!=null){{ Auth::user()->address }} @else 未設定 @endif</td>
+                <td>@if (Auth::user()->address!=null){{ Auth::user()->address }} @else 未設定 @endif</td>
             </tr>
             <tr>
                 <th>電話番号</th>
-                <td>@if (Auth::user()->prefecture_id!=null){{ Auth::user()->telephone }} @else 未設定 @endif</td>
+                <td>@if (Auth::user()->telephone!=null){{ Auth::user()->telephone }} @else 未設定 @endif</td>
             </tr>
         </table>
         <h2 class="submit_a"><a href="/mypage/register_info/edit">登録情報を編集する</a></h2>

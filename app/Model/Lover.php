@@ -23,9 +23,6 @@ class Lover extends Model
         'image'=>['nullable','file','mimes:jpeg,png,jpg','max:10240'],
     );
 
-    public function order(){
-        return $this->belongsTo('App\Model\Order');
-    }
     public function user(){
         return $this->belongsTo('App\User');
     }

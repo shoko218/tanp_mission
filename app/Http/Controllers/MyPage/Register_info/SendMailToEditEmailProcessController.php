@@ -39,7 +39,7 @@ class SendMailToEditEmailProcessController extends Controller
             return redirect('/msg')->with('title', '送信完了')->with('msg', '確認メールを送信しました。');
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect('/msg')->with('title', '送信エラー')->with('msg', 'メール更新に失敗しました。');
+            return redirect('/msg')->with('title', 'エラー')->with('msg', 'エラーが発生しました。');
         }
     }
 }

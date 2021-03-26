@@ -49,11 +49,11 @@
         <h2>商品一覧</h2>
         @if (count($catalog->products))
             <div class="oc_product_cards">
-                @foreach ($catalog->products as $item)
+                @foreach ($catalog->products as $product)
                     @if ($catalog->did_send_mail)
-                        @include('components.product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price])
+                        @include('components.product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price])
                     @else
-                        @include('components.catalog_product_card',['product_id'=>$item->id,'title'=>$item->name,'genre'=>$item->genre->name,'price'=>$item->price,'catalog_id'=>$catalog->id])
+                        @include('components.catalog_product_card',['product_id'=>$product->id,'title'=>$product->name,'genre'=>$product->genre->name,'price'=>$product->price,'catalog_id'=>$catalog->id])
                     @endif
                 @endforeach
             </div>

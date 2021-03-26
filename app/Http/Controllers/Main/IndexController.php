@@ -16,7 +16,7 @@ class IndexController extends Controller
 {
     public function __invoke()//トップぺージ表示
     {
-        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,3,1,3);//今は20代人気ランキング
+        $popularityRanks=BaseClass::searchProducts(null,null,null,null,null,3,0,3);//今は20代人気ランキング
 
         $seasonRanks=BaseClass::searchProducts(null,null,1,null,null,null,1,3);//今はグルメプレゼントランキング
 

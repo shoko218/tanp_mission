@@ -67,7 +67,7 @@ class BaseClass{
                 $sum_price+=$cart_good->product->price*$cart_good->count*1.1;
             }
         }
-        return $sum_price;
+        return floor($sum_price);
     }
 
     public static function calcPriceInTaxFromCookieCart($products=null,$product_count=null){//Cookieから取り出したカートの中の商品の合計金額を算出する 挙動の関係上、Cookieの更新前にカートの中身を取り出してしまうことがあるので引数からも取れるようにしている
@@ -84,7 +84,7 @@ class BaseClass{
                 $sum_price+=$product->price*$product_count[$key]*1.1;
             }
         }
-        return $sum_price;
+        return floor($sum_price);
     }
 
     public static function searchProducts($keyword,$target_scene_id,$target_genre_id,$target_relationship_id,$target_gender,$target_generation_id,$sort_by,$limit=null){//検索する関数
@@ -185,7 +185,6 @@ class BaseClass{
         }else{//最大個数制限がなければ12個ずつ表示する
             $results=$mainQuery->paginate(12);
         }
-
         return $results;
     }
 

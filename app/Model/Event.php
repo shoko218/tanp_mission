@@ -23,8 +23,4 @@ class Event extends Model
     public function scene(){
         return $this->belongsTo('App\Model\Scene');
     }
-
-    public function order_logs(){
-        return $this->hasMany('App\Model\Order_log');
-    }
 }

@@ -27,7 +27,7 @@
             </li>
             <li class="input_parts">
                 <label for="password">パスワード</label>
-                <input id="password" type="password" name="password" autocomplete="current-password" required>
+                <input id="password" type="password" name="password" autocomplete="current_password" required>
             </li>
             <li>
                 <label class="check" for="check"><input type="checkbox" value="check" class="checkbtn" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>ログイン情報を記憶する</label>

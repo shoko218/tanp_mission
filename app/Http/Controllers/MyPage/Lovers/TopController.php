@@ -12,10 +12,7 @@ class TopController extends Controller
     public function __invoke()//大切な人一覧表示
     {
         $user_id=Auth::user()->id;
-        $lovers = Lover::join('relationships', 'relationship_id', '=', 'relationships.id')
-        ->select('last_name','first_name','lovers.id','relationships.name','img_path')
-        ->where('user_id',$user_id)
-        ->get();
+        $lovers = Lover::where('user_id',$user_id)->get();
         $param=['lovers'=>$lovers];
         return view('mypage.lovers.top',$param);
     }

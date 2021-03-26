@@ -5,6 +5,7 @@
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use App\Model\Prefecture;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $prefecture=Prefecture::get();
     return [
         'last_name' => $faker->lastName,
         'first_name' => $faker->firstName,
@@ -29,9 +31,9 @@ $factory->define(User::class, function (Faker $faker) {
         'birthday' => $faker->dateTimeBetween('-40 years', '-15years')->format('Y-m-d'),
         'gender'=>$faker->numberBetween(0, 2),
         'postal_code'=>$faker->postcode,
-        'prefecture_id'=>$faker->numberBetween(1, 47),
+        'prefecture_id'=>Prefecture::inRandomOrder()->first()->id,
         'address'=>$faker->city.$faker->streetAddress,
-        'telephone'=>$faker->phoneNumber,
+        'telephone' => str_replace('-','',$faker->phoneNumber),
         'remember_token' => Str::random(10),
     ];
 });

@@ -21,7 +21,9 @@ class CartPlusController extends Controller
                 $user_id=Auth::user()->id;
                 $target=Cart::where('user_id','=',$user_id)->where('product_id','=',$request->product_id)->first();//増やす対象の商品を取得
                 if(!empty($target)){//レコードが存在していれば個数+1
-                    $target->update(['count'=>$target->count+1]);
+                    if($target->count < 255){ //最大値255の場合は増やさない
+                        $target->update(['count'=>$target->count+1]);
+                    }
                 }else{//レコードが存在していなければレコードを作成
                     Cart::create(['user_id'=>$user_id,'product_id'=>$request->product_id,'count'=>'1']);
                 }
@@ -40,7 +42,19 @@ class CartPlusController extends Controller
         }else{//非会員ならCookieでの処理
             try {
                 $cart=Cookie::get('cart_product_ids');
-                $new_cart=$cart.$request->product_id.',';//Cookieから取得した文字列の末尾にカートに入れる商品のidを追加
+                list($products,$product_count)=BaseClass::getProductsFromCookieCart();
+                $count = 0;
+                foreach ($products as $key => $product) {
+                    if($product->id === $request->product_id){
+                        $count = $product_count[$key];
+                        break;
+                    }
+                }
+                if ($count < 255) {//最大値255の場合は増やさない
+                    $new_cart = $cart.$request->product_id.',';//Cookieから取得した文字列の末尾にカートに入れる商品のidを追加
+                }else{
+                    $new_cart = $cart;
+                }
                 Cookie::queue('cart_product_ids', $new_cart,86400);
                 if($new_cart!=null){
                     list($products,$product_count)=BaseClass::getProductsFromCookieCart($new_cart);

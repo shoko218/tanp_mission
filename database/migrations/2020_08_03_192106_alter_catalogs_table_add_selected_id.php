@@ -26,8 +26,8 @@ class AlterCatalogsTableAddSelectedId extends Migration
      */
     public function down()
     {
-        Schema::table('catalogs', function (Blueprint $table) {
-            $table->dropColumn('selected_id');
-        });
+        // Schema::table('catalogs', function (Blueprint $table) {
+        //     $table->dropColumn('selected_id');
+        // });
     }
 }

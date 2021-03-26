@@ -12,7 +12,7 @@ class ResultGetController extends Controller
 {
     public function __invoke(Request $request){//ステータス別でカタログを取得
         try {
-            $kind=$request->kind;
+            $kind = $request->kind;
             $user_id=Auth::user()->id;
             switch ($kind) {
                 case 0://作成中
@@ -40,11 +40,11 @@ class ResultGetController extends Controller
                     ->get();
                     break;
                 default:
-                    return redirect('/msg')->with('title','送信完了')->with('msg','エラーが発生しました。');
+                    return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
             }
             $param=['results'=>$results];
         } catch (\Throwable $th) {
-            return redirect('/msg')->with('title','送信完了')->with('msg','エラーが発生しました。');
+            return redirect('/msg')->with('title','エラー')->with('msg','エラーが発生しました。');
         }
         return $param;
     }

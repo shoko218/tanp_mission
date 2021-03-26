@@ -17,9 +17,9 @@ class LoverCheck
      */
     public function handle($request, Closure $next)//大切な人idが指定されているか、大切な人が存在しているか、ユーザーの大切な人かを確認
     {
-        if($request->lover_id!=null){
-            $lover=Lover::find($request->lover_id);
-            if($lover==null||$lover->user_id!=Auth::user()->id){
+        if($request->lover_id != null){
+            $lover = Lover::find($request->lover_id);
+            if($lover == null || $lover->user_id != Auth::user()->id){
                 return redirect('/mypage/lovers')->with('err_msg','エラーが発生しました。');
             }
         }else{

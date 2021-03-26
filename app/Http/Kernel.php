@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'event.check'=>\App\Http\Middleware\EventCheck::class,
         'lover.check'=>\App\Http\Middleware\LoverCheck::class,
         'test.user.check'=>\App\Http\Middleware\TestUserCheck::class,
+        'product.check'=>\App\Http\Middleware\ProductCheck::class,
     ];
 
     /**

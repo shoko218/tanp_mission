@@ -35,14 +35,6 @@ class Order extends Model
         'user_telephone'=>['nullable','string','min:9','max:27','hankakunum'],
     );
 
-    public function lovers(){
-        return $this->hasMany('App\Model\Lover');
-    }
-
-    public function product(){
-        return $this->belongsTo('App\Model\Product');
-    }
-
     public function order_logs(){
         return $this->hasMany('App\Model\Order_log');
     }
