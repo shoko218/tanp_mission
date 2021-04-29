@@ -223,7 +223,7 @@ class BaseClass
 
     public static function get_reccomends($target_id)
     {//購入履歴を元にレコメンドする商品を求める(協調フィルタリングを簡単に実装したもの)
-        $order_logs = Order_log::join('orders', 'orders.id', '=', 'order_id')->select('lover_id', 'product_id')->where('lover_id', ' != ', null)->orderby('order_logs.id')->get();//購入系統を把握できるように、相手を一意に特定できる大切な人への購入ログのみを取得
+        $order_logs = Order_log::join('orders', 'orders.id', '=', 'order_id')->select('lover_id', 'product_id')->where('lover_id', '!=', null)->orderby('order_logs.id')->get();//購入系統を把握できるように、相手を一意に特定できる大切な人への購入ログのみを取得
 
         $lover_logs = array();//大切な人ごとにログを振り分け
         foreach ($order_logs as $order_log) {
